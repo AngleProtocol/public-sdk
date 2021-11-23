@@ -1,0 +1,10 @@
+.env
+node_modules
+dist
+.DS_Store
+.npmrc
+cache
+typechain
+.env
+yarn-error.log
+src/constants/types

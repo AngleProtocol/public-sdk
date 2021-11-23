@@ -1,0 +1,215 @@
+{
+  "ANGLE": "0x5D13a8FAC3c4CD83Bf8804CB25fD7CDBcC92cA0B",
+  "agCHF": {
+    "AgToken": "0xD122E9c6eA90cf2F11D27F00ba545cD50aB64559",
+    "collaterals": {
+      "USDC": {
+        "FeeManager": "0x64B51b2f59d263EAC39D8A1c92d123C9Ba338B89",
+        "GenericLender": "0x43486C753335605a139873513B8a32fDc580443A",
+        "Oracle": "0x10537B81C7962AC330ABa79C230939Df5A59f579",
+        "PerpetualManager": "0x2ad1eEAff8D9f1e516D7367Fa472A5B3a7CE1C95",
+        "PoolManager": "0xf99D8B08D52B29D1605B9892dd2ECaC7Bfc100B4",
+        "SanToken": "0x1A0190d25552668BA027c95C6e5b20335C50cF77",
+        "Staking": "0xaf07E1E70D92563ae43F419dD11F2155C0c16909",
+        "Strategy": "0xa821A6Ddc126f5B5fE06c78c2e460D8e6C229F5e"
+      },
+      "WBTC": {
+        "FeeManager": "0xA934aE13Cc9f59542a0985956049986e4492b539",
+        "GenericLender": "0xC52549557714f21bA2067A646d55321CD5FE9EA1",
+        "Oracle": "0xeF7D501fF5304b28A3BC221b9e6a53E3E62A19aA",
+        "PerpetualManager": "0x4B662bAd75f1EDEf5587232e32aaf31aC86B9D4E",
+        "PoolManager": "0xEc42Aeec9C95225ED504E08071d22aAEd4B74486",
+        "SanToken": "0x214CF3d1e30cd2075C43aFc510c0951422613F69",
+        "Staking": "0xB3c035D7d3d2E6690ebC645331E96ca774bf5096",
+        "Strategy": "0x95dC4f305036b99821184D1876A1d8288373a414"
+      },
+      "WETH": {
+        "FeeManager": "0xeDff08f1EC67e54fae9a4c89D6142B209D59f01b",
+        "GenericLender": "0x5240C2771D9546c2B1D6068913aDA359569e8be5",
+        "Oracle": "0xf75f09854E1a5dD8F61dA717EEfD5AEaD379a805",
+        "PerpetualManager": "0x9A16029693A8a239D398dDdA9147C7E24D50EFbC",
+        "PoolManager": "0x0D722b4553012C61B9b466923ecDD5A8Dabd5C6F",
+        "SanToken": "0xb4d20e06a9558DB6f0CcF1aa0f0687880e16CcD9",
+        "Staking": "0xfB26B5B8159232bd493dA9D4122184f03Aeb1A3b",
+        "Strategy": "0x714a5F43fD45d70F6E4F320Fe72231d950af4251"
+      },
+      "DAI": {
+        "Oracle": "0xdE5F5c4b81fb1f1919a2415F934f832CA5cB4811"
+      }
+    },
+    "StableMaster": "0x399EDa730cE4dD848233a7b8e234a351A6661079"
+  },
+  "agEUR": {
+    "AgToken": "0x8e922B0b70674Ade55d12332432E1e3c20C0c344",
+    "collaterals": {
+      "DAI": {
+        "FeeManager": "0x88B2CaBD5e5B63aAaF7C9C11a82e78935bB40780",
+        "GenericLender": "0x7fb88EaaCBd35f818a90e2cb93B0d13B5c727b49",
+        "Oracle": "0x2435f407032DBe7C787F6bA2146FF4e2bE9AB5D8",
+        "PerpetualManager": "0xE2FDb998e1267067Bd21d421E14756218aE1CE8d",
+        "PoolManager": "0xFdA81c235c0Ab420E0F05693F5aD90dD5D559133",
+        "SanToken": "0x7F67A8cfA5EACe43c6b9B7f0b2586c4Ca5ae9199",
+        "Staking": "0x793C41413572415913d1C1a34b6eF016a13F0C91",
+        "Strategy": "0x03D2A2e5F2D5aBCd405A65FaF35028F437575350"
+      },
+      "USDC": {
+        "FeeManager": "0x2e2CEc75e0a5Baa7E1C585228ed2C684909a0912",
+        "GenericLender": "0x5b1822c60C6D99154a5f0c253ce745067e8731D3",
+        "Oracle": "0x001576e7A186A871d772E99d8857b4e5C76091E9",
+        "PerpetualManager": "0x0a659e172F63a4B8D663f395439C80b7d025985D",
+        "PoolManager": "0xAb3C89B0F467dD82d7C407e49Df9F26434c5F78c",
+        "SanToken": "0x3e54537Ee29Cb161C8A3c8819ebE2F45e4c2f63a",
+        "Staking": "0xD13cE55247024205e1769f68A1be5c7b88e1f993",
+        "Strategy": "0xB2f8C666e33EFBb232Afc8C0354870Fb4649A4E7"
+      },
+      "WBTC": {
+        "FeeManager": "0xd8190dd2E21738435BE125C20fF8A8a3bFB5eC93",
+        "GenericLender": "0xd037446c3c838FeEead6c6f7fD2d3DD32bF1EEB9",
+        "Oracle": "0x38b502cC9f6FDb692e83cE3ce613337F60371cEa",
+        "PerpetualManager": "0x391136f9b7f36D4fAa85faEeCa4C45D8580CCB74",
+        "PoolManager": "0x5F55b4Bbdb51c6a7205ddfFAFb48b3C043315aDd",
+        "SanToken": "0x9c971b2845c8419aDE090Fff103DFE14c0d67bAf",
+        "Staking": "0xFC2Ba466b7Bf6Ad6f86AE36006113fa147A1CC7B",
+        "Strategy": "0x1cE04D7ECa4268f2AA17F9b569294D30D73Dca3a"
+      },
+      "WETH": {
+        "FeeManager": "0xf404bF565ff0AFeB6565F72B8998E6B1C1AA9f43",
+        "GenericLender": "0x7CbdD8C50e4Cb6B82bFEF98bf60efF29E2A0aC66",
+        "Oracle": "0xB21BB5f0377d68e28e49e8D6b22dDE4527b65416",
+        "PerpetualManager": "0x77e13E156CA851Da6128B758C2a55AF7001c8C0C",
+        "PoolManager": "0xa3D19520DccFb43f704cD1AE505e27a3c878e254",
+        "SanToken": "0xa034c68485fdBc78Fe32502AAE5021400C7001E5",
+        "Staking": "0x43F759DC9B4bD7AefEAf747787354161a1A1867d",
+        "Strategy": "0xBe4A5AF185912c628A59572e72949AAF2Cba0e7F"
+      }
+    },
+    "StableMaster": "0xDB8a52eF24D394a911CB179d9B02E058a0a92C8E",
+    "Staking": "0x50F03Be1003180d2525D13f788E63Db57AC0a8D6"
+  },
+  "agGBP": {
+    "AgToken": "0x7E85Af5b372dAdCBbE5586291d451f2fE1857A58",
+    "collaterals": {
+      "DAI": {
+        "FeeManager": "0xe444Ec79Ad54819Da399a97E80fd419608A2DA7A",
+        "GenericLender": "0xb0314feA0fcBE7601C1A098D66C302484C282ed8",
+        "Oracle": "0x3a21c1c835B899FCB0b9a292a4Adaa636e79bd20",
+        "PerpetualManager": "0xC7a6EfE0728B68189c4CBaC46CA9ae4f3D93Da33",
+        "PoolManager": "0xB7fA41DFeF04E2D32C9E33124802631aa55FA091",
+        "SanToken": "0xeD8D9EF97A5D60F9c93c6B027C520d3cCB01639d",
+        "Staking": "0xa6585BCa9C37a87A6248F9e2e9FcD01F93879EBB",
+        "Strategy": "0x2897D1dB5074Fa1006b2aca7507Ad8243D3ECA64"
+      },
+      "USDC": {
+        "FeeManager": "0xd67428147fD9091367435147c2534a9E9DC5d912",
+        "GenericLender": "0x16f5D3212B7C5248874481210070d2653465e0A4",
+        "Oracle": "0x51a3CBDc0f4ab3b6a2B15a61AC46d1A4f8C04DD7",
+        "PerpetualManager": "0xfC97949bD79FceC6288B5c20c4Cd4184527de30D",
+        "PoolManager": "0x6dC674435bdBb68ED74548941D9D511A431dD68b",
+        "SanToken": "0x8ECed95dFAeA48543e24eF202D05004d78836801",
+        "Staking": "0x2E0D98010FD2EB7cCCcca2eA63ABB75FA22Fb0E8",
+        "Strategy": "0x59aDcf4a6e197eAD382d59A85196C2704C6624D8"
+      },
+      "WBTC": {
+        "Oracle": "0x976713E5926DB608D3AE537B2D199E093F874849"
+      },
+      "WETH": {
+        "Oracle": "0x2424f5952C3Ff7b2355031217502FF24ebd8C1E2"
+      }
+    },
+    "StableMaster": "0xa5Aa6b968B12E067D8E8dC14fdAF8c3EDc1a397D"
+  },
+  "agJPY": {
+    "AgToken": "0xC911C7dF13aCd44dee921DF9824FFe86a6c5727D",
+    "collaterals": {
+      "DAI": {
+        "FeeManager": "0x164705E18E579A8a1a4691A7d7daee5e23842D22",
+        "GenericLender": "0x53b17A61bA1C1050E8951B207C1826FeE8C0b11D",
+        "Oracle": "0x59dD0a8062Afb94269113B4145ad976Fbe4b3653",
+        "PerpetualManager": "0x6B073f1836065F2F8609f1ea5e203c359bA93464",
+        "PoolManager": "0x97ed2ece0B269b397BA25c2A6Ab06Bf55FA7eB15",
+        "SanToken": "0x452323771B6b62642EDE0A7AdCe6bD1020b06883",
+        "Staking": "0x749ac8004C458dEeDEaBbE5c1D0C9c427B9Ae0Ef",
+        "Strategy": "0xdAdeEE7d2cE66B8beA0732CEEfaBFBDEA350877c"
+      },
+      "USDC": {
+        "FeeManager": "0x119Cafb6e49a57D7a84fa9e531D3F4940c380dA4",
+        "GenericLender": "0xEa924dcC9F631E0aC28665f4958166eBB2a72768",
+        "Oracle": "0x7Da2B90a8bc9b59E50A46476E59aeB335e2B41Be",
+        "PerpetualManager": "0xc79F80E63434D35B257720bDdF44c1BbfC9e177E",
+        "PoolManager": "0x60BdB06419A5E9aB3C4C334dfEE3D1eeaE9aF74A",
+        "SanToken": "0xC7B9Ac82b23733C38178f9453e6097eED3A5C3C1",
+        "Staking": "0xFcC998E4c7E09fc632f1F381BF00ecb4b1902cF6",
+        "Strategy": "0xB38997dA62F9D10ADf04D92c9f7dB05B6b4ccCe2"
+      },
+      "WBTC": {
+        "Oracle": "0xd5D1404246ac84A7081BB9b2c104909c16ce68D7"
+      },
+      "WETH": {
+        "Oracle": "0x0DD34d50037b13f2669A10f999008B17B34Ad479"
+      }
+    },
+    "StableMaster": "0x52a84B17CEABCffe4A381349afb2A8CC13053D59"
+  },
+  "agUSD": {
+    "AgToken": "0x727394E30361586152ec71520062C8DD9e5B5D3f",
+    "collaterals": {
+      "DAI": {
+        "FeeManager": "0xEE391f06A8440ab919cac333A6389714D5d527dE",
+        "GenericLender": "0xe74BFe12EC8645C663DeA388990c95f130068D5a",
+        "Oracle": "0x88CCdb033Af875fD594d8fa145A3064F49e86aD3",
+        "PerpetualManager": "0xcAF7E5D8f188370eb9b3D2fC819414fDFB52C871",
+        "PoolManager": "0x46Db7aE4923bA138Bec89245713535818aB7A856",
+        "SanToken": "0x1B47a01525fC63c6317623A19AbF782904D2Ad51",
+        "Staking": "0xf689b8d53fbC41A22cF34972f062A8220EED0Dbb",
+        "Strategy": "0x06382f51C2fFBD1B1e06A2344B59467973fFA0D0"
+      },
+      "USDC": {
+        "FeeManager": "0x305b7AF0B5bC47d6A46cF4adb0B17389887Ef5df",
+        "GenericLender": "0x7e7D59f2018aC10ba71e14180c1047B03f07191B",
+        "Oracle": "0xB3885861E67FBaCB4eD064f30c40A326a7292B9c",
+        "PerpetualManager": "0x2c0aAbA406Db86dF840d81560EB650BdEdec2b0B",
+        "PoolManager": "0xd48Df7B6EAe7798C6509b8d2c21025460c904784",
+        "SanToken": "0xe2C54cfCAeA7efE5AF3FD868aef8DCd524FDBF42",
+        "Staking": "0x58B5B0AA274ac401B54972AC2eCeb92cCF79041b",
+        "Strategy": "0x4DAb0aB61c4fb0070A0EF5E2311210D63bA7b2c8"
+      },
+      "WBTC": {
+        "FeeManager": "0x967c5E01832f829000A6c8A1fC4DBecCca1CDbF9",
+        "GenericLender": "0x882a750643c55bA9207c6Ac6F634d1D3E707a0Eb",
+        "Oracle": "0xf2b1D2cc5d733296440Ea36B6d6250AA3a4A9D4f",
+        "PerpetualManager": "0xfD72cc6EA2E703A985b76A3c4dF9B9106524FeA9",
+        "PoolManager": "0xEBc19950Ca8058818925D2Ff31593Ff87767127c",
+        "SanToken": "0x17747f3d18257AA07468BeDa2B00A0C39FA57DB8",
+        "Staking": "0xCFc9dF8799fbe8aF8fb1309Ce490975833AB6A89",
+        "Strategy": "0x2F378D3C48e349e05B028618Cc4524E0406b91AF"
+      },
+      "WETH": {
+        "FeeManager": "0xbc6f1D501644232FA51cF86A7E25ef340343839f",
+        "GenericLender": "0xc4e2BB741cC40EEc2bb7D2ED3d6f59B393Ec2221",
+        "Oracle": "0x6b473ffC4c5D29b1470606677223b7922B114ee0",
+        "PerpetualManager": "0x5EA3915671f0E19aaE35f71F8f59526F9561fc40",
+        "PoolManager": "0xB07f63877263d6153c3b38978f33e9A1bbc79909",
+        "SanToken": "0x050fe54282FCe7c9791e5ab30f95309b4cea0aEe",
+        "Staking": "0x741F4E216fa2E2D81e66600ECF0C0ec10aA47d10",
+        "Strategy": "0x8266b6AB7FBbfEa8d3E9383fF0314622bEA3aA91"
+      }
+    },
+    "StableMaster": "0xc9fCA5B00562a8Be42F302965FBebd1972C0a400",
+    "Staking": "0x619454DCe6c80414C7bA33389EdB823A64CE64f0"
+  },
+  "BondingCurve": "0xf3898f7A9E39C781365274f2BC35d9C95F5aD0f6",
+  "Core": "0x321657Ba5D7cE91c26d96e70efe518cA51CCc6f6",
+  "Governor": "0x6033ED4abC36Ee318a18C2f162796187A4288D6e",
+  "Oracle_agEUR_CHF": "0x20F3ed098AA8Fb5ECdD90779f785B7Eed11dB887",
+  "Oracle_agEUR_GBP": "0x01f132598834AEa80f3978a0e565be5929BB4095",
+  "Oracle_agEUR_JPY": "0x15898110A0ac0eaB04Dc35bbf09d139481C71d4C",
+  "Oracle_agEUR_USD": "0x90CB2f4B259c0d1fb66149dC9eAC6F072e248403",
+  "RewardsDistributor": "0x19D9Acef7a2fE46577F684F226B1060749661202",
+  "Timelock": "0x4aC44fA0C1bA4D65Fc7feed4ef8d4e84735D18f1",
+  "ExternalStakings": [
+    {
+      "tokenName": "Basic Attention Token",
+      "stakingContractAddress": "0x09cBd4bf3A0c27518CE5C3f4a4613f5d7aB97f62"
+    }
+  ]
+}

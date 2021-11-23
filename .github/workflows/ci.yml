@@ -1,0 +1,128 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Generate types
+        run: yarn generate-types-from-abis
+      - name: Run eslint
+        run: yarn lint
+      - name: Build
+        run: yarn build
+      - name: Discord notification
+        if: failure()
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: '⛔️ Error in project {{EVENT_PAYLOAD.repository.full_name}}. See here: https://github.com/AngleProtocol/angle-sdk/actions'
+
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      TESTNET_PROVIDER_URL: ${{secrets.TESTNET_PROVIDER_URL}}
+      MNEMONIC: ${{secrets.MNEMONIC}}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Generate types
+        run: yarn generate-types-from-abis
+      - name: Run unit tests
+        run: yarn test
+      - name: Discord notification
+        if: failure()
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: '⛔️ Error in project {{EVENT_PAYLOAD.repository.full_name}}. See here: https://github.com/AngleProtocol/angle-sdk/actions'
+
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # && startsWith(github.event.head_commit.message, '[PUBLISH]')
+    needs: [lint-and-build, tests]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate types
+        run: yarn generate-types-from-abis
+
+      - name: Build
+        run: yarn build
+
+      - name: Up version before publish
+        run: |
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --local user.name "${{ github.actor }}"
+          npm version patch -m "Up package version (%s) and publish [skip ci]"
+
+      # only running "patch". If we need a minor or major change, we'll do it manually
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Push new version to main
+        run: git push https://${{ github.actor }}:$GITHUB_TOKEN@github.com/AngleProtocol/angle-sdk.git
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_ADMIN_CI }}
+
+      - name: Discord notification SDK successfully published
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: '🙌 New SDK version successfully published: https://github.com/AngleProtocol/angle-sdk'
+
+      - name: Discord notification
+        if: failure()
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: '⛔️ Error publishing SDK {{EVENT_PAYLOAD.repository.full_name}}. See here: https://github.com/AngleProtocol/angle-sdk/actions'

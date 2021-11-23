@@ -1,0 +1,287 @@
+[
+  {
+    "inputs": [{ "internalType": "contract IPoolManager", "name": "_poolManager", "type": "address" }],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256[]", "name": "_xBonusMalusBurn", "type": "uint256[]" },
+      { "indexed": false, "internalType": "uint64[]", "name": "_yBonusMalusBurn", "type": "uint64[]" }
+    ],
+    "name": "FeeBurnUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256[]", "name": "_xBonusMalusMint", "type": "uint256[]" },
+      { "indexed": false, "internalType": "uint64[]", "name": "_yBonusMalusMint", "type": "uint64[]" }
+    ],
+    "name": "FeeMintUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint64", "name": "_haFeeDeposit", "type": "uint64" },
+      { "indexed": false, "internalType": "uint64", "name": "_haFeeWithdraw", "type": "uint64" }
+    ],
+    "name": "HaFeesUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "previousAdminRole", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "newAdminRole", "type": "bytes32" }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "account", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "sender", "type": "address" }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "account", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "sender", "type": "address" }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256[]", "name": "_xSlippageFee", "type": "uint256[]" },
+      { "indexed": false, "internalType": "uint64[]", "name": "_ySlippageFee", "type": "uint64[]" }
+    ],
+    "name": "SlippageFeeUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256[]", "name": "_xSlippage", "type": "uint256[]" },
+      { "indexed": false, "internalType": "uint64[]", "name": "_ySlippage", "type": "uint64[]" }
+    ],
+    "name": "SlippageUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "_collatRatio", "type": "uint256" },
+      { "indexed": false, "internalType": "uint64", "name": "_bonusMalusMint", "type": "uint64" },
+      { "indexed": false, "internalType": "uint64", "name": "_bonusMalusBurn", "type": "uint64" },
+      { "indexed": false, "internalType": "uint64", "name": "_slippage", "type": "uint64" },
+      { "indexed": false, "internalType": "uint64", "name": "_slippageFee", "type": "uint64" }
+    ],
+    "name": "UserAndSLPFeesUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "BASE_PARAMS_CASTED",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "GUARDIAN_ROLE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "POOLMANAGER_ROLE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address[]", "name": "governorList", "type": "address[]" },
+      { "internalType": "address", "name": "guardian", "type": "address" },
+      { "internalType": "address", "name": "_perpetualManager", "type": "address" }
+    ],
+    "name": "deployCollateral",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "role", "type": "bytes32" }],
+    "name": "getRoleAdmin",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "haFeeDeposit",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "haFeeWithdraw",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "hasRole",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "perpetualManager",
+    "outputs": [{ "internalType": "contract IPerpetualManager", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256[]", "name": "xArray", "type": "uint256[]" },
+      { "internalType": "uint64[]", "name": "yArray", "type": "uint64[]" },
+      { "internalType": "uint8", "name": "typeChange", "type": "uint8" }
+    ],
+    "name": "setFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint64", "name": "_haFeeDeposit", "type": "uint64" },
+      { "internalType": "uint64", "name": "_haFeeWithdraw", "type": "uint64" }
+    ],
+    "name": "setHAFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stableMaster",
+    "outputs": [{ "internalType": "contract IStableMaster", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  { "inputs": [], "name": "updateHA", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  { "inputs": [], "name": "updateUsersSLP", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "xBonusMalusBurn",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "xBonusMalusMint",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "xSlippage",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "xSlippageFee",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "yBonusMalusBurn",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "yBonusMalusMint",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "ySlippage",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "ySlippageFee",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

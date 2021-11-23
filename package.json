@@ -1,0 +1,86 @@
+{
+  "name": "@angleprotocol/sdk",
+  "version": "0.0.1",
+  "description": "SDK for Angle Protocol DApps",
+  "keywords": [
+    "angle",
+    "angle money",
+    "angle protocol",
+    "ethereum",
+    "eth",
+    "stablecoin",
+    "stablecoins",
+    "defi",
+    "blockchain",
+    "solidity",
+    "javascript"
+  ],
+  "homepage": "https://angle.money",
+  "bugs": {
+    "url": "https://github.com/AngleProtocol/angle-sdk/issues",
+    "email": "contact@angle.money"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AngleProtocol/angle-sdk"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": {
+    "name": "Angle Core Team",
+    "email": "contact@angle.money",
+    "url": "https://angle.money"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.ts' 'src/*.ts' 'test/**/*.ts'",
+    "test": "hardhat test",
+    "build": "rm -rf dist && tsc && cp src/constants/types/*.d.ts dist/constants/types",
+    "watch": "tsc --watch",
+    "generate-types-from-abis": "typechain --target ethers-v5 --out-dir src/constants/types './src/constants/abis/**/*.json'",
+    "postinstall": "echo '\n🛠  DO NOT FORGET TO RUN `yarn generate-types-from-abis` TO GENERATE THE CORRECT TYPES LOCALLY 🛠\n'"
+  },
+  "prettier": {
+    "printWidth": 140,
+    "semi": true,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@typechain/ethers-v5": "^7.2.0",
+    "ethers": "^5.5.1",
+    "graphql": "^15.7.1",
+    "graphql-request": "^3.6.1",
+    "numbro": "^2.3.5",
+    "tiny-invariant": "^1.1.0",
+    "typechain": "^5.2.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "16.11.6",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "express": "4.17.1",
+    "hardhat": "^2.6.7",
+    "hardhat-ethers": "^1.0.1",
+    "prettier": "^2.4.1",
+    "prettier-eslint": "^13.0.0",
+    "ts-node": "10.4.0",
+    "typescript": "^4.4.4"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "ANGLE": "0x31429d1856aD1377A8A0079410B297e1a9e214c2",
+  "agEUR": {
+    "AgToken": "0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8",
+    "collaterals": {
+      "DAI": {
+        "FeeManager": "0xE6d9bD6796bDAF9B391Fac2A2D34bAE9c1c3c1C4",
+        "GenericAave": "0x533438BDf6C576eB14d9572B41d5D37220cc4d09",
+        "GenericCompound": "0xf89fa5D0f1A85c2bAda78dBCc1d6CDC09a7c8e12",
+        "Oracle": "0xc9Cb5703C109D4Fe46d2F29b0454c434e42A6947",
+        "PerpetualManager": "0xfc8f9eefC5FCe1D9dAcE2B0a11A1e184381787C4",
+        "PoolManager": "0xc9daabC677F3d1301006e723bD21C60be57a5915",
+        "SanToken": "0x7B8E89b0cE7BAC2cfEC92A371Da899eA8CBdb450",
+        "Staking": "0x65e4992250B296790c07FAdF0f0723902a07E91d",
+        "Strategy": "0xFd04BcE2Cd25fC69f30813f0342Bf0C0B5e22461"
+      },
+      "FEI": {
+        "FeeManager": "0x4A5E967100CA28566CB2A39216992C6dB57e95A4",
+        "GenericAave": "0xe2a58De0B3A8a1143d541935bf78F04a84fb6303",
+        "Oracle": "0x236D9032d96226b900B0D557Ae6Fd202f3a26b6a",
+        "PerpetualManager": "0x98fDBC5497599eFF830923ea1EE152Adb9a4cEA5",
+        "PoolManager": "0x53b981389Cfc5dCDA2DC2e903147B5DD0E985F44",
+        "SanToken": "0x5d8D3Ac6D21C016f9C935030480B7057B21EC804",
+        "Staking": "0x3d7E670d105e8FBcAE3BF2bFC54324302cDb6aD5",
+        "Strategy": "0xb46a42427e412869F1bd7B9b3a2b5E5856A8907e"
+      },
+      "FRAX": {
+        "FeeManager": "0x9c8438713cEa5466125f0331d9d875Ea43115bc9",
+        "GenericAave": "0x00aFAEF24D5D6814DbE64Cb97da9B0eea37475B5",
+        "Oracle": "0xbf2a9659Cb9f3E2E83A1a4D5A2D5e6eFCDFC13d1",
+        "PerpetualManager": "0x4121a258674e507c990cDF390F74d4EF27592114",
+        "PoolManager": "0x6b4eE7352406707003bC6f6b96595FD35925af48",
+        "SanToken": "0xb3B209Bb213A5Da5B947C56f2C770b3E1015f1FE",
+        "Staking": "0xbB9485e2b9B0da40Db3874A144700e31bd9c40C2",
+        "Strategy": "0x2D78B6f5Dc8985D90145F27C8f5A3782Eb9DeB2E"
+      },
+      "USDC": {
+        "FeeManager": "0x97B6897AAd7aBa3861c04C0e6388Fc02AF1F227f",
+        "GenericAave": "0x5145F310650361Bdb6234eE94424d461A075807b",
+        "GenericCompound": "0xC011882d0f7672D8942e7fE2248C174eeD640c8f",
+        "Oracle": "0x2859a4eBcB58c8Dd5cAC1419C4F63A071b642B20",
+        "PerpetualManager": "0x5efE48F8383921d950683C46B87E28e21DEa9FB5",
+        "PoolManager": "0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD",
+        "SanToken": "0x9C215206Da4bf108aE5aEEf9dA7caD3352A36Dad",
+        "Staking": "0x2Fa1255383364F6e17Be6A6aC7A56C9aCD6850a3",
+        "Strategy": "0x5fE0E497Ac676d8bA78598FC8016EBC1E6cE14a3"
+      }
+    },
+    "StableMaster": "0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87",
+    "Staking": "0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB"
+  },
+  "Core": "0x61ed74de9Ca5796cF2F8fD60D54160D47E30B7c3",
+  "Governor": "0x59153e939c5b4721543251ff3049Ea04c755373B",
+  "Orchestrator": "0x2101F65A51d545CD51896160230bcc6A360a6671",
+  "ProxyAdmin": "0x1D941EF0D3Bba4ad67DBfBCeE5262F4CEE53A32b",
+  "RewardsDistributor": "0xC06481fc1D0196C138770fD2148DCB306cB24E20",
+  "Timelock": "0x5183f032bf42109cD370B9559FD22207e432301E",
+  "ExternalStakings": [
+    {
+      "tokenName": "Gelato Uniswap agEUR/USDC LP",
+      "stakingContractAddress": "0xd97f480266B8c220929EFDF9B00d72E94Fa1f7d1",
+      "poolContractAddress": "0x2bd9f7974bc0e4cb19b8813f8be6034f3e772add"
+    },
+    {
+      "tokenName": "Sushiswap LP agEUR/ANGLE",
+      "stakingContractAddress": "0xA86CC1ae2D94C6ED2aB3bF68fB128c2825673267",
+      "poolContractAddress": "0x1f4c763BdE1D4832B3EA0640e66Da00B98831355"
+    },
+    {
+      "tokenName": "Uniswap V2 agEUR/FEI",
+      "stakingContractAddress": "0xBcb307F590972B1C3188b7916d2969Cf75309dc6",
+      "poolContractAddress": "0xF89CE5eD65737dA8440411544b0499c9FaD323B2"
+    },
+    {
+      "tokenName": "Curve.fi Factory Plain Pool: 3EURpool",
+      "stakingContractAddress": "0xf868da244C17CF0E288AE4A92c8636f072A7BaE3",
+      "poolContractAddress": "0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571"
+    }
+  ]
+}
