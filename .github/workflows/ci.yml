@@ -104,7 +104,7 @@ jobs:
           npm version patch -m "Up package version (%s) and publish [skip ci]"
 
       # only running "patch". If we need a minor or major change, we'll do it manually
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Push new version to main
