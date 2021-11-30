@@ -1,6 +1,7 @@
 import { ChainId } from '../types';
 import LOCAL_ADDRESSES from './local.json';
 import MAINNET_CONTRACTS from './mainnet.json';
+import POLYGON_ADDRESSES from './polygon.json';
 import RINKEBY_ADDRESSES from './rinkeby.json';
 
 const ContractsNames = [
@@ -40,6 +41,7 @@ export type AngleContractsType = {
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
 export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
   [ChainId.MAINNET]: MAINNET_CONTRACTS as AngleContractsType,
+  [ChainId.POLYGON]: POLYGON_ADDRESSES as AngleContractsType,
   [ChainId.RINKEBY]: RINKEBY_ADDRESSES as AngleContractsType,
   [ChainId.LOCAL]: LOCAL_ADDRESSES as AngleContractsType,
 };
