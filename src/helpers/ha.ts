@@ -295,7 +295,7 @@ export function computeClosePerpetual(
 
   const liquidable = cashOutAmount.mul(gwei(1)).lte(positionSize.mul(maintenanceMargin));
 
-  const hedgeRatio = computeHedgeRatio(totalCoveredAmount.add(positionSize.mul(entryRate).div(inBase)), targetHAHedge, stocksUsers);
+  const hedgeRatio = computeHedgeRatio(totalCoveredAmount.sub(positionSize.mul(entryRate).div(inBase)), targetHAHedge, stocksUsers);
 
   const percentageFee = haBonusMalusWithdraw.mul(piecewiseFunction(hedgeRatio, xHAFeesWithdraw, yHAFeesWithdraw)).div(gwei(1));
 
