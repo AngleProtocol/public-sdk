@@ -36,7 +36,7 @@ export type AngleContractsType = {
   [key: string]: Partial<AngleContractsStableType>;
 } & {
   [key in typeof GlobalContracts[number]]?: string;
-} & { ExternalStakings?: { tokenName: string; stakingContractAddress: string }[] };
+} & { ExternalStakings?: { tokenName: string; stakingContractAddress: string, poolContractAddress: string }[] };
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
 export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {

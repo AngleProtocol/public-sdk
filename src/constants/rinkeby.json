@@ -209,7 +209,8 @@
   "ExternalStakings": [
     {
       "tokenName": "Basic Attention Token",
-      "stakingContractAddress": "0x09cBd4bf3A0c27518CE5C3f4a4613f5d7aB97f62"
+      "stakingContractAddress": "0x09cBd4bf3A0c27518CE5C3f4a4613f5d7aB97f62",
+      "poolContractAddress": "0xbf7a7169562078c96f0ec1a8afd6ae50f12e5a99"
     }
   ]
 }
