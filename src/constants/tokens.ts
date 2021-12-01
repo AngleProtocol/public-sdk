@@ -69,7 +69,7 @@ export const ALL_TOKENS: AllTokens = {
     [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.POLYGON)),
     [AssetType.COLLATERAL]: {},
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([
-      new Token(ChainId.POLYGON, '0x82A54e66c05FCd555ADAE593848a4257C9e51AD9', 18, 'UNI-V2', 'Uniswap V2'),
+      new Token(ChainId.POLYGON, '0x82A54e66c05FCd555ADAE593848a4257C9e51AD9', 18, 'UNI-V2', 'Uniswap V2'), // Quickswap LP token
     ]),
     [AssetType.ANGLE]: new Token(
       ChainId.POLYGON,
