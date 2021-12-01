@@ -62,7 +62,7 @@
       "poolContractAddress": "0x2bd9f7974bc0e4cb19b8813f8be6034f3e772add"
     },
     {
-      "tokenName": "SushiSwap LP Token agEUR/ANGLE",
+      "tokenName": "SushiSwap LP agEUR/ANGLE",
       "stakingContractAddress": "0xA86CC1ae2D94C6ED2aB3bF68fB128c2825673267",
       "poolContractAddress": "0x1f4c763BdE1D4832B3EA0640e66Da00B98831355"
     },
