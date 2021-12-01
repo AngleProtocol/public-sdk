@@ -3,6 +3,7 @@ import { BigNumber } from 'ethers';
 export enum ChainId {
   MAINNET = 1,
   RINKEBY = 4,
+  POLYGON = 137,
   LOCAL = 1337,
 }
 

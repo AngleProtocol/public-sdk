@@ -65,6 +65,20 @@ export const ALL_TOKENS: AllTokens = {
       'Angle Governance Token'
     ),
   },
+  [ChainId.POLYGON]: {
+    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.POLYGON)),
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([
+      new Token(ChainId.POLYGON, '0x82A54e66c05FCd555ADAE593848a4257C9e51AD9', 18, 'UNI-V2', 'Uniswap V2'), // Quickswap LP token
+    ]),
+    [AssetType.ANGLE]: new Token(
+      ChainId.POLYGON,
+      CONTRACTS_ADDRESSES[ChainId.POLYGON].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
   [ChainId.RINKEBY]: {
     [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.RINKEBY)),
     [AssetType.COLLATERAL]: arrayOfTokensToTokenDict([

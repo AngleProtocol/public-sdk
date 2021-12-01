@@ -1,0 +1,14 @@
+{
+    "ANGLE": "0x900F717EA076E1E7a484ad9DD2dB81CEEc60eBF1",
+    "agEUR": {
+      "AgToken": "0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4"
+    },
+    "ExternalStakings": [
+      {
+        "tokenName": "Uniswap V2",
+        "stakingContractAddress": "0xCC00985055520c86d8B7764035002CEf600f7616",
+        "poolContractAddress": "0x82A54e66c05FCd555ADAE593848a4257C9e51AD9"
+      }
+    ]
+  }
+  
