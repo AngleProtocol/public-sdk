@@ -1,8 +1,8 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
-import { StableMasterFront } from 'src/constants/types';
 
 import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
+import { StableMasterFront } from '../constants/types';
 import { simulateWithdraw } from '../helpers';
 import { ChainId } from '../index';
 import { parseCollat, parseStable } from '../utils';

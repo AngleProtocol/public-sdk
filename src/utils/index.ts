@@ -1,6 +1,5 @@
-import { Token } from 'src/types';
-
 import { ALL_TOKENS, AssetType, ChainId } from '../index';
+import { Token } from '../types';
 
 export const requireEnvVars = <T extends string>(vars: T[]): Record<typeof vars[number], string> => {
   const missingEnvVars = vars.filter((v) => !process.env[v]);
