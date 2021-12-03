@@ -1,8 +1,8 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
-import { Oracle, PerpetualManagerFront, StableMasterFront } from 'src/constants/types';
 
 import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
+import { Oracle, PerpetualManagerFront, StableMasterFront } from '../constants/types';
 import { computeBurn, computeInverseBurn, computeInverseMint, computeMint } from '../helpers';
 import { ChainId } from '../index';
 import { parseCollat, parseStable } from '../utils';

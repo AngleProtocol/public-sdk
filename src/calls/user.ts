@@ -3,9 +3,9 @@
  */
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
-import { Erc20 } from 'src/constants/types';
 
 import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
+import { Erc20 } from '../constants/types';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
