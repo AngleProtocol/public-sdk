@@ -52,6 +52,22 @@ export type StrategyType = {
   params: LenderStrategyType | LenderStrategyMultipleType;
 };
 
+export type GaugeType = {
+  weigth: BigNumber;
+  name: string;
+};
+
+export type DistributorType = {
+  initialRate: BigNumber;
+  startEpochSupply: BigNumber;
+};
+
+export type LiquidityGaugeType = {
+  type: BigNumber;
+  weigth: BigNumber;
+  name: string;
+};
+
 export type StakingType = {
   type: 'HA' | 'SLP' | 'User';
   duration: BigNumber;
