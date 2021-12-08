@@ -3,7 +3,9 @@
     "inputs": [
       { "internalType": "address", "name": "_strategy", "type": "address" },
       { "internalType": "string", "name": "name", "type": "string" },
-      { "internalType": "address", "name": "_uniswapRouter", "type": "address" },
+      { "internalType": "contract IUniswapV3Router", "name": "_uniswapV3Router", "type": "address" },
+      { "internalType": "contract IUniswapV2Router", "name": "_uniswapV2Router", "type": "address" },
+      { "internalType": "contract IComptroller", "name": "_comptroller", "type": "address" },
       { "internalType": "address", "name": "_comp", "type": "address" },
       { "internalType": "bytes", "name": "_path", "type": "bytes" },
       { "internalType": "address", "name": "_cToken", "type": "address" },
@@ -12,6 +14,12 @@
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "bytes", "name": "_path", "type": "bytes" }],
+    "name": "PathUpdated",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -73,6 +81,13 @@
   },
   {
     "inputs": [],
+    "name": "WETH",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "apr",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
@@ -88,7 +103,7 @@
   {
     "inputs": [],
     "name": "cToken",
-    "outputs": [{ "internalType": "contract CEtherI", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract CErc20I", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -96,6 +111,13 @@
     "inputs": [],
     "name": "comp",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "comptroller",
+    "outputs": [{ "internalType": "contract IComptroller", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -229,8 +251,15 @@
   },
   {
     "inputs": [],
-    "name": "uniswapRouter",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "uniswapV2Router",
+    "outputs": [{ "internalType": "contract IUniswapV2Router", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "uniswapV3Router",
+    "outputs": [{ "internalType": "contract IUniswapV3Router", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -261,6 +290,5 @@
     "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
-  },
-  { "stateMutability": "payable", "type": "receive" }
+  }
 ]
