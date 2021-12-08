@@ -1,5 +1,6 @@
 {
   "ANGLE": "0x67AA62d97B5F043D6a1e882CE58aEe0408111987",
+  "AngleDistributor": "0x8216eb5aF791959b1d65e1b621948b6e87CbAB67",
   "agEUR": {
     "AgToken": "0x1DFCe1b42EFF2Af9dC43a307ACCA6F73D70C1c24",
     "collaterals": {

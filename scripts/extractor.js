@@ -32,6 +32,7 @@ const CONTRACTS_PER_STABLE = {
 };
 const CONTRACTS_GLOBAL = {
   ANGLE: 'ANGLE',
+  AngleDistributor: 'AngleDistributor',
   Core: 'Core',
   Governor: 'Governor',
   RewardsDistributor: 'RewardsDistributor',
