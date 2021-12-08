@@ -11,6 +11,7 @@ import {
   PerpetualManagerFront__factory,
   PoolManager,
   PoolManager__factory,
+  ProxyAdmin__factory,
   RewardsDistributor,
   RewardsDistributor__factory,
   StableMasterFront,
@@ -27,6 +28,7 @@ export const ERC20_Interface = Erc20__factory.createInterface();
 export const ERC20_BYTES32_Interface = Erc20Bytes32__factory.createInterface();
 
 export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
+export const ProxyAdmin_Interface = ProxyAdmin__factory.createInterface();
 export const Oracle_Interface = Oracle__factory.createInterface();
 export const Perpetual_Manager_Interface = PerpetualManagerFront__factory.createInterface();
 export const StableMasterFront_Interface = StableMasterFront__factory.createInterface();
