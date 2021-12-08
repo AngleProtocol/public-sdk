@@ -69,16 +69,14 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 9489
+    ]
   },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "kill_delegation",
     "inputs": [],
-    "outputs": [],
-    "gas": 23819
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -90,8 +88,7 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 41322
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -103,16 +100,14 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 39011
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "accept_transfer_ownership",
     "inputs": [],
-    "outputs": [],
-    "gas": 38930
+    "outputs": []
   },
   {
     "stateMutability": "view",
@@ -124,8 +119,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 2538
+    ]
   },
   {
     "stateMutability": "view",
@@ -137,8 +131,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 2568
+    ]
   },
   {
     "stateMutability": "view",
@@ -150,8 +143,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 2598
+    ]
   },
   {
     "stateMutability": "view",
@@ -163,7 +155,6 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 2628
+    ]
   }
 ]
