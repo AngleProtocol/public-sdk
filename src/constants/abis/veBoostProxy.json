@@ -1,9 +1,37 @@
 [
-  { "name": "CommitAdmin", "inputs": [{ "name": "admin", "type": "address", "indexed": false }], "anonymous": false, "type": "event" },
-  { "name": "ApplyAdmin", "inputs": [{ "name": "admin", "type": "address", "indexed": false }], "anonymous": false, "type": "event" },
+  {
+    "name": "CommitAdmin",
+    "inputs": [
+      {
+        "name": "admin",
+        "type": "address",
+        "indexed": false
+      }
+    ],
+    "anonymous": false,
+    "type": "event"
+  },
+  {
+    "name": "ApplyAdmin",
+    "inputs": [
+      {
+        "name": "admin",
+        "type": "address",
+        "indexed": false
+      }
+    ],
+    "anonymous": false,
+    "type": "event"
+  },
   {
     "name": "DelegationSet",
-    "inputs": [{ "name": "delegation", "type": "address", "indexed": false }],
+    "inputs": [
+      {
+        "name": "delegation",
+        "type": "address",
+        "indexed": false
+      }
+    ],
     "anonymous": false,
     "type": "event"
   },
@@ -11,9 +39,18 @@
     "stateMutability": "nonpayable",
     "type": "constructor",
     "inputs": [
-      { "name": "_voting_escrow", "type": "address" },
-      { "name": "_delegation", "type": "address" },
-      { "name": "_admin", "type": "address" }
+      {
+        "name": "_voting_escrow",
+        "type": "address"
+      },
+      {
+        "name": "_delegation",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      }
     ],
     "outputs": []
   },
@@ -21,58 +58,103 @@
     "stateMutability": "view",
     "type": "function",
     "name": "adjusted_balance_of",
-    "inputs": [{ "name": "_account", "type": "address" }],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 9489
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
   },
-  { "stateMutability": "nonpayable", "type": "function", "name": "kill_delegation", "inputs": [], "outputs": [], "gas": 23819 },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "kill_delegation",
+    "inputs": [],
+    "outputs": []
+  },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "set_delegation",
-    "inputs": [{ "name": "_delegation", "type": "address" }],
-    "outputs": [],
-    "gas": 41322
+    "inputs": [
+      {
+        "name": "_delegation",
+        "type": "address"
+      }
+    ],
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "commit_admin",
-    "inputs": [{ "name": "_admin", "type": "address" }],
-    "outputs": [],
-    "gas": 39011
+    "inputs": [
+      {
+        "name": "_admin",
+        "type": "address"
+      }
+    ],
+    "outputs": []
   },
-  { "stateMutability": "nonpayable", "type": "function", "name": "accept_transfer_ownership", "inputs": [], "outputs": [], "gas": 38930 },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "accept_transfer_ownership",
+    "inputs": [],
+    "outputs": []
+  },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "voting_escrow",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 2538
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "delegation",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 2568
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "admin",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 2598
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "future_admin",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 2628
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ]
   }
 ]
