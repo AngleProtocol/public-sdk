@@ -1,5 +1,6 @@
 import {
   ANGLE__factory,
+  AngleDistributor__factory,
   Erc20__factory,
   Erc20Bytes32__factory,
   FeeManager,
@@ -25,6 +26,7 @@ import {
 export const ERC20_Interface = Erc20__factory.createInterface();
 export const ERC20_BYTES32_Interface = Erc20Bytes32__factory.createInterface();
 
+export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
 export const Oracle_Interface = Oracle__factory.createInterface();
 export const Perpetual_Manager_Interface = PerpetualManagerFront__factory.createInterface();
 export const StableMasterFront_Interface = StableMasterFront__factory.createInterface();
