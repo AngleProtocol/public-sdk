@@ -45,6 +45,8 @@ const poolsParameters: PoolsParameters = {
       feesForSLPs: parseAmount.gwei(0.5),
       interestsForSLPs: parseAmount.gwei(0.5),
 
+      interestsForSurplus: parseAmount.gwei(0.2),
+
       capOnStableMinted: ethers.constants.MaxUint256,
 
       limitHAHedge: parseAmount.gwei(0.95),
@@ -129,6 +131,7 @@ const poolsParameters: PoolsParameters = {
 
       feesForSLPs: parseAmount.gwei(0.5),
       interestsForSLPs: parseAmount.gwei(0.5),
+      interestsForSurplus: parseAmount.gwei(0.2),
 
       capOnStableMinted: ethers.constants.MaxUint256,
 

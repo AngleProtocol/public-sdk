@@ -63,6 +63,9 @@ const poolsParameters_USDC: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
 
+  // Share of the protocol interests redistributed to veANGLE holders
+  interestsForSurplus: parseAmount.gwei(0.2),
+
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
@@ -179,6 +182,8 @@ const poolsParameters_DAI: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.1),
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
+  // Share of the protocol interests redistributed to veANGLE holders
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -273,6 +278,8 @@ const poolsParameters_WETH: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.1),
   interestsForSLPs: parseAmount.gwei(0.6),
 
+  interestsForSurplus: parseAmount.gwei(0.2),
+
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
 
@@ -359,6 +366,7 @@ const poolsParameters_WBTC: PoolParameters = {
 
   feesForSLPs: parseAmount.gwei(0.5),
   interestsForSLPs: parseAmount.gwei(0.5),
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,

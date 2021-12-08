@@ -116,6 +116,7 @@ export type PoolParameters = {
 
   feesForSLPs: BigNumber;
   interestsForSLPs: BigNumber;
+  interestsForSurplus: BigNumber;
 
   capOnStableMinted: BigNumber;
 
