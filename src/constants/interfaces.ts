@@ -1,12 +1,14 @@
 import {
   ANGLE__factory,
   AngleDistributor__factory,
+  Core__factory,
   Erc20__factory,
   Erc20Bytes32__factory,
   FeeManager,
   FeeManager__factory,
   Governor__factory,
   Oracle__factory,
+  OracleMulti__factory,
   PerpetualManagerFront,
   PerpetualManagerFront__factory,
   PoolManager,
@@ -29,6 +31,8 @@ export const ERC20_BYTES32_Interface = Erc20Bytes32__factory.createInterface();
 
 export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
 export const ProxyAdmin_Interface = ProxyAdmin__factory.createInterface();
+export const Core_Interface = Core__factory.createInterface();
+export const OracleMulti_Interface = OracleMulti__factory.createInterface();
 export const Oracle_Interface = Oracle__factory.createInterface();
 export const Perpetual_Manager_Interface = PerpetualManagerFront__factory.createInterface();
 export const StableMasterFront_Interface = StableMasterFront__factory.createInterface();
