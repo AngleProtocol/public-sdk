@@ -63,6 +63,9 @@ const poolsParameters_USDC: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
 
+  // Share of the protocol interests redistributed to veANGLE holders
+  interestsForSurplus: parseAmount.gwei(0.2),
+
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
@@ -93,6 +96,7 @@ const poolsParameters_USDC: PoolParameters = {
   ],
 
   // Staking parameters
+  // TODO: this is no longer useful here
   stakings: [
     {
       type: 'HA',
@@ -178,6 +182,8 @@ const poolsParameters_DAI: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.1),
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
+  // Share of the protocol interests redistributed to veANGLE holders
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -272,6 +278,8 @@ const poolsParameters_WETH: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.1),
   interestsForSLPs: parseAmount.gwei(0.6),
 
+  interestsForSurplus: parseAmount.gwei(0.2),
+
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
 
@@ -358,6 +366,7 @@ const poolsParameters_WBTC: PoolParameters = {
 
   feesForSLPs: parseAmount.gwei(0.5),
   interestsForSLPs: parseAmount.gwei(0.5),
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
@@ -412,25 +421,6 @@ const poolsParameters: PoolsParameters = {
     WETH: poolsParameters_WETH,
     WBTC: poolsParameters_WBTC,
   },
-  USD: {
-    USDC: poolsParameters_USDC,
-    DAI: poolsParameters_DAI,
-    WETH: poolsParameters_WETH,
-    WBTC: poolsParameters_WBTC,
-  },
-  JPY: {
-    USDC: poolsParameters_USDC,
-    DAI: poolsParameters_DAI,
-  },
-  CHF: {
-    USDC: poolsParameters_USDC,
-    WETH: poolsParameters_WETH,
-    WBTC: poolsParameters_WBTC,
-  },
-  GBP: {
-    USDC: poolsParameters_USDC,
-    DAI: poolsParameters_DAI,
-  },
 };
 
 // agTokens specific parameters
@@ -447,62 +437,6 @@ const stablesParameters: StablesParameters = {
       },
     ],
     currencySymbol: '€',
-  },
-
-  USD: {
-    stakings: [
-      {
-        type: 'User',
-        duration: BigNumber.from(3600 * 24 * 365 * 5),
-        updateFrequency: BigNumber.from(3600 * 24 * 7),
-        rewardDuration: BigNumber.from(3600 * 24 * 8),
-        incentiveAmount: parseAmount.ether(100),
-        amountToDistribute: parseAmount.ether(17_500_000),
-      },
-    ],
-    currencySymbol: '$',
-  },
-
-  JPY: {
-    stakings: [
-      {
-        type: 'User',
-        duration: BigNumber.from(3600 * 24 * 365 * 5),
-        updateFrequency: BigNumber.from(3600 * 24 * 7),
-        rewardDuration: BigNumber.from(3600 * 24 * 8),
-        incentiveAmount: parseAmount.ether(100),
-        amountToDistribute: parseAmount.ether(17_500_000),
-      },
-    ],
-    currencySymbol: '¥',
-  },
-
-  CHF: {
-    stakings: [
-      {
-        type: 'User',
-        duration: BigNumber.from(3600 * 24 * 365 * 5),
-        updateFrequency: BigNumber.from(3600 * 24 * 7),
-        rewardDuration: BigNumber.from(3600 * 24 * 8),
-        incentiveAmount: parseAmount.ether(100),
-        amountToDistribute: parseAmount.ether(17_500_000),
-      },
-    ],
-    currencySymbol: '£',
-  },
-
-  GBP: {
-    stakings: [
-      {
-        type: 'User',
-        duration: BigNumber.from(3600 * 24 * 365 * 5),
-        updateFrequency: BigNumber.from(3600 * 24 * 7),
-        rewardDuration: BigNumber.from(3600 * 24 * 8),
-        incentiveAmount: parseAmount.ether(100),
-        amountToDistribute: parseAmount.ether(17_500_000),
-      },
-    ],
-    currencySymbol: '₩',
   },
 };
 
@@ -554,235 +488,18 @@ const globalParameters: GlobalParameters = {
         stalePeriod: 3600 * 24,
       },
     },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'USDC',
-      outName: 'USD',
-      params: {
-        pairs: ['USDC/USD'],
-        multipliers: [1],
-        inBase: parseAmount.usdc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'DAI',
-      outName: 'USD',
-      params: {
-        pairs: ['DAI/USD'],
-        multipliers: [1],
-        inBase: parseAmount.dai(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WETH',
-      outName: 'USD',
-      params: {
-        pairs: ['ETH/USD'],
-        multipliers: [1],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WBTC',
-      outName: 'USD',
-      params: {
-        pairs: ['BTC/USD'],
-        multipliers: [1],
-        inBase: parseAmount.wbtc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'USDC',
-      outName: 'JPY',
-      params: {
-        pairs: ['USDC/USD', 'JPY/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.usdc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'DAI',
-      outName: 'JPY',
-      params: {
-        pairs: ['DAI/USD', 'JPY/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.dai(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WETH',
-      outName: 'JPY',
-      params: {
-        pairs: ['ETH/USD', 'JPY/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WBTC',
-      outName: 'JPY',
-      params: {
-        pairs: ['BTC/USD', 'JPY/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.wbtc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'USDC',
-      outName: 'CHF',
-      params: {
-        pairs: ['USDC/USD', 'CHF/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.usdc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'DAI',
-      outName: 'CHF',
-      params: {
-        pairs: ['DAI/USD', 'CHF/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.dai(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WETH',
-      outName: 'CHF',
-      params: {
-        pairs: ['ETH/USD', 'CHF/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WBTC',
-      outName: 'CHF',
-      params: {
-        pairs: ['BTC/USD', 'CHF/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.wbtc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'USDC',
-      outName: 'GBP',
-      params: {
-        pairs: ['USDC/USD', 'GBP/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.usdc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'DAI',
-      outName: 'GBP',
-      params: {
-        pairs: ['DAI/USD', 'GBP/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.dai(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WETH',
-      outName: 'GBP',
-      params: {
-        pairs: ['ETH/USD', 'GBP/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'WBTC',
-      outName: 'GBP',
-      params: {
-        pairs: ['BTC/USD', 'GBP/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.wbtc(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'USD',
-      outName: 'EUR',
-      params: {
-        pairs: ['EUR/USD'],
-        multipliers: [0],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'JPY',
-      outName: 'EUR',
-      params: {
-        pairs: ['JPY/USD', 'EUR/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'CHF',
-      outName: 'EUR',
-      params: {
-        pairs: ['CHF/USD', 'EUR/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
-    {
-      type: 'OracleChainlinkMulti',
-      inName: 'GBP',
-      outName: 'EUR',
-      params: {
-        pairs: ['GBP/USD', 'EUR/USD'],
-        multipliers: [1, 0],
-        inBase: parseAmount.ether(1),
-        stalePeriod: 3600 * 24,
-      },
-    },
   ],
 
   // Governance specific parameters. Quorum is hardcoded.
+  // TODO This is no longer useful
   quorum: parseAmount.ether(5_000_000), // 0.5% of total supply
   proposalThreshold: parseAmount.ether(5_000_000),
   votingPeriod: BigNumber.from(35000), // Approx 6 days
   votingDelay: BigNumber.from(6),
   timelockDelay: BigNumber.from(0),
+
   // Bonding Curve
+  // TODO This is no longer useful
   bondingCurveTotalTokenToSell: parseAmount.ether(180_000_000),
   bondingCurveStartPrice: parseAmount.ether(3),
   bondingCurveStablecoins: ['EUR', 'USD', 'JPY', 'CHF', 'GBP'],
