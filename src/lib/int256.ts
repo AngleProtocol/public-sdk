@@ -1,8 +1,7 @@
 import { BigNumber, BigNumberish, utils } from 'ethers';
-import numbro from 'numbro';
 
 import { BigNumber_BASE } from '../types';
-
+import { formatNumber } from '../utils/bignumber';
 export class Int256 {
   public readonly value: BigNumber;
   public readonly base: number;
@@ -40,40 +39,7 @@ export class Int256 {
 
   public toFixed(decimals = 3, output: 'number' | 'percent' = 'number', round = false): string {
     const num = parseFloat(utils.formatUnits(this.value, this.base));
-
-    if (num > 1e20) {
-      // console.warn('Number too big', num);
-      return numbro(Number.POSITIVE_INFINITY).format({ output });
-    }
-
-    if (round && num > 0 && 0.0001 > num) return '<0.0001';
-
-    if (num > 0 && 1 > num && output === 'number') {
-      const strs = num.toFixed(20).split('.');
-      if (strs && strs.length && strs[1]) {
-        for (const n of strs[1]) {
-          if (n != '0') {
-            break;
-          }
-          decimals += 1;
-        }
-      }
-    }
-
-    const opt: numbro.Format = {
-      output,
-      average: num > 10_000 ? true : false,
-      mantissa: num > 1000 ? 2 : decimals,
-      trimMantissa: true,
-      // trimMantissa: true,
-      abbreviations: {
-        million: 'M',
-        billion: 'B',
-        trillion: 'T',
-      },
-    };
-
-    return numbro(num).format(opt);
+    return formatNumber(num, decimals, output, round);
   }
 
   public toExact(decimals = -1): string {
