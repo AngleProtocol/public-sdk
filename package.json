@@ -38,7 +38,7 @@
   "scripts": {
     "lint": "eslint --fix 'src/**/*.ts' 'src/*.ts' 'test/**/*.ts'",
     "test": "hardhat test",
-    "build": "rm -rf dist && tsc && cp src/constants/types/*.d.ts dist/constants/types",
+    "build": "rm -rf dist && tsc",
     "watch": "tsc --watch",
     "generate-types-from-abis": "typechain --target ethers-v5 --out-dir src/constants/types './src/constants/abis/**/*.json'",
     "postinstall": "echo '\n🛠  DO NOT FORGET TO RUN `yarn generate-types-from-abis` TO GENERATE THE CORRECT TYPES LOCALLY 🛠\n'"
@@ -49,12 +49,12 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@typechain/ethers-v5": "^7.2.0",
+    "@typechain/ethers-v5": "^8.0.5",
     "ethers": "^5.5.1",
     "graphql": "^15.7.1",
     "graphql-request": "^3.6.1",
     "tiny-invariant": "^1.1.0",
-    "typechain": "^5.2.0"
+    "typechain": "^6.0.5"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

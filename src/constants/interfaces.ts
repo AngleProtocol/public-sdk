@@ -7,26 +7,19 @@ import {
   Erc20__factory,
   Erc20Bytes32__factory,
   FeeDistributor__factory,
-  FeeManager,
   FeeManager__factory,
   GaugeController__factory,
   Governor__factory,
   LiquidityGaugeV4__factory,
   Oracle__factory,
   OracleMulti__factory,
-  PerpetualManagerFront,
   PerpetualManagerFront__factory,
-  PoolManager,
   PoolManager__factory,
   ProxyAdmin__factory,
-  RewardsDistributor,
   RewardsDistributor__factory,
   SanToken__factory,
-  StableMasterFront,
   StableMasterFront__factory,
-  StakingRewards,
   StakingRewards__factory,
-  Strategy,
   Strategy__factory,
   Timelock__factory,
   VeANGLE__factory,
@@ -87,4 +80,4 @@ export const Governor_Abi = Governor__factory.abi;
 export const Timelock_Abi = Timelock__factory.abi;
 export const veANGLE_Abi = VeANGLE__factory.abi;
 
-export { FeeManager, PerpetualManagerFront, PoolManager, RewardsDistributor, StableMasterFront, StakingRewards, Strategy };
+export * from './types';
