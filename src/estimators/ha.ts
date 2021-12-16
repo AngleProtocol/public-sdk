@@ -39,7 +39,7 @@ export async function estimateOpenPerpetual(
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
   const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle_Interface, provider) as Oracle;
+  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
   const perpetualManager = new ethers.Contract(
     perpetualManagerAddress,
     Interfaces.PerpetualManagerFront_Abi,
@@ -91,7 +91,7 @@ export async function estimateClosePerpetual(
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
   const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle_Interface, provider) as Oracle;
+  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
   const perpetualManager = new ethers.Contract(
     perpetualManagerAddress,
     Interfaces.PerpetualManagerFront_Abi,

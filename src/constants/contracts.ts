@@ -26,12 +26,18 @@ const GlobalContracts = [
   'GaugeController',
   'Governor',
   'RewardsDistributor',
-  'ANGLEDistributor',
+  'AngleDistributor',
   'Timelock',
   'ProxyAdmin',
   'MultiSig',
   'Deployer',
+  'veAngle',
+  'GaugeController',
+  'SmartWalletWhitelist',
+  'SurplusConverterSanTokens_sanUSDC_EUR',
+  'SurplusConverterUniV3_IntraCollaterals',
   'veANGLE',
+  'veBoostProxy',
 ] as const;
 
 export type AngleContractsStableType = {
