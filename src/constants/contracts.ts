@@ -23,6 +23,7 @@ const GlobalContracts = [
   'ANGLE',
   'BondingCurve',
   'Core',
+  'GaugeController',
   'Governor',
   'RewardsDistributor',
   'ANGLEDistributor',
@@ -30,6 +31,7 @@ const GlobalContracts = [
   'ProxyAdmin',
   'MultiSig',
   'Deployer',
+  'veANGLE',
 ] as const;
 
 export type AngleContractsStableType = {
@@ -46,8 +48,8 @@ export type AngleContractsStableType = {
 export type AngleContractsType = {
   [key: string]: Partial<AngleContractsStableType>;
 } & {
-  [key in typeof GlobalContracts[number]]?: string;
-} & { ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string }[] };
+    [key in typeof GlobalContracts[number]]?: string;
+  } & { ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string }[] };
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
 export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
