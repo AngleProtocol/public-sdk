@@ -77,6 +77,11 @@
       "tokenName": "Curve.fi Factory Plain Pool: 3EURpool",
       "stakingContractAddress": "0xf868da244C17CF0E288AE4A92c8636f072A7BaE3",
       "poolContractAddress": "0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571"
+    },
+    {
+      "tokenName": "Gelato Uniswap agEUR/wETH LP",
+      "stakingContractAddress": "0x7eE4A0F368681E4d97a8dBe78dBD756e097B6a76",
+      "poolContractAddress": "0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f"
     }
   ]
 }
