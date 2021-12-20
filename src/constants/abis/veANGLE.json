@@ -97,6 +97,13 @@
   {
     "stateMutability": "nonpayable",
     "type": "constructor",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "initialize",
     "inputs": [
       {
         "name": "_admin",
@@ -651,6 +658,18 @@
       {
         "name": "",
         "type": "address"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "initialized",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
       }
     ]
   }
