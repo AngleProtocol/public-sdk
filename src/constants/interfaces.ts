@@ -1,12 +1,17 @@
 import {
+  AgToken__factory,
   ANGLE__factory,
   AngleDistributor__factory,
+  BaseSurplusConverter__factory,
   Core__factory,
   Erc20__factory,
   Erc20Bytes32__factory,
+  FeeDistributor__factory,
   FeeManager,
   FeeManager__factory,
+  GaugeController__factory,
   Governor__factory,
+  LiquidityGaugeV4__factory,
   Oracle__factory,
   OracleMulti__factory,
   PerpetualManagerFront,
@@ -16,6 +21,7 @@ import {
   ProxyAdmin__factory,
   RewardsDistributor,
   RewardsDistributor__factory,
+  SanToken__factory,
   StableMasterFront,
   StableMasterFront__factory,
   StakingRewards,
@@ -23,12 +29,15 @@ import {
   Strategy,
   Strategy__factory,
   Timelock__factory,
+  VeANGLE__factory,
+  VeBoostProxy__factory,
   Weth__factory,
 } from './types';
 
 export const ERC20_Interface = Erc20__factory.createInterface();
 export const ERC20_BYTES32_Interface = Erc20Bytes32__factory.createInterface();
 
+export const AgToken_Interface = AgToken__factory.createInterface();
 export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
 export const ProxyAdmin_Interface = ProxyAdmin__factory.createInterface();
 export const Core_Interface = Core__factory.createInterface();
@@ -39,13 +48,23 @@ export const StableMasterFront_Interface = StableMasterFront__factory.createInte
 export const PoolManager_Interface = PoolManager__factory.createInterface();
 export const StakingRewards_Interface = StakingRewards__factory.createInterface();
 export const RewardsDistributor_Interface = RewardsDistributor__factory.createInterface();
+export const SanToken_Interface = SanToken__factory.createInterface();
 export const Strategy_Interface = Strategy__factory.createInterface();
 export const FeeManager_Interface = FeeManager__factory.createInterface();
 
+export const BaseSurplusConverter_Interface = BaseSurplusConverter__factory.createInterface();
+export const FeeDistributor_Interface = FeeDistributor__factory.createInterface();
+export const GaugeController_Interface = GaugeController__factory.createInterface();
+export const LiquidityGaugeV4_Interface = LiquidityGaugeV4__factory.createInterface();
+export const veANGLE_Interface = VeANGLE__factory.createInterface();
+export const veBoostProxy_Interface = VeBoostProxy__factory.createInterface();
+
+export const AgToken_Abi = AgToken__factory.abi;
 export const ERC20_Abi = Erc20__factory.abi;
 export const WETH_Abi = Weth__factory.abi;
 export const FeeManager_Abi = FeeManager__factory.abi;
 export const Strategy_Abi = Strategy__factory.abi;
+export const SanToken_Abi = SanToken__factory.abi;
 export const Staking_Abi = StakingRewards__factory.abi;
 export const RewardsDistributor_Abi = RewardsDistributor__factory.abi;
 export const StableMasterFront_Abi = StableMasterFront__factory.abi;
@@ -56,8 +75,16 @@ export const ANGLE_Interface = ANGLE__factory.createInterface();
 export const Governor_Interface = Governor__factory.createInterface();
 export const Timelock_Interface = Timelock__factory.createInterface();
 
+export const AngleDistributor_Abi = AngleDistributor__factory.abi;
+export const BaseSurplusConverter_Abi = BaseSurplusConverter__factory.abi;
+export const FeeDistributor_Abi = FeeDistributor__factory.abi;
+export const GaugeController_Abi = GaugeController__factory.abi;
+export const LiquidityGaugeV4_Abi = LiquidityGaugeV4__factory.abi;
+export const veBoostProxy_Abi = VeBoostProxy__factory.abi;
+
 export const ANGLE_Abi = ANGLE__factory.abi;
 export const Governor_Abi = Governor__factory.abi;
 export const Timelock_Abi = Timelock__factory.abi;
+export const veANGLE_Abi = VeANGLE__factory.abi;
 
 export { FeeManager, PerpetualManagerFront, PoolManager, RewardsDistributor, StableMasterFront, StakingRewards, Strategy };

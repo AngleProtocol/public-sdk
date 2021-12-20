@@ -134,11 +134,28 @@
     "type": "event"
   },
   {
+    "name": "RewardDataUpdate",
+    "inputs": [
+      {
+        "name": "_token",
+        "type": "address",
+        "indexed": true
+      },
+      {
+        "name": "_amount",
+        "type": "uint256",
+        "indexed": false
+      }
+    ],
+    "anonymous": false,
+    "type": "event"
+  },
+  {
     "stateMutability": "nonpayable",
     "type": "constructor",
     "inputs": [
       {
-        "name": "_lp_token",
+        "name": "_staking_token",
         "type": "address"
       },
       {
@@ -597,12 +614,24 @@
   {
     "stateMutability": "view",
     "type": "function",
-    "name": "lp_token",
+    "name": "staking_token",
     "inputs": [],
     "outputs": [
       {
         "name": "",
         "type": "address"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "decimal_staking_token",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ]
   },

@@ -200,17 +200,17 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "newSurplusDistributor",
+        "name": "newSurplusConverter",
         "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
-        "name": "oldSurplusDistributor",
+        "name": "oldSurplusConverter",
         "type": "address"
       }
     ],
-    "name": "SurplusDistributorUpdated",
+    "name": "SurplusConverterUpdated",
     "type": "event"
   },
   {
@@ -333,6 +333,19 @@
     "name": "addStrategy",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "adminDebt",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -766,11 +779,11 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "newSurplusDistributor",
+        "name": "newSurplusConverter",
         "type": "address"
       }
     ],
-    "name": "setSurplusDistributor",
+    "name": "setSurplusConverter",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -838,7 +851,7 @@
   },
   {
     "inputs": [],
-    "name": "surplusDistributor",
+    "name": "surplusConverter",
     "outputs": [
       {
         "internalType": "address",
