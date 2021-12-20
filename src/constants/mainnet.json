@@ -64,6 +64,11 @@
       "poolContractAddress": "0x2bd9f7974bc0e4cb19b8813f8be6034f3e772add"
     },
     {
+      "tokenName": "Gelato Uniswap agEUR/wETH LP",
+      "stakingContractAddress": "0x7eE4A0F368681E4d97a8dBe78dBD756e097B6a76",
+      "poolContractAddress": "0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f"
+    },
+    {
       "tokenName": "SushiSwap LP agEUR/ANGLE",
       "stakingContractAddress": "0xA86CC1ae2D94C6ED2aB3bF68fB128c2825673267",
       "poolContractAddress": "0x1f4c763BdE1D4832B3EA0640e66Da00B98831355"
@@ -77,11 +82,6 @@
       "tokenName": "Curve.fi Factory Plain Pool: 3EURpool",
       "stakingContractAddress": "0xf868da244C17CF0E288AE4A92c8636f072A7BaE3",
       "poolContractAddress": "0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571"
-    },
-    {
-      "tokenName": "Gelato Uniswap agEUR/wETH LP",
-      "stakingContractAddress": "0x7eE4A0F368681E4d97a8dBe78dBD756e097B6a76",
-      "poolContractAddress": "0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f"
     }
   ]
 }
