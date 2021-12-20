@@ -35,7 +35,6 @@ export const AngleDistributor_Interface = AngleDistributor__factory.createInterf
 export const ProxyAdmin_Interface = ProxyAdmin__factory.createInterface();
 export const Core_Interface = Core__factory.createInterface();
 export const OracleMulti_Interface = OracleMulti__factory.createInterface();
-export const Oracle_Interface = Oracle__factory.createInterface();
 export const Perpetual_Manager_Interface = PerpetualManagerFront__factory.createInterface();
 export const StableMasterFront_Interface = StableMasterFront__factory.createInterface();
 export const PoolManager_Interface = PoolManager__factory.createInterface();
