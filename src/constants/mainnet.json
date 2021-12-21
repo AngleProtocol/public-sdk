@@ -83,5 +83,27 @@
       "stakingContractAddress": "0xf868da244C17CF0E288AE4A92c8636f072A7BaE3",
       "poolContractAddress": "0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571"
     }
+  ],
+  "Gauges": [
+    {
+      "gaugeName": "Curve agEUR/ibEUR",
+      "gaugeAddress": "0xfdA462548Ce04282f4B6D6619823a7C64Fdc0185",
+      "type": 2
+    },
+    {
+      "gaugeName": "Curve 3EUR",
+      "gaugeAddress": "0x5EB715d601C2F27f83Cb554b6B36e047822fB70a",
+      "type": 2
+    },
+    {
+      "gaugeName": "Quickswap agEUR/USDC",
+      "gaugeAddress": "0x4EA4C5ca64A3950E53c61d0616DAF92727119093",
+      "type": 2
+    },
+    {
+      "gaugeName": "Convex Bribes",
+      "gaugeAddress": "0x957c66E97870e42301081217fBB1Aac45bc4eb4D",
+      "type": 2
+    }
   ]
 }
