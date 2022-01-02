@@ -42,6 +42,10 @@ export class Int256 {
     return formatNumber(num, decimals, output, round);
   }
 
+  public toNumber(decimals = -1): number {
+      return parseFloat(utils.formatUnits(this.value, this.base));
+  }
+
   public toExact(decimals = -1): string {
     if (decimals === -1) {
       return utils.formatUnits(this.value, this.base);
