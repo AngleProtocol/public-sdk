@@ -144,7 +144,7 @@ const poolsParameters_DAI: PoolParameters = {
   yFeeBurn: [parseAmount.gwei(0.005)],
 
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yHAFeesDeposit: [parseAmount.gwei(0.002), parseAmount.gwei(0.025), parseAmount.gwei(0.003)],
+  yHAFeesDeposit: [parseAmount.gwei(0.002), parseAmount.gwei(0.0025), parseAmount.gwei(0.003)],
 
   xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(1)],
   yHAFeesWithdraw: [parseAmount.gwei(0.003), parseAmount.gwei(0.0022), parseAmount.gwei(0.002)],
