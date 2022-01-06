@@ -2,7 +2,9 @@ import { BigNumber } from 'ethers';
 
 export enum ChainId {
   MAINNET = 1,
-  RINKEBY = 4,
+  // TODO CHANGE When done with testing
+  RINKEBY = 1200,
+  RINKEBYTMP = 4,
   POLYGON = 137,
   LOCAL = 1337,
 }
