@@ -2,7 +2,7 @@ import { ChainId } from '../types';
 import LOCAL_ADDRESSES from './local.json';
 import MAINNET_CONTRACTS from './mainnet.json';
 import POLYGON_ADDRESSES from './polygon.json';
-import RINKEBY_ADDRESSES from './rinkeby.json';
+import RINKEBY_TMP_ADDRESSES from './rinkebyTemporary.json';
 
 const ContractsNames = [
   'FeeManager',
@@ -56,13 +56,13 @@ export type AngleContractsType = {
 } & {
   [key in typeof GlobalContracts[number]]?: string;
 } & { ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string }[] } & {
-    Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
-  };
+  Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
+};
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
 export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
   [ChainId.MAINNET]: MAINNET_CONTRACTS as AngleContractsType,
   [ChainId.POLYGON]: POLYGON_ADDRESSES as AngleContractsType,
-  [ChainId.RINKEBY]: RINKEBY_ADDRESSES as AngleContractsType,
+  [ChainId.RINKEBY]: RINKEBY_TMP_ADDRESSES as AngleContractsType,
   [ChainId.LOCAL]: LOCAL_ADDRESSES as AngleContractsType,
 };

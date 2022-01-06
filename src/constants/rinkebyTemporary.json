@@ -1,0 +1,61 @@
+{
+  "ANGLE": "0x8B6D3f0e883DC9c22C60ed126Ae74758abeBB5F9",
+  "AngleDistributor": "0x6F23278A3e281966eF084Ca5012e3DFF08D95b9a",
+  "agEUR": {
+    "AgToken": "0x7f7b7F005C8BdB57222235dF76b55dA82D117B04",
+    "collaterals": {
+      "DAI": {
+        "FeeManager": "0x5fD8Ce8E93e5859A3f3fF0DAFc178e88Da345f64",
+        "GenericCompound": "0xB84Ae5d49173F293a484a4A9933A4cE885593494",
+        "LiquidityGauge": "0xc23D96D63fa2A446777a8d3f057f5E117C3d253F",
+        "Oracle": "0xfC7F772Cb3057ecE1c36346Cd7a33aA7B514dB02",
+        "PerpetualManager": "0xE8476dA314EAB6E5438c05bdFf7868006fa7b940",
+        "PoolManager": "0x654646D14F54Fb9d47CDA258f859A582BeC9dA67",
+        "SanToken": "0xb2EFc7486c7Cb50592a75cB416Ce8108340caefC",
+        "Strategy": "0x3F005C912A9f99f2D064507AE080B964743738aD"
+      },
+      "USDC": {
+        "FeeManager": "0xCA4f74AC9Fb9539B816DF0a0adD29249ABDFA543",
+        "GenericCompound": "0x23AA766a39a3EdE7a1869b97161eE78a11D13E03",
+        "LiquidityGauge": "0xAFD8bb8D9560541d19DeAB424a8A738394aef834",
+        "Oracle": "0x47a8A95e9C5aEcd034a7fACb724a793F10a5645e",
+        "PerpetualManager": "0x036473de72AFbA5ea617944afE17900C5ABE6897",
+        "PoolManager": "0x68AFE13ce700B69097C24f88e3725564BB7d6318",
+        "SanToken": "0x9775e48c06e969700Bf522D881C0F3141cCb2ABa",
+        "Strategy": "0x1D1aF22C92470697f3A0BEAd152ADB5E7188E6AC"
+      },
+      "WBTC": {
+        "FeeManager": "0x1722d58B0fC66D475446da18d67155C3e8F0A7b0",
+        "GenericCompound": "0xb11b81b141eFB07AfcD6a0ca314421a0A5521944",
+        "LiquidityGauge": "0x9B5F637428D9d343d8b7CC21312c96e38dB977D7",
+        "Oracle": "0x142b47686f2Ecf84d5db8605d94d1cf9D451d67D",
+        "PerpetualManager": "0xfA38Fe354Cf4cA0302690857B3256A09a2f2A06B",
+        "PoolManager": "0x43731025182c0658FF340233A04Cc7c1d1ACE380",
+        "SanToken": "0xD56C18ee26C4B8F0A74D85e321d471E3bEb1c050",
+        "Strategy": "0xda7B6c500F8B6631A6c9811E9DAad2D9DB311D38"
+      },
+      "WETH": {
+        "FeeManager": "0x2FAb6Ea11302435FeF66e33DaD43d73Fb4C15183",
+        "GenericCompound": "0xC7792D88Debe16Ad6FEa9488c32A7d568f1c4493",
+        "LiquidityGauge": "0xEde0c9b884079AAF23C89DcBe56A25DA9c940f48",
+        "Oracle": "0xDa7b8e69c21EFd8eEeaad7120924f93f6e018C4A",
+        "PerpetualManager": "0x41d963ADccb77200e98A1135BAF79b6A0d87986E",
+        "PoolManager": "0xeC795C1d193254e6459aaA5d850fFbE6199A095f",
+        "SanToken": "0xB67C1b38c379827243eC0818eF329079cBeD1CEf",
+        "Strategy": "0xd3dbA3FF0BA68d893E9a2b1064e1926AF760b334"
+      }
+    },
+    "LiquidityGauge": "0x325DC02fE2a9F2E1f6f993F91C9840a584226D14",
+    "StableMaster": "0x6Eadb4Af59aaeb8Fdc75662E59798290a296245e"
+  },
+  "Core": "0x856A65c3b4832B179103cfAA43cCA81cB716f42F",
+  "FeeDistributor_san_EUR_USDC": "0x8c88978615f88d0b9F1c38A5311BF1bc8f0C3169",
+  "GaugeController": "0x4Ee2e99BC7d031fd9e32185F4A0B9503D9020d52",
+  "OrchestratorOwnable": "0x31955AC2589da3194C3058614DfdFa91A5602921",
+  "ProxyAdmin": "0xFbdd6a1735b07eA72BAd77b9714f84db436E8425",
+  "SmartWalletWhitelist": "0xe5F51F634CCE9F5D7EbF5AE56b0349BbDc2D04f0",
+  "SurplusConverterSanTokens_san_EUR_USDC": "0x12D84e4D0505938Bb16127aCAc9d913f8b77cAB4",
+  "SurplusConverterUniV3_IntraCollaterals": "0x4134E6CdA1fc60E61BC966B969c5FC5E1bAd2f87",
+  "veANGLE": "0x91531B30dc2E565d1e9E09095FDD9E4A03DE6e79",
+  "veBoostProxy": "0xAC571744Cccc4a3eb6cDd57E2Ee6B5f1Fd4c2184"
+}
