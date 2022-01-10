@@ -48,6 +48,7 @@
     "LiquidityGauge": "0x325DC02fE2a9F2E1f6f993F91C9840a584226D14",
     "StableMaster": "0x6Eadb4Af59aaeb8Fdc75662E59798290a296245e"
   },
+  "ExternalStakings": [],
   "Core": "0x856A65c3b4832B179103cfAA43cCA81cB716f42F",
   "FeeDistributor_san_EUR_USDC": "0x8c88978615f88d0b9F1c38A5311BF1bc8f0C3169",
   "GaugeController": "0x4Ee2e99BC7d031fd9e32185F4A0B9503D9020d52",
