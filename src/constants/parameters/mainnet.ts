@@ -11,11 +11,15 @@ const poolsParameters_USDC: PoolParameters = {
   decimals: 6,
 
   // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
-  xFeeMint: [parseAmount.gwei(0)],
-  yFeeMint: [parseAmount.gwei(0.0025)],
+  // xFeeMint: [parseAmount.gwei(0)],
+  // yFeeMint: [parseAmount.gwei(0.0025)],
+  xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.7), parseAmount.gwei(1)],
+  yFeeMint: [parseAmount.gwei(0.003), parseAmount.gwei(0.0023), parseAmount.gwei(0.0021)],
 
-  xFeeBurn: [parseAmount.gwei(0)],
-  yFeeBurn: [parseAmount.gwei(0.0045)],
+  // xFeeBurn: [parseAmount.gwei(0)],
+  // yFeeBurn: [parseAmount.gwei(0.0045)],
+  xFeeBurn: [parseAmount.gwei(0), parseAmount.gwei(0.7), parseAmount.gwei(1)],
+  yFeeBurn: [parseAmount.gwei(0.004), parseAmount.gwei(0.0045), parseAmount.gwei(0.005)],
 
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.8), parseAmount.gwei(1)],
   yHAFeesDeposit: [parseAmount.gwei(0.0015), parseAmount.gwei(0.002), parseAmount.gwei(0.0025)],
@@ -63,7 +67,7 @@ const poolsParameters_USDC: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.5),
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -137,11 +141,15 @@ const poolsParameters_DAI: PoolParameters = {
 
   // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
   // here, fees increae from 0.2% to 0.3% between 70% and 80% of hedge ratio, and then stay at 0.3%
-  xFeeMint: [parseAmount.gwei(0)],
-  yFeeMint: [parseAmount.gwei(0.003)],
+  // xFeeMint: [parseAmount.gwei(0)],
+  // yFeeMint: [parseAmount.gwei(0.003)],
+  xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.7), parseAmount.gwei(1)],
+  yFeeMint: [parseAmount.gwei(0.0035), parseAmount.gwei(0.0028), parseAmount.gwei(0.0026)],
 
-  xFeeBurn: [parseAmount.gwei(0)],
-  yFeeBurn: [parseAmount.gwei(0.005)],
+  // xFeeBurn: [parseAmount.gwei(0)],
+  // yFeeBurn: [parseAmount.gwei(0.005)],
+  xFeeBurn: [parseAmount.gwei(0), parseAmount.gwei(0.7), parseAmount.gwei(1)],
+  yFeeBurn: [parseAmount.gwei(0.0045), parseAmount.gwei(0.005), parseAmount.gwei(0.0055)],
 
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.8), parseAmount.gwei(1)],
   yHAFeesDeposit: [parseAmount.gwei(0.002), parseAmount.gwei(0.0025), parseAmount.gwei(0.003)],
@@ -188,7 +196,7 @@ const poolsParameters_DAI: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.5),
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -300,7 +308,7 @@ const poolsParameters_FEI: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.45),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.5),
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -411,7 +419,7 @@ const poolsParameters_FRAX: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.45),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.5),
+  interestsForSurplus: parseAmount.gwei(0.2),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
