@@ -63,7 +63,7 @@ const poolsParameters_USDC: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.2),
+  interestsForSurplus: parseAmount.gwei(0.5),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -188,7 +188,7 @@ const poolsParameters_DAI: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.6),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.2),
+  interestsForSurplus: parseAmount.gwei(0.5),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -300,7 +300,7 @@ const poolsParameters_FEI: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.45),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.2),
+  interestsForSurplus: parseAmount.gwei(0.5),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -411,7 +411,7 @@ const poolsParameters_FRAX: PoolParameters = {
   // Share of protocol pools rewards redistributed to SLP
   interestsForSLPs: parseAmount.gwei(0.45),
   // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.2),
+  interestsForSurplus: parseAmount.gwei(0.5),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
