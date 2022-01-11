@@ -15,6 +15,7 @@ const ContractsNames = [
   'Staking',
   'GenericCompound',
   'GenericAave',
+  'LiquidityGauge',
 ] as const;
 
 export const StableTokens = ['agCHF', 'agEUR', 'agGBP', 'agJPY', 'agUSD'] as const;
@@ -55,9 +56,11 @@ export type AngleContractsType = {
   [key: string]: Partial<AngleContractsStableType>;
 } & {
   [key in typeof GlobalContracts[number]]?: string;
-} & { ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string }[] } & {
-  Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
-};
+} & {
+    ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string; liquidityGaugeAddress?: string }[];
+  } & {
+    Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
+  };
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
 export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
