@@ -17,14 +17,14 @@ const poolsParameters_USDC: PoolParameters = {
   xFeeBurn: [parseAmount.gwei(0)],
   yFeeBurn: [parseAmount.gwei(0.0045)],
 
-  xHAFeesDeposit: [parseAmount.gwei(0)],
-  yHAFeesDeposit: [parseAmount.gwei(0.003)],
+  xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.8), parseAmount.gwei(1)],
+  yHAFeesDeposit: [parseAmount.gwei(0.0015), parseAmount.gwei(0.002), parseAmount.gwei(0.0025)],
+
+  xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(1)],
+  yHAFeesWithdraw: [parseAmount.gwei(0.003), parseAmount.gwei(0.002), parseAmount.gwei(0.0015)],
 
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
-
-  xHAFeesWithdraw: [parseAmount.gwei(0)],
-  yHAFeesWithdraw: [parseAmount.gwei(0.005)],
 
   // Slippage: Protocol enforced slippage to disencourage SLPs to leave (exit fees).
   // SlippageFee: share of total SLPs earnings that should be distributed to SLPs that won't be due to a very low collateral ratio.
@@ -143,14 +143,14 @@ const poolsParameters_DAI: PoolParameters = {
   xFeeBurn: [parseAmount.gwei(0)],
   yFeeBurn: [parseAmount.gwei(0.005)],
 
-  xHAFeesDeposit: [parseAmount.gwei(0)],
-  yHAFeesDeposit: [parseAmount.gwei(0.003)],
+  xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.8), parseAmount.gwei(1)],
+  yHAFeesDeposit: [parseAmount.gwei(0.002), parseAmount.gwei(0.0025), parseAmount.gwei(0.003)],
+
+  xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(1)],
+  yHAFeesWithdraw: [parseAmount.gwei(0.003), parseAmount.gwei(0.0022), parseAmount.gwei(0.002)],
 
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
-
-  xHAFeesWithdraw: [parseAmount.gwei(0)],
-  yHAFeesWithdraw: [parseAmount.gwei(0.005)],
 
   // Slippage: Protocol enforced slippage to disencourage SLPs to leave (exit fees).
   // SlippageFee: share of fees that should be distributed to SLPs but are not due to a very low collateral ratio.
