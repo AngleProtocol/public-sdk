@@ -1,5 +1,6 @@
 {
   "ANGLE": "0x31429d1856aD1377A8A0079410B297e1a9e214c2",
+  "AngleDistributor": "0x4f91F01cE8ec07c9B1f6a82c18811848254917Ab",
   "agEUR": {
     "AgToken": "0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8",
     "collaterals": {
@@ -7,6 +8,7 @@
         "FeeManager": "0xE6d9bD6796bDAF9B391Fac2A2D34bAE9c1c3c1C4",
         "GenericAave": "0x533438BDf6C576eB14d9572B41d5D37220cc4d09",
         "GenericCompound": "0xf89fa5D0f1A85c2bAda78dBCc1d6CDC09a7c8e12",
+        "LiquidityGauge": "0x8E2c0CbDa6bA7B65dbcA333798A3949B07638026",
         "Oracle": "0xc9Cb5703C109D4Fe46d2F29b0454c434e42A6947",
         "PerpetualManager": "0xfc8f9eefC5FCe1D9dAcE2B0a11A1e184381787C4",
         "PoolManager": "0xc9daabC677F3d1301006e723bD21C60be57a5915",
@@ -17,6 +19,7 @@
       "FEI": {
         "FeeManager": "0x4A5E967100CA28566CB2A39216992C6dB57e95A4",
         "GenericAave": "0xe2a58De0B3A8a1143d541935bf78F04a84fb6303",
+        "LiquidityGauge": "0x7c0fF11bfbFA3cC2134Ce62034329a4505408924",
         "Oracle": "0x236D9032d96226b900B0D557Ae6Fd202f3a26b6a",
         "PerpetualManager": "0x98fDBC5497599eFF830923ea1EE152Adb9a4cEA5",
         "PoolManager": "0x53b981389Cfc5dCDA2DC2e903147B5DD0E985F44",
@@ -27,6 +30,7 @@
       "FRAX": {
         "FeeManager": "0x9c8438713cEa5466125f0331d9d875Ea43115bc9",
         "GenericAave": "0x00aFAEF24D5D6814DbE64Cb97da9B0eea37475B5",
+        "LiquidityGauge": "0xb40432243E4F317cE287398e72Ab8f0312fc2FE8",
         "Oracle": "0xbf2a9659Cb9f3E2E83A1a4D5A2D5e6eFCDFC13d1",
         "PerpetualManager": "0x4121a258674e507c990cDF390F74d4EF27592114",
         "PoolManager": "0x6b4eE7352406707003bC6f6b96595FD35925af48",
@@ -38,6 +42,7 @@
         "FeeManager": "0x97B6897AAd7aBa3861c04C0e6388Fc02AF1F227f",
         "GenericAave": "0x5145F310650361Bdb6234eE94424d461A075807b",
         "GenericCompound": "0xC011882d0f7672D8942e7fE2248C174eeD640c8f",
+        "LiquidityGauge": "0x51fE22abAF4a26631b2913E417c0560D547797a7",
         "Oracle": "0x2859a4eBcB58c8Dd5cAC1419C4F63A071b642B20",
         "PerpetualManager": "0x5efE48F8383921d950683C46B87E28e21DEa9FB5",
         "PoolManager": "0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD",
@@ -50,33 +55,43 @@
     "Staking": "0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB"
   },
   "Core": "0x61ed74de9Ca5796cF2F8fD60D54160D47E30B7c3",
+  "FeeDistributor_san_EUR_USDC": "0x7F82ff050128e29Fd89D85d01b93246F744E62A0",
+  "GaugeController": "0x9aD7e7b0877582E14c17702EecF49018DD6f2367",
+  "GovernanceMultiSig": "0xdC4e6DFe07EFCa50a197DF15D9200883eF4Eb1c8",
   "Governor": "0x59153e939c5b4721543251ff3049Ea04c755373B",
   "Orchestrator": "0x2101F65A51d545CD51896160230bcc6A360a6671",
   "ProxyAdmin": "0x1D941EF0D3Bba4ad67DBfBCeE5262F4CEE53A32b",
   "RewardsDistributor": "0xC06481fc1D0196C138770fD2148DCB306cB24E20",
+  "SmartWalletWhitelist": "0xAa241Ccd398feC742f463c534a610529dCC5888E",
+  "SurplusConverterSanTokens_EUR_USDC": "0x2E2063080A05FfdaA6D57f9358C2a5e1C65c70EC",
+  "SurplusConverterUniV3_IntraCollaterals": "0xD302484DC0fB3D50F60E1a2a82c882174aBC6eBe",
   "Timelock": "0x5183f032bf42109cD370B9559FD22207e432301E",
-  "GovernanceMultiSig": "0xdC4e6DFe07EFCa50a197DF15D9200883eF4Eb1c8",
-  "ANGLEDistributor": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "veANGLE": "0x0C462Dbb9EC8cD1630f1728B2CFD2769d09f0dd5",
+  "veBoostProxy": "0x52701bFA0599db6db2b2476075D9a2f4Cb77DAe3",
   "ExternalStakings": [
     {
       "tokenName": "Gelato Uniswap agEUR/USDC LP",
       "stakingContractAddress": "0xd97f480266B8c220929EFDF9B00d72E94Fa1f7d1",
-      "poolContractAddress": "0x2bd9f7974bc0e4cb19b8813f8be6034f3e772add"
+      "poolContractAddress": "0x2bd9f7974bc0e4cb19b8813f8be6034f3e772add",
+      "liquidityGaugeAddress": "0xEB7547a8a734b6fdDBB8Ce0C314a9E6485100a3C"
     },
     {
       "tokenName": "Gelato Uniswap agEUR/wETH LP",
       "stakingContractAddress": "0x7eE4A0F368681E4d97a8dBe78dBD756e097B6a76",
-      "poolContractAddress": "0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f"
+      "poolContractAddress": "0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f",
+      "liquidityGaugeAddress": "0x3785Ce82be62a342052b9E5431e9D3a839cfB581"
     },
     {
       "tokenName": "SushiSwap LP agEUR/ANGLE",
       "stakingContractAddress": "0xA86CC1ae2D94C6ED2aB3bF68fB128c2825673267",
-      "poolContractAddress": "0x1f4c763BdE1D4832B3EA0640e66Da00B98831355"
+      "poolContractAddress": "0x1f4c763BdE1D4832B3EA0640e66Da00B98831355",
+      "liquidityGaugeAddress": "0xBa625B318483516F7483DD2c4706aC92d44dBB2B"
     },
     {
       "tokenName": "Uniswap V2 agEUR/FEI",
       "stakingContractAddress": "0xBcb307F590972B1C3188b7916d2969Cf75309dc6",
-      "poolContractAddress": "0xF89CE5eD65737dA8440411544b0499c9FaD323B2"
+      "poolContractAddress": "0xF89CE5eD65737dA8440411544b0499c9FaD323B2",
+      "liquidityGaugeAddress": "0xd6282C5aEAaD4d776B932451C44b8EB453E44244"
     },
     {
       "tokenName": "Curve.fi Factory Plain Pool: 3EURpool",
