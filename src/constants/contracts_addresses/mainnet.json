@@ -119,11 +119,6 @@
       "gaugeName": "Convex Bribes",
       "gaugeAddress": "0x957c66E97870e42301081217fBB1Aac45bc4eb4D",
       "type": 2
-    },
-    {
-      "gaugeName": "Pangolin agEUR/AVAX",
-      "gaugeAddress": "0x9b8308742A0Faefbd7d39F7073eA07a328551eD4",
-      "type": 2
     }
   ]
 }
