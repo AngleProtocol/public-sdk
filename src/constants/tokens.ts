@@ -81,6 +81,42 @@ export const ALL_TOKENS: AllTokens = {
       'Angle Governance Token'
     ),
   },
+  [ChainId.AVALANCHE]: {
+    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.AVALANCHE)),
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    [AssetType.ANGLE]: new Token(
+      ChainId.AVALANCHE,
+      CONTRACTS_ADDRESSES[ChainId.AVALANCHE].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
+  [ChainId.FANTOM]: {
+    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.FANTOM)),
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    [AssetType.ANGLE]: new Token(
+      ChainId.FANTOM,
+      CONTRACTS_ADDRESSES[ChainId.FANTOM].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
+  [ChainId.BSC]: {
+    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.POLYGON)),
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    [AssetType.ANGLE]: new Token(
+      ChainId.POLYGON,
+      CONTRACTS_ADDRESSES[ChainId.POLYGON].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
   [ChainId.RINKEBY]: {
     [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.RINKEBY)),
     [AssetType.COLLATERAL]: arrayOfTokensToTokenDict([

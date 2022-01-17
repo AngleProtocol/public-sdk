@@ -7,6 +7,9 @@ import { Logger } from '../logger';
 const THEGRAPH_URLS: { [chainId in ChainId]: string } = {
   [ChainId.MAINNET]: 'https://api.thegraph.com/subgraphs/name/picodes/perpetual',
   [ChainId.POLYGON]: '',
+  [ChainId.AVALANCHE]: '',
+  [ChainId.FANTOM]: '',
+  [ChainId.BSC]: '',
   [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/picodes/rinkeby-perpetual',
   [ChainId.LOCAL]: '',
 };

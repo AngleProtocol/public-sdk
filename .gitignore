@@ -8,3 +8,4 @@ typechain
 .env
 yarn-error.log
 src/constants/types
+.vscode

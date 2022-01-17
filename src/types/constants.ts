@@ -4,6 +4,9 @@ export enum ChainId {
   MAINNET = 1,
   RINKEBY = 4,
   POLYGON = 137,
+  AVALANCHE = 43114,
+  FANTOM = 250,
+  BSC = 56,
   LOCAL = 1337,
 }
 
