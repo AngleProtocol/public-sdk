@@ -592,7 +592,7 @@
   },
   {
     "inputs": [],
-    "name": "pullSurplus",
+    "name": "pushSurplus",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -25,6 +25,8 @@ import {
   VeANGLE__factory,
   VeBoostProxy__factory,
   Weth__factory,
+  SurplusConverterSanTokens__factory,
+  SurplusConverterUniV3__factory,
 } from './types';
 
 export const ERC20_Interface = Erc20__factory.createInterface();
@@ -45,6 +47,8 @@ export const Strategy_Interface = Strategy__factory.createInterface();
 export const FeeManager_Interface = FeeManager__factory.createInterface();
 
 export const BaseSurplusConverter_Interface = BaseSurplusConverter__factory.createInterface();
+export const SurplusConverterSanTokens_Interface = SurplusConverterSanTokens__factory.createInterface();
+export const SurplusConverterUniV3_Interface = SurplusConverterUniV3__factory.createInterface();
 export const FeeDistributor_Interface = FeeDistributor__factory.createInterface();
 export const GaugeController_Interface = GaugeController__factory.createInterface();
 export const LiquidityGaugeV4_Interface = LiquidityGaugeV4__factory.createInterface();
@@ -69,6 +73,8 @@ export const Timelock_Interface = Timelock__factory.createInterface();
 
 export const AngleDistributor_Abi = AngleDistributor__factory.abi;
 export const BaseSurplusConverter_Abi = BaseSurplusConverter__factory.abi;
+export const SurplusConverterSanTokens_Abi = SurplusConverterSanTokens__factory.abi;
+export const SurplusConverterUniV3_Abi = SurplusConverterUniV3__factory.abi;
 export const FeeDistributor_Abi = FeeDistributor__factory.abi;
 export const GaugeController_Abi = GaugeController__factory.abi;
 export const LiquidityGaugeV4_Abi = LiquidityGaugeV4__factory.abi;
