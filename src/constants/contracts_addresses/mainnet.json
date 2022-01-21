@@ -82,7 +82,7 @@
       "liquidityGaugeAddress": "0x3785Ce82be62a342052b9E5431e9D3a839cfB581"
     },
     {
-      "tokenName": "SushiSwap LP agEUR/ANGLE",
+      "tokenName": "SushiSwap LP Token agEUR/ANGLE",
       "stakingContractAddress": "0xA86CC1ae2D94C6ED2aB3bF68fB128c2825673267",
       "poolContractAddress": "0x1f4c763BdE1D4832B3EA0640e66Da00B98831355",
       "liquidityGaugeAddress": "0xBa625B318483516F7483DD2c4706aC92d44dBB2B"
