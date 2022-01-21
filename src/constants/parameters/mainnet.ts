@@ -363,8 +363,8 @@ const poolsParameters_FRAX: PoolParameters = {
   xFeeMint: [parseAmount.gwei(0)],
   yFeeMint: [parseAmount.gwei(0.005)],
 
-  xFeeBurn: [parseAmount.gwei(0)],
-  yFeeBurn: [parseAmount.gwei(0.005)],
+  xFeeBurn: [parseAmount.gwei(0.5), parseAmount.gwei(1)],
+  yFeeBurn: [parseAmount.gwei(0.005), parseAmount.gwei(0.1)],
 
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.5), parseAmount.gwei(1)],
   yHAFeesDeposit: [parseAmount.gwei(0.003), parseAmount.gwei(0.004), parseAmount.gwei(0.007)],
