@@ -27,6 +27,7 @@ import {
   Weth__factory,
   SurplusConverterSanTokens__factory,
   SurplusConverterUniV3__factory,
+  GenericCompound__factory,
 } from './types';
 
 export const ERC20_Interface = Erc20__factory.createInterface();
@@ -36,6 +37,7 @@ export const AgToken_Interface = AgToken__factory.createInterface();
 export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
 export const ProxyAdmin_Interface = ProxyAdmin__factory.createInterface();
 export const Core_Interface = Core__factory.createInterface();
+export const GenericCompound_Interface = GenericCompound__factory.createInterface();
 export const OracleMulti_Interface = OracleMulti__factory.createInterface();
 export const Perpetual_Manager_Interface = PerpetualManagerFront__factory.createInterface();
 export const StableMasterFront_Interface = StableMasterFront__factory.createInterface();
@@ -59,6 +61,7 @@ export const AgToken_Abi = AgToken__factory.abi;
 export const ERC20_Abi = Erc20__factory.abi;
 export const WETH_Abi = Weth__factory.abi;
 export const FeeManager_Abi = FeeManager__factory.abi;
+export const GenericCompound_Abi = GenericCompound__factory.abi;
 export const Strategy_Abi = Strategy__factory.abi;
 export const SanToken_Abi = SanToken__factory.abi;
 export const Staking_Abi = StakingRewards__factory.abi;
