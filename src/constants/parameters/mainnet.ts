@@ -359,9 +359,9 @@ const poolsParameters_FRAX: PoolParameters = {
   decimals: 18,
 
   // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
-  // here, fees increae from 0.2% to 0.3% between 70% and 80% of hedge ratio, and then stay at 0.3%
-  xFeeMint: [parseAmount.gwei(0)],
-  yFeeMint: [parseAmount.gwei(0.005)],
+  // here, fees increase from 0.2% to 0.3% between 70% and 80% of hedge ratio, and then stay at 0.3%
+  xFeeMint: [parseAmount.gwei(0.8), parseAmount.gwei(1)],
+  yFeeMint: [parseAmount.gwei(0.005), parseAmount.gwei(0.002)],
 
   xFeeBurn: [parseAmount.gwei(0.5), parseAmount.gwei(1)],
   yFeeBurn: [parseAmount.gwei(0.005), parseAmount.gwei(0.1)],
