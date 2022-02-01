@@ -42,6 +42,7 @@ const GlobalContracts = [
   'SurplusConverterUniV3_IntraCollaterals',
   'veANGLE',
   'veBoostProxy',
+  'Middleman',
 ] as const;
 
 export type AngleContractsStableType = {
