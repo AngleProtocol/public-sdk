@@ -1,6 +1,7 @@
 import { ChainId } from '../types';
 import AVALANCHE_ADDRESSES from './contracts_addresses/avalanche.json';
 import BSC_ADDRESSES from './contracts_addresses/bsc.json';
+import AURORA_ADDRESSES from './contracts_addresses/aurora.json';
 import FANTOM_ADDRESSES from './contracts_addresses/fantom.json';
 import LOCAL_ADDRESSES from './contracts_addresses/local.json';
 import MAINNET_CONTRACTS from './contracts_addresses/mainnet.json';
@@ -73,6 +74,7 @@ export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
   [ChainId.AVALANCHE]: AVALANCHE_ADDRESSES as AngleContractsType,
   [ChainId.FANTOM]: FANTOM_ADDRESSES as AngleContractsType,
   [ChainId.BSC]: BSC_ADDRESSES as AngleContractsType,
+  [ChainId.AURORA]: AURORA_ADDRESSES as AngleContractsType,
   [ChainId.RINKEBY]: RINKEBY_TMP_ADDRESSES as AngleContractsType,
   [ChainId.LOCAL]: LOCAL_ADDRESSES as AngleContractsType,
 };

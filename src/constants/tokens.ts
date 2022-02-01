@@ -117,6 +117,18 @@ export const ALL_TOKENS: AllTokens = {
       'Angle Governance Token'
     ),
   },
+  [ChainId.AURORA]: {
+    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.POLYGON)),
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    [AssetType.ANGLE]: new Token(
+      ChainId.POLYGON,
+      CONTRACTS_ADDRESSES[ChainId.POLYGON].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
   [ChainId.RINKEBY]: {
     [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.RINKEBY)),
     [AssetType.COLLATERAL]: arrayOfTokensToTokenDict([
