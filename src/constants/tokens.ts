@@ -106,12 +106,24 @@ export const ALL_TOKENS: AllTokens = {
     ),
   },
   [ChainId.BSC]: {
-    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.POLYGON)),
+    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.BSC)),
     [AssetType.COLLATERAL]: {},
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
     [AssetType.ANGLE]: new Token(
-      ChainId.POLYGON,
-      CONTRACTS_ADDRESSES[ChainId.POLYGON].ANGLE ?? constants.AddressZero,
+      ChainId.BSC,
+      CONTRACTS_ADDRESSES[ChainId.BSC].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
+  [ChainId.AURORA]: {
+    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.AURORA)),
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    [AssetType.ANGLE]: new Token(
+      ChainId.AURORA,
+      CONTRACTS_ADDRESSES[ChainId.AURORA].ANGLE ?? constants.AddressZero,
       18,
       'ANGLE',
       'Angle Governance Token'
