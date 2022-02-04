@@ -10,7 +10,8 @@ import { GlobalParameters, PoolParameters, PoolsParameters, StablesParameters } 
 const poolsParameters_USDC: PoolParameters = {
   decimals: 6,
 
-  // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
+  // x: horizontal axis steps relative to the hedge ratio
+  // y: fees
   xFeeMint: [parseAmount.gwei(0)],
   yFeeMint: [parseAmount.gwei(0.0025)],
 
@@ -23,20 +24,22 @@ const poolsParameters_USDC: PoolParameters = {
   xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(1)],
   yHAFeesWithdraw: [parseAmount.gwei(0.003), parseAmount.gwei(0.002), parseAmount.gwei(0.0015)],
 
+  // adds the opportunity for governance to add a bonus or malus to HA fees
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
 
-  // Slippage: Protocol enforced slippage to disencourage SLPs to leave (exit fees).
+  // Slippage: Protocol enforced slippage to discourage SLPs to leave (exit fees).
   // SlippageFee: share of total SLPs earnings that should be distributed to SLPs that won't be due to a very low collateral ratio.
   // NO SLIPPAGEFEE WITHOUT SLIPPAGE
 
-  // x: horizontal axis steps relative to the collateral ratio, y: ratio of fees
+  // x: horizontal axis steps relative to the collateral ratio
+  // y: ratio of fees
   xSlippage: [parseAmount.gwei(1), parseAmount.gwei(1.1), parseAmount.gwei(1.2)],
   ySlippage: [parseAmount.gwei(0.1), parseAmount.gwei(0.01), parseAmount.gwei(0)],
   xSlippageFee: [parseAmount.gwei(0.99), parseAmount.gwei(1.05), parseAmount.gwei(1.15)],
   ySlippageFee: [parseAmount.gwei(0.9), parseAmount.gwei(0.2), parseAmount.gwei(0)],
 
-  // Option to add dependency on HA fees to collateral ratio.
+  // Option to add a dependency on HA fees to collateral ratio on top of hedge ratio.
   // DISABLED AT THE MOMENT
   haFeeDeposit: parseAmount.gwei(1),
   haFeeWithdraw: parseAmount.gwei(1),
@@ -49,21 +52,27 @@ const poolsParameters_USDC: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target. No fees given when we stay above
-  // target
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
 
-  // Max interests that can be distributed to SLPs in a block
+  // Max interest that can be distributed to SLPs in a block
   // Need to be tuned for each collateral
-  maxInterestsDistributed: parseAmount.usdc(500),
+  maxInterestsDistributed: parseAmount.usdc(1000),
 
-  // Share of protocol fees redistributed to SLP
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.4),
-  // Share of protocol pools rewards redistributed to SLP
-  interestsForSLPs: parseAmount.gwei(0.6),
-  // Share of the protocol interests redistributed to veANGLE holders
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.  
+  interestsForSLPs: parseAmount.gwei(0.6),
+
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -74,6 +83,7 @@ const poolsParameters_USDC: PoolParameters = {
   targetHAHedge: parseAmount.gwei(0.96),
   maxLeverage: parseAmount.gwei(99),
   maintenanceMargin: parseAmount.gwei(0.00625),
+
   // Share of the maintenance margin keeper receive as fees
   keeperFeesLiquidationRatio: parseAmount.gwei(0.6),
   lockTime: BigNumber.from(3600),
@@ -110,11 +120,10 @@ const poolsParameters_USDC: PoolParameters = {
       rewardDuration: BigNumber.from(3600 * 24 * 7 + 1200),
       // incentive per period for keepers to enforce the scheduled updates
       // the amount is in ANGLE and not ETH, .ether is here for formatting
-      incentiveAmount: parseAmount.ether(100), // ANGLE, but tokens are in the same base than ETH
+      incentiveAmount: parseAmount.ether(100), 
       // total amount of gov tokens per agToken-collateral pair to distribute on the whole staking period
       // the amount is in ANGLE and not ETH, .ether is here for formatting
-      // Setting very small amounts to distribute in the first place (because in the first week, only test tokens are distributed)
-      amountToDistribute: parseAmount.ether('6256520.883'), // ANGLE, but tokens are in the same base than ETH
+      amountToDistribute: parseAmount.ether('6256520.883'), 
     },
     {
       type: 'SLP',
@@ -123,7 +132,6 @@ const poolsParameters_USDC: PoolParameters = {
       updateFrequency: BigNumber.from(3600 * 24 * 7),
       rewardDuration: BigNumber.from(3600 * 24 * 7 + 1200), // Some 20 minutes delta to make sure that rewards won't accumulate
       incentiveAmount: parseAmount.ether(100),
-      // Setting very small amounts to distribute for the first week of mainnet deployment
       amountToDistribute: parseAmount.ether('87591292.36'),
     },
   ],
@@ -135,8 +143,8 @@ const poolsParameters_USDC: PoolParameters = {
 const poolsParameters_DAI: PoolParameters = {
   decimals: 18,
 
-  // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
-  // here, fees increae from 0.2% to 0.3% between 70% and 80% of hedge ratio, and then stay at 0.3%
+  // x: horizontal axis steps relative to the hedge ratio
+  // y: fees
   xFeeMint: [parseAmount.gwei(0)],
   yFeeMint: [parseAmount.gwei(0.003)],
 
@@ -149,6 +157,7 @@ const poolsParameters_DAI: PoolParameters = {
   xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(1)],
   yHAFeesWithdraw: [parseAmount.gwei(0.003), parseAmount.gwei(0.0022), parseAmount.gwei(0.002)],
 
+  // adds the opportunity for governance to add a bonus or malus to HA fees
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
 
@@ -156,7 +165,8 @@ const poolsParameters_DAI: PoolParameters = {
   // SlippageFee: share of fees that should be distributed to SLPs but are not due to a very low collateral ratio.
   // NO SLIPPAGEFEE WITHOUT SLIPPAGE
 
-  // x: horizontal axis steps relative to the collateral ratio, y: ratio of fees
+  // x: horizontal axis steps relative to the collateral ratio
+  // y: ratio of fees
   xSlippage: [parseAmount.gwei(1), parseAmount.gwei(1.1), parseAmount.gwei(1.2)],
   ySlippage: [parseAmount.gwei(0.1), parseAmount.gwei(0.01), parseAmount.gwei(0)],
   xSlippageFee: [parseAmount.gwei(0.99), parseAmount.gwei(1.05), parseAmount.gwei(1.15)],
@@ -175,25 +185,33 @@ const poolsParameters_DAI: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target.
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
 
-  // Max interests that can be distributed to SLPs in a block
+  // Max interest that can be distributed to SLPs in a block
   // Need to be tuned for each collateral
-  maxInterestsDistributed: parseAmount.dai(500),
+  maxInterestsDistributed: parseAmount.dai(1000),
 
-  // Share of protocol fees redistributed to SLP
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.2),
-  // Share of protocol pools rewards redistributed to SLP
-  interestsForSLPs: parseAmount.gwei(0.6),
-  // Share of the protocol interests redistributed to veANGLE holders
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.
+  interestsForSLPs: parseAmount.gwei(0.6),
+
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
 
+  // HAs parameters
   limitHAHedge: parseAmount.gwei(0.98),
   targetHAHedge: parseAmount.gwei(0.96),
   maxLeverage: parseAmount.gwei(99),
@@ -247,8 +265,8 @@ const poolsParameters_DAI: PoolParameters = {
 const poolsParameters_FEI: PoolParameters = {
   decimals: 18,
 
-  // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
-  // here, fees increae from 0.2% to 0.3% between 70% and 80% of hedge ratio, and then stay at 0.3%
+  // x: horizontal axis steps relative to the hedge ratio
+  // y: amount of fees
   xFeeMint: [parseAmount.gwei(0)],
   yFeeMint: [parseAmount.gwei(0.003)],
 
@@ -258,6 +276,7 @@ const poolsParameters_FEI: PoolParameters = {
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.5), parseAmount.gwei(1)],
   yHAFeesDeposit: [parseAmount.gwei(0.003), parseAmount.gwei(0.004), parseAmount.gwei(0.007)],
 
+  // adds the opportunity for governance to add a bonus or malus to HA fees
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
 
@@ -268,7 +287,8 @@ const poolsParameters_FEI: PoolParameters = {
   // SlippageFee: share of fees that should be distributed to SLPs but are not due to a very low collateral ratio.
   // NO SLIPPAGEFEE WITHOUT SLIPPAGE
 
-  // x: horizontal axis steps relative to the collateral ratio, y: ratio of fees
+  // x: horizontal axis steps relative to the collateral ratio
+  // y: ratio of fees
   xSlippage: [parseAmount.gwei(1), parseAmount.gwei(1.1), parseAmount.gwei(1.2)],
   ySlippage: [parseAmount.gwei(0.1), parseAmount.gwei(0.01), parseAmount.gwei(0)],
   xSlippageFee: [parseAmount.gwei(0.99), parseAmount.gwei(1.05), parseAmount.gwei(1.15)],
@@ -287,25 +307,33 @@ const poolsParameters_FEI: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target.
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
 
-  // Max interests that can be distributed to SLPs in a block
+  // Max interest that can be distributed to SLPs in a block
   // Need to be tuned for each collateral
   maxInterestsDistributed: parseAmount.dai(500),
 
-  // Share of protocol fees redistributed to SLP
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.2),
-  // Share of protocol pools rewards redistributed to SLP
-  interestsForSLPs: parseAmount.gwei(0.45),
-  // Share of the protocol interests redistributed to veANGLE holders
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.
+  interestsForSLPs: parseAmount.gwei(0.45),
+
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
   capOnStableMinted: parseAmount.ether(35_000_000),
 
+  // HAs parameters
   limitHAHedge: parseAmount.gwei(0.98),
   targetHAHedge: parseAmount.gwei(0.96),
   maxLeverage: parseAmount.gwei(99),
@@ -358,8 +386,8 @@ const poolsParameters_FEI: PoolParameters = {
 const poolsParameters_FRAX: PoolParameters = {
   decimals: 18,
 
-  // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
-  // here, fees increase from 0.2% to 0.3% between 70% and 80% of hedge ratio, and then stay at 0.3%
+  // x: horizontal axis steps relative to the hedge ratio
+  // y: amount of fees
   xFeeMint: [parseAmount.gwei(0.8), parseAmount.gwei(1)],
   yFeeMint: [parseAmount.gwei(0.005), parseAmount.gwei(0.002)],
 
@@ -369,6 +397,7 @@ const poolsParameters_FRAX: PoolParameters = {
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.5), parseAmount.gwei(1)],
   yHAFeesDeposit: [parseAmount.gwei(0.003), parseAmount.gwei(0.004), parseAmount.gwei(0.007)],
 
+  // adds the opportunity for governance to add a bonus or malus to HA fees
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
 
@@ -379,7 +408,8 @@ const poolsParameters_FRAX: PoolParameters = {
   // SlippageFee: share of fees that should be distributed to SLPs but are not due to a very low collateral ratio.
   // NO SLIPPAGEFEE WITHOUT SLIPPAGE
 
-  // x: horizontal axis steps relative to the collateral ratio, y: ratio of fees
+  // x: horizontal axis steps relative to the collateral ratio
+  // y: ratio of fees
   xSlippage: [parseAmount.gwei(1), parseAmount.gwei(1.1), parseAmount.gwei(1.2)],
   ySlippage: [parseAmount.gwei(0.1), parseAmount.gwei(0.01), parseAmount.gwei(0)],
   xSlippageFee: [parseAmount.gwei(0.99), parseAmount.gwei(1.05), parseAmount.gwei(1.15)],
@@ -398,7 +428,8 @@ const poolsParameters_FRAX: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target.
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
 
@@ -406,17 +437,23 @@ const poolsParameters_FRAX: PoolParameters = {
   // Need to be tuned for each collateral
   maxInterestsDistributed: parseAmount.dai(500),
 
-  // Share of protocol fees redistributed to SLP
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.2),
-  // Share of protocol pools rewards redistributed to SLP
-  interestsForSLPs: parseAmount.gwei(0.45),
-  // Share of the protocol interests redistributed to veANGLE holders
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.
+  interestsForSLPs: parseAmount.gwei(0.45),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
   capOnStableMinted: parseAmount.ether(15_000_000),
 
+  // HAs parameters
   limitHAHedge: parseAmount.gwei(0.98),
   targetHAHedge: parseAmount.gwei(0.96),
   maxLeverage: parseAmount.gwei(99),

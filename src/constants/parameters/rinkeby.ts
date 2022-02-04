@@ -10,7 +10,8 @@ import { GlobalParameters, PoolParameters, PoolsParameters, StablesParameters } 
 const poolsParameters_USDC: PoolParameters = {
   decimals: 6,
 
-  // x: horizontal axis steps relative to the hedge ratio, y: amount of fees
+  // x: horizontal axis steps relative to the hedge ratio
+  // y: fees
   // here, fees increae from 0.2% to 0.3% between 70% and 80% of hedge ratio, and then stay at 0.3%
   xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.7), parseAmount.gwei(0.8), parseAmount.gwei(1)],
   yFeeMint: [parseAmount.gwei(0.003), parseAmount.gwei(0.003), parseAmount.gwei(0.002), parseAmount.gwei(0.002)],
@@ -31,7 +32,8 @@ const poolsParameters_USDC: PoolParameters = {
   // SlippageFee: share of total SLPs earnings that should be distributed to SLPs that won't be due to a very low collateral ratio.
   // NO SLIPPAGEFEE WITHOUT SLIPPAGE
 
-  // x: horizontal axis steps relative to the collateral ratio, y: ratio of fees
+  // x: horizontal axis steps relative to the collateral ratio
+  // y: ratio of fees
   xSlippage: [parseAmount.gwei(0.8), parseAmount.gwei(0.9), parseAmount.gwei(1), parseAmount.gwei(1.2)],
   ySlippage: [parseAmount.gwei(0.2), parseAmount.gwei(0.05), parseAmount.gwei(0.01), parseAmount.gwei(0)],
   xSlippageFee: [parseAmount.gwei(0.5), parseAmount.gwei(1), parseAmount.gwei(1.2)],
@@ -57,14 +59,21 @@ const poolsParameters_USDC: PoolParameters = {
   // Max interests that can be distributed to SLPs in a block
   // Need to be tuned for each collateral
   maxInterestsDistributed: parseAmount.usdc(1000),
+ 
 
-  // Share of protocol fees redistributed to SLP
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.1),
-  // Share of protocol pools rewards redistributed to SLP
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
+  interestsForSurplus: parseAmount.gwei(0.2),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.  
   interestsForSLPs: parseAmount.gwei(0.6),
 
-  // Share of the protocol interests redistributed to veANGLE holders
-  interestsForSurplus: parseAmount.gwei(0.2),
+
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -178,12 +187,17 @@ const poolsParameters_DAI: PoolParameters = {
   // Need to be tuned for each collateral
   maxInterestsDistributed: parseAmount.dai(1000),
 
-  // Share of protocol fees redistributed to SLP
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.1),
-  // Share of protocol pools rewards redistributed to SLP
-  interestsForSLPs: parseAmount.gwei(0.6),
-  // Share of the protocol interests redistributed to veANGLE holders
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.2),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.  
+  interestsForSLPs: parseAmount.gwei(0.6),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -275,10 +289,19 @@ const poolsParameters_WETH: PoolParameters = {
   // Need to be tuned for each collateral
   maxInterestsDistributed: parseAmount.ether(1),
 
+
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.1),
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
+  interestsForSurplus: parseAmount.gwei(0.2),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.  
   interestsForSLPs: parseAmount.gwei(0.6),
 
-  interestsForSurplus: parseAmount.gwei(0.2),
 
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
@@ -364,9 +387,19 @@ const poolsParameters_WBTC: PoolParameters = {
 
   maxInterestsDistributed: multByPow(100, 8),
 
+
+  // FEES
+  // Share of protocol fees redistributed to SLP. The rest goes to the protocol reserves.
   feesForSLPs: parseAmount.gwei(0.5),
-  interestsForSLPs: parseAmount.gwei(0.5),
+
+  // INTEREST
+  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.2),
+  // Share of protocol interest redistributed to SLP.
+  // The rest goes to the protocol reserves.  
+  interestsForSLPs: parseAmount.gwei(0.5),
+
 
   // DISABLED AT THE MOMENT.
   capOnStableMinted: ethers.constants.MaxUint256,
