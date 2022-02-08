@@ -52,7 +52,7 @@ const poolsParameters_USDC: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline.
   // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
@@ -66,13 +66,12 @@ const poolsParameters_USDC: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.4),
 
   // INTEREST
-  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // Share of the protocol interest redistributed to veANGLE holders as surplus.
   // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
   // Share of protocol interest redistributed to SLP.
-  // The rest goes to the protocol reserves.  
+  // The rest goes to the protocol reserves.
   interestsForSLPs: parseAmount.gwei(0.6),
-
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -120,10 +119,10 @@ const poolsParameters_USDC: PoolParameters = {
       rewardDuration: BigNumber.from(3600 * 24 * 7 + 1200),
       // incentive per period for keepers to enforce the scheduled updates
       // the amount is in ANGLE and not ETH, .ether is here for formatting
-      incentiveAmount: parseAmount.ether(100), 
+      incentiveAmount: parseAmount.ether(100),
       // total amount of gov tokens per agToken-collateral pair to distribute on the whole staking period
       // the amount is in ANGLE and not ETH, .ether is here for formatting
-      amountToDistribute: parseAmount.ether('6256520.883'), 
+      amountToDistribute: parseAmount.ether('6256520.883'),
     },
     {
       type: 'SLP',
@@ -185,7 +184,7 @@ const poolsParameters_DAI: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline.
   // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
@@ -199,13 +198,12 @@ const poolsParameters_DAI: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.2),
 
   // INTEREST
-  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // Share of the protocol interest redistributed to veANGLE holders as surplus.
   // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
   // Share of protocol interest redistributed to SLP.
   // The rest goes to the protocol reserves.
   interestsForSLPs: parseAmount.gwei(0.6),
-
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -307,7 +305,7 @@ const poolsParameters_FEI: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline.
   // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
@@ -321,13 +319,12 @@ const poolsParameters_FEI: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.2),
 
   // INTEREST
-  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // Share of the protocol interest redistributed to veANGLE holders as surplus.
   // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
   // Share of protocol interest redistributed to SLP.
   // The rest goes to the protocol reserves.
   interestsForSLPs: parseAmount.gwei(0.45),
-
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -428,7 +425,7 @@ const poolsParameters_FRAX: PoolParameters = {
   yBonusMalusBurn: [parseAmount.gwei(1)],
 
   // Keeper rewards for force-closing positions.
-  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline. 
+  // They should be highest when x is at 0.5, putting the hedge ratio back at target, and have a sharp decline.
   // No fees given when we stay above target.
   xKeeperFeesClosing: [parseAmount.gwei(0.495), parseAmount.gwei(0.5), parseAmount.gwei(0.5).add(BigNumber.from(1))],
   yKeeperFeesClosing: [parseAmount.gwei(0), parseAmount.gwei(0.6), parseAmount.gwei(0)],
@@ -442,7 +439,7 @@ const poolsParameters_FRAX: PoolParameters = {
   feesForSLPs: parseAmount.gwei(0.2),
 
   // INTEREST
-  // Share of the protocol interest redistributed to veANGLE holders as surplus. 
+  // Share of the protocol interest redistributed to veANGLE holders as surplus.
   // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
   interestsForSurplus: parseAmount.gwei(0.5),
   // Share of protocol interest redistributed to SLP.
@@ -470,7 +467,7 @@ const poolsParameters_FRAX: PoolParameters = {
   strategies: [
     {
       type: 'Strategy',
-      debtRatio: parseAmount.gwei(0.95),
+      debtRatio: parseAmount.gwei(0.9),
       params: {
         pathComp: '0x',
         pathAave:
