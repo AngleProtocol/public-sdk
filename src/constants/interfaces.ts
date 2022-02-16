@@ -28,6 +28,7 @@ import {
   SurplusConverterSanTokens__factory,
   SurplusConverterUniV3__factory,
   GenericCompound__factory,
+  OneInchAggregatorV4__factory,
 } from './types';
 
 export const ERC20_Interface = Erc20__factory.createInterface();
@@ -56,6 +57,8 @@ export const GaugeController_Interface = GaugeController__factory.createInterfac
 export const LiquidityGaugeV4_Interface = LiquidityGaugeV4__factory.createInterface();
 export const veANGLE_Interface = VeANGLE__factory.createInterface();
 export const veBoostProxy_Interface = VeBoostProxy__factory.createInterface();
+
+export const OneInchAggregatorV4_Interface = OneInchAggregatorV4__factory.createInterface();
 
 export const AgToken_Abi = AgToken__factory.abi;
 export const ERC20_Abi = Erc20__factory.abi;
@@ -87,5 +90,7 @@ export const ANGLE_Abi = ANGLE__factory.abi;
 export const Governor_Abi = Governor__factory.abi;
 export const Timelock_Abi = Timelock__factory.abi;
 export const veANGLE_Abi = VeANGLE__factory.abi;
+
+export const OneInchAggregatorV4 = OneInchAggregatorV4__factory.abi;
 
 export * from './types';
