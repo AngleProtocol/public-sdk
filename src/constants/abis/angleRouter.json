@@ -1,0 +1,855 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "what",
+        "type": "bytes32"
+      }
+    ],
+    "name": "AdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "stableMaster",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "poolManager",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "liquidityGauge",
+        "type": "address"
+      }
+    ],
+    "name": "CollateralToggled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Recovered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sanToken",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newLiquidityGauge",
+        "type": "address"
+      }
+    ],
+    "name": "SanTokenLiquidityGaugeUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "stableMaster",
+        "type": "address"
+      }
+    ],
+    "name": "StablecoinAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "stableMaster",
+        "type": "address"
+      }
+    ],
+    "name": "StablecoinRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "activated",
+        "type": "bool"
+      }
+    ],
+    "name": "TokenToggled",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "BASE_PARAMS",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20[]",
+        "name": "_stablecoins",
+        "type": "address[]"
+      },
+      {
+        "internalType": "contract IPoolManager[]",
+        "name": "_poolManagers",
+        "type": "address[]"
+      },
+      {
+        "internalType": "contract ILiquidityGauge[]",
+        "name": "liquidityGauges",
+        "type": "address[]"
+      }
+    ],
+    "name": "addPairs",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_stablecoin",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IStableMasterFront",
+        "name": "_stableMaster",
+        "type": "address"
+      }
+    ],
+    "name": "addStableMaster",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "margin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "perpetualID",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "addressProcessed",
+        "type": "bool"
+      },
+      {
+        "internalType": "address",
+        "name": "stablecoinOrPerpetualManager",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_collateral",
+        "type": "address"
+      }
+    ],
+    "name": "addToPerpetual",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "spenders",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "changeAllowance",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "liquidityGauges",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "perpetualIDs",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bool",
+        "name": "addressesProcessed",
+        "type": "bool"
+      },
+      {
+        "internalType": "address[]",
+        "name": "_stablecoinsOrStableMasters",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "_collateralsOrPoolManagers",
+        "type": "address[]"
+      }
+    ],
+    "name": "claimRewards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "addressProcessed",
+        "type": "bool"
+      },
+      {
+        "internalType": "address",
+        "name": "stablecoinOrStableMaster",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_collateral",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPoolManager",
+        "name": "poolManager",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISanToken",
+        "name": "sanToken",
+        "type": "address"
+      }
+    ],
+    "name": "deposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "contract ILiquidityGauge",
+        "name": "gauge",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "shouldClaimRewards",
+        "type": "bool"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "name": "gaugeDeposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "governor",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "guardian",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_governor",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_guardian",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IUniswapV3Router",
+        "name": "_uniswapV3Router",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_oneInch",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IStableMasterFront",
+        "name": "existingStableMaster",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPoolManager[]",
+        "name": "existingPoolManagers",
+        "type": "address[]"
+      },
+      {
+        "internalType": "contract ILiquidityGauge[]",
+        "name": "existingLiquidityGauges",
+        "type": "address[]"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IStableMasterFront",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "mapPoolManagers",
+    "outputs": [
+      {
+        "internalType": "contract IPoolManager",
+        "name": "poolManager",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPerpetualManagerFrontWithClaim",
+        "name": "perpetualManager",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISanToken",
+        "name": "sanToken",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ILiquidityGauge",
+        "name": "gauge",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "mapStableMasters",
+    "outputs": [
+      {
+        "internalType": "contract IStableMasterFront",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minStableAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "addressProcessed",
+        "type": "bool"
+      },
+      {
+        "internalType": "address",
+        "name": "stablecoinOrStableMaster",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_collateral",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPoolManager",
+        "name": "poolManager",
+        "type": "address"
+      }
+    ],
+    "name": "mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "value",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint8",
+            "name": "v",
+            "type": "uint8"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "r",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "s",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct AngleRouter.PermitType[]",
+        "name": "paramsPermit",
+        "type": "tuple[]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "contract IERC20",
+            "name": "inToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct AngleRouter.TransferType[]",
+        "name": "paramsTransfer",
+        "type": "tuple[]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "contract IERC20",
+            "name": "inToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "collateral",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "minAmountOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "args",
+            "type": "bytes"
+          },
+          {
+            "internalType": "enum AngleRouter.SwapType",
+            "name": "swapType",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct AngleRouter.ParamsSwapType[]",
+        "name": "paramsSwap",
+        "type": "tuple[]"
+      },
+      {
+        "internalType": "enum AngleRouter.ActionType[]",
+        "name": "actions",
+        "type": "uint8[]"
+      },
+      {
+        "internalType": "bytes[]",
+        "name": "datas",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "mixer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "oneInch",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "oneInchAllowedToken",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "margin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountCommitted",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxOracleRate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minNetMargin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "addressProcessed",
+        "type": "bool"
+      },
+      {
+        "internalType": "address",
+        "name": "stablecoinOrPerpetualManager",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_collateral",
+        "type": "address"
+      }
+    ],
+    "name": "openPerpetual",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "recoverERC20",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20[]",
+        "name": "_stablecoins",
+        "type": "address[]"
+      },
+      {
+        "internalType": "contract IERC20[]",
+        "name": "_collaterals",
+        "type": "address[]"
+      },
+      {
+        "internalType": "contract IStableMasterFront[]",
+        "name": "_stableMasters",
+        "type": "address[]"
+      }
+    ],
+    "name": "removePairs",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_stablecoin",
+        "type": "address"
+      }
+    ],
+    "name": "removeStableMaster",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "what",
+        "type": "bytes32"
+      }
+    ],
+    "name": "setGovernorOrGuardian",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20[]",
+        "name": "_stablecoins",
+        "type": "address[]"
+      },
+      {
+        "internalType": "contract IERC20[]",
+        "name": "_collaterals",
+        "type": "address[]"
+      },
+      {
+        "internalType": "contract ILiquidityGauge[]",
+        "name": "newLiquidityGauges",
+        "type": "address[]"
+      }
+    ],
+    "name": "setLiquidityGauges",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "uniAllowedToken",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "uniswapV3Router",
+    "outputs": [
+      {
+        "internalType": "contract IUniswapV3Router",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

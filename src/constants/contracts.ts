@@ -26,6 +26,7 @@ export const StableTokens = ['agCHF', 'agEUR', 'agGBP', 'agJPY', 'agUSD'] as con
 
 const GlobalContracts = [
   'ANGLE',
+  'AngleRouter',
   'BondingCurve',
   'Core',
   'GaugeController',
