@@ -132,10 +132,10 @@ export const ALL_TOKENS: AllTokens = {
   [ChainId.RINKEBY]: {
     [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.RINKEBY)),
     [AssetType.COLLATERAL]: arrayOfTokensToTokenDict([
-      new Token(ChainId.RINKEBY, '0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa', 18, 'DAI', 'Dai Stablecoin'),
-      new Token(ChainId.RINKEBY, '0x4DBCdF9B62e891a7cec5A2568C3F4FAF9E8Abe2b', 6, 'USDC', 'USD Coin'),
-      new Token(ChainId.RINKEBY, '0xc778417E063141139Fce010982780140Aa0cD5Ab', 18, 'WETH', 'Wrapped Ether'),
-      new Token(ChainId.RINKEBY, '0x577d296678535e4903d59a4c929b718e1d575e0a', 8, 'WBTC', 'Wrapped Bitcoin'),
+      new Token(ChainId.RINKEBY, '0xFafc4C0318F8758A17585767890Da43db1a560A5', 18, 'DAI', 'Dai Stablecoin'),
+      new Token(ChainId.RINKEBY, '0x490Fb85babC4601Da0A6D7dd549082e7CF9745B0', 6, 'USDC', 'USD Coin'),
+      new Token(ChainId.RINKEBY, '0x36831B2cc0371436A361fFC0EFd34bC0eCC33e2b', 18, 'WETH', 'Wrapped Ether'),
+      new Token(ChainId.RINKEBY, '0x0e23236781A99ab9c9f1D6e4c1853597f3510768', 8, 'WBTC', 'Wrapped Bitcoin'),
     ]),
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([
       // TODO: change to correct token
