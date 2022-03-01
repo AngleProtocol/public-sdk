@@ -30,6 +30,7 @@ const GlobalContracts = [
   'BondingCurve',
   'Core',
   'GaugeController',
+  'Guardian',
   'Governor',
   'RewardsDistributor',
   'AngleDistributor',
