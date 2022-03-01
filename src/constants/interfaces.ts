@@ -9,6 +9,7 @@ import {
   FeeDistributor__factory,
   FeeManager__factory,
   GaugeController__factory,
+  Guardian__factory,
   Governor__factory,
   LiquidityGaugeV4__factory,
   Oracle__factory,
@@ -76,6 +77,7 @@ export const PerpetualManagerFront_Abi = PerpetualManagerFront__factory.abi;
 export const PoolManager_Abi = PoolManager__factory.abi;
 
 export const ANGLE_Interface = ANGLE__factory.createInterface();
+export const Guardian_Interface = Guardian__factory.createInterface();
 export const Governor_Interface = Governor__factory.createInterface();
 export const Timelock_Interface = Timelock__factory.createInterface();
 
@@ -89,6 +91,7 @@ export const LiquidityGaugeV4_Abi = LiquidityGaugeV4__factory.abi;
 export const veBoostProxy_Abi = VeBoostProxy__factory.abi;
 
 export const ANGLE_Abi = ANGLE__factory.abi;
+export const Guardian_Abi = Guardian__factory.abi;
 export const Governor_Abi = Governor__factory.abi;
 export const Timelock_Abi = Timelock__factory.abi;
 export const veANGLE_Abi = VeANGLE__factory.abi;
