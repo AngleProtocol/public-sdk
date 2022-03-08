@@ -1,42 +1,79 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      // Allows for the parsing of JSX
-      jsx: true,
-    },
-  },
-  ignorePatterns: ['node_modules/**/*'],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-  plugins: ['prettier', 'simple-import-sort'],
   extends: [
-    'plugin:react/recommended',
+    'standard',
+    'plugin:promise/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-    'prettier',
     'plugin:prettier/recommended',
   ],
+  plugins: ['mocha-no-only', 'promise', 'prettier', '@typescript-eslint', 'simple-import-sort', 'mocha'],
+  env: {
+    browser: true,
+    node: true,
+    mocha: true,
+    jest: true,
+  },
+  globals: {
+    artifacts: false,
+    contract: false,
+    assert: false,
+    web3: false,
+    usePlugin: false,
+    extendEnvironment: false,
+  },
   rules: {
-    '@typescript-eslint/explicit-function-return-type': 'off',
+    // Strict mode
+    strict: ['error', 'global'],
     'prettier/prettier': 'error',
-    '@typescript-eslint/no-explicit-any': 'off',
+    // Code style
+    'array-bracket-spacing': ['off'],
+    camelcase: ['error', { properties: 'always', allow: ['*__factory'] }],
+    'comma-dangle': ['error', 'always-multiline'],
+    'comma-spacing': ['error', { before: false, after: true }],
+    'dot-notation': ['error', { allowKeywords: true, allowPattern: '' }],
+    'eol-last': ['error', 'always'],
+    eqeqeq: ['error', 'smart'],
+    'generator-star-spacing': ['error', 'before'],
+    'linebreak-style': ['error', 'unix'],
+    'max-len': ['error', 150, 2, { ignoreComments: true }],
+    'no-debugger': 'off',
+    'no-dupe-args': 'error',
+    'no-dupe-keys': 'error',
+    'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
+    'no-redeclare': ['error', { builtinGlobals: true }],
+    'no-trailing-spaces': ['error', { skipBlankLines: false }],
+    'no-unused-expressions': 'off',
+    'no-non-null-asserted-optional-chain': 'off',
+    'no-undef': 'error',
+    'no-use-before-define': 'off',
+    'no-var': 'error',
+    'object-curly-spacing': ['error', 'always'],
+    'prefer-const': 'error',
+    semi: ['error', 'always'],
+    'space-before-function-paren': 0,
+    '@typescript-eslint/no-non-null-assertion': 0,
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    'react/prop-types': 'off',
-    'max-len': ['error', { code: 180, ignoreComments: true, ignoreTrailingComments: true, ignoreStrings: true }],
+    'mocha-no-only/mocha-no-only': ['error'],
+    'promise/always-return': 'off',
+    'promise/avoid-new': 'off',
   },
   overrides: [
     {
-      files: ['./src/interfaces/*'],
+      files: ['*.js'],
       rules: {
-        '@typescript-eslint/camelcase': [0],
+        '@typescript-eslint/no-var-requires': [0],
+      },
+    },
+    {
+      files: ['./test/**/*'],
+      rules: {
+        camelcase: [0],
       },
     },
   ],
+  parserOptions: {
+    ecmaVersion: 2018,
+  },
 };

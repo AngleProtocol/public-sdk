@@ -522,20 +522,6 @@ const globalParameters: GlobalParameters = {
       },
     },
   ],
-
-  // Governance specific parameters. Quorum is hardcoded.
-  // TODO This is no longer useful
-  quorum: parseAmount.ether(5_000_000), // 0.5% of total supply
-  proposalThreshold: parseAmount.ether(5_000_000),
-  votingPeriod: BigNumber.from(35000), // Approx 6 days
-  votingDelay: BigNumber.from(6),
-  timelockDelay: BigNumber.from(0),
-
-  // Bonding Curve
-  // TODO This is no longer useful
-  bondingCurveTotalTokenToSell: parseAmount.ether(180_000_000),
-  bondingCurveStartPrice: parseAmount.ether(3),
-  bondingCurveStablecoins: ['EUR', 'USD', 'JPY', 'CHF', 'GBP'],
 };
 
 export default {
