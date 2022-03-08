@@ -1,7 +1,7 @@
 import { ChainId } from '../types';
+import AURORA_ADDRESSES from './contracts_addresses/aurora.json';
 import AVALANCHE_ADDRESSES from './contracts_addresses/avalanche.json';
 import BSC_ADDRESSES from './contracts_addresses/bsc.json';
-import AURORA_ADDRESSES from './contracts_addresses/aurora.json';
 import FANTOM_ADDRESSES from './contracts_addresses/fantom.json';
 import LOCAL_ADDRESSES from './contracts_addresses/local.json';
 import MAINNET_CONTRACTS from './contracts_addresses/mainnet.json';

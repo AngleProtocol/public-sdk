@@ -1,4 +1,5 @@
 import { BigNumber, ethers } from 'ethers';
+
 import { AngleRouter__factory } from '../constants/types';
 
 const data =
@@ -31,7 +32,6 @@ export function main(data: string) {
       else if (actions[index] === ActionType.claimRewards) return decodeClaimRewards(data);
       else if (actions[index] === ActionType.claimWeeklyInterest) return decodeClaimWeeklyInterest(data);
       else if (actions[index] === ActionType.gaugeDeposit) return decodeGaugeDeposit(data);
-      return;
     })
   );
 }

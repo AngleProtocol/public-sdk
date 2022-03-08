@@ -9,6 +9,7 @@ export class Int256 {
   public static from(value: BigNumberish | Int256, base = 18): Int256 {
     return new Int256(value, base, false);
   }
+
   public static parse(value: BigNumberish | Int256, base = 18): Int256 {
     return new Int256(value, base, true);
   }
@@ -43,7 +44,7 @@ export class Int256 {
   }
 
   public toNumber(decimals = -1): number {
-      return parseFloat(utils.formatUnits(this.value, this.base));
+    return parseFloat(utils.formatUnits(this.value, this.base));
   }
 
   public toExact(decimals = -1): string {

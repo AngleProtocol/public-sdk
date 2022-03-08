@@ -146,7 +146,7 @@ export type FlashLoanParameters = {
 
 export type VaultManagerParameters = {
   collateral: string; // Collateral Address
-  symbol: string; 
+  symbol: string;
   oracle: string; // Oracle Name
   params: {
     debtCeiling: BigNumber;
@@ -159,7 +159,7 @@ export type VaultManagerParameters = {
     liquidationBooster: BigNumber;
     whitelistingActivated: boolean;
     baseBoost: BigNumber;
-  }
+  };
 };
 
 export type StableParameters = {

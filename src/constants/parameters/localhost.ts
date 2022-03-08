@@ -1,5 +1,4 @@
-import { ethers } from 'ethers';
-import { BigNumber } from 'ethers';
+import { BigNumber, ethers } from 'ethers';
 
 import { parseAmount } from '../../utils/bignumber';
 import { GlobalParameters, PoolParameters, PoolsParameters, StablesParameters } from './types';
@@ -531,23 +530,23 @@ const stablesParameters: StablesParameters = {
     },
     vaultManagers: [
       {
-        collateral: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-        symbol: "ETH/agEUR",
-        oracle: "ETH_EUR",
+        collateral: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        symbol: 'ETH/agEUR',
+        oracle: 'ETH_EUR',
         params: {
-          debtCeiling:  parseAmount.gwei('100000000'),
-          collateralFactor:  parseAmount.gwei('0.5'),
-          targetHealthFactor:  parseAmount.gwei('1.1'),
-          borrowFee:  parseAmount.gwei('0'),
-          interestRate:  ethers.utils.parseUnits('0.000000001243680714', 27),
-          liquidationSurcharge:  parseAmount.gwei('0.9'),
-          maxLiquidationDiscount:  parseAmount.gwei('0.1'),
-          liquidationBooster:  parseAmount.gwei('0.1'),
+          debtCeiling: parseAmount.gwei('100000000'),
+          collateralFactor: parseAmount.gwei('0.5'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          interestRate: ethers.utils.parseUnits('0.000000001243680714', 27),
+          liquidationSurcharge: parseAmount.gwei('0.9'),
+          maxLiquidationDiscount: parseAmount.gwei('0.1'),
+          liquidationBooster: parseAmount.gwei('0.1'),
           whitelistingActivated: false,
           baseBoost: parseAmount.gwei('1'),
         },
       },
-    ]
+    ],
   },
 };
 

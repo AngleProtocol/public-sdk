@@ -1,5 +1,4 @@
-import { ethers } from 'ethers';
-import { BigNumber } from 'ethers';
+import { BigNumber, ethers } from 'ethers';
 
 import { parseAmount } from '../../utils/bignumber';
 import { GlobalParameters, PoolParameters, PoolsParameters, StablesParameters } from './types';
