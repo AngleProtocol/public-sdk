@@ -57,7 +57,7 @@ export async function updateUsersSLP(
   const collat = parseCollat(collateral);
 
   const addresses = CONTRACTS_ADDRESSES[chainId];
-  const address = addresses[stable.symbol]?.collaterals?.[collat.symbol]['FeeManager'];
+  const address = addresses[stable.symbol]?.collaterals?.[collat.symbol].FeeManager;
 
   if (!address) throw new Error("Can't find contract's address");
 

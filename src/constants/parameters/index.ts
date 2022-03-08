@@ -2,6 +2,7 @@ import { ChainId } from '../../types';
 import localhost from './localhost';
 import mainnet from './mainnet';
 import rinkeby from './rinkeby';
+import test from './test';
 import { GlobalParameters, PoolsParameters, StablesParameters } from './types';
 
 export default (
@@ -13,5 +14,5 @@ export default (
   if (chainID === ChainId.MAINNET) {
     return mainnet;
   }
-  return localhost;
+  return test;
 };

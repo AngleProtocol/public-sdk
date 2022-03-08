@@ -56,7 +56,13 @@ export const ALL_TOKENS: AllTokens = {
       new Token(ChainId.MAINNET, '0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f', 18, 'G-Uni agEUR/wETH', 'Gelato Uniswap agEUR/wETH LP'),
       new Token(ChainId.MAINNET, '0x1f4c763bde1d4832b3ea0640e66da00b98831355', 18, 'SLP agEUR/ANGLE', 'SushiSwap LP agEUR/ANGLE'),
       new Token(ChainId.MAINNET, '0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571', 18, '3EURpool-f', 'Curve.fi Factory Plain Pool: 3EURpool'),
-      new Token(ChainId.MAINNET, '0xb37d6c07482bc11cd28a1f11f1a6ad7b66dec933', 18, 'ag+ib-EUR-f', 'Curve.fi Factory Plain Pool:ag+ib-EUR-f'),
+      new Token(
+        ChainId.MAINNET,
+        '0xb37d6c07482bc11cd28a1f11f1a6ad7b66dec933',
+        18,
+        'ag+ib-EUR-f',
+        'Curve.fi Factory Plain Pool:ag+ib-EUR-f'
+      ),
       new Token(ChainId.MAINNET, '0xF89CE5eD65737dA8440411544b0499c9FaD323B2', 18, 'UNI-V2 agEUR/FEI', 'Uniswap V2 agEUR/FEI'),
     ]),
     [AssetType.ANGLE]: new Token(

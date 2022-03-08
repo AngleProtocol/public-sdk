@@ -68,7 +68,13 @@ export const getCalls = (chainId: ChainId) => {
         );
 
         /* Oracle */
-        rates.push(addCall(Interfaces.Oracle__factory.createInterface(), oracleAddr, Interfaces.Oracle__factory.createInterface().functions['readAll()'].name));
+        rates.push(
+          addCall(
+            Interfaces.Oracle__factory.createInterface(),
+            oracleAddr,
+            Interfaces.Oracle__factory.createInterface().functions['readAll()'].name
+          )
+        );
 
         /* Stable Master */
         collateralMaps.push(

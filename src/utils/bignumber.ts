@@ -132,9 +132,9 @@ export function formatNumber(num: number, decimals = 3, output: 'number' | 'perc
     num = Number.POSITIVE_INFINITY;
   }
 
-  if (round && num > 0 && 0.0001 > num) return '<0.0001';
+  if (round && num > 0 && num < 0.0001) return '<0.0001';
 
-  if (num > 0 && 1 > num && output === 'number') {
+  if (num > 0 && num < 1 && output === 'number') {
     const strs = num.toFixed(20).split('.');
     if (strs && strs.length && strs[1]) {
       for (const n of strs[1]) {

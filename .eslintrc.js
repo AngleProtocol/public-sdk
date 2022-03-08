@@ -9,11 +9,6 @@ module.exports = {
     },
   },
   ignorePatterns: ['node_modules/**/*'],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   plugins: ['prettier', 'simple-import-sort'],
   extends: [
     'plugin:react/recommended',

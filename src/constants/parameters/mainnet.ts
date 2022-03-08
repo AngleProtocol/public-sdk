@@ -1,5 +1,4 @@
-import { ethers } from 'ethers';
-import { BigNumber } from 'ethers';
+import { BigNumber, ethers } from 'ethers';
 
 import { parseAmount } from '../../utils/bignumber';
 import { GlobalParameters, PoolParameters, PoolsParameters, StablesParameters } from './types';
@@ -589,20 +588,6 @@ const globalParameters: GlobalParameters = {
       },
     },
   ],
-
-  // Governance specific parameters. Quorum is hardcoded.
-  // Small quorum but high voting delay: 2.5%
-  quorum: parseAmount.ether(5_000_000), // 0.5% of total supply
-  proposalThreshold: parseAmount.ether(2_500_000), // 0.4% of total supply
-  // Attention: the following are number of blocks
-  votingPeriod: BigNumber.from(19636), // Approx 5 days assuming 13s block
-  votingDelay: BigNumber.from(545), // Time for people to review the proposal -> approx 2 days
-  // Attention: this is a number of seconds
-  timelockDelay: BigNumber.from(0), // 2 days
-
-  bondingCurveTotalTokenToSell: BigNumber.from(0),
-  bondingCurveStartPrice: BigNumber.from(0),
-  bondingCurveStablecoins: ['EUR'],
 };
 
 export default {

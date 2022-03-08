@@ -139,21 +139,38 @@ export type PoolParameters = {
 
 export type PoolsParameters = { [stableName: string]: { [collateralName: string]: PoolParameters } };
 
+export type FlashLoanParameters = {
+  maxBorrowable: BigNumber;
+  flashLoanFee: BigNumber;
+};
+
+export type VaultManagerParameters = {
+  collateral: string; // Collateral Address
+  symbol: string;
+  oracle: string; // Oracle Name
+  params: {
+    debtCeiling: BigNumber;
+    collateralFactor: BigNumber;
+    targetHealthFactor: BigNumber;
+    borrowFee: BigNumber;
+    interestRate: BigNumber;
+    liquidationSurcharge: BigNumber;
+    maxLiquidationDiscount: BigNumber;
+    liquidationBooster: BigNumber;
+    whitelistingActivated: boolean;
+    baseBoost: BigNumber;
+  };
+};
+
 export type StableParameters = {
   stakings: StakingType[];
   currencySymbol: string;
+  flashloan?: FlashLoanParameters;
+  vaultManagers?: VaultManagerParameters[];
 };
 
 export type StablesParameters = { [stableName: string]: StableParameters };
 
 export type GlobalParameters = {
   oracles: OracleType[];
-  timelockDelay: BigNumber;
-  bondingCurveTotalTokenToSell: BigNumber;
-  bondingCurveStartPrice: BigNumber;
-  bondingCurveStablecoins: string[];
-  quorum: BigNumber;
-  votingPeriod: BigNumber;
-  votingDelay: BigNumber;
-  proposalThreshold: BigNumber;
 };
