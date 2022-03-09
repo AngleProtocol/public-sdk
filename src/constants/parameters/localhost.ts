@@ -541,7 +541,6 @@ const stablesParameters: StablesParameters = {
           interestRate: ethers.utils.parseUnits('0.000000001243680714', 27),
           liquidationSurcharge: parseAmount.gwei('0.9'),
           maxLiquidationDiscount: parseAmount.gwei('0.1'),
-          liquidationBooster: parseAmount.gwei('0.1'),
           whitelistingActivated: false,
           baseBoost: parseAmount.gwei('1'),
         },

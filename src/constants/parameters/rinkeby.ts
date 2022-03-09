@@ -1,4 +1,5 @@
 import { BigNumber, ethers } from 'ethers';
+import { parseEther, parseUnits } from 'ethers/lib/utils';
 
 import { multByPow, parseAmount } from '../../utils/bignumber';
 import { GlobalParameters, PoolParameters, PoolsParameters, StablesParameters } from './types';
@@ -447,7 +448,8 @@ const poolsParameters: PoolsParameters = {
     WBTC: poolsParameters_WBTC,
   },
 };
-
+let yearlyRate = 1.05;
+let ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
 // agTokens specific parameters
 const stablesParameters: StablesParameters = {
   EUR: {
@@ -462,6 +464,25 @@ const stablesParameters: StablesParameters = {
       },
     ],
     currencySymbol: '€',
+    vaultManagers: [
+      {
+        collateral: '0x2628CCa21de1BFF738B200176EC9d2bc4aecd735', // Collateral Address
+        symbol: 'wBTC/EUR',
+        oracle: 'BTC_EUR',
+        params: {
+          debtCeiling: parseEther('1000000000'),
+          collateralFactor: parseAmount.gwei(0.6),
+          targetHealthFactor: parseAmount.gwei(1.25),
+          borrowFee: parseAmount.gwei(0),
+          interestRate: parseUnits(ratePerSecond.toFixed(27), 27),
+          liquidationSurcharge: parseAmount.gwei(0.98),
+          maxLiquidationDiscount: parseAmount.gwei(0.2),
+          whitelistingActivated: false,
+          // TODO change
+          baseBoost: parseAmount.gwei(1),
+        },
+      },
+    ],
   },
 };
 
