@@ -450,6 +450,10 @@ const poolsParameters: PoolsParameters = {
 };
 let yearlyRate = 1.05;
 let ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
+let yearlyRate2 = 1.04;
+let ratePerSecond2 = yearlyRate2 ** (1 / (365 * 24 * 3600)) - 1;
+let yearlyRate3 = 1.01;
+let ratePerSecond3 = yearlyRate3 ** (1 / (365 * 24 * 3600)) - 1;
 // agTokens specific parameters
 const stablesParameters: StablesParameters = {
   EUR: {
@@ -478,8 +482,39 @@ const stablesParameters: StablesParameters = {
           liquidationSurcharge: parseAmount.gwei(0.98),
           maxLiquidationDiscount: parseAmount.gwei(0.2),
           whitelistingActivated: false,
-          // TODO change
           baseBoost: parseAmount.gwei(1),
+        },
+      },
+      {
+        collateral: '0x69B1D0e8D7E138450269D6328dA1865073bE3657', // Collateral Address
+        symbol: 'LINK/EUR',
+        oracle: 'LINK_EUR',
+        params: {
+          debtCeiling: parseEther('1000000000'),
+          collateralFactor: parseAmount.gwei(0.7),
+          targetHealthFactor: parseAmount.gwei(1.25),
+          borrowFee: parseAmount.gwei(0.003),
+          interestRate: parseUnits(ratePerSecond2.toFixed(27), 27),
+          liquidationSurcharge: parseAmount.gwei(0.98),
+          maxLiquidationDiscount: parseAmount.gwei(0.15),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei(0.5),
+        },
+      },
+      {
+        collateral: '0xc778417E063141139Fce010982780140Aa0cD5Ab',
+        symbol: 'wETH/EUR',
+        oracle: 'ETH_EUR',
+        params: {
+          debtCeiling: parseEther('1000000000'),
+          collateralFactor: parseAmount.gwei(0.66),
+          targetHealthFactor: parseAmount.gwei(1.25),
+          borrowFee: parseAmount.gwei(0.003),
+          interestRate: parseUnits(ratePerSecond3.toFixed(27), 27),
+          liquidationSurcharge: parseAmount.gwei(0.98),
+          maxLiquidationDiscount: parseAmount.gwei(0.25),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei(1.5),
         },
       },
     ],
