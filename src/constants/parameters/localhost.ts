@@ -536,7 +536,7 @@ const stablesParameters: StablesParameters = {
     vaultManagers: [
       {
         collateral: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-        symbol: 'wETH/agEUR',
+        symbol: 'wETH/EUR',
         oracle: 'ETH_EUR',
         params: {
           debtCeiling: parseAmount.gwei('100000000'),
@@ -552,7 +552,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
-        symbol: 'wBTC/agEUR',
+        symbol: 'wBTC/EUR',
         oracle: 'BTC_EUR',
         params: {
           debtCeiling: parseAmount.gwei('100000000'),
@@ -568,7 +568,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
-        symbol: 'wStETH/agEUR',
+        symbol: 'wStETH/EUR',
         oracle: 'WSTETH_EUR',
         params: {
           debtCeiling: parseAmount.gwei('100000000'),

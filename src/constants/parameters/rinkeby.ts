@@ -468,6 +468,10 @@ const stablesParameters: StablesParameters = {
       },
     ],
     currencySymbol: '€',
+    flashloan: {
+      maxBorrowable: parseAmount.ether('100000000'),
+      flashLoanFee: parseAmount.gwei('0.001'),
+    },
     vaultManagers: [
       {
         collateral: '0x2628CCa21de1BFF738B200176EC9d2bc4aecd735', // Collateral Address
