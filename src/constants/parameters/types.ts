@@ -156,7 +156,6 @@ export type VaultManagerParameters = {
     interestRate: BigNumber;
     liquidationSurcharge: BigNumber;
     maxLiquidationDiscount: BigNumber;
-    liquidationBooster: BigNumber;
     whitelistingActivated: boolean;
     baseBoost: BigNumber;
   };

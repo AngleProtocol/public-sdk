@@ -14,5 +14,8 @@ export default (
   if (chainID === ChainId.MAINNET) {
     return mainnet;
   }
+  if (chainID === 1337) {
+    return localhost;
+  }
   return test;
 };
