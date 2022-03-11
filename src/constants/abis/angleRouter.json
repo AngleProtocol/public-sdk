@@ -10,9 +10,9 @@
       },
       {
         "indexed": false,
-        "internalType": "bytes32",
-        "name": "what",
-        "type": "bytes32"
+        "internalType": "bool",
+        "name": "setGovernor",
+        "type": "bool"
       }
     ],
     "name": "AdminChanged",
@@ -114,23 +114,17 @@
     "type": "event"
   },
   {
-    "anonymous": false,
-    "inputs": [
+    "inputs": [],
+    "name": "ANGLE",
+    "outputs": [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "token",
+        "internalType": "contract IERC20",
+        "name": "",
         "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "activated",
-        "type": "bool"
       }
     ],
-    "name": "TokenToggled",
-    "type": "event"
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -146,15 +140,41 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "VEANGLE",
+    "outputs": [
+      {
+        "internalType": "contract IVeANGLE",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "WETH9",
+    "outputs": [
+      {
+        "internalType": "contract IWETH9",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "contract IERC20[]",
-        "name": "_stablecoins",
+        "name": "stablecoins",
         "type": "address[]"
       },
       {
         "internalType": "contract IPoolManager[]",
-        "name": "_poolManagers",
+        "name": "poolManagers",
         "type": "address[]"
       },
       {
@@ -172,12 +192,12 @@
     "inputs": [
       {
         "internalType": "contract IERC20",
-        "name": "_stablecoin",
+        "name": "stablecoin",
         "type": "address"
       },
       {
         "internalType": "contract IStableMasterFront",
-        "name": "_stableMaster",
+        "name": "stableMaster",
         "type": "address"
       }
     ],
@@ -210,11 +230,44 @@
       },
       {
         "internalType": "address",
-        "name": "_collateral",
+        "name": "collateral",
         "type": "address"
       }
     ],
     "name": "addToPerpetual",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "dest",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minCollatAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "stablecoin",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "collateral",
+        "type": "address"
+      }
+    ],
+    "name": "burn",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -260,18 +313,41 @@
         "type": "uint256[]"
       },
       {
-        "internalType": "bool",
-        "name": "addressesProcessed",
-        "type": "bool"
+        "internalType": "address[]",
+        "name": "perpetualManagers",
+        "type": "address[]"
+      }
+    ],
+    "name": "claimRewards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "gaugeUser",
+        "type": "address"
       },
       {
         "internalType": "address[]",
-        "name": "_stablecoinsOrStableMasters",
+        "name": "liquidityGauges",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "perpetualIDs",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "stablecoins",
         "type": "address[]"
       },
       {
         "internalType": "address[]",
-        "name": "_collateralsOrPoolManagers",
+        "name": "collaterals",
         "type": "address[]"
       }
     ],
@@ -293,18 +369,13 @@
         "type": "uint256"
       },
       {
-        "internalType": "bool",
-        "name": "addressProcessed",
-        "type": "bool"
-      },
-      {
         "internalType": "address",
-        "name": "stablecoinOrStableMaster",
+        "name": "stableMaster",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "_collateral",
+        "name": "collateral",
         "type": "address"
       },
       {
@@ -315,6 +386,34 @@
       {
         "internalType": "contract ISanToken",
         "name": "sanToken",
+        "type": "address"
+      }
+    ],
+    "name": "deposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "stablecoin",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "collateral",
         "type": "address"
       }
     ],
@@ -501,22 +600,50 @@
         "type": "uint256"
       },
       {
-        "internalType": "bool",
-        "name": "addressProcessed",
-        "type": "bool"
-      },
-      {
         "internalType": "address",
-        "name": "stablecoinOrStableMaster",
+        "name": "stablecoin",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "_collateral",
+        "name": "collateral",
+        "type": "address"
+      }
+    ],
+    "name": "mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
         "type": "address"
       },
       {
-        "internalType": "contract IPoolManager",
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minStableAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "stableMaster",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "collateral",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
         "name": "poolManager",
         "type": "address"
       }
@@ -637,7 +764,7 @@
     ],
     "name": "mixer",
     "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -711,7 +838,7 @@
       },
       {
         "internalType": "address",
-        "name": "_collateral",
+        "name": "collateral",
         "type": "address"
       }
     ],
@@ -747,17 +874,17 @@
     "inputs": [
       {
         "internalType": "contract IERC20[]",
-        "name": "_stablecoins",
+        "name": "stablecoins",
         "type": "address[]"
       },
       {
         "internalType": "contract IERC20[]",
-        "name": "_collaterals",
+        "name": "collaterals",
         "type": "address[]"
       },
       {
         "internalType": "contract IStableMasterFront[]",
-        "name": "_stableMasters",
+        "name": "stableMasters",
         "type": "address[]"
       }
     ],
@@ -770,7 +897,7 @@
     "inputs": [
       {
         "internalType": "contract IERC20",
-        "name": "_stablecoin",
+        "name": "stablecoin",
         "type": "address"
       }
     ],
@@ -787,9 +914,9 @@
         "type": "address"
       },
       {
-        "internalType": "bytes32",
-        "name": "what",
-        "type": "bytes32"
+        "internalType": "bool",
+        "name": "setGovernor",
+        "type": "bool"
       }
     ],
     "name": "setGovernorOrGuardian",
@@ -801,12 +928,12 @@
     "inputs": [
       {
         "internalType": "contract IERC20[]",
-        "name": "_stablecoins",
+        "name": "stablecoins",
         "type": "address[]"
       },
       {
         "internalType": "contract IERC20[]",
-        "name": "_collaterals",
+        "name": "collaterals",
         "type": "address[]"
       },
       {
@@ -851,5 +978,9 @@
     ],
     "stateMutability": "view",
     "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
   }
 ]
