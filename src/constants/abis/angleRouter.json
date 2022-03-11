@@ -1,5 +1,10 @@
 [
   {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -235,39 +240,6 @@
       }
     ],
     "name": "addToPerpetual",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "dest",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "minCollatAmount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "stablecoin",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "collateral",
-        "type": "address"
-      }
-    ],
-    "name": "burn",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
