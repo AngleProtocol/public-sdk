@@ -153,6 +153,13 @@
   {
     "stateMutability": "nonpayable",
     "type": "constructor",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "initialize",
     "inputs": [
       {
         "name": "_staking_token",
@@ -547,18 +554,6 @@
   {
     "stateMutability": "nonpayable",
     "type": "function",
-    "name": "set_killed",
-    "inputs": [
-      {
-        "name": "_is_killed",
-        "type": "bool"
-      }
-    ],
-    "outputs": []
-  },
-  {
-    "stateMutability": "nonpayable",
-    "type": "function",
     "name": "commit_transfer_ownership",
     "inputs": [
       {
@@ -573,6 +568,26 @@
     "type": "function",
     "name": "accept_transfer_ownership",
     "inputs": [],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "recover_erc20",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "name": "addr",
+        "type": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
     "outputs": []
   },
   {
@@ -796,10 +811,6 @@
     ],
     "outputs": [
       {
-        "name": "token",
-        "type": "address"
-      },
-      {
         "name": "distributor",
         "type": "address"
       },
@@ -886,7 +897,7 @@
   {
     "stateMutability": "view",
     "type": "function",
-    "name": "is_killed",
+    "name": "initialized",
     "inputs": [],
     "outputs": [
       {
