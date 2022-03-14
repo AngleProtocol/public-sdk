@@ -186,8 +186,7 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 548455
+    "outputs": []
   },
   {
     "stateMutability": "view",
@@ -199,8 +198,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 2418
+    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -217,8 +215,7 @@
         "name": "",
         "type": "bool"
       }
-    ],
-    "gas": 3493693
+    ]
   },
   {
     "stateMutability": "view",
@@ -239,8 +236,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 2976
+    ]
   },
   {
     "stateMutability": "view",
@@ -261,8 +257,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 26704
+    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -274,8 +269,7 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 35613
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -322,8 +316,7 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 3514457
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -420,8 +413,7 @@
         "name": "",
         "type": "bool"
       }
-    ],
-    "gas": 14116306
+    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -446,8 +438,7 @@
         "name": "",
         "type": "bool"
       }
-    ],
-    "gas": 14154256
+    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -468,8 +459,7 @@
         "name": "",
         "type": "bool"
       }
-    ],
-    "gas": 39391
+    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -490,8 +480,7 @@
         "name": "",
         "type": "bool"
       }
-    ],
-    "gas": 41935
+    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -512,8 +501,7 @@
         "name": "",
         "type": "bool"
       }
-    ],
-    "gas": 41959
+    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -529,8 +517,7 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 112961
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -546,8 +533,7 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 40711
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -563,8 +549,7 @@
         "type": "uint256"
       }
     ],
-    "outputs": [],
-    "gas": 3585364
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -576,16 +561,14 @@
         "type": "address"
       }
     ],
-    "outputs": [],
-    "gas": 40082
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "accept_transfer_ownership",
     "inputs": [],
-    "outputs": [],
-    "gas": 39930
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -605,8 +588,7 @@
         "type": "uint256"
       }
     ],
-    "outputs": [],
-    "gas": 14043891
+    "outputs": []
   },
   {
     "stateMutability": "view",
@@ -618,8 +600,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3018
+    ]
   },
   {
     "stateMutability": "view",
@@ -631,8 +612,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3048
+    ]
   },
   {
     "stateMutability": "view",
@@ -644,8 +624,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3078
+    ]
   },
   {
     "stateMutability": "view",
@@ -657,8 +636,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3108
+    ]
   },
   {
     "stateMutability": "view",
@@ -670,8 +648,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3138
+    ]
   },
   {
     "stateMutability": "view",
@@ -688,8 +665,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3383
+    ]
   },
   {
     "stateMutability": "view",
@@ -701,8 +677,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3198
+    ]
   },
   {
     "stateMutability": "view",
@@ -723,8 +698,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3658
+    ]
   },
   {
     "stateMutability": "view",
@@ -736,8 +710,7 @@
         "name": "",
         "type": "string"
       }
-    ],
-    "gas": 13488
+    ]
   },
   {
     "stateMutability": "view",
@@ -749,8 +722,7 @@
         "name": "",
         "type": "string"
       }
-    ],
-    "gas": 11241
+    ]
   },
   {
     "stateMutability": "view",
@@ -767,8 +739,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3533
+    ]
   },
   {
     "stateMutability": "view",
@@ -780,8 +751,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3348
+    ]
   },
   {
     "stateMutability": "view",
@@ -798,8 +768,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3593
+    ]
   },
   {
     "stateMutability": "view",
@@ -811,8 +780,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3408
+    ]
   },
   {
     "stateMutability": "view",
@@ -829,8 +797,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3483
+    ]
   },
   {
     "stateMutability": "view",
@@ -863,8 +830,7 @@
         "name": "integral",
         "type": "uint256"
       }
-    ],
-    "gas": 12703
+    ]
   },
   {
     "stateMutability": "view",
@@ -881,8 +847,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3713
+    ]
   },
   {
     "stateMutability": "view",
@@ -903,8 +868,7 @@
         "name": "",
         "type": "uint256"
       }
-    ],
-    "gas": 3958
+    ]
   },
   {
     "stateMutability": "view",
@@ -916,8 +880,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3558
+    ]
   },
   {
     "stateMutability": "view",
@@ -929,8 +892,7 @@
         "name": "",
         "type": "address"
       }
-    ],
-    "gas": 3588
+    ]
   },
   {
     "stateMutability": "view",
@@ -942,7 +904,6 @@
         "name": "",
         "type": "bool"
       }
-    ],
-    "gas": 3618
+    ]
   }
 ]
