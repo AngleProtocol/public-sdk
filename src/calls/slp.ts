@@ -4,8 +4,8 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { ERC20 } from '../constants/types/contracts';
+import { CONTRACTS_ADDRESSES } from '../constants';
+import { ERC20, ERC20__factory, StableMasterFront__factory } from '../constants/types/contracts';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -41,8 +41,8 @@ export async function deposit(
 
   if (!ethers.utils.isAddress(user)) user = await signer.getAddress();
 
-  const token = new ethers.Contract(collat.address, Interfaces.ERC20_Abi) as ERC20;
-  const contract = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Abi);
+  const token = new ethers.Contract(collat.address, ERC20__factory.abi) as ERC20;
+  const contract = new ethers.Contract(stableMasterAddress, StableMasterFront__factory.abi);
 
   // Approval is needed
   const approval = await token.connect(signer).allowance(await signer.getAddress(), stableMasterAddress);
@@ -87,7 +87,7 @@ export async function withdraw(
   if (!ethers.utils.isAddress(burner)) burner = await signer.getAddress();
   if (!ethers.utils.isAddress(dest)) dest = await signer.getAddress();
 
-  const contract = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Abi);
+  const contract = new ethers.Contract(stableMasterAddress, StableMasterFront__factory.abi);
 
   return contract.connect(signer).withdraw(amount, burner, dest, poolManagerAddress, options);
 }
