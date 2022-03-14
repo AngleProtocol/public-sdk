@@ -1,0 +1,489 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "StableMasterInternal",
+  "sourceName": "contracts/stableMaster/StableMasterInternal.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "redeemInC",
+          "type": "uint256"
+        }
+      ],
+      "name": "BurntStablecoins",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_capOnStableMinted",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_maxInterestsDistributed",
+          "type": "uint256"
+        }
+      ],
+      "name": "CapOnStableAndMaxInterestsUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_perpetualManager",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_sanToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_oracle",
+          "type": "address"
+        }
+      ],
+      "name": "CollateralDeployed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        }
+      ],
+      "name": "CollateralRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_xFee",
+          "type": "uint64[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_yFee",
+          "type": "uint64[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "_type",
+          "type": "uint8"
+        }
+      ],
+      "name": "FeeArrayUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newFeeManager",
+          "type": "address"
+        }
+      ],
+      "name": "FeeManagerUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amountForUserInStable",
+          "type": "uint256"
+        }
+      ],
+      "name": "MintedStablecoins",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_oracle",
+          "type": "address"
+        }
+      ],
+      "name": "OracleUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "name",
+          "type": "bytes32"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_feesForSLPs",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_interestsForSLPs",
+          "type": "uint64"
+        }
+      ],
+      "name": "SLPsIncentivesUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_newSanRate",
+          "type": "uint256"
+        }
+      ],
+      "name": "SanRateUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_stocksUsers",
+          "type": "uint256"
+        }
+      ],
+      "name": "StocksUsersUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "name",
+          "type": "bytes32"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "BASE_PARAMS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BASE_TOKENS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "agToken",
+      "outputs": [
+        {
+          "internalType": "contract IAgToken",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IPoolManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "collateralMap",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "contract ISanToken",
+          "name": "sanToken",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IPerpetualManager",
+          "name": "perpetualManager",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IOracle",
+          "name": "oracle",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "stocksUsers",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "sanRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "collatBase",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "lastBlockUpdated",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lockedInterests",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxInterestsDistributed",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "feesAside",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "slippageFee",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "feesForSLPs",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "slippage",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "interestsForSLPs",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct SLPData",
+          "name": "slpData",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint64[]",
+              "name": "xFeeMint",
+              "type": "uint64[]"
+            },
+            {
+              "internalType": "uint64[]",
+              "name": "yFeeMint",
+              "type": "uint64[]"
+            },
+            {
+              "internalType": "uint64[]",
+              "name": "xFeeBurn",
+              "type": "uint64[]"
+            },
+            {
+              "internalType": "uint64[]",
+              "name": "yFeeBurn",
+              "type": "uint64[]"
+            },
+            {
+              "internalType": "uint64",
+              "name": "targetHAHedge",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "bonusMalusMint",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "bonusMalusBurn",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint256",
+              "name": "capOnStableMinted",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MintBurnData",
+          "name": "feeData",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061073b806100206000396000f3fe608060405234801561001057600080fd5b50600436106100675760003560e01c8063ba8b722311610050578063ba8b7223146100bd578063df1b8bd3146100e5578063ee565a63146100f457600080fd5b80639e9e46661461006c5780639f48118f146100a4575b600080fd5b61008f61007a3660046104b6565b60056020526000908152604090205460ff1681565b60405190151581526020015b60405180910390f35b6100af633b9aca0081565b60405190815260200161009b565b6100d06100cb3660046104cf565b610139565b60405161009b99989796959493929190610620565b6100af670de0b6b3a764000081565b6001546101149073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161009b565b60006020818152918152604090819020805460018201546002830154600384015460048501546005860154600687015488516101008082018b5260078a0154825260088a0154828d015260098a0154828c0152600a8a01546060830152600b8a015467ffffffffffffffff8082166080850152680100000000000000008204811660a08501527001000000000000000000000000000000008204811660c085015278010000000000000000000000000000000000000000000000009091041660e08301528a51600c8b0180549d8e028201610120908101909d529181018d815273ffffffffffffffffffffffffffffffffffffffff9a8b169d998b169c988b169b9a90971699959894979396929594909391928492909184918401828280156102b557602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116102705790505b505050505081526020016001820180548060200260200160405190810160405280929190818152602001828054801561034157602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116102fc5790505b50505050508152602001600282018054806020026020016040519081016040528092919081815260200182805480156103cd57602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116103885790505b505050505081526020016003820180548060200260200160405190810160405280929190818152602001828054801561045957602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116104145790505b5050509183525050600482015467ffffffffffffffff808216602084015268010000000000000000820481166040840152700100000000000000000000000000000000909104166060820152600590910154608090910152905089565b6000602082840312156104c857600080fd5b5035919050565b6000602082840312156104e157600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461050557600080fd5b9392505050565b600081518084526020808501945080840160005b8381101561054657815167ffffffffffffffff1687529582019590820190600101610520565b509495945050505050565b600061010082518185526105678286018261050c565b91505060208301518482036020860152610581828261050c565b9150506040830151848203604086015261059b828261050c565b915050606083015184820360608601526105b5828261050c565b91505060808301516105d3608086018267ffffffffffffffff169052565b5060a08301516105ef60a086018267ffffffffffffffff169052565b5060c083015161060b60c086018267ffffffffffffffff169052565b5060e083015160e08501528091505092915050565b600061020073ffffffffffffffffffffffffffffffffffffffff808d168452808c166020850152808b166040850152808a166060850152508760808401528660a08401528560c0840152845160e0840152602085015161010084015260408501516101208401526060850151610140840152608085015167ffffffffffffffff8082166101608601528060a0880151166101808601528060c0880151166101a0860152505060e08501516106e16101c085018267ffffffffffffffff169052565b50806101e08401526106f581840185610551565b9c9b50505050505050505050505056fea264697066735822122074a6fa286cef479a457b2bddf7c3a6b7258f9b32698eaf0277b59ea1adca578864736f6c63430008070033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100675760003560e01c8063ba8b722311610050578063ba8b7223146100bd578063df1b8bd3146100e5578063ee565a63146100f457600080fd5b80639e9e46661461006c5780639f48118f146100a4575b600080fd5b61008f61007a3660046104b6565b60056020526000908152604090205460ff1681565b60405190151581526020015b60405180910390f35b6100af633b9aca0081565b60405190815260200161009b565b6100d06100cb3660046104cf565b610139565b60405161009b99989796959493929190610620565b6100af670de0b6b3a764000081565b6001546101149073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161009b565b60006020818152918152604090819020805460018201546002830154600384015460048501546005860154600687015488516101008082018b5260078a0154825260088a0154828d015260098a0154828c0152600a8a01546060830152600b8a015467ffffffffffffffff8082166080850152680100000000000000008204811660a08501527001000000000000000000000000000000008204811660c085015278010000000000000000000000000000000000000000000000009091041660e08301528a51600c8b0180549d8e028201610120908101909d529181018d815273ffffffffffffffffffffffffffffffffffffffff9a8b169d998b169c988b169b9a90971699959894979396929594909391928492909184918401828280156102b557602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116102705790505b505050505081526020016001820180548060200260200160405190810160405280929190818152602001828054801561034157602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116102fc5790505b50505050508152602001600282018054806020026020016040519081016040528092919081815260200182805480156103cd57602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116103885790505b505050505081526020016003820180548060200260200160405190810160405280929190818152602001828054801561045957602002820191906000526020600020906000905b82829054906101000a900467ffffffffffffffff1667ffffffffffffffff16815260200190600801906020826007010492830192600103820291508084116104145790505b5050509183525050600482015467ffffffffffffffff808216602084015268010000000000000000820481166040840152700100000000000000000000000000000000909104166060820152600590910154608090910152905089565b6000602082840312156104c857600080fd5b5035919050565b6000602082840312156104e157600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461050557600080fd5b9392505050565b600081518084526020808501945080840160005b8381101561054657815167ffffffffffffffff1687529582019590820190600101610520565b509495945050505050565b600061010082518185526105678286018261050c565b91505060208301518482036020860152610581828261050c565b9150506040830151848203604086015261059b828261050c565b915050606083015184820360608601526105b5828261050c565b91505060808301516105d3608086018267ffffffffffffffff169052565b5060a08301516105ef60a086018267ffffffffffffffff169052565b5060c083015161060b60c086018267ffffffffffffffff169052565b5060e083015160e08501528091505092915050565b600061020073ffffffffffffffffffffffffffffffffffffffff808d168452808c166020850152808b166040850152808a166060850152508760808401528660a08401528560c0840152845160e0840152602085015161010084015260408501516101208401526060850151610140840152608085015167ffffffffffffffff8082166101608601528060a0880151166101808601528060c0880151166101a0860152505060e08501516106e16101c085018267ffffffffffffffff169052565b50806101e08401526106f581840185610551565b9c9b50505050505050505050505056fea264697066735822122074a6fa286cef479a457b2bddf7c3a6b7258f9b32698eaf0277b59ea1adca578864736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

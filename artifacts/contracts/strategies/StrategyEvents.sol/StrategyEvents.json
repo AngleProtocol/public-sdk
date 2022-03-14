@@ -1,0 +1,37 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "StrategyEvents",
+  "sourceName": "contracts/strategies/StrategyEvents.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "lender",
+          "type": "address"
+        }
+      ],
+      "name": "AddLender",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "lender",
+          "type": "address"
+        }
+      ],
+      "name": "RemoveLender",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220a117fafb86c30ab6f33aca189b50e79d16a44d496e6d7965cf5d05c7ad459bbe64736f6c63430008070033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220a117fafb86c30ab6f33aca189b50e79d16a44d496e6d7965cf5d05c7ad459bbe64736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

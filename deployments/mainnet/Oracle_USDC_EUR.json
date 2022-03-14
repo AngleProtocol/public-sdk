@@ -1,0 +1,222 @@
+{
+  "address": "0x2859a4eBcB58c8Dd5cAC1419C4F63A071b642B20",
+  "abi": [
+    {
+      "inputs": [
+        { "internalType": "address", "name": "_poolChainlink", "type": "address" },
+        { "internalType": "uint8", "name": "_isChainlinkMultiplied", "type": "uint8" },
+        { "internalType": "uint256", "name": "_inBase", "type": "uint256" },
+        { "internalType": "bytes32", "name": "_description", "type": "bytes32" }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "BASE",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "chainlinkDecimals",
+      "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "description",
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "inBase",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isChainlinkMultiplied",
+      "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "poolChainlink",
+      "outputs": [{ "internalType": "contract AggregatorV3Interface", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "read",
+      "outputs": [{ "internalType": "uint256", "name": "rate", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "readAll",
+      "outputs": [
+        { "internalType": "uint256", "name": "", "type": "uint256" },
+        { "internalType": "uint256", "name": "", "type": "uint256" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "readLower",
+      "outputs": [{ "internalType": "uint256", "name": "rate", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "uint256", "name": "quoteAmount", "type": "uint256" }],
+      "name": "readQuote",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "uint256", "name": "quoteAmount", "type": "uint256" }],
+      "name": "readQuoteLower",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "readUpper",
+      "outputs": [{ "internalType": "uint256", "name": "rate", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x70503a6e364cbb8a7f5840b11221655ce928c64058d3a4cc02d2de934ccb1490",
+  "receipt": {
+    "to": null,
+    "from": "0xfdA462548Ce04282f4B6D6619823a7C64Fdc0185",
+    "contractAddress": "0x2859a4eBcB58c8Dd5cAC1419C4F63A071b642B20",
+    "transactionIndex": 285,
+    "gasUsed": "512741",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xa5357b8c3160ae44d1c76b6451984ee0d10194a93d29cb13ecdfa17b44d9637b",
+    "transactionHash": "0x70503a6e364cbb8a7f5840b11221655ce928c64058d3a4cc02d2de934ccb1490",
+    "logs": [],
+    "blockNumber": 13473158,
+    "cumulativeGasUsed": "22705518",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xb49f677943BC038e9857d61E7d053CaA2C1734C1",
+    0,
+    "1000000",
+    "0x618c7c056ee613e15967a95f943dfd4d9a5950d7f2d80c06b87e0f5f605aef98"
+  ],
+  "solcInputHash": "c1a2cc7754e40d365e6c8a31eb4e6940",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_poolChainlink\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_isChainlinkMultiplied\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"_inBase\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"_description\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"BASE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"chainlinkDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"inBase\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isChainlinkMultiplied\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"poolChainlink\",\"outputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"read\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"rate\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"readAll\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"readLower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"rate\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"quoteAmount\",\"type\":\"uint256\"}],\"name\":\"readQuote\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"quoteAmount\",\"type\":\"uint256\"}],\"name\":\"readQuoteLower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"readUpper\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"rate\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Angle Core Team\",\"details\":\"This contract concerns an oracle that only uses Chainlink and a single poolThis is mainly going to be the contract used for the USD/EUR pool (or for other fiat currencies)Like all oracle contracts, this contract is an instance of `OracleAstract` that contains some base functions\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"params\":{\"_description\":\"Description of the assets concerned by the oracle\",\"_inBase\":\"Number of units of the in-currency\",\"_isChainlinkMultiplied\":\"Whether we should multiply or divide by the Chainlink rate the in-currency amount to get the out-currency amount\",\"_poolChainlink\":\"Chainlink pool address\"}},\"read()\":{\"returns\":{\"rate\":\"The current rate between the in-currency and out-currency\"}},\"readAll()\":{\"details\":\"The rate returned is expressed with base `BASE` (and not the base of the out-currency)\",\"returns\":{\"_0\":\"Return all available rates (Chainlink and Uniswap) with the lowest rate returned first.\"}},\"readLower()\":{\"details\":\"If there is only one rate computed in an oracle contract, then the only rate is returned regardless of the value of the `lower` parameterThe rate returned is expressed with base `BASE` (and not the base of the out-currency)\",\"returns\":{\"rate\":\"The lower rate between Chainlink and Uniswap\"}},\"readQuote(uint256)\":{\"details\":\"The amount returned is expressed with base `BASE` (and not the base of the out-currency)\",\"params\":{\"quoteAmount\":\"Amount (in the input collateral) to be converted in out-currency\"},\"returns\":{\"_0\":\"Quote amount in out-currency from the base amount in in-currency\"}},\"readQuoteLower(uint256)\":{\"details\":\"The rate returned is expressed with base `BASE` (and not the base of the out-currency)\",\"params\":{\"quoteAmount\":\"Amount (in the input collateral) to be converted\"},\"returns\":{\"_0\":\"The lowest quote amount from the quote amount in in-currency\"}},\"readUpper()\":{\"details\":\"If there is only one rate computed in an oracle contract, then the only rate is returned regardless of the value of the `lower` parameterThe rate returned is expressed with base `BASE` (and not the base of the out-currency)\",\"returns\":{\"rate\":\"The upper rate between Chainlink and Uniswap\"}}},\"title\":\"OracleChainlinkSingle\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"BASE()\":{\"notice\":\"Base used for computation\"},\"chainlinkDecimals()\":{\"notice\":\"Decimals for each Chainlink pairs\"},\"constructor\":{\"notice\":\"Constructor for the oracle using a single Chainlink pool\"},\"description()\":{\"notice\":\"Description of the assets concerned by the oracle and the price outputted\"},\"inBase()\":{\"notice\":\"Unit of the in-currency\"},\"isChainlinkMultiplied()\":{\"notice\":\"Whether the rate computed using the Chainlink pool should be multiplied to the quote amount or not\"},\"poolChainlink()\":{\"notice\":\"Chainlink pool to look for in the contract\"},\"read()\":{\"notice\":\"Reads the rate from the Chainlink feed\"},\"readAll()\":{\"notice\":\"Read rates from the circuit of both Uniswap and Chainlink if there are both circuits else returns twice the same price\"},\"readLower()\":{\"notice\":\"Reads rates from the circuit of both Uniswap and Chainlink if there are both circuits and returns either the highest of both rates or the lowest\"},\"readQuote(uint256)\":{\"notice\":\"Converts an in-currency quote amount to out-currency using Chainlink's feed\"},\"readQuoteLower(uint256)\":{\"notice\":\"Returns the lowest quote amount between Uniswap and Chainlink circuits (if possible). If the oracle contract only involves a single feed, then this returns the value of this feed\"},\"readUpper()\":{\"notice\":\"Reads rates from the circuit of both Uniswap and Chainlink if there are both circuits and returns either the highest of both rates or the lowest\"}},\"notice\":\"Oracle contract, one contract is deployed per collateral/stablecoin pair\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/oracle/OracleChainlinkSingle.sol\":\"OracleChainlinkSingle\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1000000},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface AggregatorV3Interface {\\n\\n  function decimals()\\n    external\\n    view\\n    returns (\\n      uint8\\n    );\\n\\n  function description()\\n    external\\n    view\\n    returns (\\n      string memory\\n    );\\n\\n  function version()\\n    external\\n    view\\n    returns (\\n      uint256\\n    );\\n\\n  // getRoundData and latestRoundData should both raise \\\"No data present\\\"\\n  // if they do not have data to report, instead of returning unset values\\n  // which could be misinterpreted as actual reported values.\\n  function getRoundData(\\n    uint80 _roundId\\n  )\\n    external\\n    view\\n    returns (\\n      uint80 roundId,\\n      int256 answer,\\n      uint256 startedAt,\\n      uint256 updatedAt,\\n      uint80 answeredInRound\\n    );\\n\\n  function latestRoundData()\\n    external\\n    view\\n    returns (\\n      uint80 roundId,\\n      int256 answer,\\n      uint256 startedAt,\\n      uint256 updatedAt,\\n      uint80 answeredInRound\\n    );\\n\\n}\\n\",\"keccak256\":\"0xe6f5ac8c47f3b9b6135051efb9216f9ba5b312a6ecc20209b4f66a780443c328\",\"license\":\"MIT\"},\"contracts/interfaces/IOracle.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\npragma solidity ^0.8.7;\\n\\n/// @title IOracle\\n/// @author Angle Core Team\\n/// @notice Interface for Angle's oracle contracts reading oracle rates from both UniswapV3 and Chainlink\\n/// from just UniswapV3 or from just Chainlink\\ninterface IOracle {\\n    function read() external view returns (uint256);\\n\\n    function readAll() external view returns (uint256 lowerRate, uint256 upperRate);\\n\\n    function readLower() external view returns (uint256);\\n\\n    function readUpper() external view returns (uint256);\\n\\n    function readQuote(uint256 baseAmount) external view returns (uint256);\\n\\n    function readQuoteLower(uint256 baseAmount) external view returns (uint256);\\n\\n    function inBase() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0x248f264befb6452c4d0d2af37d319185bec8851a98861ba1ef09d43e8b788766\",\"license\":\"GPL-3.0\"},\"contracts/oracle/OracleAbstract.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\npragma solidity ^0.8.7;\\n\\nimport \\\"../interfaces/IOracle.sol\\\";\\n\\n/// @title OracleAbstract\\n/// @author Angle Core Team\\n/// @notice Abstract Oracle contract that contains some of the functions that are used across all oracle contracts\\n/// @dev This is the most generic form of oracle contract\\n/// @dev A rate gives the price of the out-currency with respect to the in-currency in base `BASE`. For instance\\n/// if the out-currency is ETH worth 1000 USD, then the rate ETH-USD is 10**21\\nabstract contract OracleAbstract is IOracle {\\n    /// @notice Base used for computation\\n    uint256 public constant BASE = 10**18;\\n    /// @notice Unit of the in-currency\\n    uint256 public override inBase;\\n    /// @notice Description of the assets concerned by the oracle and the price outputted\\n    bytes32 public description;\\n\\n    /// @notice Reads one of the rates from the circuits given\\n    /// @return rate The current rate between the in-currency and out-currency\\n    /// @dev By default if the oracle involves a Uniswap price and a Chainlink price\\n    /// this function will return the Uniswap price\\n    /// @dev The rate returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function read() external view virtual override returns (uint256 rate);\\n\\n    /// @notice Read rates from the circuit of both Uniswap and Chainlink if there are both circuits\\n    /// else returns twice the same price\\n    /// @return Return all available rates (Chainlink and Uniswap) with the lowest rate returned first.\\n    /// @dev The rate returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function readAll() external view override returns (uint256, uint256) {\\n        return _readAll(inBase);\\n    }\\n\\n    /// @notice Reads rates from the circuit of both Uniswap and Chainlink if there are both circuits\\n    /// and returns either the highest of both rates or the lowest\\n    /// @return rate The lower rate between Chainlink and Uniswap\\n    /// @dev If there is only one rate computed in an oracle contract, then the only rate is returned\\n    /// regardless of the value of the `lower` parameter\\n    /// @dev The rate returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function readLower() external view override returns (uint256 rate) {\\n        (rate, ) = _readAll(inBase);\\n    }\\n\\n    /// @notice Reads rates from the circuit of both Uniswap and Chainlink if there are both circuits\\n    /// and returns either the highest of both rates or the lowest\\n    /// @return rate The upper rate between Chainlink and Uniswap\\n    /// @dev If there is only one rate computed in an oracle contract, then the only rate is returned\\n    /// regardless of the value of the `lower` parameter\\n    /// @dev The rate returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function readUpper() external view override returns (uint256 rate) {\\n        (, rate) = _readAll(inBase);\\n    }\\n\\n    /// @notice Converts an in-currency quote amount to out-currency using one of the rates available in the oracle\\n    /// contract\\n    /// @param quoteAmount Amount (in the input collateral) to be converted to be converted in out-currency\\n    /// @return Quote amount in out-currency from the base amount in in-currency\\n    /// @dev Like in the read function, if the oracle involves a Uniswap and a Chainlink price, this function\\n    /// will use the Uniswap price to compute the out quoteAmount\\n    /// @dev The rate returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function readQuote(uint256 quoteAmount) external view virtual override returns (uint256);\\n\\n    /// @notice Returns the lowest quote amount between Uniswap and Chainlink circuits (if possible). If the oracle\\n    /// contract only involves a single feed, then this returns the value of this feed\\n    /// @param quoteAmount Amount (in the input collateral) to be converted\\n    /// @return The lowest quote amount from the quote amount in in-currency\\n    /// @dev The rate returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function readQuoteLower(uint256 quoteAmount) external view override returns (uint256) {\\n        (uint256 quoteSmall, ) = _readAll(quoteAmount);\\n        return quoteSmall;\\n    }\\n\\n    /// @notice Returns Uniswap and Chainlink values (with the first one being the smallest one) or twice the same value\\n    /// if just Uniswap or just Chainlink is used\\n    /// @param quoteAmount Amount expressed in the in-currency base.\\n    /// @dev If `quoteAmount` is `inBase`, rates are returned\\n    /// @return The first return value is the lowest value and the second parameter is the highest\\n    /// @dev The rate returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function _readAll(uint256 quoteAmount) internal view virtual returns (uint256, uint256) {}\\n}\\n\",\"keccak256\":\"0x25539f04fe7061f10db8440543ce356e8623d7baa3f60f3edd7840c646c1ff0c\",\"license\":\"GPL-3.0\"},\"contracts/oracle/OracleChainlinkSingle.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n// contracts/oracle/OracleChainlinkSingle.sol\\npragma solidity ^0.8.7;\\n\\nimport \\\"./OracleAbstract.sol\\\";\\nimport \\\"./modules/ModuleChainlinkSingle.sol\\\";\\n\\n/// @title OracleChainlinkSingle\\n/// @author Angle Core Team\\n/// @notice Oracle contract, one contract is deployed per collateral/stablecoin pair\\n/// @dev This contract concerns an oracle that only uses Chainlink and a single pool\\n/// @dev This is mainly going to be the contract used for the USD/EUR pool (or for other fiat currencies)\\n/// @dev Like all oracle contracts, this contract is an instance of `OracleAstract` that contains some\\n/// base functions\\ncontract OracleChainlinkSingle is OracleAbstract, ModuleChainlinkSingle {\\n    /// @notice Constructor for the oracle using a single Chainlink pool\\n    /// @param _poolChainlink Chainlink pool address\\n    /// @param _isChainlinkMultiplied Whether we should multiply or divide by the Chainlink rate the\\n    /// in-currency amount to get the out-currency amount\\n    /// @param _inBase Number of units of the in-currency\\n    /// @param _description Description of the assets concerned by the oracle\\n    constructor(\\n        address _poolChainlink,\\n        uint8 _isChainlinkMultiplied,\\n        uint256 _inBase,\\n        bytes32 _description\\n    ) ModuleChainlinkSingle(_poolChainlink, _isChainlinkMultiplied) {\\n        inBase = _inBase;\\n        description = _description;\\n    }\\n\\n    /// @notice Reads the rate from the Chainlink feed\\n    /// @return rate The current rate between the in-currency and out-currency\\n    function read() external view override returns (uint256 rate) {\\n        (rate, ) = _quoteChainlink(BASE);\\n    }\\n\\n    /// @notice Converts an in-currency quote amount to out-currency using Chainlink's feed\\n    /// @param quoteAmount Amount (in the input collateral) to be converted in out-currency\\n    /// @return Quote amount in out-currency from the base amount in in-currency\\n    /// @dev The amount returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function readQuote(uint256 quoteAmount) external view override returns (uint256) {\\n        return _readQuote(quoteAmount);\\n    }\\n\\n    /// @notice Returns Chainlink quote value twice\\n    /// @param quoteAmount Amount expressed in the in-currency base.\\n    /// @dev If quoteAmount is `inBase`, rates are returned\\n    /// @return The two return values are similar in this case\\n    /// @dev The amount returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function _readAll(uint256 quoteAmount) internal view override returns (uint256, uint256) {\\n        uint256 quote = _readQuote(quoteAmount);\\n        return (quote, quote);\\n    }\\n\\n    /// @notice Internal function to convert an in-currency quote amount to out-currency using Chainlink's feed\\n    /// @param quoteAmount Amount (in the input collateral) to be converted\\n    /// @dev The amount returned is expressed with base `BASE` (and not the base of the out-currency)\\n    function _readQuote(uint256 quoteAmount) internal view returns (uint256) {\\n        quoteAmount = (quoteAmount * BASE) / inBase;\\n        (quoteAmount, ) = _quoteChainlink(quoteAmount);\\n        // We return only rates with base BASE\\n        return quoteAmount;\\n    }\\n}\\n\",\"keccak256\":\"0xfb815f325ab7c420cb8440a8542b765b6da5d6ba1b4f701da20eb35180f4ec58\",\"license\":\"GPL-3.0\"},\"contracts/oracle/modules/ModuleChainlinkSingle.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\npragma solidity ^0.8.7;\\n\\nimport \\\"../utils/ChainlinkUtils.sol\\\";\\n\\n/// @title ModuleChainlinkSingle\\n/// @author Angle Core Team\\n/// @notice Module Contract that is going to be used to help compute Chainlink prices\\n/// @dev This contract will help for an oracle using a single Chainlink price\\n/// @dev An oracle using Chainlink is either going to be a `ModuleChainlinkSingle` or a `ModuleChainlinkMulti`\\nabstract contract ModuleChainlinkSingle is ChainlinkUtils {\\n    /// @notice Chainlink pool to look for in the contract\\n    AggregatorV3Interface public immutable poolChainlink;\\n    /// @notice Whether the rate computed using the Chainlink pool should be multiplied to the quote amount or not\\n    uint8 public immutable isChainlinkMultiplied;\\n    /// @notice Decimals for each Chainlink pairs\\n    uint8 public immutable chainlinkDecimals;\\n\\n    /// @notice Constructor for an oracle using only a single Chainlink\\n    /// @param _poolChainlink Chainlink pool address\\n    /// @param _isChainlinkMultiplied Whether we should multiply or divide the quote amount by the rate\\n    constructor(address _poolChainlink, uint8 _isChainlinkMultiplied) {\\n        require(_poolChainlink != address(0), \\\"105\\\");\\n        poolChainlink = AggregatorV3Interface(_poolChainlink);\\n        chainlinkDecimals = AggregatorV3Interface(_poolChainlink).decimals();\\n        isChainlinkMultiplied = _isChainlinkMultiplied;\\n    }\\n\\n    /// @notice Reads oracle price using a single Chainlink pool\\n    /// @param quoteAmount Amount expressed with base decimal\\n    /// @dev If `quoteAmount` is base, the output is the oracle rate\\n    function _quoteChainlink(uint256 quoteAmount) internal view returns (uint256, uint256) {\\n        // No need for a for loop here as there is only a single pool we are looking at\\n        return _readChainlinkFeed(quoteAmount, poolChainlink, isChainlinkMultiplied, chainlinkDecimals, 0);\\n    }\\n}\\n\",\"keccak256\":\"0xfe495934efe61426c4caaa8caa33a707c97a322e1c41cf414735fb939acf1e5e\",\"license\":\"GPL-3.0\"},\"contracts/oracle/utils/ChainlinkUtils.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\npragma solidity ^0.8.7;\\n\\nimport \\\"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\\\";\\n\\n/// @title ChainlinkUtils\\n/// @author Angle Core Team\\n/// @notice Utility contract that is used across the different module contracts using Chainlink\\nabstract contract ChainlinkUtils {\\n    /// @notice Reads a Chainlink feed using a quote amount and converts the quote amount to\\n    /// the out-currency\\n    /// @param quoteAmount The amount for which to compute the price expressed with base decimal\\n    /// @param feed Chainlink feed to query\\n    /// @param multiplied Whether the ratio outputted by Chainlink should be multiplied or divided\\n    /// to the `quoteAmount`\\n    /// @param decimals Number of decimals of the corresponding Chainlink pair\\n    /// @param castedRatio Whether a previous rate has already been computed for this feed\\n    /// This is mostly used in the `_changeUniswapNotFinal` function of the oracles\\n    /// @return The `quoteAmount` converted in out-currency (computed using the second return value)\\n    /// @return The value obtained with the Chainlink feed queried casted to uint\\n    function _readChainlinkFeed(\\n        uint256 quoteAmount,\\n        AggregatorV3Interface feed,\\n        uint8 multiplied,\\n        uint256 decimals,\\n        uint256 castedRatio\\n    ) internal view returns (uint256, uint256) {\\n        if (castedRatio == 0) {\\n            (, int256 ratio, , , ) = feed.latestRoundData();\\n            require(ratio > 0, \\\"100\\\");\\n            castedRatio = uint256(ratio);\\n        }\\n        // Checking whether we should multiply or divide by the ratio computed\\n        if (multiplied == 1) quoteAmount = (quoteAmount * castedRatio) / (10**decimals);\\n        else quoteAmount = (quoteAmount * (10**decimals)) / castedRatio;\\n        return (quoteAmount, castedRatio);\\n    }\\n}\\n\",\"keccak256\":\"0xfec10cca274aacec458653a2cfba7561914efff1d7f8e9e184fdcd7502be2dc4\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x60e060405234801561001057600080fd5b5060405161095938038061095983398101604081905261002f91610159565b83836001600160a01b0382166100715760405162461bcd60e51b815260206004820152600360248201526231303560e81b604482015260640160405180910390fd5b816001600160a01b03166080816001600160a01b031660601b81525050816001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b1580156100c757600080fd5b505afa1580156100db573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100ff91906101aa565b7fff0000000000000000000000000000000000000000000000000000000000000060f891821b811660c05291901b1660a05250600091909155600155506101cc9050565b805160ff8116811461015457600080fd5b919050565b6000806000806080858703121561016f57600080fd5b84516001600160a01b038116811461018657600080fd5b935061019460208601610143565b6040860151606090960151949790965092505050565b6000602082840312156101bc57600080fd5b6101c582610143565b9392505050565b60805160601c60a05160f81c60c05160f81c610741610218600039600081816101c1015261031701526000818160de01526102f601526000818161011c01526102d501526107416000f3fe608060405234801561001057600080fd5b50600436106100d45760003560e01c806351e643731161008157806392611e331161005b57806392611e33146101f45780639aefb5c3146101fc578063ec342ad01461020557600080fd5b806351e64373146101bc57806357de26a4146101e35780637284e416146101eb57600080fd5b80633593ba7b116100b25780633593ba7b1461018457806341f654f714610197578063442133bd146101b457600080fd5b80631d1ff675146100d9578063210d5a2914610117578063240fd5ab14610163575b600080fd5b6101007f000000000000000000000000000000000000000000000000000000000000000081565b60405160ff90911681526020015b60405180910390f35b61013e7f000000000000000000000000000000000000000000000000000000000000000081565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161010e565b6101766101713660046104c8565b610214565b60405190815260200161010e565b6101766101923660046104c8565b610225565b61019f610239565b6040805192835260208301919091520161010e565b61017661024f565b6101007f000000000000000000000000000000000000000000000000000000000000000081565b61017661025c565b61017660015481565b610176610275565b61017660005481565b610176670de0b6b3a764000081565b600061021f82610282565b92915050565b600080610231836102b4565b509392505050565b6000806102476000546102b4565b915091509091565b600061021f6000546102b4565b600061026f670de0b6b3a76400006102cc565b50919050565b600061026f6000546102b4565b60008054610298670de0b6b3a76400008461069f565b6102a29190610531565b91506102ad826102cc565b5092915050565b60008060006102c284610282565b9485945092505050565b600080610340837f00000000000000000000000000000000000000000000000000000000000000007f00000000000000000000000000000000000000000000000000000000000000007f000000000000000000000000000000000000000000000000000000000000000060ff166000610349565b91509150915091565b600080826104485760008673ffffffffffffffffffffffffffffffffffffffff1663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b15801561039957600080fd5b505afa1580156103ad573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103d191906104e1565b50505091505060008113610445576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600360248201527f3130300000000000000000000000000000000000000000000000000000000000604482015260640160405180910390fd5b92505b8460ff166001141561047a5761045f84600a6105cd565b610469848961069f565b6104739190610531565b965061049d565b8261048685600a6105cd565b610490908961069f565b61049a9190610531565b96505b50949590945092505050565b805169ffffffffffffffffffff811681146104c357600080fd5b919050565b6000602082840312156104da57600080fd5b5035919050565b600080600080600060a086880312156104f957600080fd5b610502866104a9565b9450602086015193506040860151925060608601519150610525608087016104a9565b90509295509295909350565b600082610567577f4e487b7100000000000000000000000000000000000000000000000000000000600052601260045260246000fd5b500490565b600181815b808511156105c557817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff048211156105ab576105ab6106dc565b808516156105b857918102915b93841c9390800290610571565b509250929050565b60006105d983836105e0565b9392505050565b6000826105ef5750600161021f565b816105fc5750600061021f565b8160018114610612576002811461061c57610638565b600191505061021f565b60ff84111561062d5761062d6106dc565b50506001821b61021f565b5060208310610133831016604e8410600b841016171561065b575081810a61021f565b610665838361056c565b807fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04821115610697576106976106dc565b029392505050565b6000817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04831182151516156106d7576106d76106dc565b500290565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fdfea2646970667358221220f8f59c4b19e9a5f97c9a0316492b22c07b0809a8577d97b7063206d3b64e492464736f6c63430008070033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100d45760003560e01c806351e643731161008157806392611e331161005b57806392611e33146101f45780639aefb5c3146101fc578063ec342ad01461020557600080fd5b806351e64373146101bc57806357de26a4146101e35780637284e416146101eb57600080fd5b80633593ba7b116100b25780633593ba7b1461018457806341f654f714610197578063442133bd146101b457600080fd5b80631d1ff675146100d9578063210d5a2914610117578063240fd5ab14610163575b600080fd5b6101007f000000000000000000000000000000000000000000000000000000000000000081565b60405160ff90911681526020015b60405180910390f35b61013e7f000000000000000000000000000000000000000000000000000000000000000081565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161010e565b6101766101713660046104c8565b610214565b60405190815260200161010e565b6101766101923660046104c8565b610225565b61019f610239565b6040805192835260208301919091520161010e565b61017661024f565b6101007f000000000000000000000000000000000000000000000000000000000000000081565b61017661025c565b61017660015481565b610176610275565b61017660005481565b610176670de0b6b3a764000081565b600061021f82610282565b92915050565b600080610231836102b4565b509392505050565b6000806102476000546102b4565b915091509091565b600061021f6000546102b4565b600061026f670de0b6b3a76400006102cc565b50919050565b600061026f6000546102b4565b60008054610298670de0b6b3a76400008461069f565b6102a29190610531565b91506102ad826102cc565b5092915050565b60008060006102c284610282565b9485945092505050565b600080610340837f00000000000000000000000000000000000000000000000000000000000000007f00000000000000000000000000000000000000000000000000000000000000007f000000000000000000000000000000000000000000000000000000000000000060ff166000610349565b91509150915091565b600080826104485760008673ffffffffffffffffffffffffffffffffffffffff1663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b15801561039957600080fd5b505afa1580156103ad573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103d191906104e1565b50505091505060008113610445576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600360248201527f3130300000000000000000000000000000000000000000000000000000000000604482015260640160405180910390fd5b92505b8460ff166001141561047a5761045f84600a6105cd565b610469848961069f565b6104739190610531565b965061049d565b8261048685600a6105cd565b610490908961069f565b61049a9190610531565b96505b50949590945092505050565b805169ffffffffffffffffffff811681146104c357600080fd5b919050565b6000602082840312156104da57600080fd5b5035919050565b600080600080600060a086880312156104f957600080fd5b610502866104a9565b9450602086015193506040860151925060608601519150610525608087016104a9565b90509295509295909350565b600082610567577f4e487b7100000000000000000000000000000000000000000000000000000000600052601260045260246000fd5b500490565b600181815b808511156105c557817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff048211156105ab576105ab6106dc565b808516156105b857918102915b93841c9390800290610571565b509250929050565b60006105d983836105e0565b9392505050565b6000826105ef5750600161021f565b816105fc5750600061021f565b8160018114610612576002811461061c57610638565b600191505061021f565b60ff84111561062d5761062d6106dc565b50506001821b61021f565b5060208310610133831016604e8410600b841016171561065b575081810a61021f565b610665838361056c565b807fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04821115610697576106976106dc565b029392505050565b6000817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04831182151516156106d7576106d76106dc565b500290565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fdfea2646970667358221220f8f59c4b19e9a5f97c9a0316492b22c07b0809a8577d97b7063206d3b64e492464736f6c63430008070033",
+  "devdoc": {
+    "author": "Angle Core Team",
+    "details": "This contract concerns an oracle that only uses Chainlink and a single poolThis is mainly going to be the contract used for the USD/EUR pool (or for other fiat currencies)Like all oracle contracts, this contract is an instance of `OracleAstract` that contains some base functions",
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "params": {
+          "_description": "Description of the assets concerned by the oracle",
+          "_inBase": "Number of units of the in-currency",
+          "_isChainlinkMultiplied": "Whether we should multiply or divide by the Chainlink rate the in-currency amount to get the out-currency amount",
+          "_poolChainlink": "Chainlink pool address"
+        }
+      },
+      "read()": { "returns": { "rate": "The current rate between the in-currency and out-currency" } },
+      "readAll()": {
+        "details": "The rate returned is expressed with base `BASE` (and not the base of the out-currency)",
+        "returns": { "_0": "Return all available rates (Chainlink and Uniswap) with the lowest rate returned first." }
+      },
+      "readLower()": {
+        "details": "If there is only one rate computed in an oracle contract, then the only rate is returned regardless of the value of the `lower` parameterThe rate returned is expressed with base `BASE` (and not the base of the out-currency)",
+        "returns": { "rate": "The lower rate between Chainlink and Uniswap" }
+      },
+      "readQuote(uint256)": {
+        "details": "The amount returned is expressed with base `BASE` (and not the base of the out-currency)",
+        "params": { "quoteAmount": "Amount (in the input collateral) to be converted in out-currency" },
+        "returns": { "_0": "Quote amount in out-currency from the base amount in in-currency" }
+      },
+      "readQuoteLower(uint256)": {
+        "details": "The rate returned is expressed with base `BASE` (and not the base of the out-currency)",
+        "params": { "quoteAmount": "Amount (in the input collateral) to be converted" },
+        "returns": { "_0": "The lowest quote amount from the quote amount in in-currency" }
+      },
+      "readUpper()": {
+        "details": "If there is only one rate computed in an oracle contract, then the only rate is returned regardless of the value of the `lower` parameterThe rate returned is expressed with base `BASE` (and not the base of the out-currency)",
+        "returns": { "rate": "The upper rate between Chainlink and Uniswap" }
+      }
+    },
+    "title": "OracleChainlinkSingle",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "BASE()": { "notice": "Base used for computation" },
+      "chainlinkDecimals()": { "notice": "Decimals for each Chainlink pairs" },
+      "constructor": { "notice": "Constructor for the oracle using a single Chainlink pool" },
+      "description()": { "notice": "Description of the assets concerned by the oracle and the price outputted" },
+      "inBase()": { "notice": "Unit of the in-currency" },
+      "isChainlinkMultiplied()": {
+        "notice": "Whether the rate computed using the Chainlink pool should be multiplied to the quote amount or not"
+      },
+      "poolChainlink()": { "notice": "Chainlink pool to look for in the contract" },
+      "read()": { "notice": "Reads the rate from the Chainlink feed" },
+      "readAll()": {
+        "notice": "Read rates from the circuit of both Uniswap and Chainlink if there are both circuits else returns twice the same price"
+      },
+      "readLower()": {
+        "notice": "Reads rates from the circuit of both Uniswap and Chainlink if there are both circuits and returns either the highest of both rates or the lowest"
+      },
+      "readQuote(uint256)": { "notice": "Converts an in-currency quote amount to out-currency using Chainlink's feed" },
+      "readQuoteLower(uint256)": {
+        "notice": "Returns the lowest quote amount between Uniswap and Chainlink circuits (if possible). If the oracle contract only involves a single feed, then this returns the value of this feed"
+      },
+      "readUpper()": {
+        "notice": "Reads rates from the circuit of both Uniswap and Chainlink if there are both circuits and returns either the highest of both rates or the lowest"
+      }
+    },
+    "notice": "Oracle contract, one contract is deployed per collateral/stablecoin pair",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 28059,
+        "contract": "contracts/oracle/OracleChainlinkSingle.sol:OracleChainlinkSingle",
+        "label": "inBase",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 28062,
+        "contract": "contracts/oracle/OracleChainlinkSingle.sol:OracleChainlinkSingle",
+        "label": "description",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_bytes32"
+      }
+    ],
+    "types": {
+      "t_bytes32": { "encoding": "inplace", "label": "bytes32", "numberOfBytes": "32" },
+      "t_uint256": { "encoding": "inplace", "label": "uint256", "numberOfBytes": "32" }
+    }
+  }
+}

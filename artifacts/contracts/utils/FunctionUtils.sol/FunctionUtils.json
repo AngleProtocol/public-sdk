@@ -1,0 +1,37 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "FunctionUtils",
+  "sourceName": "contracts/utils/FunctionUtils.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "BASE_PARAMS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BASE_TOKENS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b5060978061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80639f48118f146037578063df1b8bd3146053575b600080fd5b6041633b9aca0081565b60405190815260200160405180910390f35b6041670de0b6b3a76400008156fea26469706673582212202725cac0f91a53df0362ba128d7923a83964eb287357ebe67e108c74af9f9a5364736f6c63430008070033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80639f48118f146037578063df1b8bd3146053575b600080fd5b6041633b9aca0081565b60405190815260200160405180910390f35b6041670de0b6b3a76400008156fea26469706673582212202725cac0f91a53df0362ba128d7923a83964eb287357ebe67e108c74af9f9a5364736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

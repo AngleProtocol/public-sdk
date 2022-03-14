@@ -1,0 +1,195 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "CollateralSettlerVeANGLEEvents",
+  "sourceName": "contracts/collateralSettler/CollateralSettlerVeANGLEEvents.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amountRedistribute",
+          "type": "uint256"
+        }
+      ],
+      "name": "AmountRedistributeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "baseAmountToUserGov",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "baseAmountToUser",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "baseAmountToLpGov",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "baseAmountToLp",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amountToRedistribute",
+          "type": "uint256"
+        }
+      ],
+      "name": "AmountToRedistributeAnnouncement",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_poolManager",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_veANGLE",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "CollateralSettlerInit",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "proportionalRatioGovUser",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "proportionalRatioGovLP",
+          "type": "uint64"
+        }
+      ],
+      "name": "ProportionalRatioGovUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Recovered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amountToRedistribute",
+          "type": "uint256"
+        }
+      ],
+      "name": "SettlementTriggered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newLpClaim",
+          "type": "uint256"
+        }
+      ],
+      "name": "TotalSupplyLpUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newLpClaim",
+          "type": "uint256"
+        }
+      ],
+      "name": "TotalSupplyLpVeANGLEUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newUserClaim",
+          "type": "uint256"
+        }
+      ],
+      "name": "TotalSupplyUserClaimsUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newUserClaim",
+          "type": "uint256"
+        }
+      ],
+      "name": "TotalSupplyUserClaimsVeANGLEUpdated",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212208e239c7d1e78a147a0d4bda2558636e6324415e06259fbb7f069c47b2183a0a864736f6c63430008070033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212208e239c7d1e78a147a0d4bda2558636e6324415e06259fbb7f069c47b2183a0a864736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

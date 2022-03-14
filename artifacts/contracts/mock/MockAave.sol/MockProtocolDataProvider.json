@@ -1,0 +1,202 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "MockProtocolDataProvider",
+  "sourceName": "contracts/mock/MockAave.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_aave",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "ADDRESSES_PROVIDER",
+      "outputs": [
+        {
+          "internalType": "contract ILendingPoolAddressesProvider",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "aave",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "availableLiquidityStorage",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "getReserveConfigurationData",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "decimals",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "ltv",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidationThreshold",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidationBonus",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "reserveFactor",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "usageAsCollateralEnabled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "borrowingEnabled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "stableBorrowRateEnabled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isFrozen",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "getReserveData",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "availableLiquidity",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalStableDebt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalVariableDebt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidityRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "variableBorrowRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "stableBorrowRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "averageStableBorrowRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidityIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "variableBorrowIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint40",
+          "name": "lastUpdateTimestamp",
+          "type": "uint40"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_availableLiquidity",
+          "type": "uint256"
+        }
+      ],
+      "name": "setAvailableLiquidity",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052600060015534801561001557600080fd5b5060405161031f38038061031f83398101604081905261003491610059565b600080546001600160a01b0319166001600160a01b0392909216919091179055610089565b60006020828403121561006b57600080fd5b81516001600160a01b038116811461008257600080fd5b9392505050565b610287806100986000396000f3fe608060405234801561001057600080fd5b50600436106100725760003560e01c80637af9285c116100505780637af9285c146101af578063819faf7b146101c65780639ba1f362146101e657600080fd5b80630542975c1461007757806335ea6a75146100bb5780633e15014114610134575b600080fd5b60005473ffffffffffffffffffffffffffffffffffffffff165b60405173ffffffffffffffffffffffffffffffffffffffff90911681526020015b60405180910390f35b6100e36100c93660046101fb565b600154600080808080808080809193959799509193959799565b604080519a8b5260208b0199909952978901969096526060880194909452608087019290925260a086015260c085015260e084015261010083015264ffffffffff16610120820152610140016100b2565b61015b6101423660046101fb565b6000808080806001808080809193959799509193959799565b604080519a8b5260208b01999099529789019690965260608801949094526080870192909252151560a0860152151560c0850152151560e084015215156101008301521515610120820152610140016100b2565b6101b860015481565b6040519081526020016100b2565b6000546100919073ffffffffffffffffffffffffffffffffffffffff1681565b6101f96101f4366004610238565b600155565b005b60006020828403121561020d57600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461023157600080fd5b9392505050565b60006020828403121561024a57600080fd5b503591905056fea2646970667358221220e3320acae8fd0a83eab4c44f457300db8328ec97e9fbe4a6933dc62fee2cf31864736f6c63430008070033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100725760003560e01c80637af9285c116100505780637af9285c146101af578063819faf7b146101c65780639ba1f362146101e657600080fd5b80630542975c1461007757806335ea6a75146100bb5780633e15014114610134575b600080fd5b60005473ffffffffffffffffffffffffffffffffffffffff165b60405173ffffffffffffffffffffffffffffffffffffffff90911681526020015b60405180910390f35b6100e36100c93660046101fb565b600154600080808080808080809193959799509193959799565b604080519a8b5260208b0199909952978901969096526060880194909452608087019290925260a086015260c085015260e084015261010083015264ffffffffff16610120820152610140016100b2565b61015b6101423660046101fb565b6000808080806001808080809193959799509193959799565b604080519a8b5260208b01999099529789019690965260608801949094526080870192909252151560a0860152151560c0850152151560e084015215156101008301521515610120820152610140016100b2565b6101b860015481565b6040519081526020016100b2565b6000546100919073ffffffffffffffffffffffffffffffffffffffff1681565b6101f96101f4366004610238565b600155565b005b60006020828403121561020d57600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461023157600080fd5b9392505050565b60006020828403121561024a57600080fd5b503591905056fea2646970667358221220e3320acae8fd0a83eab4c44f457300db8328ec97e9fbe4a6933dc62fee2cf31864736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

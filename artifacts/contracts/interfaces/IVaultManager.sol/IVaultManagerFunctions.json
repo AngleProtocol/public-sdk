@@ -1,0 +1,133 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IVaultManagerFunctions",
+  "sourceName": "contracts/interfaces/IVaultManager.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "enum ActionBorrowType[]",
+          "name": "actions",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "datas",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "angle",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "stablecoinAmountToGive",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stablecoinAmountToReceive",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateralAmountToGive",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateralAmountToReceive",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct PaymentData",
+          "name": "paymentData",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum ActionBorrowType[]",
+          "name": "actions",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "datas",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "who",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "repayData",
+          "type": "bytes"
+        }
+      ],
+      "name": "angle",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "stablecoinAmountToGive",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stablecoinAmountToReceive",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateralAmountToGive",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateralAmountToReceive",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct PaymentData",
+          "name": "paymentData",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

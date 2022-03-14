@@ -1,0 +1,191 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "MockGaugeController",
+  "sourceName": "contracts/mock/MockGaugeController.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "BASE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "baseWeight",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "gauge_relative_weight",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "gauge_relative_weight_write",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "gauge_types",
+      "outputs": [
+        {
+          "internalType": "int128",
+          "name": "",
+          "type": "int128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "gauges",
+      "outputs": [
+        {
+          "internalType": "int128",
+          "name": "",
+          "type": "int128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_baseWeight",
+          "type": "uint256"
+        }
+      ],
+      "name": "setBaseWeight",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "gauge",
+          "type": "address"
+        },
+        {
+          "internalType": "int128",
+          "name": "_type",
+          "type": "int128"
+        }
+      ],
+      "name": "setGauge",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unAllowedGauge",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "weights",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052600080546001600160a01b03191690556100276002670de0b6b3a764000061003c565b60035534801561003657600080fd5b5061005e565b60008261005957634e487b7160e01b600052601260045260246000fd5b500490565b6104198061006d6000396000f3fe608060405234801561001057600080fd5b50600436106100be5760003560e01c8063b9a09fd511610076578063d3078c941161005b578063d3078c9414610252578063d3fd636414610289578063ec342ad01461029257600080fd5b8063b9a09fd5146101ea578063bfc24b651461020d57600080fd5b80636472eee1116100a75780636472eee11461016a57806368d56f35146101b7578063a7cac846146101ca57600080fd5b80633b576b3e146100c35780633f9095b71461013f575b600080fd5b61013d6100d1366004610363565b73ffffffffffffffffffffffffffffffffffffffff90911660009081526002602052604090208054600f9290920b6fffffffffffffffffffffffffffffffff167fffffffffffffffffffffffffffffffff00000000000000000000000000000000909216919091179055565b005b61015261014d366004610341565b6102a1565b604051600f9190910b81526020015b60405180910390f35b6101a96101783660046103a0565b60035473ffffffffffffffffffffffffffffffffffffffff8316600090815260016020526040902081905592915050565b604051908152602001610161565b61013d6101c53660046103ca565b600355565b6101a96101d8366004610341565b60016020526000908152604090205481565b6101526101f8366004610341565b600260205260009081526040902054600f0b81565b60005461022d9073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff9091168152602001610161565b6101a96102603660046103a0565b5073ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604090205490565b6101a960035481565b6101a9670de0b6b3a764000081565b6000805473ffffffffffffffffffffffffffffffffffffffff838116911614156102ec57507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff919050565b5073ffffffffffffffffffffffffffffffffffffffff16600090815260026020526040902054600f0b90565b803573ffffffffffffffffffffffffffffffffffffffff8116811461033c57600080fd5b919050565b60006020828403121561035357600080fd5b61035c82610318565b9392505050565b6000806040838503121561037657600080fd5b61037f83610318565b9150602083013580600f0b811461039557600080fd5b809150509250929050565b600080604083850312156103b357600080fd5b6103bc83610318565b946020939093013593505050565b6000602082840312156103dc57600080fd5b503591905056fea2646970667358221220c5d85de2da285a6242b7e4dd7ab0c5d4e1b16cb9db799f06f0edaad47d38b6d964736f6c63430008070033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100be5760003560e01c8063b9a09fd511610076578063d3078c941161005b578063d3078c9414610252578063d3fd636414610289578063ec342ad01461029257600080fd5b8063b9a09fd5146101ea578063bfc24b651461020d57600080fd5b80636472eee1116100a75780636472eee11461016a57806368d56f35146101b7578063a7cac846146101ca57600080fd5b80633b576b3e146100c35780633f9095b71461013f575b600080fd5b61013d6100d1366004610363565b73ffffffffffffffffffffffffffffffffffffffff90911660009081526002602052604090208054600f9290920b6fffffffffffffffffffffffffffffffff167fffffffffffffffffffffffffffffffff00000000000000000000000000000000909216919091179055565b005b61015261014d366004610341565b6102a1565b604051600f9190910b81526020015b60405180910390f35b6101a96101783660046103a0565b60035473ffffffffffffffffffffffffffffffffffffffff8316600090815260016020526040902081905592915050565b604051908152602001610161565b61013d6101c53660046103ca565b600355565b6101a96101d8366004610341565b60016020526000908152604090205481565b6101526101f8366004610341565b600260205260009081526040902054600f0b81565b60005461022d9073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff9091168152602001610161565b6101a96102603660046103a0565b5073ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604090205490565b6101a960035481565b6101a9670de0b6b3a764000081565b6000805473ffffffffffffffffffffffffffffffffffffffff838116911614156102ec57507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff919050565b5073ffffffffffffffffffffffffffffffffffffffff16600090815260026020526040902054600f0b90565b803573ffffffffffffffffffffffffffffffffffffffff8116811461033c57600080fd5b919050565b60006020828403121561035357600080fd5b61035c82610318565b9392505050565b6000806040838503121561037657600080fd5b61037f83610318565b9150602083013580600f0b811461039557600080fd5b809150509250929050565b600080604083850312156103b357600080fd5b6103bc83610318565b946020939093013593505050565b6000602082840312156103dc57600080fd5b503591905056fea2646970667358221220c5d85de2da285a6242b7e4dd7ab0c5d4e1b16cb9db799f06f0edaad47d38b6d964736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

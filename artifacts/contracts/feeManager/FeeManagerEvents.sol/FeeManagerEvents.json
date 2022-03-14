@@ -1,0 +1,143 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "FeeManagerEvents",
+  "sourceName": "contracts/feeManager/FeeManagerEvents.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "_xBonusMalusBurn",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_yBonusMalusBurn",
+          "type": "uint64[]"
+        }
+      ],
+      "name": "FeeBurnUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "_xBonusMalusMint",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_yBonusMalusMint",
+          "type": "uint64[]"
+        }
+      ],
+      "name": "FeeMintUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_haFeeDeposit",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_haFeeWithdraw",
+          "type": "uint64"
+        }
+      ],
+      "name": "HaFeesUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "_xSlippageFee",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_ySlippageFee",
+          "type": "uint64[]"
+        }
+      ],
+      "name": "SlippageFeeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "_xSlippage",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_ySlippage",
+          "type": "uint64[]"
+        }
+      ],
+      "name": "SlippageUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_collatRatio",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_bonusMalusMint",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_bonusMalusBurn",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_slippage",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_slippageFee",
+          "type": "uint64"
+        }
+      ],
+      "name": "UserAndSLPFeesUpdated",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220b53a744f6e3b8d5f1b652557da4d0ad20e8b9e5a1aa09bd287d3043dc3cb0f6364736f6c63430008070033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220b53a744f6e3b8d5f1b652557da4d0ad20e8b9e5a1aa09bd287d3043dc3cb0f6364736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

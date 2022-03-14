@@ -1,0 +1,220 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IRewardsDistributor",
+  "sourceName": "contracts/interfaces/IRewardsDistributor.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "drip",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "governorRecover",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "governance",
+          "type": "address"
+        }
+      ],
+      "name": "governorWithdrawRewardToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "removeStakingContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardToken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_amountToDistribute",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "setAmountToDistribute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_duration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "setDuration",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_incentiveAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "setIncentiveAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newRewardsDistributor",
+          "type": "address"
+        }
+      ],
+      "name": "setNewRewardsDistributor",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_stakingContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_duration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_incentiveAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_dripFrequency",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amountToDistribute",
+          "type": "uint256"
+        }
+      ],
+      "name": "setStakingContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_frequency",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IStakingRewards",
+          "name": "stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "setUpdateFrequency",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,98 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "PoolAddress",
+  "sourceName": "contracts/external/PoolAddress.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "factory",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "token0",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "token1",
+              "type": "address"
+            },
+            {
+              "internalType": "uint24",
+              "name": "fee",
+              "type": "uint24"
+            }
+          ],
+          "internalType": "struct PoolAddress.PoolKey",
+          "name": "key",
+          "type": "tuple"
+        }
+      ],
+      "name": "computeAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "pool",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenA",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenB",
+          "type": "address"
+        },
+        {
+          "internalType": "uint24",
+          "name": "fee",
+          "type": "uint24"
+        }
+      ],
+      "name": "getPoolKey",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "token0",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "token1",
+              "type": "address"
+            },
+            {
+              "internalType": "uint24",
+              "name": "fee",
+              "type": "uint24"
+            }
+          ],
+          "internalType": "struct PoolAddress.PoolKey",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610445806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80632b6d5d8f1461003b57806383092a8214610095575b600080fd5b61004e6100493660046102f4565b6100cd565b60408051825173ffffffffffffffffffffffffffffffffffffffff9081168252602080850151909116908201529181015162ffffff16908201526060015b60405180910390f35b6100a86100a3366004610337565b61015f565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161008c565b60408051606081018252600080825260208201819052918101919091528273ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161115610122579192915b506040805160608101825273ffffffffffffffffffffffffffffffffffffffff948516815292909316602083015262ffffff169181019190915290565b6000816020015173ffffffffffffffffffffffffffffffffffffffff16826000015173ffffffffffffffffffffffffffffffffffffffff16106101a157600080fd5b8151602080840151604080860151815173ffffffffffffffffffffffffffffffffffffffff95861681860152949092168482015262ffffff90911660608085019190915281518085038201815260808501909252815191909201207fff0000000000000000000000000000000000000000000000000000000000000060a08401529085901b7fffffffffffffffffffffffffffffffffffffffff0000000000000000000000001660a183015260b58201527fe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b5460d582015260f501604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe081840301815291905280516020909101209392505050565b803573ffffffffffffffffffffffffffffffffffffffff811681146102dc57600080fd5b919050565b803562ffffff811681146102dc57600080fd5b60008060006060848603121561030957600080fd5b610312846102b8565b9250610320602085016102b8565b915061032e604085016102e1565b90509250925092565b600080828403608081121561034b57600080fd5b610354846102b8565b925060607fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe08201121561038657600080fd5b506040516060810181811067ffffffffffffffff821117156103d1577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040526103e0602085016102b8565b81526103ee604085016102b8565b60208201526103ff606085016102e1565b604082015280915050925092905056fea2646970667358221220e8d44a40417a7f5af1b0789acd0d86f7d7e84e8a453a427a8aa4c8059047832264736f6c63430008070033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80632b6d5d8f1461003b57806383092a8214610095575b600080fd5b61004e6100493660046102f4565b6100cd565b60408051825173ffffffffffffffffffffffffffffffffffffffff9081168252602080850151909116908201529181015162ffffff16908201526060015b60405180910390f35b6100a86100a3366004610337565b61015f565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161008c565b60408051606081018252600080825260208201819052918101919091528273ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161115610122579192915b506040805160608101825273ffffffffffffffffffffffffffffffffffffffff948516815292909316602083015262ffffff169181019190915290565b6000816020015173ffffffffffffffffffffffffffffffffffffffff16826000015173ffffffffffffffffffffffffffffffffffffffff16106101a157600080fd5b8151602080840151604080860151815173ffffffffffffffffffffffffffffffffffffffff95861681860152949092168482015262ffffff90911660608085019190915281518085038201815260808501909252815191909201207fff0000000000000000000000000000000000000000000000000000000000000060a08401529085901b7fffffffffffffffffffffffffffffffffffffffff0000000000000000000000001660a183015260b58201527fe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b5460d582015260f501604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe081840301815291905280516020909101209392505050565b803573ffffffffffffffffffffffffffffffffffffffff811681146102dc57600080fd5b919050565b803562ffffff811681146102dc57600080fd5b60008060006060848603121561030957600080fd5b610312846102b8565b9250610320602085016102b8565b915061032e604085016102e1565b90509250925092565b600080828403608081121561034b57600080fd5b610354846102b8565b925060607fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe08201121561038657600080fd5b506040516060810181811067ffffffffffffffff821117156103d1577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040526103e0602085016102b8565b81526103ee604085016102b8565b60208201526103ff606085016102e1565b604082015280915050925092905056fea2646970667358221220e8d44a40417a7f5af1b0789acd0d86f7d7e84e8a453a427a8aa4c8059047832264736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

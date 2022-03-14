@@ -1,0 +1,931 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "PerpetualManagerStorage",
+  "sourceName": "contracts/perpetualManager/PerpetualManagerStorage.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "approved",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "approved",
+          "type": "bool"
+        }
+      ],
+      "name": "ApprovalForAll",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "_baseURI",
+          "type": "string"
+        }
+      ],
+      "name": "BaseURIUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_maxLeverage",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_maintenanceMargin",
+          "type": "uint64"
+        }
+      ],
+      "name": "BoundsPerpetualUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_xHAFees",
+          "type": "uint64[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "_yHAFees",
+          "type": "uint64[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "deposit",
+          "type": "uint8"
+        }
+      ],
+      "name": "HAFeesUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_keeperFeesLiquidationCap",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_keeperFeesClosingCap",
+          "type": "uint256"
+        }
+      ],
+      "name": "KeeperFeesCapUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "xKeeperFeesClosing",
+          "type": "uint64[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64[]",
+          "name": "yKeeperFeesClosing",
+          "type": "uint64[]"
+        }
+      ],
+      "name": "KeeperFeesClosingUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_keeperFeesLiquidationRatio",
+          "type": "uint64"
+        }
+      ],
+      "name": "KeeperFeesLiquidationRatioUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "keeperAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "liquidationFees",
+          "type": "uint256"
+        }
+      ],
+      "name": "KeeperTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_lockTime",
+          "type": "uint64"
+        }
+      ],
+      "name": "LockTimeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_perpetualID",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_closeAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "PerpetualClosed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_perpetualID",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_entryRate",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_margin",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_committedAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "PerpetualOpened",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_perpetualID",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_margin",
+          "type": "uint256"
+        }
+      ],
+      "name": "PerpetualUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "perpetualIDs",
+          "type": "uint256[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "netCashOutAmount",
+              "type": "uint256"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct Pairs[]",
+          "name": "ownerAndCashOut",
+          "type": "tuple[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "keeper",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "PerpetualsForceClosed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Recovered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardPaid",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_rewardsDuration",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_rewardsDistributor",
+          "type": "address"
+        }
+      ],
+      "name": "RewardsDistributionDurationUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_rewardsDistributor",
+          "type": "address"
+        }
+      ],
+      "name": "RewardsDistributionUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_targetHAHedge",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_limitHAHedge",
+          "type": "uint64"
+        }
+      ],
+      "name": "TargetAndLimitHAHedgeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "BASE_PARAMS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BASE_TOKENS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "baseURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "haBonusMalusDeposit",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "haBonusMalusWithdraw",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "keeperFeesClosingCap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "keeperFeesLiquidationCap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "keeperFeesLiquidationRatio",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastUpdateTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "limitHAHedge",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lockTime",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maintenanceMargin",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxLeverage",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "oracle",
+      "outputs": [
+        {
+          "internalType": "contract IOracle",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "periodFinish",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "perpetualData",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "entryRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "entryTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "margin",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "committedAmount",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "perpetualRewardPerTokenPaid",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "poolManager",
+      "outputs": [
+        {
+          "internalType": "contract IPoolManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardPerTokenStored",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardRate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardToken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "rewards",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardsDistribution",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardsDuration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "targetHAHedge",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalHedgeAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "xHAFeesDeposit",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "xHAFeesWithdraw",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "xKeeperFeesClosing",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "yHAFeesDeposit",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "yHAFeesWithdraw",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "yKeeperFeesClosing",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061078e806100206000396000f3fe608060405234801561001057600080fd5b50600436106101f05760003560e01c80639f48118f1161010f578063d7f6328e116100a2578063ebe2b12b11610071578063ebe2b12b146104be578063f301af42146104c7578063f7c618c1146104e7578063f902fad71461050757600080fd5b8063d7f6328e14610473578063dc4c90d314610486578063df136d65146104a6578063df1b8bd3146104af57600080fd5b8063c1618dda116100de578063c1618dda14610430578063c8f33c9114610443578063d1aace9f1461044c578063d5eb05811461045f57600080fd5b80639f48118f146103e8578063ae3302c2146103f3578063b8f3689514610413578063c0212c721461041c57600080fd5b80636c0360eb11610187578063840a769811610156578063840a7698146103775780638c6dfaf7146103975780638d5e19f1146103a05780638e240144146103c857600080fd5b80636c0360eb146103305780637b0a47ee146103455780637bd06a151461034e5780637dc0d1d01461035757600080fd5b806338050129116101c357806338050129146102ae578063386a9525146102c15780633fc6df6e146102d857806349a5d3ef1461031d57600080fd5b80630bfab8a7146101f55780630d66808714610243578063142c3ba01461026b578063324f38151461027e575b600080fd5b600e54610225907801000000000000000000000000000000000000000000000000900467ffffffffffffffff1681565b60405167ffffffffffffffff90911681526020015b60405180910390f35b600e5461022590700100000000000000000000000000000000900467ffffffffffffffff1681565b610225610279366004610678565b61055c565b600d54610225907801000000000000000000000000000000000000000000000000900467ffffffffffffffff1681565b6102256102bc366004610678565b61059a565b6102ca60155481565b60405190815260200161023a565b6018546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161023a565b61022561032b366004610678565b6105aa565b6103386105ba565b60405161023a9190610691565b6102ca60145481565b6102ca600f5481565b6003546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b6102ca610385366004610678565b601b6020526000908152604090205481565b6102ca60105481565b600d5461022590700100000000000000000000000000000000900467ffffffffffffffff1681565b600e546102259068010000000000000000900467ffffffffffffffff1681565b6102ca633b9aca0081565b600d546102259068010000000000000000900467ffffffffffffffff1681565b6102ca60015481565b600e546102259067ffffffffffffffff1681565b61022561043e366004610678565b610648565b6102ca60165481565b61022561045a366004610678565b610658565b600d546102259067ffffffffffffffff1681565b610225610481366004610678565b610668565b6006546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b6102ca60175481565b6102ca670de0b6b3a764000081565b6102ca60135481565b6102ca6104d5366004610678565b601c6020526000908152604090205481565b6005546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b61053c610515366004610678565b601a6020526000908152604090208054600182015460028301546003909301549192909184565b60408051948552602085019390935291830152606082015260800161023a565b600a818154811061056c57600080fd5b9060005260206000209060049182820401919006600802915054906101000a900467ffffffffffffffff1681565b6011818154811061056c57600080fd5b600b818154811061056c57600080fd5b601980546105c790610704565b80601f01602080910402602001604051908101604052809291908181526020018280546105f390610704565b80156106405780601f1061061557610100808354040283529160200191610640565b820191906000526020600020905b81548152906001019060200180831161062357829003601f168201915b505050505081565b6009818154811061056c57600080fd5b6012818154811061056c57600080fd5b600c818154811061056c57600080fd5b60006020828403121561068a57600080fd5b5035919050565b600060208083528351808285015260005b818110156106be578581018301518582016040015282016106a2565b818111156106d0576000604083870101525b50601f017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe016929092016040019392505050565b600181811c9082168061071857607f821691505b60208210811415610752577f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b5091905056fea264697066735822122089abd2d7abfc099a48d4cf2bb3af7cfb8662138ad77a1f42cec2d9dce299f55764736f6c63430008070033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101f05760003560e01c80639f48118f1161010f578063d7f6328e116100a2578063ebe2b12b11610071578063ebe2b12b146104be578063f301af42146104c7578063f7c618c1146104e7578063f902fad71461050757600080fd5b8063d7f6328e14610473578063dc4c90d314610486578063df136d65146104a6578063df1b8bd3146104af57600080fd5b8063c1618dda116100de578063c1618dda14610430578063c8f33c9114610443578063d1aace9f1461044c578063d5eb05811461045f57600080fd5b80639f48118f146103e8578063ae3302c2146103f3578063b8f3689514610413578063c0212c721461041c57600080fd5b80636c0360eb11610187578063840a769811610156578063840a7698146103775780638c6dfaf7146103975780638d5e19f1146103a05780638e240144146103c857600080fd5b80636c0360eb146103305780637b0a47ee146103455780637bd06a151461034e5780637dc0d1d01461035757600080fd5b806338050129116101c357806338050129146102ae578063386a9525146102c15780633fc6df6e146102d857806349a5d3ef1461031d57600080fd5b80630bfab8a7146101f55780630d66808714610243578063142c3ba01461026b578063324f38151461027e575b600080fd5b600e54610225907801000000000000000000000000000000000000000000000000900467ffffffffffffffff1681565b60405167ffffffffffffffff90911681526020015b60405180910390f35b600e5461022590700100000000000000000000000000000000900467ffffffffffffffff1681565b610225610279366004610678565b61055c565b600d54610225907801000000000000000000000000000000000000000000000000900467ffffffffffffffff1681565b6102256102bc366004610678565b61059a565b6102ca60155481565b60405190815260200161023a565b6018546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200161023a565b61022561032b366004610678565b6105aa565b6103386105ba565b60405161023a9190610691565b6102ca60145481565b6102ca600f5481565b6003546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b6102ca610385366004610678565b601b6020526000908152604090205481565b6102ca60105481565b600d5461022590700100000000000000000000000000000000900467ffffffffffffffff1681565b600e546102259068010000000000000000900467ffffffffffffffff1681565b6102ca633b9aca0081565b600d546102259068010000000000000000900467ffffffffffffffff1681565b6102ca60015481565b600e546102259067ffffffffffffffff1681565b61022561043e366004610678565b610648565b6102ca60165481565b61022561045a366004610678565b610658565b600d546102259067ffffffffffffffff1681565b610225610481366004610678565b610668565b6006546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b6102ca60175481565b6102ca670de0b6b3a764000081565b6102ca60135481565b6102ca6104d5366004610678565b601c6020526000908152604090205481565b6005546102f89073ffffffffffffffffffffffffffffffffffffffff1681565b61053c610515366004610678565b601a6020526000908152604090208054600182015460028301546003909301549192909184565b60408051948552602085019390935291830152606082015260800161023a565b600a818154811061056c57600080fd5b9060005260206000209060049182820401919006600802915054906101000a900467ffffffffffffffff1681565b6011818154811061056c57600080fd5b600b818154811061056c57600080fd5b601980546105c790610704565b80601f01602080910402602001604051908101604052809291908181526020018280546105f390610704565b80156106405780601f1061061557610100808354040283529160200191610640565b820191906000526020600020905b81548152906001019060200180831161062357829003601f168201915b505050505081565b6009818154811061056c57600080fd5b6012818154811061056c57600080fd5b600c818154811061056c57600080fd5b60006020828403121561068a57600080fd5b5035919050565b600060208083528351808285015260005b818110156106be578581018301518582016040015282016106a2565b818111156106d0576000604083870101525b50601f017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe016929092016040019392505050565b600181811c9082168061071857607f821691505b60208210811415610752577f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b5091905056fea264697066735822122089abd2d7abfc099a48d4cf2bb3af7cfb8662138ad77a1f42cec2d9dce299f55764736f6c63430008070033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

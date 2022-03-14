@@ -1,0 +1,328 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IAngleRouter",
+  "sourceName": "contracts/interfaces/IRouter.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "perpetualID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_stablecoin",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "path",
+          "type": "bytes"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_inToken",
+          "type": "address"
+        }
+      ],
+      "name": "addToPerpetualFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "contract ILiquidityGauge[]",
+          "name": "liquidityGauges",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "perpetualIDs",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "contract IERC20[]",
+          "name": "_stablecoins",
+          "type": "address[]"
+        },
+        {
+          "internalType": "contract IERC20[]",
+          "name": "_collaterals",
+          "type": "address[]"
+        }
+      ],
+      "name": "claimAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "contract ILiquidityGauge[]",
+          "name": "liquidityGauges",
+          "type": "address[]"
+        }
+      ],
+      "name": "claimLiquidityGauges",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "perpetualIDs",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "contract IERC20[]",
+          "name": "_stablecoins",
+          "type": "address[]"
+        },
+        {
+          "internalType": "contract IERC20[]",
+          "name": "_collaterals",
+          "type": "address[]"
+        }
+      ],
+      "name": "claimPerpetuals",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IFeeDistributorFront",
+          "name": "_feeDistributor",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_claimRewards",
+          "type": "bool"
+        }
+      ],
+      "name": "claimWeeklyInterestsAndStake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IFeeDistributorFront",
+          "name": "_feeDistributor",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_stablecoin",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minStableAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimWeeklyInterestsAndSwap",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_stablecoin",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_claimRewards",
+          "type": "bool"
+        },
+        {
+          "internalType": "bytes",
+          "name": "path",
+          "type": "bytes"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_inToken",
+          "type": "address"
+        }
+      ],
+      "name": "depositAndStake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minStableAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_stablecoin",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "path",
+          "type": "bytes"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_inToken",
+          "type": "address"
+        }
+      ],
+      "name": "mintFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountCommitted",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxOracleRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minNetMargin",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_stablecoin",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "path",
+          "type": "bytes"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_inToken",
+          "type": "address"
+        }
+      ],
+      "name": "openPerpetualFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
