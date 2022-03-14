@@ -1,8 +1,15 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { Oracle, PerpetualManagerFront, StableMasterFront } from '../constants/types';
+import { CONTRACTS_ADDRESSES } from '../constants';
+import {
+  OracleMulti,
+  OracleMulti__factory,
+  PerpetualManagerFront,
+  PerpetualManagerFront__factory,
+  StableMasterFront,
+  StableMasterFront__factory,
+} from '../constants/types/contracts';
 import { computeBurn, computeInverseBurn, computeInverseMint, computeMint } from '../helpers';
 import { ChainId } from '../index';
 import { parseCollat, parseStable } from '../utils';
@@ -32,11 +39,15 @@ export async function estimateMint(
     ?.PerpetualManager as string;
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
+  const stablemaster = new ethers.Contract(
+    stableMasterAddress,
+    StableMasterFront__factory.createInterface(),
+    provider
+  ) as StableMasterFront;
+  const oracle = new ethers.Contract(oracleAddress, OracleMulti__factory.createInterface(), provider) as OracleMulti;
   const perpetualManager = new ethers.Contract(
     perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
+    PerpetualManagerFront__factory.createInterface(),
     provider
   ) as PerpetualManagerFront;
 
@@ -74,11 +85,15 @@ export async function estimateInverseMint(
     ?.PerpetualManager as string;
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
+  const stablemaster = new ethers.Contract(
+    stableMasterAddress,
+    StableMasterFront__factory.createInterface(),
+    provider
+  ) as StableMasterFront;
+  const oracle = new ethers.Contract(oracleAddress, OracleMulti__factory.createInterface(), provider) as OracleMulti;
   const perpetualManager = new ethers.Contract(
     perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
+    PerpetualManagerFront__factory.createInterface(),
     provider
   ) as PerpetualManagerFront;
 
@@ -125,11 +140,15 @@ export async function estimateBurn(
     ?.PerpetualManager as string;
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
+  const stablemaster = new ethers.Contract(
+    stableMasterAddress,
+    StableMasterFront__factory.createInterface(),
+    provider
+  ) as StableMasterFront;
+  const oracle = new ethers.Contract(oracleAddress, OracleMulti__factory.createInterface(), provider) as OracleMulti;
   const perpetualManager = new ethers.Contract(
     perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
+    PerpetualManagerFront__factory.createInterface(),
     provider
   ) as PerpetualManagerFront;
 
@@ -167,11 +186,15 @@ export async function estimateInverseBurn(
     ?.PerpetualManager as string;
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
+  const stablemaster = new ethers.Contract(
+    stableMasterAddress,
+    StableMasterFront__factory.createInterface(),
+    provider
+  ) as StableMasterFront;
+  const oracle = new ethers.Contract(oracleAddress, OracleMulti__factory.createInterface(), provider) as OracleMulti;
   const perpetualManager = new ethers.Contract(
     perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
+    PerpetualManagerFront__factory.createInterface(),
     provider
   ) as PerpetualManagerFront;
 

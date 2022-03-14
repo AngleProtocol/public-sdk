@@ -3,8 +3,9 @@
  */
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
+import { PerpetualManagerFront__factory } from 'src/constants/types/contracts';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
+import { CONTRACTS_ADDRESSES } from '../constants';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -45,7 +46,7 @@ export async function openPerpetual(
 
   if (!ethers.utils.isAddress(owner)) owner = await signer.getAddress();
 
-  const contract = new ethers.Contract(perpetualManagerAddress, Interfaces.PerpetualManagerFront_Abi);
+  const contract = new ethers.Contract(perpetualManagerAddress, PerpetualManagerFront__factory.abi);
 
   return contract.connect(signer).openPerpetual(owner, margin, committedAmount, maxOracleRate, minNetMargin, options);
 }
@@ -83,7 +84,7 @@ export async function closePerpetual(
 
   if (!ethers.utils.isAddress(to)) to = await signer.getAddress();
 
-  const contract = new ethers.Contract(perpetualManagerAddress, Interfaces.PerpetualManagerFront_Abi);
+  const contract = new ethers.Contract(perpetualManagerAddress, PerpetualManagerFront__factory.abi);
 
   return contract.connect(signer).closePerpetual(perpetualID, to, minCashOutAmount, options);
 }

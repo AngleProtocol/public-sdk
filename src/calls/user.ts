@@ -4,8 +4,8 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { Erc20 } from '../constants/types';
+import { CONTRACTS_ADDRESSES } from '../constants';
+import { ERC20, ERC20__factory, StableMasterFront__factory } from '../constants/types/contracts';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -45,8 +45,8 @@ export async function mint(
 
   if (!ethers.utils.isAddress(user)) user = await signer.getAddress();
 
-  const token = new ethers.Contract(collat.address, Interfaces.ERC20_Abi) as Erc20;
-  const contract = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Abi);
+  const token = new ethers.Contract(collat.address, ERC20__factory.abi) as ERC20;
+  const contract = new ethers.Contract(stableMasterAddress, StableMasterFront__factory.abi);
 
   // Approval is needed
   const approval = await token.connect(signer).allowance(await signer.getAddress(), stableMasterAddress);
@@ -94,7 +94,7 @@ export async function burn(
   if (!ethers.utils.isAddress(burner)) burner = await signer.getAddress();
   if (!ethers.utils.isAddress(dest)) dest = await signer.getAddress();
 
-  const contract = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Abi);
+  const contract = new ethers.Contract(stableMasterAddress, StableMasterFront__factory.abi);
 
   return contract.connect(signer).burn(amount, burner, dest, poolManagerAddress, minCollatAmount, options);
 }

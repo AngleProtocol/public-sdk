@@ -3,8 +3,9 @@
  */
 
 import { ethers } from 'ethers';
+import { FeeManager__factory, Strategy__factory } from 'src/constants/types/contracts';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
+import { CONTRACTS_ADDRESSES } from '../constants';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -32,7 +33,7 @@ export async function harvest(
 
   if (!address) throw new Error("Can't find contract's address");
 
-  const contract = new ethers.Contract(address, Interfaces.Strategy_Abi);
+  const contract = new ethers.Contract(address, Strategy__factory.abi);
 
   return contract.connect(signer).harvest(options);
 }
@@ -61,7 +62,7 @@ export async function updateUsersSLP(
 
   if (!address) throw new Error("Can't find contract's address");
 
-  const contract = new ethers.Contract(address, Interfaces.FeeManager_Abi);
+  const contract = new ethers.Contract(address, FeeManager__factory.abi);
 
   return contract.connect(signer).updateUsersSLP(options);
 }

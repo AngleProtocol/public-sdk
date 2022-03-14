@@ -5,7 +5,7 @@ import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
 import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { Erc20 } from '../constants/types';
+import { ERC20 } from '../constants/types/contracts';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -41,7 +41,7 @@ export async function deposit(
 
   if (!ethers.utils.isAddress(user)) user = await signer.getAddress();
 
-  const token = new ethers.Contract(collat.address, Interfaces.ERC20_Abi) as Erc20;
+  const token = new ethers.Contract(collat.address, Interfaces.ERC20_Abi) as ERC20;
   const contract = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Abi);
 
   // Approval is needed

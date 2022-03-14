@@ -1,8 +1,8 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { StableMasterFront } from '../constants/types';
+import { CONTRACTS_ADDRESSES } from '../constants';
+import { StableMasterFront, StableMasterFront__factory } from '../constants/types/contracts';
 import { simulateWithdraw } from '../helpers';
 import { ChainId } from '../index';
 import { parseCollat, parseStable } from '../utils';
@@ -29,7 +29,11 @@ export async function estimateDeposit(
   const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
+  const stablemaster = new ethers.Contract(
+    stableMasterAddress,
+    StableMasterFront__factory.createInterface(),
+    provider
+  ) as StableMasterFront;
 
   const sanRate = (await stablemaster.collateralMap(poolManagerAddress)).sanRate;
 
@@ -58,7 +62,11 @@ export async function estimateWithdraw(
   const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
+  const stablemaster = new ethers.Contract(
+    stableMasterAddress,
+    StableMasterFront__factory.createInterface(),
+    provider
+  ) as StableMasterFront;
 
   const sanRate = (await stablemaster.collateralMap(poolManagerAddress)).sanRate;
   const collatRatio = await stablemaster.getCollateralRatio();
