@@ -7,7 +7,7 @@
       "DAI": {
         "FeeManager": "0xE6d9bD6796bDAF9B391Fac2A2D34bAE9c1c3c1C4",
         "GenericAave": "0x533438BDf6C576eB14d9572B41d5D37220cc4d09",
-        "GenericCompound": "0xf89fa5D0f1A85c2bAda78dBCc1d6CDC09a7c8e12",
+        "GenericCompound": "0x791FD66EeC9e8eE75162B82f60afB38987D43EAe",
         "LiquidityGauge": "0x8E2c0CbDa6bA7B65dbcA333798A3949B07638026",
         "Oracle": "0xc9Cb5703C109D4Fe46d2F29b0454c434e42A6947",
         "PerpetualManager": "0xfc8f9eefC5FCe1D9dAcE2B0a11A1e184381787C4",
@@ -41,7 +41,7 @@
       "USDC": {
         "FeeManager": "0x97B6897AAd7aBa3861c04C0e6388Fc02AF1F227f",
         "GenericAave": "0x5145F310650361Bdb6234eE94424d461A075807b",
-        "GenericCompound": "0xC011882d0f7672D8942e7fE2248C174eeD640c8f",
+        "GenericCompound": "0x1279a94b334ad7eD31bB15a8df550AcBBa4430a5",
         "LiquidityGauge": "0x51fE22abAF4a26631b2913E417c0560D547797a7",
         "Oracle": "0x2859a4eBcB58c8Dd5cAC1419C4F63A071b642B20",
         "PerpetualManager": "0x5efE48F8383921d950683C46B87E28e21DEa9FB5",
