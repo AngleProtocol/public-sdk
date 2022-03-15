@@ -47,7 +47,7 @@ export const ALL_TOKENS: AllTokens = {
     [AssetType.COLLATERAL]: arrayOfTokensToTokenDict([
       new Token(ChainId.MAINNET, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'Dai Stablecoin'),
       new Token(ChainId.MAINNET, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'USDC', 'USD Coin'),
-      new Token(ChainId.MAINNET, '0x956f47f50a910163d8bf957cf5846d573e7f87ca', 18, 'FEI', 'FEI USD'),
+      new Token(ChainId.MAINNET, '0x956f47f50a910163d8bf957cf5846d573e7f87ca', 18, 'FEI', 'Fei USD'),
       new Token(ChainId.MAINNET, '0x853d955acef822db058eb8505911ed77f175b99e', 18, 'FRAX', 'FRAX'),
     ]),
     // TODO: add addresses for mainnet
