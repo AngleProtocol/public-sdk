@@ -1,6 +1,7 @@
 import { BigNumber, Contract, providers, Wallet } from 'ethers';
+import { RewardsDistributor, RewardsDistributor__factory } from '../constants/types/contracts';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../constants';
+import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, StableTokens } from '../constants';
 import { AssetType, ChainId } from '../types';
 import { Logger } from './logger';
 import { addCall, execMulticall } from './multicall';
@@ -69,10 +70,11 @@ function computeDripAmount(stakingParams: TStakingParams) {
 export async function poolsToDrip(stakingContracts: string[], provider: providers.JsonRpcProvider, chainId: ChainId) {
   const rewardsDistributorAddress = CONTRACTS_ADDRESSES[chainId].RewardsDistributor!;
   const calls = stakingContracts.map((contract) => {
+    const rewardsDistributorInterface = RewardsDistributor__factory.createInterface();
     return addCall(
-      Interfaces.RewardsDistributor_Interface,
+      rewardsDistributorInterface,
       rewardsDistributorAddress,
-      Interfaces.RewardsDistributor_Interface.functions['stakingContractsMap(address)'].name,
+      rewardsDistributorInterface.functions['stakingContractsMap(address)'].name,
       [contract]
     );
   });
@@ -103,9 +105,9 @@ export async function poolsToDrip(stakingContracts: string[], provider: provider
 export async function drip(stakingContract: string, provider: providers.JsonRpcProvider, signer: Wallet, chainId: ChainId): Promise<void> {
   const contract = new Contract(
     CONTRACTS_ADDRESSES[chainId].RewardsDistributor!,
-    Interfaces.RewardsDistributor_Interface,
+    RewardsDistributor__factory.createInterface(),
     provider
-  ) as Interfaces.RewardsDistributor;
+  ) as RewardsDistributor;
 
   const tx = await contract.connect(signer).drip(stakingContract);
   Logger('tx drip: ', tx);

@@ -1,6 +1,7 @@
 import { Contract, providers, utils, Wallet } from 'ethers';
+import { PoolManager, PoolManager__factory, Strategy, Strategy__factory } from '../constants/types/contracts';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../constants';
+import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, StableTokens } from '../constants';
 import { AssetType, ChainId } from '../types';
 import { Logger } from './logger';
 
@@ -47,8 +48,8 @@ export function getStrategies(chainId: ChainId): ColleteralContract[] {
  * @param chainId - ChainId of the network
  */
 export async function harvest(contract: ColleteralContract, provider: providers.JsonRpcProvider, signer: Wallet, chainId: ChainId) {
-  const strategyContract = new Contract(contract.strategy, Interfaces.Strategy_Interface, provider) as Interfaces.Strategy;
-  const poolManagerContract = new Contract(contract.poolManager, Interfaces.PoolManager_Interface, provider) as Interfaces.PoolManager;
+  const strategyContract = new Contract(contract.strategy, Strategy__factory.createInterface(), provider) as Strategy;
+  const poolManagerContract = new Contract(contract.poolManager, PoolManager__factory.createInterface(), provider) as PoolManager;
   const creditAvailable = await poolManagerContract.creditAvailable();
 
   const harvestTrigger = await strategyContract.harvestTrigger();

@@ -3,7 +3,7 @@
  */
 
 import { ethers } from 'ethers';
-import { FeeManager__factory, Strategy__factory } from 'src/constants/types/contracts';
+import { FeeManager__factory, Strategy__factory } from '../constants/types/contracts';
 
 import { CONTRACTS_ADDRESSES } from '../constants';
 import { ChainId } from '../types';

@@ -1,6 +1,7 @@
 import { BigNumber, providers } from 'ethers';
+import { OracleMulti__factory, PerpetualManagerFront__factory, StableMasterFront__factory } from '../../constants/types/contracts';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../../constants';
+import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, StableTokens } from '../../constants';
 import { AssetType, ChainId, Token } from '../../types';
 import { Pair } from '../pair';
 import { addCall, execMulticall, MulticallEntry } from './index';
@@ -30,60 +31,32 @@ export const getCalls = (chainId: ChainId) => {
       if (perpetualManagerAddr && oracleAddr) {
         allPairs.push({ stable: stable, collateral: collateral });
 
+        const perpetualManagerInterface = PerpetualManagerFront__factory.createInterface();
         /* Perpetual Manager */
         maintenanceMargins.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['maintenanceMargin()'].name
-          )
+          addCall(perpetualManagerInterface, perpetualManagerAddr, perpetualManagerInterface.functions['maintenanceMargin()'].name)
         );
         totalHedgeAmounts.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['totalHedgeAmount()'].name
-          )
+          addCall(perpetualManagerInterface, perpetualManagerAddr, perpetualManagerInterface.functions['totalHedgeAmount()'].name)
         );
         limitHAHedges.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['limitHAHedge()'].name
-          )
+          addCall(perpetualManagerInterface, perpetualManagerAddr, perpetualManagerInterface.functions['limitHAHedge()'].name)
         );
         targetHAHedges.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['targetHAHedge()'].name
-          )
+          addCall(perpetualManagerInterface, perpetualManagerAddr, perpetualManagerInterface.functions['targetHAHedge()'].name)
         );
-        lockTimes.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['lockTime()'].name
-          )
-        );
+        lockTimes.push(addCall(perpetualManagerInterface, perpetualManagerAddr, perpetualManagerInterface.functions['lockTime()'].name));
 
+        const oracleInterface = OracleMulti__factory.createInterface();
         /* Oracle */
-        rates.push(
-          addCall(
-            Interfaces.Oracle__factory.createInterface(),
-            oracleAddr,
-            Interfaces.Oracle__factory.createInterface().functions['readAll()'].name
-          )
-        );
+        rates.push(addCall(oracleInterface, oracleAddr, oracleInterface.functions['readAll()'].name));
 
+        const stableMasterInterface = StableMasterFront__factory.createInterface();
         /* Stable Master */
         collateralMaps.push(
-          addCall(
-            Interfaces.StableMasterFront_Interface,
-            stableMasterAddr,
-            Interfaces.StableMasterFront_Interface.functions['collateralMap(address)'].name,
-            [poolManagerAddr]
-          )
+          addCall(stableMasterInterface, stableMasterAddr, stableMasterInterface.functions['collateralMap(address)'].name, [
+            poolManagerAddr,
+          ])
         );
       }
     }
