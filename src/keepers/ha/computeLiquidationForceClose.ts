@@ -8,23 +8,27 @@ import { Pair } from '../pair';
 import { convertTGPerpToPerpetual, getAllPairNames, PairWithIds } from '../utils';
 import { fetchPerpetuals } from './gql';
 
-type PerpetualDistance = Perpetual & {
-  distToTargetHedge: BigNumber;
-};
-
 function sortingPerpetualsFunc(a: Perpetual, b: Perpetual) {
   return a.coveredAmount.lt(b.coveredAmount) ? 1 : -1;
 }
 
-function sortingPerpetualsToDistTargetHedgeFunc(a: PerpetualDistance, b: PerpetualDistance) {
-  return a.distToTargetHedge.gt(b.distToTargetHedge) ? 1 : -1;
+function sortingPerpetualsToDistTargetHedgeFunc(a: Perpetual, b: Perpetual) {
+  if (a.distToTargetHedge.lte(BigNumber.from(0)) && b.distToTargetHedge.lte(BigNumber.from(0))) {
+    return a.distToTargetHedge.gt(b.distToTargetHedge) ? 1 : -1;
+  } else if (a.distToTargetHedge.gt(BigNumber.from(0)) && b.distToTargetHedge.gt(BigNumber.from(0))) {
+    return a.distToTargetHedge.gt(b.distToTargetHedge) ? -1 : 1;
+  } else if (a.distToTargetHedge.lte(BigNumber.from(0)) && b.distToTargetHedge.gt(BigNumber.from(0))) {
+    return 1;
+  } else {
+    return -1;
+  }
 }
 
 function sortPerpetuals(perpetuals: Perpetual[]) {
   return perpetuals.slice().sort(sortingPerpetualsFunc);
 }
 
-function sortPerpetualsByDistTargetHedge(perpetuals: PerpetualDistance[]) {
+function sortPerpetualsByDistTargetHedge(perpetuals: Perpetual[]) {
   return perpetuals.slice().sort(sortingPerpetualsToDistTargetHedgeFunc);
 }
 
@@ -52,33 +56,29 @@ const computeForceCloseByPair = (pair: Pair, perpetuals: Perpetual[]) => {
   const now = Date.now();
 
   let curDistanceToTarget = totalHedgeAmountAfterClose.sub(targetHedgeAmount);
-  let perpetualsWithDistToTargetHedge: PerpetualDistance[] = perpetuals.map((perp) => {
-    const distToTargetHedge = curDistanceToTarget?.lte(perp.coveredAmount)
-      ? curDistanceToTarget?.sub(perp.coveredAmount)
-      : ethers.constants.MaxUint256;
-    return { ...perp, ...{ distToTargetHedge: distToTargetHedge } };
+  let perpetualsWithDistToTargetHedge = perpetuals.map((perp) => {
+    perp.distToTargetHedge = curDistanceToTarget?.sub(perp.coveredAmount)!;
+    return perp;
   });
 
-  if (requireForceClose) {
+  if (requireForceClose && totalHedgeAmountAfterClose.gt(targetHedgeAmount)) {
     Logger('requireForceClose', `${pair.stable.symbol}/${pair.collateral.symbol}`);
     perpetualsWithDistToTargetHedge = sortPerpetualsByDistTargetHedge(perpetualsWithDistToTargetHedge);
 
     while (perpetualsWithDistToTargetHedge.length > 0) {
       const closestPerpetual = perpetualsWithDistToTargetHedge[0];
-      if (!requireForceClose || totalHedgeAmountAfterClose.lte(targetHedgeAmount)) {
-        break;
-      }
       if (now - closestPerpetual.lastUpdated >= pair.lockTime) {
         // Check that the perpetual isn't locked
         totalHedgeAmountAfterClose = totalHedgeAmountAfterClose.sub(closestPerpetual.coveredAmount)!;
         forceClosables.push(closestPerpetual.perpetualId);
       }
-      perpetualsWithDistToTargetHedge = perpetualsWithDistToTargetHedge.shift();
+      if (!requireForceClose || totalHedgeAmountAfterClose.lte(targetHedgeAmount)) {
+        break;
+      }
+      perpetualsWithDistToTargetHedge.shift();
       curDistanceToTarget = totalHedgeAmountAfterClose.sub(targetHedgeAmount);
       perpetualsWithDistToTargetHedge = perpetualsWithDistToTargetHedge.map((perp) => {
-        const distToTargetHedge = curDistanceToTarget?.lte(perp.coveredAmount)
-          ? curDistanceToTarget?.sub(perp.coveredAmount)
-          : ethers.constants.MaxUint256;
+        const distToTargetHedge = curDistanceToTarget?.sub(perp.coveredAmount)!;
         perp.distToTargetHedge = distToTargetHedge;
         return perp;
       });
