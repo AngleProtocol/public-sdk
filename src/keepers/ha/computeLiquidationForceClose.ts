@@ -1,4 +1,5 @@
 import { BigNumber, ethers, providers } from 'ethers';
+import _ from 'lodash';
 
 import { Int256, Perpetual } from '../../lib';
 import { ChainId } from '../../types';
@@ -29,7 +30,7 @@ function sortPerpetuals(perpetuals: Perpetual[]) {
 }
 
 function sortPerpetualsByDistTargetHedge(perpetuals: Perpetual[]) {
-  return perpetuals.slice().sort(sortingPerpetualsToDistTargetHedgeFunc);
+  return _.cloneDeep(perpetuals).sort(sortingPerpetualsToDistTargetHedgeFunc);
 }
 
 const computeLiquidationByPair = (pair: Pair, perpetuals: Perpetual[]) => {
