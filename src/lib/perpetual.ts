@@ -106,7 +106,7 @@ export class Perpetual {
 
   public readonly coveredAmount: Int256;
 
-  public distToTargetHedge: Int256;
+  public distToTargetHedge: Int256 | undefined;
 
   /**
    * The stable token
