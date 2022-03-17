@@ -15,7 +15,6 @@ import {
   Guardian__factory,
   LiquidityGaugeV4__factory,
   OneInchAggregatorV4__factory,
-  Oracle__factory,
   OracleMulti__factory,
   PerpetualManagerFront__factory,
   PoolManager__factory,
