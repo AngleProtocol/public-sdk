@@ -1,4 +1,5 @@
-import { providers } from 'ethers';
+import { BigNumber, ethers, providers } from 'ethers';
+import _ from 'lodash';
 
 import { Int256, Perpetual } from '../../lib';
 import { ChainId } from '../../types';
@@ -12,8 +13,24 @@ function sortingPerpetualsFunc(a: Perpetual, b: Perpetual) {
   return a.coveredAmount.lt(b.coveredAmount) ? 1 : -1;
 }
 
+function sortingPerpetualsToDistTargetHedgeFunc(a: Perpetual, b: Perpetual) {
+  if (a.distToTargetHedge?.lte(BigNumber.from(0)) && b.distToTargetHedge?.lte(BigNumber.from(0))) {
+    return a.distToTargetHedge.gt(b.distToTargetHedge) ? -1 : 1;
+  } else if (a.distToTargetHedge?.gt(BigNumber.from(0)) && b.distToTargetHedge?.gt(BigNumber.from(0))) {
+    return a.distToTargetHedge.gt(b.distToTargetHedge) ? 1 : -1;
+  } else if (a.distToTargetHedge?.lte(BigNumber.from(0)) && b.distToTargetHedge?.gt(BigNumber.from(0))) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
 function sortPerpetuals(perpetuals: Perpetual[]) {
   return perpetuals.slice().sort(sortingPerpetualsFunc);
+}
+
+function sortPerpetualsByDistTargetHedge(perpetuals: Perpetual[]) {
+  return _.cloneDeep(perpetuals).sort(sortingPerpetualsToDistTargetHedgeFunc);
 }
 
 const computeLiquidationByPair = (pair: Pair, perpetuals: Perpetual[]) => {
@@ -33,25 +50,41 @@ const computeLiquidationByPair = (pair: Pair, perpetuals: Perpetual[]) => {
   return { liquidables, requireForceClose, totalHedgeAmountAfterClose, targetHedgeAmount };
 };
 
-const computeForceCloseByPair = (pair: Pair, perpetuals: Perpetual[]) => {
+export const computeForceCloseByPair = (pair: Pair, perpetuals: Perpetual[]) => {
   const { requireForceClose, targetHedgeAmount } = pair.computeRequireForceClose();
   const forceClosables: number[] = [];
-  let totalHedgeAmountAfterClose = pair.totalHedgeAmount;
+  let totalHedgeAmountAfterClose: Int256 | undefined = pair.totalHedgeAmount;
   const now = Date.now();
 
-  if (requireForceClose) {
-    Logger('requireForceClose', `${pair.stable.symbol}/${pair.collateral.symbol}`);
-    perpetuals = sortPerpetuals(perpetuals);
+  let curDistanceToTarget = totalHedgeAmountAfterClose.sub(targetHedgeAmount);
+  let perpetualsWithDistToTargetHedge = perpetuals.map((perp) => {
+    perp.distToTargetHedge = curDistanceToTarget?.sub(perp.coveredAmount);
+    return perp;
+  });
 
-    for (const perpetual of perpetuals) {
-      if (!requireForceClose || totalHedgeAmountAfterClose.lte(targetHedgeAmount)) {
+  if (requireForceClose && totalHedgeAmountAfterClose.gt(targetHedgeAmount)) {
+    Logger('requireForceClose', `${pair.stable.symbol}/${pair.collateral.symbol}`);
+    perpetualsWithDistToTargetHedge = sortPerpetualsByDistTargetHedge(perpetualsWithDistToTargetHedge);
+
+    while (perpetualsWithDistToTargetHedge.length > 0) {
+      const closestPerpetual = perpetualsWithDistToTargetHedge[0];
+      if (now - closestPerpetual.lastUpdated >= pair.lockTime) {
+        // Check that the perpetual isn't locked
+        // @typescript-eslint/no-non-null-asserted-optional-chain
+        totalHedgeAmountAfterClose = totalHedgeAmountAfterClose?.sub(closestPerpetual.coveredAmount);
+        forceClosables.push(closestPerpetual.perpetualId);
+      }
+      if (!requireForceClose || totalHedgeAmountAfterClose?.lte(targetHedgeAmount)) {
         break;
       }
-      if (now - perpetual.lastUpdated >= pair.lockTime) {
-        // Check that the perpetual isn't locked
-        totalHedgeAmountAfterClose = totalHedgeAmountAfterClose.sub(perpetual.coveredAmount)!;
-        forceClosables.push(perpetual.perpetualId);
-      }
+      perpetualsWithDistToTargetHedge.shift();
+      curDistanceToTarget = totalHedgeAmountAfterClose?.sub(targetHedgeAmount);
+      perpetualsWithDistToTargetHedge = perpetualsWithDistToTargetHedge.map((perp) => {
+        const distToTargetHedge = curDistanceToTarget?.sub(perp.coveredAmount);
+        perp.distToTargetHedge = distToTargetHedge;
+        return perp;
+      });
+      perpetualsWithDistToTargetHedge = sortPerpetualsByDistTargetHedge(perpetualsWithDistToTargetHedge);
     }
   }
 
@@ -159,7 +192,7 @@ export const computeForceClose = async (
       totalHedgeAmountAfterClose,
     };
 
-    Logger(pairName, requireForceClose, targetHedgeAmount.toFixed(2), totalHedgeAmountAfterClose.toFixed(2), forceClosables);
+    Logger(pairName, requireForceClose, targetHedgeAmount.toFixed(2), totalHedgeAmountAfterClose?.toFixed(2), forceClosables);
 
     if (forceClosables.length > 0) {
       allForceClosables[pairName] = [...forceClosables];

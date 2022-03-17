@@ -106,6 +106,8 @@ export class Perpetual {
 
   public readonly coveredAmount: Int256;
 
+  public distToTargetHedge: Int256 | undefined;
+
   /**
    * The stable token
    */
@@ -175,6 +177,7 @@ export class Perpetual {
 
     this.entryRate = Int256.from(entryRate);
     this.coveredAmount = this.committedAmount.mul(this.entryRate)!;
+    this.distToTargetHedge = Int256.from(0);
 
     this.creationDate = creationDate;
     this.lastUpdated = lastUpdated;

@@ -448,12 +448,12 @@ const poolsParameters: PoolsParameters = {
     WBTC: poolsParameters_WBTC,
   },
 };
-let yearlyRate = 1.05;
-let ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
-let yearlyRate2 = 1.04;
-let ratePerSecond2 = yearlyRate2 ** (1 / (365 * 24 * 3600)) - 1;
-let yearlyRate3 = 1.01;
-let ratePerSecond3 = yearlyRate3 ** (1 / (365 * 24 * 3600)) - 1;
+const yearlyRate = 1.05;
+const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
+const yearlyRate2 = 1.04;
+const ratePerSecond2 = yearlyRate2 ** (1 / (365 * 24 * 3600)) - 1;
+const yearlyRate3 = 1.01;
+const ratePerSecond3 = yearlyRate3 ** (1 / (365 * 24 * 3600)) - 1;
 // agTokens specific parameters
 const stablesParameters: StablesParameters = {
   EUR: {

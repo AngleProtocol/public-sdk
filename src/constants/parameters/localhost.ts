@@ -511,10 +511,10 @@ const poolsParameters: PoolsParameters = {
 };
 
 // agTokens specific parameters
-let yearlyRate = 1.03;
-let ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
-let yearlyRate2 = 1.03;
-let ratePerSecond2 = yearlyRate2 ** (1 / (365 * 24 * 3600)) - 1;
+const yearlyRate = 1.03;
+const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
+const yearlyRate2 = 1.03;
+const ratePerSecond2 = yearlyRate2 ** (1 / (365 * 24 * 3600)) - 1;
 const stablesParameters: StablesParameters = {
   EUR: {
     stakings: [
