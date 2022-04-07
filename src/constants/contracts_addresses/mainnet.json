@@ -16,7 +16,7 @@
         "SanToken": "0x7B8E89b0cE7BAC2cfEC92A371Da899eA8CBdb450",
         "Staking": "0x65e4992250B296790c07FAdF0f0723902a07E91d",
         "Strategies": {
-          "LenderStrat": "0xFd04BcE2Cd25fC69f30813f0342Bf0C0B5e22461"
+          "GenericOptimisedLender": "0xFd04BcE2Cd25fC69f30813f0342Bf0C0B5e22461"
         }
       },
       "FEI": {
@@ -29,7 +29,7 @@
         "SanToken": "0x5d8D3Ac6D21C016f9C935030480B7057B21EC804",
         "Staking": "0x3d7E670d105e8FBcAE3BF2bFC54324302cDb6aD5",
         "Strategies": {
-          "LenderStrat": "0xb46a42427e412869F1bd7B9b3a2b5E5856A8907e"
+          "GenericOptimisedLender": "0xb46a42427e412869F1bd7B9b3a2b5E5856A8907e"
         }
       },
       "FRAX": {
@@ -42,7 +42,7 @@
         "SanToken": "0xb3B209Bb213A5Da5B947C56f2C770b3E1015f1FE",
         "Staking": "0xbB9485e2b9B0da40Db3874A144700e31bd9c40C2",
         "Strategies": {
-          "LenderStrat": "0x2D78B6f5Dc8985D90145F27C8f5A3782Eb9DeB2E"
+          "GenericOptimisedLender": "0x2D78B6f5Dc8985D90145F27C8f5A3782Eb9DeB2E"
         }
       },
       "USDC": {
@@ -56,7 +56,7 @@
         "SanToken": "0x9C215206Da4bf108aE5aEEf9dA7caD3352A36Dad",
         "Staking": "0x2Fa1255383364F6e17Be6A6aC7A56C9aCD6850a3",
         "Strategies": {
-          "LenderStrat": "0x5fE0E497Ac676d8bA78598FC8016EBC1E6cE14a3",
+          "GenericOptimisedLender": "0x5fE0E497Ac676d8bA78598FC8016EBC1E6cE14a3",
           "AaveFlashloan": "0x1F847FD5E08Fb559A69280A14e7E904e6DBfF81f"
         }
       }
