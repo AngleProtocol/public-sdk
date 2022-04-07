@@ -20,12 +20,15 @@ export function getStrategies(chainId: ChainId): ColleteralContract[] {
       const collateralContract = agToken.collaterals[collateral];
       if (collateralContract.PoolManager) {
         const collateralToken = Object.values(ALL_TOKENS[chainId][AssetType.COLLATERAL]).filter((token) => token.symbol === collateral)[0];
-        if (collateralContract.Strategy) {
-          acc.push({
-            strategy: collateralContract.Strategy,
-            poolManager: collateralContract.PoolManager,
-            collateralDecimals: collateralToken.decimals,
-          });
+        if (collateralContract.Strategies) {
+          const strats = Object.values(collateralContract.Strategies);
+          for (const strat of strats) {
+            acc.push({
+              strategy: strat,
+              poolManager: collateralContract.PoolManager,
+              collateralDecimals: collateralToken.decimals,
+            });
+          }
         }
       }
     }

@@ -15,7 +15,6 @@ const ContractsNames = [
   'PerpetualManager',
   'PoolManager',
   'SanToken',
-  'Strategy',
   'Staking',
   'GenericCompound',
   'GenericAave',
@@ -55,6 +54,10 @@ export type AngleContractsStableType = {
   collaterals: {
     [collateralName: string]: {
       [contractName in typeof ContractsNames[number]]?: string;
+    } & {
+      Strategies?: {
+        [strategyName: string]: string;
+      };
     };
   };
 };
