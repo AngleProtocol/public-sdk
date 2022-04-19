@@ -505,20 +505,20 @@ const poolsParameters_WETH: PoolParameters = {
   // x: horizontal axis steps relative to the hedge ratio
   // y: amount of fees
   xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yFeeMint: [parseAmount.gwei(0.01), parseAmount.gwei(0.005), parseAmount.gwei(0.003), parseAmount.gwei(0.0025)],
+  yFeeMint: [parseAmount.gwei(0.01), parseAmount.gwei(0.0075), parseAmount.gwei(0.006), parseAmount.gwei(0.0055)],
 
   xFeeBurn: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yFeeBurn: [parseAmount.gwei(0.0025), parseAmount.gwei(0.003), parseAmount.gwei(0.005), parseAmount.gwei(0.01)],
+  yFeeBurn: [parseAmount.gwei(0.0055), parseAmount.gwei(0.006), parseAmount.gwei(0.0075), parseAmount.gwei(0.01)],
 
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yHAFeesDeposit: [parseAmount.gwei(0.003), parseAmount.gwei(0.005), parseAmount.gwei(0.008), parseAmount.gwei(0.015)],
+  yHAFeesDeposit: [parseAmount.gwei(0.002), parseAmount.gwei(0.003), parseAmount.gwei(0.004), parseAmount.gwei(0.008)],
 
   // adds the opportunity for governance to add a bonus or malus to HA fees
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
 
   xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yHAFeesWithdraw: [parseAmount.gwei(0.015), parseAmount.gwei(0.008), parseAmount.gwei(0.004), parseAmount.gwei(0.003)],
+  yHAFeesWithdraw: [parseAmount.gwei(0.008), parseAmount.gwei(0.004), parseAmount.gwei(0.0025), parseAmount.gwei(0.002)],
 
   // Slippage: Protocol enforced slippage to disencourage SLPs to leave (exit fees).
   // SlippageFee: share of fees that should be distributed to SLPs but are not due to a very low collateral ratio.
@@ -560,10 +560,10 @@ const poolsParameters_WETH: PoolParameters = {
   // INTEREST
   // Share of the protocol interest redistributed to veANGLE holders as surplus.
   // The rest will be shared between SLP and the protocol according to the next interestsForSLPs parameter.
-  interestsForSurplus: parseAmount.gwei(0.5),
+  interestsForSurplus: parseAmount.gwei(0.3),
   // Share of protocol interest redistributed to SLP.
   // The rest goes to the protocol reserves.
-  interestsForSLPs: parseAmount.gwei(0.35),
+  interestsForSLPs: parseAmount.gwei(0.5),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.
@@ -583,7 +583,19 @@ const poolsParameters_WETH: PoolParameters = {
   keeperFeesLiquidationCap: parseAmount.ether(0.2),
   keeperFeesClosingCap: parseAmount.dai(0.2),
 
-  strategies: [],
+  strategies: [
+    {
+      type: 'StrategyStETH',
+      debtRatio: parseAmount.gwei(0.95),
+      params: {
+        // Paths fetched from `MockPath.test.js` and https://docs.uniswap.org/protocol/guides/swaps/multihop-swaps
+        pathComp:
+          '0xc00e94cb662c3520282e6f5717214004a7f26888000bb8c02aaa39b223fe8d0a0e5c4f27ead9083c756cc20001f4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+        pathAave:
+          '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9000bb8c02aaa39b223fe8d0a0e5c4f27ead9083c756cc20001f4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+      },
+    },
+  ],
 
   stakings: [],
   currencyDigits: 3,
@@ -671,6 +683,21 @@ const globalParameters: GlobalParameters = {
       params: {
         chainlinkPairs: ['FRAX/USD', 'EUR/USD'],
         uniswapTokens: ['FRAX', 'USDC'],
+        uniswapPoolFees: [500],
+        twapPeriod: 600,
+        observationLength: 100,
+        uniFinalCurrency: 1,
+        chainlinkIsMultiplied: [1, 0],
+        stalePeriod: 3600 * 24,
+      },
+    },
+    {
+      type: 'OracleMulti',
+      inName: 'ETH',
+      outName: 'EUR',
+      params: {
+        chainlinkPairs: ['ETH/USD', 'EUR/USD'],
+        uniswapTokens: ['ETH', 'USDC'],
         uniswapPoolFees: [500],
         twapPeriod: 600,
         observationLength: 100,

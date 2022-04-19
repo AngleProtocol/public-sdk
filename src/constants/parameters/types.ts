@@ -47,7 +47,7 @@ export type LenderStrategyType = {
 };
 
 export type StrategyType = {
-  type: 'MockStrategy' | 'Strategy';
+  type: 'MockStrategy' | 'Strategy' | 'StrategyStETH';
   debtRatio: BigNumber;
   params: LenderStrategyType | LenderStrategyMultipleType;
 };
