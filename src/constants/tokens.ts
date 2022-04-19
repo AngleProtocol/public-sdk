@@ -60,7 +60,14 @@ export const ALL_TOKENS: AllTokens = {
         'Gelato Uniswap agEUR/USDC LP old'
       ),
       new Token(ChainId.MAINNET, '0xEDECB43233549c51CC3268b5dE840239787AD56c', 18, 'G-Uni agEUR/USDC', 'Gelato Uniswap agEUR/USDC LP'),
-      new Token(ChainId.MAINNET, '0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f', 18, 'G-Uni agEUR/wETH', 'Gelato Uniswap agEUR/wETH LP'),
+      new Token(ChainId.MAINNET, '0x857E0B2eD0E82D5cDEB015E77ebB873C47F99575', 18, 'G-Uni agEUR/wETH', 'Gelato Uniswap agEUR/wETH LP'),
+      new Token(
+        ChainId.MAINNET,
+        '0x26C2251801D2cfb5461751c984Dc3eAA358bdf0f',
+        18,
+        'G-Uni agEUR/wETH old',
+        'Gelato Uniswap agEUR/wETH LP old'
+      ),
       new Token(ChainId.MAINNET, '0x1f4c763bde1d4832b3ea0640e66da00b98831355', 18, 'SLP agEUR/ANGLE', 'SushiSwap LP agEUR/ANGLE'),
       new Token(ChainId.MAINNET, '0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571', 18, '3EURpool-f', 'Curve.fi Factory Plain Pool: 3EURpool'),
       new Token(
