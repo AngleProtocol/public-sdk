@@ -1,6 +1,6 @@
 {
   "name": "@angleprotocol/sdk",
-  "version": "1.0.69",
+  "version": "1.0.70",
   "description": "SDK for Angle Protocol DApps",
   "keywords": [
     "angle",
