@@ -153,6 +153,7 @@ export type VaultManagerParameters = {
     collateralFactor: BigNumber;
     targetHealthFactor: BigNumber;
     borrowFee: BigNumber;
+    repayFee: BigNumber;
     interestRate: BigNumber;
     liquidationSurcharge: BigNumber;
     maxLiquidationDiscount: BigNumber;
