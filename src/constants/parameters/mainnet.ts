@@ -693,11 +693,11 @@ const globalParameters: GlobalParameters = {
     },
     {
       type: 'OracleMulti',
-      inName: 'ETH',
+      inName: 'WETH',
       outName: 'EUR',
       params: {
         chainlinkPairs: ['ETH/USD', 'EUR/USD'],
-        uniswapTokens: ['ETH', 'USDC'],
+        uniswapTokens: ['WETH', 'USDC'],
         uniswapPoolFees: [500],
         twapPeriod: 600,
         observationLength: 100,

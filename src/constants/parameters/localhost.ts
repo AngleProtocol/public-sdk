@@ -755,7 +755,7 @@ const globalParameters: GlobalParameters = {
     },
     {
       type: 'OracleMulti',
-      inName: 'ETH',
+      inName: 'WETH',
       outName: 'EUR',
       params: {
         chainlinkPairs: ['ETH/USD', 'EUR/USD'],
