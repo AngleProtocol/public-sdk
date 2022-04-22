@@ -384,21 +384,21 @@ const poolsParameters_FRAX: PoolParameters = {
 
   // x: horizontal axis steps relative to the hedge ratio
   // y: amount of fees
-  xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yFeeMint: [parseAmount.gwei(0.01), parseAmount.gwei(0.0075), parseAmount.gwei(0.006), parseAmount.gwei(0.0055)],
+  xFeeMint: [parseAmount.gwei(0.8), parseAmount.gwei(1)],
+  yFeeMint: [parseAmount.gwei(0.005), parseAmount.gwei(0.002)],
 
-  xFeeBurn: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yFeeBurn: [parseAmount.gwei(0.0055), parseAmount.gwei(0.006), parseAmount.gwei(0.0075), parseAmount.gwei(0.01)],
+  xFeeBurn: [parseAmount.gwei(0.5), parseAmount.gwei(1)],
+  yFeeBurn: [parseAmount.gwei(0.005), parseAmount.gwei(0.1)],
 
-  xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yHAFeesDeposit: [parseAmount.gwei(0.002), parseAmount.gwei(0.003), parseAmount.gwei(0.004), parseAmount.gwei(0.008)],
+  xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.5), parseAmount.gwei(1)],
+  yHAFeesDeposit: [parseAmount.gwei(0.003), parseAmount.gwei(0.004), parseAmount.gwei(0.007)],
 
   // adds the opportunity for governance to add a bonus or malus to HA fees
   haBonusMalusDeposit: parseAmount.gwei(1),
   haBonusMalusWithdraw: parseAmount.gwei(1),
 
-  xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yHAFeesWithdraw: [parseAmount.gwei(0.008), parseAmount.gwei(0.004), parseAmount.gwei(0.0025), parseAmount.gwei(0.002)],
+  xHAFeesWithdraw: [parseAmount.gwei(0), parseAmount.gwei(0.5), parseAmount.gwei(1)],
+  yHAFeesWithdraw: [parseAmount.gwei(0.007), parseAmount.gwei(0.004), parseAmount.gwei(0.003)],
 
   // Slippage: Protocol enforced slippage to disencourage SLPs to leave (exit fees).
   // SlippageFee: share of fees that should be distributed to SLPs but are not due to a very low collateral ratio.
