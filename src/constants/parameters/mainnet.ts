@@ -563,7 +563,7 @@ const poolsParameters_WETH: PoolParameters = {
   interestsForSurplus: parseAmount.gwei(0.3),
   // Share of protocol interest redistributed to SLP.
   // The rest goes to the protocol reserves.
-  interestsForSLPs: parseAmount.gwei(0.5),
+  interestsForSLPs: parseAmount.gwei(0.7),
 
   // If we need to limit a pool's supply.
   // DISABLED AT THE MOMENT.

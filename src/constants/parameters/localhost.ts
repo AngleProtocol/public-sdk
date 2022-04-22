@@ -538,7 +538,6 @@ const poolsParameters_WETH: PoolParameters = {
   haFeeWithdraw: parseAmount.gwei(1),
 
   // Option to add a dependency of mint & burn fees to collateral ratio.
-  // DISABLED AT THE MOMENT
   xBonusMalusMint: [parseAmount.gwei(0)],
   yBonusMalusMint: [parseAmount.gwei(1)],
   xBonusMalusBurn: [parseAmount.gwei(0)],
@@ -564,10 +563,9 @@ const poolsParameters_WETH: PoolParameters = {
   interestsForSurplus: parseAmount.gwei(0.3),
   // Share of protocol interest redistributed to SLP.
   // The rest goes to the protocol reserves.
-  interestsForSLPs: parseAmount.gwei(0.5),
+  interestsForSLPs: parseAmount.gwei(0.7),
 
   // If we need to limit a pool's supply.
-  // DISABLED AT THE MOMENT.
   capOnStableMinted: parseAmount.ether(5_000_000),
 
   // HAs parameters
