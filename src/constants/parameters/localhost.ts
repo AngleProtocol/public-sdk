@@ -1,5 +1,5 @@
 import { BigNumber, ethers } from 'ethers';
-import { parseUnits } from 'ethers/lib/utils';
+import { parseEther, parseUnits } from 'ethers/lib/utils';
 
 import { parseAmount } from '../../utils/bignumber';
 import { GlobalParameters, PoolParameters, PoolsParameters, StablesParameters } from './types';
@@ -539,7 +539,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'wETH/EUR',
         oracle: 'ETH_EUR',
         params: {
-          debtCeiling: parseAmount.gwei('100000000'),
+          debtCeiling: parseEther('100000000'),
           collateralFactor: parseAmount.gwei('0.5'),
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
@@ -556,7 +556,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'wBTC/EUR',
         oracle: 'BTC_EUR',
         params: {
-          debtCeiling: parseAmount.gwei('100000000'),
+          debtCeiling: parseEther('100000000'),
           collateralFactor: parseAmount.gwei('0.66'),
           targetHealthFactor: parseAmount.gwei('1.2'),
           borrowFee: parseAmount.gwei('0.003'),
@@ -573,7 +573,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'wStETH/EUR',
         oracle: 'WSTETH_EUR',
         params: {
-          debtCeiling: parseAmount.gwei('100000000'),
+          debtCeiling: parseEther('100000000'),
           collateralFactor: parseAmount.gwei('0.75'),
           targetHealthFactor: parseAmount.gwei('1.2'),
           borrowFee: parseAmount.gwei('0'),
