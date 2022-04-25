@@ -703,7 +703,7 @@ const globalParameters: GlobalParameters = {
         observationLength: 100,
         uniFinalCurrency: 1,
         chainlinkIsMultiplied: [1, 0],
-        stalePeriod: 3600 * 24,
+        stalePeriod: 3600 * 1.5,
       },
     },
   ],
