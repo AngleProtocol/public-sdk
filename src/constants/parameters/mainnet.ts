@@ -504,8 +504,11 @@ const poolsParameters_WETH: PoolParameters = {
 
   // x: horizontal axis steps relative to the hedge ratio
   // y: amount of fees
-  xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
-  yFeeMint: [parseAmount.gwei(0.01), parseAmount.gwei(0.0075), parseAmount.gwei(0.006), parseAmount.gwei(0.0055)],
+  xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.8), parseAmount.gwei(1)],
+  yFeeMint: [parseAmount.gwei(0.0065), parseAmount.gwei(0.006), parseAmount.gwei(0.0055)],
+  // after genesis
+  // xFeeMint: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
+  // yFeeMint: [parseAmount.gwei(0.01), parseAmount.gwei(0.0075), parseAmount.gwei(0.006), parseAmount.gwei(0.0055)],
 
   xFeeBurn: [parseAmount.gwei(0), parseAmount.gwei(0.4), parseAmount.gwei(0.8), parseAmount.gwei(1)],
   yFeeBurn: [parseAmount.gwei(0.0055), parseAmount.gwei(0.006), parseAmount.gwei(0.0075), parseAmount.gwei(0.01)],
