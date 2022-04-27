@@ -49,6 +49,7 @@ export const ALL_TOKENS: AllTokens = {
       new Token(ChainId.MAINNET, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'USDC', 'USD Coin'),
       new Token(ChainId.MAINNET, '0x956f47f50a910163d8bf957cf5846d573e7f87ca', 18, 'FEI', 'Fei USD'),
       new Token(ChainId.MAINNET, '0x853d955acef822db058eb8505911ed77f175b99e', 18, 'FRAX', 'FRAX'),
+      new Token(ChainId.MAINNET, '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 18, 'WETH', 'Wrapped Ether'),
     ]),
     // TODO: add addresses for mainnet
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([
