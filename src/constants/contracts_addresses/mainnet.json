@@ -59,6 +59,14 @@
           "GenericOptimisedLender": "0x5fE0E497Ac676d8bA78598FC8016EBC1E6cE14a3",
           "AaveFlashloan": "0x1F847FD5E08Fb559A69280A14e7E904e6DBfF81f"
         }
+      },
+      "WETH": {
+        "FeeManager": "0x3C69835bc56cf4F356CdedE634415f847DaA4753",
+        "Oracle": "0x04F44D60c5366047Ffe8bD112AB091D02464d681",
+        "PerpetualManager": "0xB924497a1157B1F8835c93cb7F3d4Aa6D2f227BA",
+        "PoolManager": "0x3f66867b4b6eCeBA0dBb6776be15619F73BC30A2",
+        "SanToken": "0x30c955906735e48D73080fD20CB488518A6333C8",
+        "Strategy": "0x41A65AAE5d1C8437288d5a29B4D049897572758E"
       }
     },
     "StableMaster": "0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87",
