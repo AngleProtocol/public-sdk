@@ -16,7 +16,8 @@
         "SanToken": "0x7B8E89b0cE7BAC2cfEC92A371Da899eA8CBdb450",
         "Staking": "0x65e4992250B296790c07FAdF0f0723902a07E91d",
         "Strategies": {
-          "GenericOptimisedLender": "0xFd04BcE2Cd25fC69f30813f0342Bf0C0B5e22461"
+          "GenericOptimisedLender": "0xFd04BcE2Cd25fC69f30813f0342Bf0C0B5e22461",
+          "AaveFlashloan": "0x9fBbCB9e5399693cDeAE803d7e08938Bb6A847AA"
         }
       },
       "FEI": {
