@@ -15,7 +15,7 @@ const poolsParameters_USDC: PoolParameters = {
   yFeeMint: [parseAmount.gwei(0.0025)],
 
   xFeeBurn: [parseAmount.gwei(0)],
-  yFeeBurn: [parseAmount.gwei(0.04)],
+  yFeeBurn: [parseAmount.gwei(0.0045)],
 
   xHAFeesDeposit: [parseAmount.gwei(0), parseAmount.gwei(0.8), parseAmount.gwei(1)],
   yHAFeesDeposit: [parseAmount.gwei(0.0015), parseAmount.gwei(0.002), parseAmount.gwei(0.0025)],
