@@ -1,6 +1,6 @@
 import { Contract, providers, utils, Wallet } from 'ethers';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../constants';
+import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens, StrategiesNames } from '../constants';
 import { AssetType, ChainId } from '../types';
 import { Logger } from './logger';
 
@@ -24,7 +24,7 @@ export function getStrategies(chainId: ChainId): ColleteralContract[] {
           const strats = Object.values(collateralContract.Strategies);
           for (const strat of strats) {
             acc.push({
-              strategy: strat,
+              strategy: strat.Contract as string,
               poolManager: collateralContract.PoolManager,
               collateralDecimals: collateralToken.decimals,
             });

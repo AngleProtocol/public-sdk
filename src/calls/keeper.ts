@@ -28,7 +28,7 @@ export async function harvest(
   const collat = parseCollat(collateral);
 
   const addresses = CONTRACTS_ADDRESSES[chainId];
-  const address = addresses[stable.symbol]?.collaterals?.[collat.symbol].Strategies?.GenericOptimisedLender;
+  const address = addresses[stable.symbol]?.collaterals?.[collat.symbol].Strategies?.GenericOptimisedLender?.Contract;
 
   if (!address) throw new Error("Can't find contract's address");
 

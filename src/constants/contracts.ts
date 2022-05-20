@@ -16,10 +16,10 @@ const ContractsNames = [
   'PoolManager',
   'SanToken',
   'Staking',
-  'GenericCompound',
-  'GenericAave',
   'LiquidityGauge',
 ] as const;
+
+export const StrategiesNames = ['Contract', 'GenericCompound', 'GenericAave', 'AaveConvexStaker'] as const;
 
 export const StableTokens = ['agCHF', 'agEUR', 'agGBP', 'agJPY', 'agUSD'] as const;
 
@@ -56,7 +56,9 @@ export type AngleContractsStableType = {
       [contractName in typeof ContractsNames[number]]?: string;
     } & {
       Strategies?: {
-        [strategyName: string]: string;
+        [strategyName: string]: {
+          [contractName in typeof StrategiesNames[number]]?: string;
+        };
       };
     };
   };
