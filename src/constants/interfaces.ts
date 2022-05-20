@@ -6,7 +6,6 @@ import {
   BaseSurplusConverter__factory,
   Core__factory,
   Erc20__factory,
-  Erc20_bytes32__factory,
   FeeDistributor__factory,
   FeeManager__factory,
   GaugeController__factory,
@@ -33,7 +32,6 @@ import {
 } from './types';
 
 export const ERC20_Interface = Erc20__factory.createInterface();
-export const ERC20_BYTES32_Interface = Erc20_bytes32__factory.createInterface();
 
 export const AgToken_Interface = AgToken__factory.createInterface();
 export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
