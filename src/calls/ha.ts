@@ -9,7 +9,7 @@ import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
 /**
- * Calls the openPerpetual fonction of the PerpetualManager
+ * Calls the openPerpetual function of the PerpetualManager
  *
  * @param collateral - Address, symbol or name of the collateral
  * @param stablecoin - Address, symbol or name of the stablecoin
@@ -51,7 +51,7 @@ export async function openPerpetual(
 }
 
 /**
- * Calls the closePerpetual fonction of the PerpetualManager
+ * Calls the closePerpetual function of the PerpetualManager
  *
  * @param collateral - Address, symbol or name of the collateral
  * @param stablecoin - Address, symbol or name of the stablecoin
