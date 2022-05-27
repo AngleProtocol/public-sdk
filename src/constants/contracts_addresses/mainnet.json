@@ -16,8 +16,8 @@
         "Strategies": {
           "GenericOptimisedLender": {
             "Contract": "0xFd04BcE2Cd25fC69f30813f0342Bf0C0B5e22461",
-            "GenericAave": "0x533438BDf6C576eB14d9572B41d5D37220cc4d09",
-            "GenericCompound": "0x791FD66EeC9e8eE75162B82f60afB38987D43EAe"
+            "GenericAave": "0xa30b7A2caC38c4AA10A607e76B1912c883A413a4",
+            "GenericCompound": "0x07D174dF93bC8e90709846a69D571afCf587f507"
           },
           "AaveFlashloan": "0x9fBbCB9e5399693cDeAE803d7e08938Bb6A847AA"
         }
@@ -64,8 +64,8 @@
         "Strategies": {
           "GenericOptimisedLender": {
             "Contract": "0x5fE0E497Ac676d8bA78598FC8016EBC1E6cE14a3",
-            "GenericAave": "0x5145F310650361Bdb6234eE94424d461A075807b",
-            "GenericCompound": "0x1279a94b334ad7eD31bB15a8df550AcBBa4430a5"
+            "GenericAave": "0xbe67bb1aa7baCFC5D40d963D47E11e3d382a56Bd",
+            "GenericCompound": "0x6D7cCd6d3E4948579891f90e98C1bb09a8c677ea"
           },
           "AaveFlashloan": "0x1F847FD5E08Fb559A69280A14e7E904e6DBfF81f"
         }
