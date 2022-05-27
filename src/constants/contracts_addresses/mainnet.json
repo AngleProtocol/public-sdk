@@ -19,7 +19,9 @@
             "GenericAave": "0x533438BDf6C576eB14d9572B41d5D37220cc4d09",
             "GenericCompound": "0x791FD66EeC9e8eE75162B82f60afB38987D43EAe"
           },
-          "AaveFlashloan": "0x9fBbCB9e5399693cDeAE803d7e08938Bb6A847AA"
+          "AaveFlashloan": {
+            "Contract": "0x9fBbCB9e5399693cDeAE803d7e08938Bb6A847AA"
+          }
         }
       },
       "FEI": {
@@ -67,7 +69,9 @@
             "GenericAave": "0x5145F310650361Bdb6234eE94424d461A075807b",
             "GenericCompound": "0x1279a94b334ad7eD31bB15a8df550AcBBa4430a5"
           },
-          "AaveFlashloan": "0x1F847FD5E08Fb559A69280A14e7E904e6DBfF81f"
+          "AaveFlashloan": {
+            "Contract": "0x1F847FD5E08Fb559A69280A14e7E904e6DBfF81f"
+          }
         }
       },
       "WETH": {

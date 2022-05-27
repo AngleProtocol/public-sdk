@@ -82,7 +82,11 @@ export const formatAmount = {
   wbtc: formatWbtc,
 };
 
-export function piecewiseFunction(value: BigNumber, xArray: BigNumber[], yArray: BigNumber[]): BigNumber {
+export function piecewiseFunction(value: BigNumberish, _xArray: BigNumberish[], _yArray: BigNumberish[]): BigNumber {
+  value = BigNumber.from(value);
+  const xArray = _xArray.map((e) => BigNumber.from(e));
+  const yArray = _yArray.map((e) => BigNumber.from(e));
+
   if (value.gte(xArray[xArray.length - 1])) {
     return yArray[yArray.length - 1];
   }
