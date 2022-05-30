@@ -618,6 +618,7 @@ const poolsParameters: PoolsParameters = {
 };
 
 // agTokens specific parameters
+// 0.5% a year
 const yearlyRate = 1.005;
 // To get the interest rate, just solve:
 // (1+ratePerSecond)**(1 year) = yearlyRate => ratePerSecond = yearlyRate**(1/ (1 year)) - 1
@@ -666,15 +667,15 @@ const stablesParameters: StablesParameters = {
         oracle: 'BTC_EUR',
         params: {
           debtCeiling: parseEther('100000000'),
-          collateralFactor: parseAmount.gwei('0.76'),
-          targetHealthFactor: parseAmount.gwei('1.2'),
+          collateralFactor: parseAmount.gwei('0.77'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
           interestRate: parseUnits(ratePerSecond.toFixed(27), 27),
           liquidationSurcharge: parseAmount.gwei('0.98'),
-          maxLiquidationDiscount: parseAmount.gwei('0.15'),
+          maxLiquidationDiscount: parseAmount.gwei('0.075'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('1'),
+          baseBoost: parseAmount.gwei('0.6'),
         },
       },
       {
@@ -683,15 +684,15 @@ const stablesParameters: StablesParameters = {
         oracle: 'WSTETH_EUR',
         params: {
           debtCeiling: parseEther('100000000'),
-          collateralFactor: parseAmount.gwei('0.8'),
-          targetHealthFactor: parseAmount.gwei('1.2'),
+          collateralFactor: parseAmount.gwei('0.77'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
           interestRate: parseUnits(ratePerSecond.toFixed(27), 27),
           liquidationSurcharge: parseAmount.gwei('0.98'),
-          maxLiquidationDiscount: parseAmount.gwei('0.1'),
+          maxLiquidationDiscount: parseAmount.gwei('0.075'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('1'),
+          baseBoost: parseAmount.gwei('0.6'),
         },
       },
     ],
