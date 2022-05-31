@@ -621,8 +621,10 @@ const poolsParameters: PoolsParameters = {
 // 0.5% a year
 const yearlyRate = 1.005;
 // To get the interest rate, just solve:
-// (1+ratePerSecond)**(1 year) = yearlyRate => ratePerSecond = yearlyRate**(1/ (1 year)) - 1
+// (1+ratePerSecond)**(1 year) = yearlyRate => ratePerSecond = yearlyRate**(1 / (1 year)) - 1
 const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
+// Interest rate is in base 27
+const interestRate = ethers.utils.parseUnits(ratePerSecond.toFixed(27), 27);
 const stablesParameters: StablesParameters = {
   EUR: {
     stakings: [
@@ -654,7 +656,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: ethers.utils.parseUnits(ratePerSecond.toFixed(27), 27),
+          interestRate: interestRate,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.05'),
           whitelistingActivated: false,
@@ -671,7 +673,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: parseUnits(ratePerSecond.toFixed(27), 27),
+          interestRate: interestRate,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.065'),
           whitelistingActivated: false,
@@ -688,7 +690,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: parseUnits(ratePerSecond.toFixed(27), 27),
+          interestRate: interestRate,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.075'),
           whitelistingActivated: false,
