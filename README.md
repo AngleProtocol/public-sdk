@@ -1,4 +1,4 @@
-# Angle SDK
+# <img src="logo.svg" alt="Angle SDK" height="40px"> Angle SDK
 
 - [Angle SDK](#angle-sdk)
 - [Warning:](#warning)
@@ -12,19 +12,17 @@
 - [Tests](#tests)
   - [Build and use in development enviroment](#build-and-use-in-development-enviroment)
 
-SDK to build applications on top of Angle.
+SDK to build applications on top of [Angle Protocol](https://angle.money).
 
-# Warning:
+## Warning
 
 This SDK is in open beta, and is constantly under development. USE AT YOUR OWN RISK.
 
 Please make sure you're using the last SDK version, otherwise the results / addresses may be incorrect.
 
-# Estimators
+## Estimators
 
 Estimators are utility functions to preview the result of Angle's operations.
-
-## Example:
 
 ```js
 import { estimateMint, parseAmount } from '@angleprotocol/sdk';
@@ -34,11 +32,9 @@ const stablecoinsObtained = await estimateMint(parseAmount.usdc(1), 'USDC', 'agE
 console.log(stablecoinsObtained);
 ```
 
-# Ethereum Read & Write
+## Ethereum Read & Write
 
 Located in the `calls` folder, these functions are example of scripted interactions with Angle Protocol's contracts.
-
-## Example:
 
 ```js
 import { ethers } from 'ethers';
@@ -52,26 +48,26 @@ const receipt = await harvest(ChainId.MAINNET, 'agEUR', 'USDC', signer);
 await receipt.wait();
 ```
 
-# Keeper functions
+## Keeper functions
 
 Located in the `calls` folder, a set of functions that can be used to build keeper bots
 
-# Constants
+## Constants
 
 Located in the `constants` folder, all the contract addresses, parameters and abis
 
-# Lib
+## Lib
 
 Located in the `lib` folder, a set of classes and utilities that can be used to work with big numbers
 
-# Tests
+## Tests
 
 To run the test suite 2 env variables are needed:
 
 - PROVIDER_URL: the api to push transactions.
 - MNEMONIC: the mnemonic of a test wallet.
 
-## Build and use in development enviroment
+### Build and use in development enviroment
 
 1. To properly generate the ABI types run `yarn generate-types-from-abis`.
 

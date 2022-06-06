@@ -652,7 +652,7 @@ const stablesParameters: StablesParameters = {
         oracle: 'ETH_EUR',
         params: {
           debtCeiling: parseEther('100000000'),
-          collateralFactor: parseAmount.gwei('0.83'),
+          collateralFactor: parseAmount.gwei('0.835'),
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
@@ -669,7 +669,7 @@ const stablesParameters: StablesParameters = {
         oracle: 'BTC_EUR',
         params: {
           debtCeiling: parseEther('100000000'),
-          collateralFactor: parseAmount.gwei('0.74'),
+          collateralFactor: parseAmount.gwei('0.725'),
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
