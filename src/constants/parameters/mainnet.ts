@@ -619,12 +619,13 @@ const poolsParameters: PoolsParameters = {
 
 // agTokens specific parameters
 // 0.5% a year
-const yearlyRate = 1.005;
+// const yearlyRate = 1.005;
 // To get the interest rate, just solve:
 // (1+ratePerSecond)**(1 year) = yearlyRate => ratePerSecond = yearlyRate**(1 / (1 year)) - 1
-const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
+// Mathematically, this gives:
+// const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
 // Interest rate is in base 27
-const interestRate = ethers.utils.parseUnits(ratePerSecond.toString(), 27);
+const interestRate = BigNumber.from('158153934393112649');
 const stablesParameters: StablesParameters = {
   EUR: {
     stakings: [
@@ -651,14 +652,14 @@ const stablesParameters: StablesParameters = {
         symbol: 'wETH/EUR',
         oracle: 'ETH_EUR',
         params: {
-          debtCeiling: parseEther('100000000'),
+          debtCeiling: parseEther('10000000'),
           collateralFactor: parseAmount.gwei('0.835'),
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
           interestRate: interestRate,
           liquidationSurcharge: parseAmount.gwei('0.98'),
-          maxLiquidationDiscount: parseAmount.gwei('0.05'),
+          maxLiquidationDiscount: parseAmount.gwei('0.06'),
           whitelistingActivated: false,
           baseBoost: parseAmount.gwei('0.7'),
         },
@@ -668,25 +669,8 @@ const stablesParameters: StablesParameters = {
         symbol: 'wBTC/EUR',
         oracle: 'BTC_EUR',
         params: {
-          debtCeiling: parseEther('100000000'),
+          debtCeiling: parseEther('10000000'),
           collateralFactor: parseAmount.gwei('0.725'),
-          targetHealthFactor: parseAmount.gwei('1.1'),
-          borrowFee: parseAmount.gwei('0'),
-          repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
-          liquidationSurcharge: parseAmount.gwei('0.98'),
-          maxLiquidationDiscount: parseAmount.gwei('0.065'),
-          whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('0.6'),
-        },
-      },
-      {
-        collateral: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
-        symbol: 'wStETH/EUR',
-        oracle: 'WSTETH_EUR',
-        params: {
-          debtCeiling: parseEther('100000000'),
-          collateralFactor: parseAmount.gwei('0.77'),
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
@@ -694,7 +678,24 @@ const stablesParameters: StablesParameters = {
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.075'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('0.6'),
+          baseBoost: parseAmount.gwei('0.4'),
+        },
+      },
+      {
+        collateral: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
+        symbol: 'wstETH/EUR',
+        oracle: 'WSTETH_EUR',
+        params: {
+          debtCeiling: parseEther('10000000'),
+          collateralFactor: parseAmount.gwei('0.77'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.085'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('0.7'),
         },
       },
     ],
