@@ -618,13 +618,13 @@ const poolsParameters: PoolsParameters = {
 };
 
 // agTokens specific parameters
-// 0.5% a year
-// const yearlyRate = 1.005;
+// const yearlyRate = 1.005; // This makes 0.5% a year
 // To get the interest rate, just solve:
 // (1+ratePerSecond)**(1 year) = yearlyRate => ratePerSecond = yearlyRate**(1 / (1 year)) - 1
 // Mathematically, this gives:
 // const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
-// Interest rate is in base 27
+// Interest rate is in base 27, since there may be some rounding errors, we obtained the corresponding
+// figure manually on Python
 const interestRate = BigNumber.from('158153934393112649');
 const stablesParameters: StablesParameters = {
   EUR: {
