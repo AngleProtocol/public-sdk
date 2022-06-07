@@ -1,8 +1,8 @@
+# Submit a change or a new feature
+
 First of all thank you for your interest in this repository!
 
 This is only the beginning of the Angle protocol and codebase, and anyone is welcome to improve it.
-
-## Submit a change or a new feature
 
 To submit some code, please work in a fork, reach out to explain what you've done and open a Pull Request from your fork.
 
