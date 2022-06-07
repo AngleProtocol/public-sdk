@@ -624,7 +624,7 @@ const yearlyRate = 1.005;
 // (1+ratePerSecond)**(1 year) = yearlyRate => ratePerSecond = yearlyRate**(1 / (1 year)) - 1
 const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
 // Interest rate is in base 27
-const interestRate = ethers.utils.parseUnits(ratePerSecond.toFixed(27), 27);
+const interestRate = ethers.utils.parseUnits(ratePerSecond.toString(), 27);
 const stablesParameters: StablesParameters = {
   EUR: {
     stakings: [
