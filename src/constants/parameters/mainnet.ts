@@ -642,7 +642,7 @@ const stablesParameters: StablesParameters = {
     currencySymbol: '€',
     flashloan: {
       // 10m at the moment, should not be too big with respect to the total agEUR in circulation
-      maxBorrowable: parseAmount.ether('10000000'),
+      maxBorrowable: parseAmount.ether('3000000'),
       // Free flash loans for agEUR
       flashLoanFee: parseAmount.gwei('0'),
     },
