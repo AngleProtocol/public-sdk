@@ -641,15 +641,15 @@ const stablesParameters: StablesParameters = {
     ],
     currencySymbol: '€',
     flashloan: {
-      // 10m at the moment, should not be too big with respect to the total agEUR in circulation
-      maxBorrowable: parseAmount.ether('10000000'),
+      // 3m at the moment, should not be too big with respect to the total agEUR in circulation
+      maxBorrowable: parseAmount.ether('3000000'),
       // Free flash loans for agEUR
       flashLoanFee: parseAmount.gwei('0'),
     },
     vaultManagers: [
       {
         collateral: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-        symbol: 'wETH/EUR',
+        symbol: 'wETH-EUR',
         oracle: 'ETH_EUR',
         params: {
           debtCeiling: parseEther('10000000'),
@@ -666,7 +666,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
-        symbol: 'wBTC/EUR',
+        symbol: 'wBTC-EUR',
         oracle: 'BTC_EUR',
         params: {
           debtCeiling: parseEther('10000000'),
@@ -683,7 +683,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
-        symbol: 'wstETH/EUR',
+        symbol: 'wstETH-EUR',
         oracle: 'WSTETH_EUR',
         params: {
           debtCeiling: parseEther('10000000'),
