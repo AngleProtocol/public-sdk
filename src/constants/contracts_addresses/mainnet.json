@@ -4,6 +4,20 @@
   "AngleRouter": "0xBB755240596530be0c1DE5DFD77ec6398471561d",
   "agEUR": {
     "AgToken": "0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8",
+    "borrowCollaterals": {
+      "WBTC": {
+        "Oracle": "0xd23269834c450D4978968D1b118172385bB2348d",
+        "VaultManager": "0x241D7598BD1eb819c0E9dEd456AcB24acA623679"
+      },
+      "WETH": {
+        "Oracle": "0xc0837E3EC218f1A768BE4207ba47Fb632915289a",
+        "VaultManager": "0x1beCE8193f8Dc2b170135Da9F1fA8b81C7aD18b1"
+      },
+      "WSTETH": {
+        "Oracle": "0x885448f5fC6F636901cc0cc92ef7477aE132bAF0",
+        "VaultManager": "0x73aaf8694BA137a7537E7EF544fcf5E2475f227B"
+      }
+    },
     "collaterals": {
       "DAI": {
         "FeeManager": "0xE6d9bD6796bDAF9B391Fac2A2D34bAE9c1c3c1C4",
@@ -86,10 +100,14 @@
       }
     },
     "StableMaster": "0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87",
-    "Staking": "0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB"
+    "Staking": "0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB",
+    "Swapper": "0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd",
+    "Treasury": "0x8667DBEBf68B0BFa6Db54f550f41Be16c4067d60"
   },
   "Core": "0x61ed74de9Ca5796cF2F8fD60D54160D47E30B7c3",
+  "CoreBorrow": "0x5bc6BEf80DA563EBf6Df6D6913513fa9A7ec89BE",
   "FeeDistributor_sanUSDC_EUR": "0x7F82ff050128e29Fd89D85d01b93246F744E62A0",
+  "FlashAngle": "0x4A2FF9bC686A0A23DA13B6194C69939189506F7F",
   "GaugeController": "0x9aD7e7b0877582E14c17702EecF49018DD6f2367",
   "GovernanceMultiSig": "0xdC4e6DFe07EFCa50a197DF15D9200883eF4Eb1c8",
   "Guardian": "0x0C2553e4B9dFA9f83b1A6D3EAB96c4bAaB42d430",
