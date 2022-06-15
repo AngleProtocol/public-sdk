@@ -19,6 +19,8 @@ const ContractsNames = [
   'LiquidityGauge',
 ] as const;
 
+const ContractsBorrowNames = ['VaultManager', 'Oracle'];
+
 export const StrategiesNames = ['Contract', 'GenericCompound', 'GenericAave', 'AaveConvexStaker'] as const;
 
 export const StableTokens = ['agCHF', 'agEUR', 'agGBP', 'agJPY', 'agUSD'] as const;
@@ -28,6 +30,8 @@ const GlobalContracts = [
   'AngleRouter',
   'BondingCurve',
   'Core',
+  'CoreBorrow',
+  'FlashAngle',
   'GaugeController',
   'Guardian',
   'Governor',
@@ -51,6 +55,8 @@ export type AngleContractsStableType = {
   AgToken: string;
   StableMaster: string;
   Staking: string;
+  Swapper: string;
+  Treasury: string;
   collaterals: {
     [collateralName: string]: {
       [contractName in typeof ContractsNames[number]]?: string;
@@ -62,6 +68,11 @@ export type AngleContractsStableType = {
       };
     };
   };
+  borrowCollaterals: {
+    [collateralBorrowName: string]: {
+      [contractName in typeof ContractsBorrowNames[number]]?: string;
+    };
+  };
 };
 
 export type AngleContractsType = {
@@ -69,10 +80,10 @@ export type AngleContractsType = {
 } & {
   [key in typeof GlobalContracts[number]]?: string;
 } & {
-  ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string; liquidityGaugeAddress?: string }[];
-} & {
-  Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
-};
+    ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string; liquidityGaugeAddress?: string }[];
+  } & {
+    Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
+  };
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
 export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
