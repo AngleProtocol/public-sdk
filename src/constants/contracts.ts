@@ -49,6 +49,8 @@ const GlobalContracts = [
   'veANGLE',
   'veBoostProxy',
   'Middleman',
+  'MulticallWithFailure',
+  'KeeperMulticall',
 ] as const;
 
 export type AngleContractsStableType = {
@@ -80,10 +82,10 @@ export type AngleContractsType = {
 } & {
   [key in typeof GlobalContracts[number]]?: string;
 } & {
-    ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string; liquidityGaugeAddress?: string }[];
-  } & {
-    Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
-  };
+  ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string; liquidityGaugeAddress?: string }[];
+} & {
+  Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
+};
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
 export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
