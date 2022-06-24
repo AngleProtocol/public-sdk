@@ -20,6 +20,18 @@ const stablesParameters: StablesParameters = {
       maxBorrowable: parseAmount.ether('1000000'),
       flashLoanFee: parseAmount.gwei('0'),
     },
+    // TODO add bridge params for each stablecoin, like:
+    /*
+    bridges: [
+        {
+            name: "anyswap",
+            token: "0x...",
+            fees:
+            limit:
+            hourlyLimit:
+        }
+    ]
+    */
     vaultManagers: [
       {
         collateral: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',

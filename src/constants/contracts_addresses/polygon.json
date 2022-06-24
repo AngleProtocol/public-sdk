@@ -10,5 +10,7 @@
       "poolContractAddress": "0x82A54e66c05FCd555ADAE593848a4257C9e51AD9"
     }
   ],
+  "GovernanceMultiSig": "0xdA2D2f638D6fcbE306236583845e5822554c02EA",
+  "Guardian": "0x3b9D32D0822A6351F415BeaB05251c1457FF6f8D",
   "ProxyAdmin": "0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6"
 }
