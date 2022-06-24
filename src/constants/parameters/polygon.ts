@@ -1,8 +1,8 @@
-import { BigNumber, ethers } from 'ethers';
-import { parseEther, parseUnits } from 'ethers/lib/utils';
+import { BigNumber } from 'ethers';
+import { parseEther } from 'ethers/lib/utils';
 
 import { parseAmount } from '../../utils/bignumber';
-import { GlobalParameters, StablesParameters } from './types';
+import { StablesParameters } from './types';
 
 // agTokens specific parameters
 // const yearlyRate = 1.005; // This makes 0.5% a year
