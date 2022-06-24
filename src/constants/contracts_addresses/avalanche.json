@@ -1,7 +1,9 @@
 {
   "ANGLE": "0xE6B9d092223f39013656702A40dbE6B7DeCc5746",
   "agEUR": {
-    "AgToken": "0x6feFd97F328342a8A840546A55FDcfEe7542F9A8"
+    "bridges": {
+      "Anyswap": "0x6feFd97F328342a8A840546A55FDcfEe7542F9A8"
+    }
   },
   "ExternalStakings": [
     {
@@ -9,5 +11,6 @@
       "stakingContractAddress": "",
       "poolContractAddress": "0x4a045a80967b5ecc440c88df9a15a3339d43d029"
     }
-  ]
+  ],
+  "ProxyAdmin": "0x7AB641E661a9728913A44e06f6a4879481142DDb"
 }

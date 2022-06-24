@@ -9,6 +9,8 @@ export enum ChainId {
   BSC = 56,
   AURORA = 1313161554,
   LOCAL = 1337,
+  OPTIMISM = 10,
+  ARBITRUM = 42161,
 }
 
 export enum AssetType {

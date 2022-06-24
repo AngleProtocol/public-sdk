@@ -24,14 +24,16 @@ const listStables = (chainId: ChainId) => {
 type TokenDict = {
   [tokenAddress: string]: Token;
 };
-type AllTokens = Readonly<{
-  [chainId in ChainId]: Readonly<{
-    [AssetType.STABLE]: Readonly<TokenDict>;
-    [AssetType.COLLATERAL]: Readonly<TokenDict>;
-    [AssetType.EXTERNAL_STAKING]: Readonly<TokenDict>;
-    [AssetType.ANGLE]: Token;
-  }>;
-}>;
+type AllTokens = Readonly<
+  {
+    [chainId in ChainId]: Readonly<{
+      [AssetType.STABLE]: Readonly<TokenDict>;
+      [AssetType.COLLATERAL]: Readonly<TokenDict>;
+      [AssetType.EXTERNAL_STAKING]: Readonly<TokenDict>;
+      [AssetType.ANGLE]: Token;
+    }>;
+  }
+>;
 const arrayOfTokensToTokenDict = (arr: Token[]): TokenDict => {
   return arr.reduce<TokenDict>((acc, token) => {
     return {
@@ -103,7 +105,7 @@ export const ALL_TOKENS: AllTokens = {
     ),
   },
   [ChainId.AVALANCHE]: {
-    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.AVALANCHE)),
+    [AssetType.STABLE]: {},
     [AssetType.COLLATERAL]: {},
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
     [AssetType.ANGLE]: new Token(
@@ -114,8 +116,34 @@ export const ALL_TOKENS: AllTokens = {
       'Angle Governance Token'
     ),
   },
+  [ChainId.OPTIMISM]: {
+    [AssetType.STABLE]: {},
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    // No Angle token yet on Optimism
+    [AssetType.ANGLE]: new Token(
+      ChainId.AVALANCHE,
+      CONTRACTS_ADDRESSES[ChainId.AVALANCHE].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
+  [ChainId.ARBITRUM]: {
+    [AssetType.STABLE]: {},
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    // No Angle token yet on Arbitrum
+    [AssetType.ANGLE]: new Token(
+      ChainId.AVALANCHE,
+      CONTRACTS_ADDRESSES[ChainId.AVALANCHE].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
   [ChainId.FANTOM]: {
-    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.FANTOM)),
+    [AssetType.STABLE]: {},
     [AssetType.COLLATERAL]: {},
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
     [AssetType.ANGLE]: new Token(
@@ -127,7 +155,7 @@ export const ALL_TOKENS: AllTokens = {
     ),
   },
   [ChainId.BSC]: {
-    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.BSC)),
+    [AssetType.STABLE]: {},
     [AssetType.COLLATERAL]: {},
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
     [AssetType.ANGLE]: new Token(
@@ -139,7 +167,7 @@ export const ALL_TOKENS: AllTokens = {
     ),
   },
   [ChainId.AURORA]: {
-    [AssetType.STABLE]: arrayOfTokensToTokenDict(listStables(ChainId.AURORA)),
+    [AssetType.STABLE]: {},
     [AssetType.COLLATERAL]: {},
     [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
     [AssetType.ANGLE]: new Token(

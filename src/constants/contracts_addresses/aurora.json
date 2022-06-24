@@ -1,8 +1,9 @@
 {
-    "ANGLE": "0x31429d1856aD1377A8A0079410B297e1a9e214c2",
-    "agEUR": {
-      "AgToken": "0x31429d1856aD1377A8A0079410B297e1a9e214c2"
-    },
-    "ExternalStakings": []
-  }
-  
+  "ANGLE": "0xB7e3617aDB58dc34068522bD20Cfe1660780B750",
+  "agEUR": {
+    "bridges": {
+      "RainbowBridge": "0xdc7AcDE9ff18B4D189010a21a44cE51ec874eA7C"
+    }
+  },
+  "ExternalStakings": []
+}
