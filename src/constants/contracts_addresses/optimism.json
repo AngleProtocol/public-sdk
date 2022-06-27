@@ -1,5 +1,11 @@
 {
+  "agEUR": {
+    "bridges": {
+      "Synapse": "0xa0554607e477cdC9d0EE2A6b087F4b2DC2815C22"
+    }
+  },
   "CoreBorrow": "0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8",
+  "FlashAngle": "0xf1dDcACA7D17f8030Ab2eb54f2D9811365EFe123",
   "GovernanceMultiSig": "0x3245d3204EEB67afba7B0bA9143E8081365e08a6",
   "Guardian": "0xD245678e417aEE2d91763F6f4eFE570FF52fD080",
   "ProxyAdmin": "0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049"
