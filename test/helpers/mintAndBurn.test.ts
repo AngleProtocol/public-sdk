@@ -29,6 +29,20 @@ describe('User interaction', () => {
 
       expect(divBy10ePow(bonusMalusMint, 9)).to.equal(0.9);
     });
+    it('reverts - on unknown chain', () => {
+      const agTokensMinted = ether(1000);
+      const amountInProtocol = [ether(800)];
+      const inDecimal = [18];
+      const rates = [ether(2)];
+
+      const collatRatio = computeCollateralRatio(agTokensMinted, amountInProtocol, inDecimal, rates);
+      try {
+        computeBonusMalusMint(137, 'EUR', 'USDC', collatRatio);
+        expect(1).to.equal(0);
+      } catch (e) {
+        expect(1).to.equal(1);
+      }
+    });
     // no need to test for bonusMalusBurn as it is using the same function.
   });
   describe('Mint operations', () => {

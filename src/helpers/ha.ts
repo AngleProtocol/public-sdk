@@ -39,10 +39,10 @@ export function computeOpenPerpetualFromMarginLeverage(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   rate: BigNumberish = 0,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].haBonusMalusDeposit,
-  _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xHAFeesDeposit,
-  _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yHAFeesDeposit,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].haBonusMalusDeposit,
+  _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesDeposit,
+  _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesDeposit,
   iterations = 10
 ): {
   percentageFee: BigNumber;
@@ -116,10 +116,10 @@ export function computeOpenPerpetualLeveragePosition(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   rate: BigNumberish = 0,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].haBonusMalusDeposit,
-  _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xHAFeesDeposit,
-  _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yHAFeesDeposit
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].haBonusMalusDeposit,
+  _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesDeposit,
+  _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesDeposit
 ): {
   percentageFee: BigNumber;
   fees: BigNumber;
@@ -186,10 +186,10 @@ export function computeOpenPerpetualFromMarginPosition(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   rate: BigNumberish = 0,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].haBonusMalusDeposit,
-  _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xHAFeesDeposit,
-  _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yHAFeesDeposit
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].haBonusMalusDeposit,
+  _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesDeposit,
+  _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesDeposit
 ): {
   percentageFee: BigNumber;
   fees: BigNumber;
@@ -256,10 +256,10 @@ export function computeClosePerpetual(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   maintenanceMargin: BigNumberish,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
   haBonusMalusWithdraw: BigNumberish = gwei(1),
-  _xHAFeesWithdraw: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xHAFeesWithdraw,
-  _yHAFeesWithdraw: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yHAFeesWithdraw
+  _xHAFeesWithdraw: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesWithdraw,
+  _yHAFeesWithdraw: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesWithdraw
 ):
   | {
       cashOutAmount: BigNumber;

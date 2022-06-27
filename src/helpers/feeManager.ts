@@ -21,8 +21,8 @@ export function computeBonusMalusMint(
   stableSymbol: string,
   collateralSymbol: string,
   collatRatio: BigNumberish,
-  _xBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xBonusMalusMint,
-  _yBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yBonusMalusMint
+  _xBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xBonusMalusMint,
+  _yBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yBonusMalusMint
 ): BigNumber {
   const xBonusMalusMint = _xBonusMalusMint.map((e) => BigNumber.from(e));
   const yBonusMalusMint = _yBonusMalusMint.map((e) => BigNumber.from(e));
@@ -49,8 +49,8 @@ export function computeBonusMalusBurn(
   stableSymbol: string,
   collateralSymbol: string,
   collatRatio: BigNumberish,
-  _xBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xBonusMalusBurn,
-  _yBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yBonusMalusBurn
+  _xBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xBonusMalusBurn,
+  _yBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yBonusMalusBurn
 ): BigNumber {
   const xBonusMalusBurn = _xBonusMalusBurn.map((e) => BigNumber.from(e));
   const yBonusMalusBurn = _yBonusMalusBurn.map((e) => BigNumber.from(e));
@@ -87,8 +87,8 @@ export function computeSlippage(
   amountInProtocol: BigNumber[],
   inDecimals: BigNumberish[],
   rates: BigNumber[],
-  _xSlippage: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xSlippage,
-  _ySlippage: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].ySlippage,
+  _xSlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippage,
+  _ySlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippage,
   base = gwei(1)
 ): BigNumber {
   const xSlippage = _xSlippage.map((e) => BigNumber.from(e));
@@ -128,8 +128,8 @@ export function computeSlippageFee(
   amountInProtocol: BigNumber[],
   inDecimals: BigNumberish[],
   rates: BigNumber[],
-  _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xSlippageFee,
-  _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].ySlippageFee,
+  _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippageFee,
+  _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippageFee,
   base = gwei(1)
 ): BigNumber {
   const xSlippageFee = _xSlippageFee.map((e) => BigNumber.from(e));

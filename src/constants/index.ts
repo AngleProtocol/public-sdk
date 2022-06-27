@@ -13,9 +13,9 @@ export default (
   BASE_PARAMS: BigNumber;
   DECIMAL_TOKENS: number;
   DECIMAL_PARAMS: number;
-  globalParameters: GlobalParameters;
+  globalParameters?: GlobalParameters;
   stablesParameters: StablesParameters;
-  poolsParameters: PoolsParameters;
+  poolsParameters?: PoolsParameters;
 } => {
   return {
     ZERO: BigNumber.from(0),
