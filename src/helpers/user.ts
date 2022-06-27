@@ -45,9 +45,9 @@ export function computeMint(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xFeeMint,
-  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yFeeMint,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
   base: BigNumberish = gwei(1)
 ): { amountForUserInStable: BigNumber; mintingFee: BigNumber; percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);
@@ -123,9 +123,9 @@ export function computeInverseMint(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xFeeMint,
-  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yFeeMint,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
   base: BigNumberish = gwei(1),
   iterations = 10
 ): { amountOfCollateralNeeded: BigNumber; mintingFee: BigNumber } {
@@ -202,9 +202,9 @@ export function computeBurn(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xFeeBurn,
-  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yFeeBurn,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
   base: BigNumberish = gwei(1)
 ): { amountForUserInCollateral: BigNumber; burningFee: BigNumber; percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);
@@ -278,9 +278,9 @@ export function computeInverseBurn(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xFeeBurn,
-  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yFeeBurn,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
   base: BigNumberish = gwei(1),
   iterations = 10
 ): { amountOfStablecoinNeeded: BigNumber; burningFee: BigNumber } {
@@ -348,9 +348,9 @@ export function computeFeeMint(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xFeeMint,
-  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yFeeMint,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
   base: BigNumberish = gwei(1)
 ): { percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);
@@ -405,9 +405,9 @@ export function computeFeeBurn(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].targetHAHedge,
-  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xFeeBurn,
-  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].yFeeBurn,
+  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
   base: BigNumberish = gwei(1)
 ): { percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);

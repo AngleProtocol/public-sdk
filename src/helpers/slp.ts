@@ -38,10 +38,10 @@ export function estimateSlippage(
   collateralSymbol: string,
   collatRatio?: BigNumberish,
   callRatioParams?: CollatRatioParams,
-  _xSlippage: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xSlippage,
-  _ySlippage: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].ySlippage,
-  _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].xSlippageFee,
-  _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters[stableSymbol][collateralSymbol].ySlippageFee
+  _xSlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippage,
+  _ySlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippage,
+  _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippageFee,
+  _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippageFee
 ): EstimateSlippageReturn {
   if (!collatRatio && callRatioParams !== undefined)
     collatRatio = computeCollateralRatio(
