@@ -163,7 +163,7 @@ export type VaultManagerParameters = {
 };
 
 export type StableParameters = {
-  stakings: StakingType[];
+  stakings?: StakingType[];
   currencySymbol: string;
   flashloan?: FlashLoanParameters;
   vaultManagers?: VaultManagerParameters[];

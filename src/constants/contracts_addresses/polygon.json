@@ -1,14 +1,18 @@
 {
-    "ANGLE": "0x900F717EA076E1E7a484ad9DD2dB81CEEc60eBF1",
-    "agEUR": {
-      "AgToken": "0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4"
-    },
-    "ExternalStakings": [
-      {
-        "tokenName": "Uniswap V2",
-        "stakingContractAddress": "0xCC00985055520c86d8B7764035002CEf600f7616",
-        "poolContractAddress": "0x82A54e66c05FCd555ADAE593848a4257C9e51AD9"
-      }
-    ]
-  }
-  
+  "ANGLE": "0x900F717EA076E1E7a484ad9DD2dB81CEEc60eBF1",
+  "agEUR": {
+    "AgToken": "0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4"
+  },
+  "ExternalStakings": [
+    {
+      "tokenName": "Uniswap V2",
+      "stakingContractAddress": "0xCC00985055520c86d8B7764035002CEf600f7616",
+      "poolContractAddress": "0x82A54e66c05FCd555ADAE593848a4257C9e51AD9"
+    }
+  ],
+  "CoreBorrow": "0x78754109cb73772d70A6560297037657C2AF51b8",
+  "FlashAngle": "0x2878596427bfA6b52Fa6D93B519A0c610bbDf00a",
+  "GovernanceMultiSig": "0xdA2D2f638D6fcbE306236583845e5822554c02EA",
+  "Guardian": "0x3b9D32D0822A6351F415BeaB05251c1457FF6f8D",
+  "ProxyAdmin": "0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6"
+}
