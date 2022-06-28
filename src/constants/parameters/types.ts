@@ -162,11 +162,22 @@ export type VaultManagerParameters = {
   };
 };
 
+export type BridgeParameters = {
+  name: string;
+  token: string;
+  params: {
+    fees: BigNumber;
+    limit: BigNumber;
+    hourlyLimit: BigNumber;
+  };
+};
+
 export type StableParameters = {
   stakings?: StakingType[];
   currencySymbol: string;
   flashloan?: FlashLoanParameters;
   vaultManagers?: VaultManagerParameters[];
+  bridges?: BridgeParameters[];
 };
 
 export type StablesParameters = { [stableName: string]: StableParameters };

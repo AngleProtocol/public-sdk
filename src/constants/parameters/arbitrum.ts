@@ -13,18 +13,17 @@ const stablesParameters: StablesParameters = {
       maxBorrowable: parseAmount.ether('1000000'),
       flashLoanFee: parseAmount.gwei('0'),
     },
-    // TODO add bridge params for each stablecoin, like:
-    /*
     bridges: [
-        {
-            name: "anyswap",
-            token: "0x...",
-            fees:
-            limit:
-            hourlyLimit:
-        }
-    ]
-    */
+      {
+        name: 'Synapse',
+        token: '0x16BFc5fe024980124bEf51d1D792dC539d1B5Bf0',
+        params: {
+          fees: parseAmount.gwei('0.002'),
+          limit: parseEther('1000000'),
+          hourlyLimit: parseEther('50000'),
+        },
+      },
+    ],
     vaultManagers: [
       {
         collateral: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',

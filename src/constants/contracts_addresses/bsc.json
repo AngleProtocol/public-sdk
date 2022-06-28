@@ -1,4 +1,9 @@
 {
   "ANGLE": "0x0fFcCbff59bFfA90Bc27e41a362839947BB11f80",
+  "agEUR": {
+    "bridges": {
+      "Anyswap": "0x38C84D5bBAD726D465Cf6A5349E41D6d7095faf7"
+    }
+  },
   "ExternalStakings": []
 }
