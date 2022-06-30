@@ -42,6 +42,23 @@ const stablesParameters: StablesParameters = {
           baseBoost: parseAmount.gwei('0.5'),
         },
       },
+      {
+        collateral: '0x7F5c764cBc14f9669B88837ca1490cCa17c31607',
+        symbol: 'USDC-EUR',
+        oracle: 'USDC_EUR',
+        params: {
+          debtCeiling: parseEther('10000000'),
+          collateralFactor: parseAmount.gwei('0.75'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.8'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('0.5'),
+        },
+      },
     ],
   },
 };
