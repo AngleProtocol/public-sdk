@@ -13,35 +13,50 @@ const stablesParameters: StablesParameters = {
       maxBorrowable: parseAmount.ether('1000000'),
       flashLoanFee: parseAmount.gwei('0'),
     },
-    // TODO add bridge params for each stablecoin, like:
-    /*
     bridges: [
-        {
-            name: "anyswap",
-            token: "0x...",
-            fees:
-            limit:
-            hourlyLimit:
-        }
-    ]
-    */
+      {
+        name: 'Synapse',
+        token: '0x16BFc5fe024980124bEf51d1D792dC539d1B5Bf0',
+        params: {
+          fees: parseAmount.gwei('0.002'),
+          limit: parseEther('1000000'),
+          hourlyLimit: parseEther('50000'),
+        },
+      },
+    ],
     vaultManagers: [
       {
         collateral: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
         symbol: 'wETH-EUR',
         oracle: 'ETH_EUR',
         params: {
-          // TODO params
           debtCeiling: parseEther('10000000'),
-          collateralFactor: parseAmount.gwei('0.835'),
+          collateralFactor: parseAmount.gwei('0.7'),
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
           interestRate: interestRate,
           liquidationSurcharge: parseAmount.gwei('0.98'),
-          maxLiquidationDiscount: parseAmount.gwei('0.06'),
+          maxLiquidationDiscount: parseAmount.gwei('0.1'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('0.7'),
+          baseBoost: parseAmount.gwei('0.5'),
+        },
+      },
+      {
+        collateral: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
+        symbol: 'USDC-EUR',
+        oracle: 'USDC_EUR',
+        params: {
+          debtCeiling: parseEther('10000000'),
+          collateralFactor: parseAmount.gwei('0.75'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.8'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('0.5'),
         },
       },
     ],
