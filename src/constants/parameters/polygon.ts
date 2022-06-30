@@ -4,14 +4,7 @@ import { parseEther } from 'ethers/lib/utils';
 import { parseAmount } from '../../utils/bignumber';
 import { StablesParameters } from './types';
 
-// agTokens specific parameters
-// const yearlyRate = 1.005; // This makes 0.5% a year
-// To get the interest rate, just solve:
-// (1+ratePerSecond)**(1 year) = yearlyRate => ratePerSecond = yearlyRate**(1 / (1 year)) - 1
-// Mathematically, this gives:
-// const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
-// Interest rate is in base 27, since there may be some rounding errors, we obtained the corresponding
-// figure manually on Python
+// 0.5% interest rate on Polygon
 const interestRate = BigNumber.from('158153934393112649');
 const stablesParameters: StablesParameters = {
   EUR: {
@@ -36,6 +29,23 @@ const stablesParameters: StablesParameters = {
           maxLiquidationDiscount: parseAmount.gwei('0.13'),
           whitelistingActivated: false,
           baseBoost: parseAmount.gwei('0.6'),
+        },
+      },
+      {
+        collateral: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+        symbol: 'USDC-EUR',
+        oracle: 'USDC_EUR',
+        params: {
+          debtCeiling: parseEther('500000'),
+          collateralFactor: parseAmount.gwei('0.9'),
+          targetHealthFactor: parseAmount.gwei('1.05'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.04'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('1.1'),
         },
       },
       {
