@@ -1,10 +1,8 @@
 import {
   AgToken__factory,
-  AgTokenSideChainMultiBridge__factory,
   ANGLE__factory,
   AngleDistributor__factory,
   AngleRouter__factory,
-  AngleRouterPolygon__factory,
   BaseSurplusConverter__factory,
   Core__factory,
   Erc20__factory,
@@ -15,7 +13,6 @@ import {
   Governor__factory,
   Guardian__factory,
   LiquidityGaugeV4__factory,
-  OFTCore__factory,
   OneInchAggregatorV4__factory,
   OracleMulti__factory,
   PerpetualManagerFront__factory,
@@ -37,7 +34,6 @@ import {
 export const ERC20_Interface = Erc20__factory.createInterface();
 
 export const AgToken_Interface = AgToken__factory.createInterface();
-export const AgTokenSideChainMultiBridge__Interface = AgTokenSideChainMultiBridge__factory.createInterface();
 export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
 export const ProxyAdmin_Interface = ProxyAdmin__factory.createInterface();
 export const Core_Interface = Core__factory.createInterface();
@@ -62,11 +58,9 @@ export const veANGLE_Interface = VeANGLE__factory.createInterface();
 export const veBoostProxy_Interface = VeBoostProxy__factory.createInterface();
 
 export const AngleRouter_Interface = AngleRouter__factory.createInterface();
-export const AngleRouterPolygon__Interface = AngleRouterPolygon__factory.createInterface();
 export const OneInchAggregatorV4_Interface = OneInchAggregatorV4__factory.createInterface();
 
 export const AgToken_Abi = AgToken__factory.abi;
-export const AgTokenSideChainMultiBridge__abi = AgTokenSideChainMultiBridge__factory.abi;
 export const ERC20_Abi = Erc20__factory.abi;
 export const WETH_Abi = Weth__factory.abi;
 export const FeeManager_Abi = FeeManager__factory.abi;
@@ -82,7 +76,6 @@ export const PoolManager_Abi = PoolManager__factory.abi;
 export const ANGLE_Interface = ANGLE__factory.createInterface();
 export const Guardian_Interface = Guardian__factory.createInterface();
 export const Governor_Interface = Governor__factory.createInterface();
-export const OFTCore__Interface = OFTCore__factory.createInterface();
 export const Timelock_Interface = Timelock__factory.createInterface();
 
 export const AngleDistributor_Abi = AngleDistributor__factory.abi;
@@ -101,9 +94,6 @@ export const Timelock_Abi = Timelock__factory.abi;
 export const veANGLE_Abi = VeANGLE__factory.abi;
 
 export const AngleRouter_Abi = AngleRouter__factory.abi;
-export const AngleRouterPolygon__Abi = AngleRouterPolygon__factory.abi;
 export const OneInchAggregatorV4 = OneInchAggregatorV4__factory.abi;
-
-export const OFTCore__Abi = OFTCore__factory.abi;
 
 export * from './types';
