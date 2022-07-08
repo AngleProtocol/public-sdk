@@ -19,7 +19,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'wMATIC-EUR',
         oracle: 'MATIC_EUR',
         params: {
-          debtCeiling: parseEther('500'),
+          debtCeiling: parseEther('500000'),
           collateralFactor: parseAmount.gwei('0.65'),
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
@@ -36,7 +36,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'USDC-EUR',
         oracle: 'USDC_EUR',
         params: {
-          debtCeiling: parseEther('500'),
+          debtCeiling: parseEther('500000'),
           collateralFactor: parseAmount.gwei('0.9'),
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
@@ -53,7 +53,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'wETH-EUR',
         oracle: 'ETH_EUR',
         params: {
-          debtCeiling: parseEther('500'),
+          debtCeiling: parseEther('500000'),
           collateralFactor: parseAmount.gwei('0.8'),
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
