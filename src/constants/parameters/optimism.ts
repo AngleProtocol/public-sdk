@@ -19,7 +19,7 @@ const stablesParameters: StablesParameters = {
         token: '0xa0554607e477cdC9d0EE2A6b087F4b2DC2815C22',
         params: {
           fees: parseAmount.gwei('0.002'),
-          limit: parseEther('00'),
+          limit: parseEther('0'),
           hourlyLimit: parseEther('50000'),
         },
       },
