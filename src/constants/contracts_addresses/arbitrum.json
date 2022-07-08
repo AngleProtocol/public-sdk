@@ -1,9 +1,21 @@
 {
+  "AngleRouter": "0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049",
   "agEUR": {
     "AgToken": "0xFA5Ed56A203466CbBC2430a43c66b9D8723528E7",
+    "borrowCollaterals": {
+      "USDC": {
+        "Oracle": "0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED",
+        "VaultManager": "0x04437e94Af860AfBb0429a7D36b9c00A5a5173b9"
+      },
+      "WETH": {
+        "Oracle": "0x7AB641E661a9728913A44e06f6a4879481142DDb",
+        "VaultManager": "0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD"
+      }
+    },
     "bridges": {
       "Synapse": "0x16BFc5fe024980124bEf51d1D792dC539d1B5Bf0"
     },
+    "Swapper": "0x9C215206Da4bf108aE5aEEf9dA7caD3352A36Dad",
     "Treasury": "0x0D710512E100C171139D2Cf5708f22C680eccF52"
   },
   "CoreBorrow": "0x31429d1856aD1377A8A0079410B297e1a9e214c2",
