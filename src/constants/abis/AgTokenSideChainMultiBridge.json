@@ -11,6 +11,11 @@
   },
   {
     "inputs": [],
+    "name": "HourlyLimitExceeded",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidSender",
     "type": "error"
   },
@@ -227,6 +232,19 @@
       }
     ],
     "name": "FeeToggled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "hourlyLimit",
+        "type": "uint256"
+      }
+    ],
+    "name": "HourlyLimitUpdated",
     "type": "event"
   },
   {
@@ -570,6 +588,51 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "chainTotalHourlyLimit",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "chainTotalUsage",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "currentTotalUsage",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -848,6 +911,19 @@
       }
     ],
     "name": "removeMinter",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "hourlyLimit",
+        "type": "uint256"
+      }
+    ],
+    "name": "setChainTotalHourlyLimit",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
