@@ -4,6 +4,9 @@
   "AngleRouter": "0xBB755240596530be0c1DE5DFD77ec6398471561d",
   "agEUR": {
     "AgToken": "0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8",
+    "bridges": {
+      "LayerZero": "0x4Fa745FCCC04555F2AFA8874cd23961636CdF982"
+    },
     "borrowCollaterals": {
       "WBTC": {
         "Oracle": "0xd23269834c450D4978968D1b118172385bB2348d",
