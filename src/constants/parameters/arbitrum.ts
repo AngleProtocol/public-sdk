@@ -30,8 +30,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'wETH-EUR',
         oracle: 'ETH_EUR',
         params: {
-          // For the launch, otherwise 150k to start with
-          debtCeiling: parseEther('1000'),
+          debtCeiling: parseEther('150000'),
           collateralFactor: parseAmount.gwei('0.75'),
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
@@ -48,8 +47,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'USDC-EUR',
         oracle: 'USDC_EUR',
         params: {
-          // For the launch, otherwise 150k to start with
-          debtCeiling: parseEther('1000'),
+          debtCeiling: parseEther('150000'),
           collateralFactor: parseAmount.gwei('0.88'),
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
