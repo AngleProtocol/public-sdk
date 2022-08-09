@@ -52,6 +52,7 @@ const GlobalContracts = [
   'SurplusConverterUniV3_IntraCollaterals',
   'veANGLE',
   'veBoostProxy',
+  'MerkleRootDistributor',
   'Middleman',
   'MulticallWithFailure',
   'KeeperMulticall',
