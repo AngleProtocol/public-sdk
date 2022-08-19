@@ -3,6 +3,10 @@
   "agEUR": {
     "AgToken": "0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED",
     "borrowCollaterals": {
+      "OP": {
+        "Oracle": "0x5199ba2B0EE6cc970F42ab35BBEd3a265c542991",
+        "VaultManager": "0xcF5A2934fE43666C24823dfD455C617EDfF78bB6"
+      },
       "USDC": {
         "Oracle": "0x5efE48F8383921d950683C46B87E28e21DEa9FB5",
         "VaultManager": "0x16cd38b1B54E7abf307Cb2697E2D9321e843d5AA"
