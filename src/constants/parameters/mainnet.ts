@@ -698,6 +698,23 @@ const stablesParameters: StablesParameters = {
           baseBoost: parseAmount.gwei('0.7'),
         },
       },
+      {
+        collateral: '0x5f98805A4E8be255a32880FDeC7F6728C6568bA0',
+        symbol: 'LUSD-EUR',
+        oracle: 'LUSD_EUR',
+        params: {
+          debtCeiling: parseEther('3000000'),
+          collateralFactor: parseAmount.gwei('0.88'),
+          targetHealthFactor: parseAmount.gwei('1.05'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.05'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('1.5'),
+        },
+      },
     ],
   },
 };
