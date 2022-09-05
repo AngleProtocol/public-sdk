@@ -8,6 +8,10 @@
       "LayerZero": "0x4Fa745FCCC04555F2AFA8874cd23961636CdF982"
     },
     "borrowCollaterals": {
+      "LUSD": {
+        "Oracle": "0xE37ff75D665066292D350fF4BCD2679fc1814cb3",
+        "VaultManager": "0x8E2277929B2D849c0c344043D9B9507982e6aDd0"
+      },
       "WBTC": {
         "Oracle": "0xd23269834c450D4978968D1b118172385bB2348d",
         "VaultManager": "0x241D7598BD1eb819c0E9dEd456AcB24acA623679"
