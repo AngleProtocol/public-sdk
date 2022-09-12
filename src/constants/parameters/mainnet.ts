@@ -266,7 +266,7 @@ const poolsParameters_FEI: PoolParameters = {
   // x: horizontal axis steps relative to the hedge ratio
   // y: amount of fees
   xFeeMint: [parseAmount.gwei(0)],
-  yFeeMint: [parseAmount.gwei(0.003)],
+  yFeeMint: [parseAmount.gwei(1)],
 
   xFeeBurn: [parseAmount.gwei(0)],
   yFeeBurn: [parseAmount.gwei(0.005)],
