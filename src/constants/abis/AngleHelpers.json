@@ -1,146 +1,434 @@
 [
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_logic",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "admin_",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "payable",
+    "inputs": [],
+    "stateMutability": "nonpayable",
     "type": "constructor"
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "previousAdmin",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "newAdmin",
-        "type": "address"
-      }
-    ],
-    "name": "AdminChanged",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "beacon",
-        "type": "address"
-      }
-    ],
-    "name": "BeaconUpgraded",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "implementation",
-        "type": "address"
-      }
-    ],
-    "name": "Upgraded",
-    "type": "event"
-  },
-  {
-    "stateMutability": "payable",
-    "type": "fallback"
+    "inputs": [],
+    "name": "InvalidAmount",
+    "type": "error"
   },
   {
     "inputs": [],
-    "name": "admin",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "admin_",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    "name": "NotInitialized",
+    "type": "error"
   },
   {
-    "inputs": [
+    "inputs": [],
+    "name": "BASE_PARAMS",
+    "outputs": [
       {
-        "internalType": "address",
-        "name": "newAdmin",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    "name": "changeAdmin",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "implementation",
+    "name": "CORE",
     "outputs": [
       {
-        "internalType": "address",
-        "name": "implementation_",
+        "internalType": "contract ICore",
+        "name": "",
         "type": "address"
       }
     ],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "ROUTER",
+    "outputs": [
+      {
+        "internalType": "contract IAngleRouter",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "STABLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
       {
         "internalType": "address",
-        "name": "newImplementation",
-        "type": "address"
-      }
-    ],
-    "name": "upgradeTo",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newImplementation",
+        "name": "agToken",
         "type": "address"
       },
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
+        "internalType": "address",
+        "name": "collateral",
+        "type": "address"
       }
     ],
-    "name": "upgradeToAndCall",
-    "outputs": [],
-    "stateMutability": "payable",
+    "name": "getCollateralAddresses",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "stableMaster",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "poolManager",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "perpetualManager",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "sanToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "oracle",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "gauge",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "feeManager",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "strategies",
+            "type": "address[]"
+          }
+        ],
+        "internalType": "struct CollateralAddresses",
+        "name": "addresses",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
-    "stateMutability": "payable",
-    "type": "receive"
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "agToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "collateral",
+        "type": "address"
+      }
+    ],
+    "name": "getCollateralParameters",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "lastBlockUpdated",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lockedInterests",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maxInterestsDistributed",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "feesAside",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint64",
+                "name": "slippageFee",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "feesForSLPs",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "slippage",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "interestsForSLPs",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct SLPData",
+            "name": "slpData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint64[]",
+                "name": "xFeeMint",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64[]",
+                "name": "yFeeMint",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64[]",
+                "name": "xFeeBurn",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64[]",
+                "name": "yFeeBurn",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64",
+                "name": "targetHAHedge",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "bonusMalusMint",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "bonusMalusBurn",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint256",
+                "name": "capOnStableMinted",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct MintBurnData",
+            "name": "feeData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint64[]",
+                "name": "xHAFeesDeposit",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64[]",
+                "name": "yHAFeesDeposit",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64[]",
+                "name": "xHAFeesWithdraw",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64[]",
+                "name": "yHAFeesWithdraw",
+                "type": "uint64[]"
+              },
+              {
+                "internalType": "uint64",
+                "name": "haBonusMalusDeposit",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "haBonusMalusWithdraw",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct PerpetualManagerFeeData",
+            "name": "perpFeeData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint64",
+                "name": "maintenanceMargin",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "maxLeverage",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "targetHAHedge",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "limitHAHedge",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "lockTime",
+                "type": "uint64"
+              }
+            ],
+            "internalType": "struct PerpetualManagerParamData",
+            "name": "perpParam",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Parameters",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "agToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "collateral",
+        "type": "address"
+      }
+    ],
+    "name": "getPoolManager",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "poolManager",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getStablecoinAddresses",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "agToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "collateral",
+        "type": "address"
+      }
+    ],
+    "name": "previewBurnAndFees",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "agToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "collateral",
+        "type": "address"
+      }
+    ],
+    "name": "previewMintAndFees",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   }
 ]
