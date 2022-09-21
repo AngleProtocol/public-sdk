@@ -39,6 +39,7 @@ const GlobalContracts = [
   'GaugeController',
   'Guardian',
   'Governor',
+  'KeeperRegistry',
   'RewardsDistributor',
   'AngleDistributor',
   'Timelock',
