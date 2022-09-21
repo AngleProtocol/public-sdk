@@ -4,6 +4,7 @@ import {
   AngleDistributor__factory,
   AngleRouter__factory,
   BaseSurplusConverter__factory,
+  BPAMOJob__factory,
   Core__factory,
   Erc20__factory,
   FeeDistributor__factory,
@@ -35,6 +36,7 @@ export const ERC20_Interface = Erc20__factory.createInterface();
 
 export const AgToken_Interface = AgToken__factory.createInterface();
 export const AngleDistributor_Interface = AngleDistributor__factory.createInterface();
+export const BPAMOJob_Interface = BPAMOJob__factory.createInterface();
 export const ProxyAdmin_Interface = ProxyAdmin__factory.createInterface();
 export const Core_Interface = Core__factory.createInterface();
 export const GenericCompound_Interface = GenericCompound__factory.createInterface();
