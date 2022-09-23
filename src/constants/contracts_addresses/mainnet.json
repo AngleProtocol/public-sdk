@@ -1,4 +1,13 @@
 {
+  "AMO": {
+    "AMOMinter": "0xec876Edc3F1a24c99d7c56F017E1D51581952F84",
+    "BPAMOs": {
+      "agEURvEUROC": {
+        "AMO": "0xC1e8Dba1cbF29f1CaA8343CAe96d5AdFD9bca736",
+        "KeeperJob": "0xaa8787423EA62F55d90A3D98E8b05F684A79e348"
+      }
+    }
+  },
   "ANGLE": "0x31429d1856aD1377A8A0079410B297e1a9e214c2",
   "AngleDistributor": "0x4f91F01cE8ec07c9B1f6a82c18811848254917Ab",
   "AngleRouter": "0xBB755240596530be0c1DE5DFD77ec6398471561d",
