@@ -32,10 +32,14 @@ export async function estimateOpenPerpetual(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
+  // eslint-disable-next-line
   const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
+  // eslint-disable-next-line
   const oracleAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.Oracle as string;
+  // eslint-disable-next-line
   const perpetualManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]
     ?.PerpetualManager as string;
+  // eslint-disable-next-line
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
   const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
@@ -84,10 +88,14 @@ export async function estimateClosePerpetual(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
+  // eslint-disable-next-line
   const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
+  // eslint-disable-next-line
   const oracleAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.Oracle as string;
+  // eslint-disable-next-line
   const perpetualManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]
     ?.PerpetualManager as string;
+  // eslint-disable-next-line
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
   const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
@@ -103,7 +111,7 @@ export async function estimateClosePerpetual(
   const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
 
   const maintenanceMargin = await perpetualManager.maintenanceMargin();
-
+  // eslint-disable-next-line
   return computeClosePerpetual(
     1,
     stable.symbol.slice(2),

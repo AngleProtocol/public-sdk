@@ -43,6 +43,7 @@ export class Int256 {
     return formatNumber(num, decimals, output, round);
   }
 
+  // eslint-disable-next-line
   public toNumber(decimals = -1): number {
     return parseFloat(utils.formatUnits(this.value, this.base));
   }

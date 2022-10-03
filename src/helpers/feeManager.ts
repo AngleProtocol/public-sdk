@@ -21,7 +21,9 @@ export function computeBonusMalusMint(
   stableSymbol: string,
   collateralSymbol: string,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   _xBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xBonusMalusMint,
+  // eslint-disable-next-line
   _yBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yBonusMalusMint
 ): BigNumber {
   const xBonusMalusMint = _xBonusMalusMint.map((e) => BigNumber.from(e));
@@ -49,7 +51,9 @@ export function computeBonusMalusBurn(
   stableSymbol: string,
   collateralSymbol: string,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   _xBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xBonusMalusBurn,
+  // eslint-disable-next-line
   _yBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yBonusMalusBurn
 ): BigNumber {
   const xBonusMalusBurn = _xBonusMalusBurn.map((e) => BigNumber.from(e));
@@ -87,7 +91,9 @@ export function computeSlippage(
   amountInProtocol: BigNumber[],
   inDecimals: BigNumberish[],
   rates: BigNumber[],
+  // eslint-disable-next-line
   _xSlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippage,
+  // eslint-disable-next-line
   _ySlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippage,
   base = gwei(1)
 ): BigNumber {
@@ -128,7 +134,9 @@ export function computeSlippageFee(
   amountInProtocol: BigNumber[],
   inDecimals: BigNumberish[],
   rates: BigNumber[],
+  // eslint-disable-next-line
   _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippageFee,
+  // eslint-disable-next-line
   _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippageFee,
   base = gwei(1)
 ): BigNumber {

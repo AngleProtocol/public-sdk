@@ -1,4 +1,4 @@
-import { BigNumber, ethers, providers } from 'ethers';
+import { BigNumber, providers } from 'ethers';
 import _ from 'lodash';
 
 import { Int256, Perpetual } from '../../lib';
@@ -9,9 +9,11 @@ import { Pair } from '../pair';
 import { convertTGPerpToPerpetual, getAllPairNames, PairWithIds } from '../utils';
 import { fetchPerpetuals } from './gql';
 
+/*
 function sortingPerpetualsFunc(a: Perpetual, b: Perpetual) {
   return a.coveredAmount.lt(b.coveredAmount) ? 1 : -1;
 }
+*/
 
 function sortingPerpetualsToDistTargetHedgeFunc(a: Perpetual, b: Perpetual) {
   if (a.distToTargetHedge?.lte(BigNumber.from(0)) && b.distToTargetHedge?.lte(BigNumber.from(0))) {
@@ -24,10 +26,11 @@ function sortingPerpetualsToDistTargetHedgeFunc(a: Perpetual, b: Perpetual) {
     return 1;
   }
 }
-
+/*
 function sortPerpetuals(perpetuals: Perpetual[]) {
   return perpetuals.slice().sort(sortingPerpetualsFunc);
 }
+*/
 
 function sortPerpetualsByDistTargetHedge(perpetuals: Perpetual[]) {
   return _.cloneDeep(perpetuals).sort(sortingPerpetualsToDistTargetHedgeFunc);
@@ -42,6 +45,7 @@ const computeLiquidationByPair = (pair: Pair, perpetuals: Perpetual[]) => {
 
     if (isLiquidable) {
       _liquidables.push(perpetual.perpetualId);
+      // eslint-disable-next-line
       totalHedgeAmountAfterClose = totalHedgeAmountAfterClose.sub(perpetual.coveredAmount)!;
     }
     return _liquidables;
@@ -151,7 +155,7 @@ export const computeLiquidation = async (
 
   for (const pairName in ALL_PAIRS) {
     const data = ALL_PAIRS[pairName];
-
+    // eslint-disable-next-line
     const { liquidables } = computeLiquidationByPair(data.pairData!, data.perpetuals);
 
     Logger(pairName, 'LIQUIDABLES:', liquidables);
@@ -181,6 +185,7 @@ export const computeForceClose = async (
   for (const pairName in ALL_PAIRS) {
     const data = ALL_PAIRS[pairName];
     const { requireForceClose, targetHedgeAmount, totalHedgeAmountAfterClose, forceClosables } = computeForceCloseByPair(
+      // eslint-disable-next-line
       data.pairData!,
       data.perpetuals
     );
@@ -188,10 +193,12 @@ export const computeForceClose = async (
     ALL_PAIRS[pairName].pairComputedData = {
       requireForceClose,
       targetHedgeAmount,
+      // eslint-disable-next-line
       initialTotalHedgeAmount: data.pairData!.totalHedgeAmount,
       totalHedgeAmountAfterClose,
     };
 
+    // eslint-disable-next-line
     Logger(pairName, requireForceClose, targetHedgeAmount.toFixed(2), totalHedgeAmountAfterClose?.toFixed(2), forceClosables);
 
     if (forceClosables.length > 0) {

@@ -61,6 +61,8 @@ export const veBoostProxy_Interface = VeBoostProxy__factory.createInterface();
 export const AngleRouter_Interface = AngleRouter__factory.createInterface();
 export const OneInchAggregatorV4_Interface = OneInchAggregatorV4__factory.createInterface();
 
+export const BPAMOJob__Interface = BPAMOJob__factory.createInterface();
+
 export const AgToken_Abi = AgToken__factory.abi;
 export const ERC20_Abi = Erc20__factory.abi;
 export const WETH_Abi = Weth__factory.abi;

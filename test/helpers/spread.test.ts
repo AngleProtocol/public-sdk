@@ -38,7 +38,9 @@ describe('Spread', () => {
     expect(divBy10ePow(spread, 9)).to.equal(0.55);
     const feeMint = piecewiseFunction(
       spread,
+      // eslint-disable-next-line
       constants(0).poolsParameters!.EUR.USDC.xFeeMint,
+      // eslint-disable-next-line
       constants(0).poolsParameters!.EUR.USDC.yFeeMint
     );
     expect(divBy10ePow(feeMint, 9)).to.equal(0.015);

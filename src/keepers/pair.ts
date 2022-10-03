@@ -42,7 +42,9 @@ export class Pair {
   // totalHedgeAmount > stocksUser * limitHAHedge
   computeRequireForceClose = (): { requireForceClose: boolean; targetHedgeAmount: Int256 } => {
     const currentHedge = this.stocksUsers.mul(this.limitHAHedge);
+    // eslint-disable-next-line
     const requireForceClose = this.totalHedgeAmount.gt(currentHedge!);
+    // eslint-disable-next-line
     const targetHedgeAmount = this.stocksUsers.mul(this.targetHAHedge)!;
 
     return { requireForceClose, targetHedgeAmount };

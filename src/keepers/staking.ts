@@ -67,6 +67,7 @@ function computeDripAmount(stakingParams: TStakingParams) {
 }
 
 export async function poolsToDrip(stakingContracts: string[], provider: providers.JsonRpcProvider, chainId: ChainId) {
+  // eslint-disable-next-line
   const rewardsDistributorAddress = CONTRACTS_ADDRESSES[chainId].RewardsDistributor!;
   const calls = stakingContracts.map((contract) => {
     return addCall(
@@ -102,6 +103,7 @@ export async function poolsToDrip(stakingContracts: string[], provider: provider
  */
 export async function drip(stakingContract: string, provider: providers.JsonRpcProvider, signer: Wallet, chainId: ChainId): Promise<void> {
   const contract = new Contract(
+    // eslint-disable-next-line
     CONTRACTS_ADDRESSES[chainId].RewardsDistributor!,
     Interfaces.RewardsDistributor_Interface,
     provider
