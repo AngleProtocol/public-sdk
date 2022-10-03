@@ -26,7 +26,9 @@ export async function estimateDeposit(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
+  // eslint-disable-next-line
   const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
+  // eslint-disable-next-line
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
   const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
@@ -55,7 +57,9 @@ export async function estimateWithdraw(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
+  // eslint-disable-next-line
   const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
+  // eslint-disable-next-line
   const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
 
   const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;

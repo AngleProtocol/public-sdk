@@ -39,9 +39,13 @@ export function computeOpenPerpetualFromMarginLeverage(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   rate: BigNumberish = 0,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].haBonusMalusDeposit,
+  // eslint-disable-next-line
   _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesDeposit,
+  // eslint-disable-next-line
   _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesDeposit,
   iterations = 10
 ): {
@@ -116,9 +120,13 @@ export function computeOpenPerpetualLeveragePosition(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   rate: BigNumberish = 0,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].haBonusMalusDeposit,
+  // eslint-disable-next-line
   _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesDeposit,
+  // eslint-disable-next-line
   _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesDeposit
 ): {
   percentageFee: BigNumber;
@@ -186,9 +194,13 @@ export function computeOpenPerpetualFromMarginPosition(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   rate: BigNumberish = 0,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   haBonusMalusDeposit: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].haBonusMalusDeposit,
+  // eslint-disable-next-line
   _xHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesDeposit,
+  // eslint-disable-next-line
   _yHAFeesDeposit: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesDeposit
 ): {
   percentageFee: BigNumber;
@@ -256,9 +268,12 @@ export function computeClosePerpetual(
   totalCoveredAmount: BigNumberish,
   stocksUsers: BigNumberish,
   maintenanceMargin: BigNumberish,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
   haBonusMalusWithdraw: BigNumberish = gwei(1),
+  // eslint-disable-next-line
   _xHAFeesWithdraw: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xHAFeesWithdraw,
+  // eslint-disable-next-line
   _yHAFeesWithdraw: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yHAFeesWithdraw
 ):
   | {

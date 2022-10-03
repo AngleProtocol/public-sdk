@@ -176,6 +176,7 @@ export class Perpetual {
     this.collateral = collateral;
 
     this.entryRate = Int256.from(entryRate);
+    // eslint-disable-next-line
     this.coveredAmount = this.committedAmount.mul(this.entryRate)!;
     this.distToTargetHedge = Int256.from(0);
 

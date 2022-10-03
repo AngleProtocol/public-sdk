@@ -45,8 +45,11 @@ export function computeMint(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  // eslint-disable-next-line
   yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
   base: BigNumberish = gwei(1)
 ): { amountForUserInStable: BigNumber; mintingFee: BigNumber; percentageFee: BigNumber; hedgeRatio: BigNumber } {
@@ -123,8 +126,11 @@ export function computeInverseMint(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  // eslint-disable-next-line
   yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
   base: BigNumberish = gwei(1),
   iterations = 10
@@ -202,8 +208,11 @@ export function computeBurn(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  // eslint-disable-next-line
   yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
   base: BigNumberish = gwei(1)
 ): { amountForUserInCollateral: BigNumber; burningFee: BigNumber; percentageFee: BigNumber; hedgeRatio: BigNumber } {
@@ -278,8 +287,11 @@ export function computeInverseBurn(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  // eslint-disable-next-line
   yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
   base: BigNumberish = gwei(1),
   iterations = 10
@@ -348,8 +360,11 @@ export function computeFeeMint(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  // eslint-disable-next-line
   yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
   base: BigNumberish = gwei(1)
 ): { percentageFee: BigNumber; hedgeRatio: BigNumber } {
@@ -405,8 +420,11 @@ export function computeFeeBurn(
   totalHedgeAmount: BigNumberish,
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
+  // eslint-disable-next-line
   targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  // eslint-disable-next-line
   xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  // eslint-disable-next-line
   yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
   base: BigNumberish = gwei(1)
 ): { percentageFee: BigNumber; hedgeRatio: BigNumber } {

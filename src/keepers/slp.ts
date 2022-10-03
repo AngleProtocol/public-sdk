@@ -1,6 +1,6 @@
 import { Contract, providers, utils, Wallet } from 'ethers';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens, StrategiesNames } from '../constants';
+import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../constants';
 import { AssetType, ChainId } from '../types';
 import { Logger } from './logger';
 
@@ -49,6 +49,7 @@ export function getStrategies(chainId: ChainId): ColleteralContract[] {
  * @param signer - Ethers signer
  * @param chainId - ChainId of the network
  */
+// eslint-disable-next-line
 export async function harvest(contract: ColleteralContract, provider: providers.JsonRpcProvider, signer: Wallet, chainId: ChainId) {
   const strategyContract = new Contract(contract.strategy, Interfaces.Strategy_Interface, provider) as Interfaces.Strategy;
   const poolManagerContract = new Contract(contract.poolManager, Interfaces.PoolManager_Interface, provider) as Interfaces.PoolManager;

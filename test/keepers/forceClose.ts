@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { BigNumber } from 'ethers';
 import { formatUnits, parseEther, parseUnits } from 'ethers/lib/utils';
 
-import { ALL_TOKENS, AssetType, ChainId, CONSTANTS, Int256 } from '../../src';
+import { ALL_TOKENS, AssetType, ChainId, CONSTANTS } from '../../src';
 import { computeForceCloseByPair } from '../../src/keepers/ha/computeLiquidationForceClose';
 import { Pair } from '../../src/keepers/pair';
 import { Perpetual } from '../../src/lib/perpetual';

@@ -38,9 +38,13 @@ export function estimateSlippage(
   collateralSymbol: string,
   collatRatio?: BigNumberish,
   callRatioParams?: CollatRatioParams,
+  // eslint-disable-next-line
   _xSlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippage,
+  // eslint-disable-next-line
   _ySlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippage,
+  // eslint-disable-next-line
   _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippageFee,
+  // eslint-disable-next-line
   _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippageFee
 ): EstimateSlippageReturn {
   if (!collatRatio && callRatioParams !== undefined)
@@ -52,6 +56,7 @@ export function estimateSlippage(
       callRatioParams.base
     );
 
+  // eslint-disable-next-line
   collatRatio = BigNumber.from(collatRatio!);
 
   const xSlippage_ = _xSlippage.map((v) => BigNumber.from(v));
@@ -60,7 +65,9 @@ export function estimateSlippage(
   const ySlippageFee_ = _ySlippageFee.map((v) => BigNumber.from(v));
 
   // Computing the fees based on the collateral ratio
+  // eslint-disable-next-line
   const slippage = piecewiseFunction(collatRatio!, xSlippage_, ySlippage_);
+  // eslint-disable-next-line
   const slippageFee = piecewiseFunction(collatRatio!, xSlippageFee_, ySlippageFee_);
 
   return { slippage, slippageFee };

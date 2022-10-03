@@ -1,11 +1,11 @@
 import { ChainId } from '../../types';
-import localhost from './localhost';
-import mainnet from './mainnet';
-import rinkeby from './rinkeby';
-import polygon from './polygon';
-import optimism from './optimism';
 import arbitrum from './arbitrum';
 import avalanche from './avalanche';
+import localhost from './localhost';
+import mainnet from './mainnet';
+import optimism from './optimism';
+import polygon from './polygon';
+import rinkeby from './rinkeby';
 import test from './test';
 import { GlobalParameters, PoolsParameters, StablesParameters } from './types';
 
