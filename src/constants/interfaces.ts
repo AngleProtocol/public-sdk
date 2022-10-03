@@ -4,6 +4,7 @@ import {
   AngleDistributor__factory,
   AngleRouter__factory,
   BaseSurplusConverter__factory,
+  BPAMOJob__factory,
   Core__factory,
   Erc20__factory,
   FeeDistributor__factory,
