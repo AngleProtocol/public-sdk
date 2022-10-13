@@ -8,7 +8,6 @@ import LOCAL_ADDRESSES from './contracts_addresses/local.json';
 import MAINNET_CONTRACTS from './contracts_addresses/mainnet.json';
 import OPTIMISM_ADDRESSES from './contracts_addresses/optimism.json';
 import POLYGON_ADDRESSES from './contracts_addresses/polygon.json';
-import RINKEBY_ADDRESSES from './contracts_addresses/rinkeby.json';
 
 const ContractsNames = [
   'FeeManager',
@@ -106,6 +105,5 @@ export const CONTRACTS_ADDRESSES: TCONTRACTS_ADDRESSES = {
   [ChainId.FANTOM]: FANTOM_ADDRESSES as AngleContractsType,
   [ChainId.BSC]: BSC_ADDRESSES as AngleContractsType,
   [ChainId.AURORA]: AURORA_ADDRESSES as AngleContractsType,
-  [ChainId.RINKEBY]: RINKEBY_ADDRESSES as AngleContractsType,
   [ChainId.LOCAL]: LOCAL_ADDRESSES as AngleContractsType,
 };
