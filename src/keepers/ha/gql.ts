@@ -11,7 +11,6 @@ const THEGRAPH_URLS: { [chainId in ChainId]: string } = {
   [ChainId.AURORA]: '',
   [ChainId.FANTOM]: '',
   [ChainId.BSC]: '',
-  [ChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/picodes/rinkeby-perpetual',
   [ChainId.LOCAL]: '',
   [ChainId.ARBITRUM]: '',
   [ChainId.OPTIMISM]: '',
