@@ -14,6 +14,7 @@ import {
   Governor__factory,
   Guardian__factory,
   LiquidityGaugeV4__factory,
+  MultiStakerCurveBPAMO__factory,
   OneInchAggregatorV4__factory,
   OracleMulti__factory,
   PerpetualManagerFront__factory,
@@ -62,6 +63,7 @@ export const AngleRouter_Interface = AngleRouter__factory.createInterface();
 export const OneInchAggregatorV4_Interface = OneInchAggregatorV4__factory.createInterface();
 
 export const BPAMOJob__Interface = BPAMOJob__factory.createInterface();
+export const MultiStakerCurveBPAMO__Interface = MultiStakerCurveBPAMO__factory.createInterface();
 
 export const AgToken_Abi = AgToken__factory.abi;
 export const ERC20_Abi = Erc20__factory.abi;
