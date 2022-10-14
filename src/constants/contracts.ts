@@ -59,15 +59,6 @@ const GlobalContracts = [
 ] as const;
 
 export type AngleContractsStableType = {
-  AMO: {
-    AMOMinter: string;
-    BPAMOs: {
-      [AMOName: string]: {
-        AMO: string;
-        KeeperJob: string;
-      };
-    }
-  }
   AgToken: string;
   StableMaster: string;
   Staking: string;
@@ -102,6 +93,16 @@ export type AngleContractsType = {
     ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string; liquidityGaugeAddress?: string }[];
   } & {
     Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
+  } & {
+    AMO?: {
+      AMOMinter: string;
+      BPAMOs: {
+        [AMOName: string]: {
+          AMO: string;
+          KeeperJob: string;
+        };
+      }
+    }
   };
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
