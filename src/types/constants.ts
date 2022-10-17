@@ -12,6 +12,17 @@ export enum ChainId {
   ARBITRUM = 42161,
 }
 
+export const NETWORK_LABELS: { [key in ChainId]?: string } = {
+  [ChainId.ARBITRUM]: 'Arbitrum',
+  [ChainId.MAINNET]: 'Ethereum',
+  [ChainId.FANTOM]: 'Fantom',
+  [ChainId.POLYGON]: 'Polygon',
+  [ChainId.AURORA]: 'Aurora',
+  [ChainId.AVALANCHE]: 'Avalanche',
+  [ChainId.BSC]: 'BNB Smart Chain',
+  [ChainId.OPTIMISM]: 'Optimism',
+};
+
 export enum AssetType {
   STABLE,
   COLLATERAL,
