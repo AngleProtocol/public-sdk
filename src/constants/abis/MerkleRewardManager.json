@@ -1,0 +1,978 @@
+[
+  {
+    "inputs": [],
+    "name": "InvalidParam",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidReward",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotGovernorOrGuardian",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAddress",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "userFeeRebate",
+        "type": "uint256"
+      }
+    ],
+    "name": "FeeRebateUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_fees",
+        "type": "uint256"
+      }
+    ],
+    "name": "FeesSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_merkleRootDistributor",
+        "type": "address"
+      }
+    ],
+    "name": "MerkleRootDistributorUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct RewardDistribution",
+        "name": "reward",
+        "type": "tuple"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "NewReward",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "EPOCH_DURATION",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "coreBorrow",
+    "outputs": [
+      {
+        "internalType": "contract ICoreBorrow",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RewardDistribution",
+        "name": "reward",
+        "type": "tuple"
+      }
+    ],
+    "name": "depositReward",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "rewardAmount",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RewardDistribution[]",
+        "name": "rewards",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "depositRewards",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "feeRebate",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fees",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "uniV3Pool",
+        "type": "address"
+      }
+    ],
+    "name": "getActivePoolRewards",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RewardDistribution[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getActiveRewards",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RewardDistribution[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllRewards",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RewardDistribution[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "uniV3Pool",
+        "type": "address"
+      },
+      {
+        "internalType": "uint32",
+        "name": "epoch",
+        "type": "uint32"
+      }
+    ],
+    "name": "getPoolRewardsForEpoch",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RewardDistribution[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "epoch",
+        "type": "uint32"
+      }
+    ],
+    "name": "getRewardsForEpoch",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "uniV3Pool",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "positionWrappers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken1",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propToken2",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "propFees",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "outOfRangeIncentivized",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "epochStart",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "numEpoch",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "incentivizeOutOfRange",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "boostedReward",
+            "type": "uint32"
+          },
+          {
+            "internalType": "address",
+            "name": "boostingAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct RewardDistribution[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ICoreBorrow",
+        "name": "_coreBorrow",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_merkleRootDistributor",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_fees",
+        "type": "uint256"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "merkleRootDistributor",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "recoverFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "rewardList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "uniV3Pool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "propToken1",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "propToken2",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "propFees",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "outOfRangeIncentivized",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "epochStart",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "numEpoch",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "incentivizeOutOfRange",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "boostedReward",
+        "type": "uint32"
+      },
+      {
+        "internalType": "address",
+        "name": "boostingAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_fees",
+        "type": "uint256"
+      }
+    ],
+    "name": "setFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_merkleRootDistributor",
+        "type": "address"
+      }
+    ],
+    "name": "setNewMerkleRootDistributor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "userFeeRebate",
+        "type": "uint256"
+      }
+    ],
+    "name": "setUserFeeRebate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
