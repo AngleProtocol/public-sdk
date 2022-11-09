@@ -1,5 +1,8 @@
 {
-  "ANGLE": "0x0fFcCbff59bFfA90Bc27e41a362839947BB11f80",
+  "ANGLE": "0x97B6897AAd7aBa3861c04C0e6388Fc02AF1F227f",
+  "ANGLEBridges": {
+    "LayerZero": "0x16cd38b1B54E7abf307Cb2697E2D9321e843d5AA"
+  },
   "agEUR": {
     "AgToken": "0x12f31B73D812C6Bb0d735a218c086d44D5fe5f89",
     "bridges": {
