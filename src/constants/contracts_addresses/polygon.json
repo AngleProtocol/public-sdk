@@ -7,6 +7,10 @@
       "LayerZero": "0x0c1EBBb61374dA1a8C57cB6681bF27178360d36F"
     },
     "borrowCollaterals": {
+      "MAI": {
+        "Oracle": "0xD622c71aba9060F393FEC67D3e2B9335292bf23B",
+        "VaultManager": "0xf18303E2Dd58Cf29cad655B3bD2e1Cc4582C6A16"
+      },
       "USDC": {
         "Oracle": "0x06486a422B8742218693F874CEA95a69C92a004f",
         "VaultManager": "0xfB16d8e96C0C6e9B72541BFd8D4C3D9e867c990b"
