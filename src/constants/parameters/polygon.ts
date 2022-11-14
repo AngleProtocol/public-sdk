@@ -43,9 +43,9 @@ const stablesParameters: StablesParameters = {
           repayFee: parseAmount.gwei('0'),
           interestRate: interestRate,
           liquidationSurcharge: parseAmount.gwei('0.98'),
-          maxLiquidationDiscount: parseAmount.gwei('0.05'),
+          maxLiquidationDiscount: parseAmount.gwei('0.08'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('0.7'),
+          baseBoost: parseAmount.gwei('1.5'),
         },
       },
       {
