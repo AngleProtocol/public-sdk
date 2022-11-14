@@ -85,14 +85,20 @@ export type AngleContractsStableType = {
   };
 };
 
+export type AngleTokenBridgeContractsType = {
+  angleBridges: { [key in typeof BridgeNames[number]]?: string };
+};
+
 export type AngleContractsType = {
   [key: string]: Partial<AngleContractsStableType>;
 } & {
-    [key in typeof GlobalContracts[number]]?: string;
-  } & {
+  [key in typeof GlobalContracts[number]]?: string;
+} & {
     ExternalStakings?: { tokenName: string; stakingContractAddress: string; poolContractAddress: string; liquidityGaugeAddress?: string }[];
   } & {
     Gauges?: { gaugeName: string; gaugeAddress: string; type: number }[];
+  } & {
+    ANGLEBridges?: { [key in typeof BridgeNames[number]]?: string };
   } & {
     AMO?: {
       AMOMinter: string;
@@ -101,8 +107,8 @@ export type AngleContractsType = {
           AMO: string;
           KeeperJob: string;
         };
-      }
-    }
+      };
+    };
   };
 
 type TCONTRACTS_ADDRESSES = Readonly<{ [chainId in ChainId]: Readonly<AngleContractsType> }>;
