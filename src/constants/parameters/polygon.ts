@@ -99,6 +99,23 @@ const stablesParameters: StablesParameters = {
           baseBoost: parseAmount.gwei('0.4'),
         },
       },
+      {
+        collateral: '0x583EE5b0b2999679d1DdE7aa178B225ad57c481b',
+        symbol: 'am3CRV-EUR',
+        oracle: 'am3CRV_EUR',
+        params: {
+          debtCeiling: parseEther('1000'),
+          collateralFactor: parseAmount.gwei('0.7'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0.003'),
+          repayFee: parseAmount.gwei('0.004'),
+          interestRate: interestRate,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.08'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('0.4'),
+        },
+      },
     ],
   },
 };
