@@ -1,6 +1,6 @@
 import { BigNumber, Contract, providers, Wallet } from 'ethers';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../constants';
+import { ALL_TOKENS, CONTRACTS_ADDRESSES, registry, RewardsDistributor, RewardsDistributor__factory } from '../constants';
 import { AssetType, ChainId } from '../types';
 import { Logger } from './logger';
 import { addCall, execMulticall } from './multicall';
@@ -9,24 +9,22 @@ export function getStakingPools(chainId: ChainId): string[] {
   const stablesSymbols = Object.values(ALL_TOKENS[chainId][AssetType.STABLE]).map((token) => token.symbol);
 
   const stakingContracts = stablesSymbols.reduce((acc, stableSymbol) => {
-    const agToken = CONTRACTS_ADDRESSES[chainId][stableSymbol as typeof StableTokens[number]] as AngleContractsStableType;
-    if (agToken.Staking) {
-      acc.push(agToken.Staking);
-    }
+    const agToken = registry(chainId, { stablecoin: stableSymbol });
 
-    for (const collateral in agToken.collaterals) {
-      const collateralContract = agToken.collaterals[collateral];
-      if (collateralContract.Staking) {
-        acc.push(collateralContract.Staking);
+    if (!!agToken?.collaterals) {
+      for (const collateral of Object.values(agToken?.collaterals)) {
+        if (collateral.Staking) {
+          acc.push(collateral.Staking);
+        }
+        if (collateral.PerpetualManager) {
+          acc.push(collateral.PerpetualManager);
+        }
       }
-      if (collateralContract.PerpetualManager) {
-        acc.push(collateralContract.PerpetualManager);
-      }
-    }
 
-    const externalStaking = CONTRACTS_ADDRESSES[chainId].ExternalStakings?.map((token) => token.stakingContractAddress);
-    if (externalStaking && externalStaking.length > 0) {
-      acc.push(...externalStaking);
+      const externalStaking = CONTRACTS_ADDRESSES[chainId].ExternalStakings?.map((token) => token.stakingContractAddress);
+      if (externalStaking && externalStaking.length > 0) {
+        acc.push(...externalStaking);
+      }
     }
 
     return acc;
@@ -71,9 +69,9 @@ export async function poolsToDrip(stakingContracts: string[], provider: provider
   const rewardsDistributorAddress = CONTRACTS_ADDRESSES[chainId].RewardsDistributor!;
   const calls = stakingContracts.map((contract) => {
     return addCall(
-      Interfaces.RewardsDistributor_Interface,
+      RewardsDistributor__factory.createInterface(),
       rewardsDistributorAddress,
-      Interfaces.RewardsDistributor_Interface.functions['stakingContractsMap(address)'].name,
+      RewardsDistributor__factory.createInterface().functions['stakingContractsMap(address)'].name,
       [contract]
     );
   });
@@ -102,17 +100,16 @@ export async function poolsToDrip(stakingContracts: string[], provider: provider
  * @param chainId - chainId of the network
  */
 export async function drip(stakingContract: string, provider: providers.JsonRpcProvider, signer: Wallet, chainId: ChainId): Promise<void> {
-  const contract = new Contract(
-    // eslint-disable-next-line
-    CONTRACTS_ADDRESSES[chainId].RewardsDistributor!,
-    Interfaces.RewardsDistributor_Interface,
-    provider
-  ) as Interfaces.RewardsDistributor;
-
-  const tx = await contract.connect(signer).drip(stakingContract);
-  Logger('tx drip: ', tx);
-  const receipt = await tx.wait();
-  Logger('receipt drip: ', receipt);
+  const address = registry(chainId)?.RewardsDistributor;
+  if (!!address) {
+    const contract = RewardsDistributor__factory.connect(address, provider);
+    const tx = await contract.connect(signer).drip(stakingContract);
+    Logger('tx drip: ', tx);
+    const receipt = await tx.wait();
+    Logger('receipt drip: ', receipt);
+  } else {
+    console.error('RewardsDistributor does not exist on this chain');
+  }
 }
 
 export default async function (provider: providers.JsonRpcProvider, signer: Wallet, chainId: ChainId) {

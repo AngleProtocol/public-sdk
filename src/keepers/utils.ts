@@ -1,4 +1,4 @@
-import { ALL_TOKENS, CONTRACTS_ADDRESSES, StableTokens } from '../constants';
+import { ALL_TOKENS, registry } from '../constants';
 import { Perpetual, TGPerpetual } from '../lib';
 import { AssetType, ChainId, Token } from '../types';
 
@@ -11,12 +11,11 @@ const getPairs = (chainId: ChainId) => {
     for (const collatAddr in ALL_TOKENS[chainId][AssetType.COLLATERAL]) {
       const collateral = ALL_TOKENS[chainId][AssetType.COLLATERAL][collatAddr];
 
-      if (CONTRACTS_ADDRESSES[chainId][stable.symbol as typeof StableTokens[number]]?.collaterals?.[collateral.symbol].PerpetualManager) {
+      if (registry(chainId, { stablecoin: stable.symbol, collateral: collateral.symbol })?.PerpetualManager) {
         allPairs.push({ stable: stable, collateral: collateral });
       }
     }
   }
-
   return allPairs;
 };
 
@@ -33,8 +32,7 @@ export const getContractAddressFromPairName = (pairName: string, chainId: ChainI
   const [stableSymbol, collateralSymbol] = pairName.split('/');
   if (!stableSymbol || !collateralSymbol) return undefined;
 
-  const contract =
-    CONTRACTS_ADDRESSES[chainId][stableSymbol as typeof StableTokens[number]]?.collaterals?.[collateralSymbol]?.PerpetualManager;
+  const contract = registry(chainId, { stablecoin: stableSymbol, collateral: collateralSymbol })?.PerpetualManager;
 
   return contract;
 };

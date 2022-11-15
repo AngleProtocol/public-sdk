@@ -1,7 +1,7 @@
 import { constants } from 'ethers';
 
 import { AssetType, ChainId, Token } from '../types';
-import { CONTRACTS_ADDRESSES, StableTokens } from './contracts';
+import { CONTRACTS_ADDRESSES, registry } from './contracts';
 
 // TODO: replace all "constants.AddressZero"
 
@@ -9,7 +9,7 @@ const listStables = (chainId: ChainId) => {
   return Object.keys(CONTRACTS_ADDRESSES[chainId])
     .filter((key) => key.substr(0, 2) === 'ag')
     .map((key) => {
-      const contractAddress = CONTRACTS_ADDRESSES[chainId][key as typeof StableTokens[number]]?.AgToken;
+      const contractAddress = registry(chainId, key)?.AgToken;
       if (contractAddress) return { key: key, contractAddress: contractAddress };
       return { key: '', contractAddress: '' };
     })
