@@ -1,0 +1,244 @@
+[
+  {
+    "inputs": [],
+    "name": "EmptyReturnMessage",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "IncompatibleLengths",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotGovernorOrGuardian",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "TooSmallAmountOut",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NBR_TOKEN_BP",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "NBR_TOKEN_META",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "angleRouter",
+    "outputs": [
+      {
+        "internalType": "contract IAngleRouterSidechain",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "angleStaker",
+    "outputs": [
+      {
+        "internalType": "contract IBorrowStaker",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "basepool",
+    "outputs": [
+      {
+        "internalType": "contract IMetaPool3",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "spenders",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "changeAllowance",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "core",
+    "outputs": [
+      {
+        "internalType": "contract ICoreBorrow",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lpToken",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "metapool",
+    "outputs": [
+      {
+        "internalType": "contract IMetaPool3",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "oneInch",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "inToken",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "outToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "outTokenRecipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "outTokenOwed",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "inTokenObtained",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "swap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "tokens",
+    "outputs": [
+      {
+        "internalType": "contract IERC20[3]",
+        "name": "",
+        "type": "address[3]"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "tokensBP",
+    "outputs": [
+      {
+        "internalType": "contract IERC20[3]",
+        "name": "",
+        "type": "address[3]"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "uniV3Router",
+    "outputs": [
+      {
+        "internalType": "contract IUniswapV3Router",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
