@@ -7,10 +7,10 @@ import { CONTRACTS_ADDRESSES, registry } from './contracts';
 
 const listStables = (chainId: ChainId) => {
   return Object.keys(CONTRACTS_ADDRESSES[chainId])
-    .filter((key) => key.substr(0, 2) === 'ag')
+    .filter((key) => key.startsWith('ag'))
     .map((key) => {
       const contractAddress = registry(chainId, key)?.AgToken;
-      if (contractAddress) return { key: key, contractAddress: contractAddress };
+      if (!!contractAddress) return { key: key, contractAddress: contractAddress };
       return { key: '', contractAddress: '' };
     })
     .filter((obj) => {

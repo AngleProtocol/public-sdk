@@ -261,6 +261,8 @@ export function registry(chainId: number | ChainId, args: RegistryArgs = null, c
     ];
   } else if (!!args && typeof args !== 'string' && 'collateral' in args) {
     return CONTRACTS_ADDRESSES[chainId as ChainId]?.[args.stablecoin as Stablecoin]?.collaterals?.[args.collateral as Collateral];
+  } else if (!!args && typeof args !== 'string' && 'stablecoin' in args) {
+    return CONTRACTS_ADDRESSES[chainId as ChainId]?.[args.stablecoin as Stablecoin];
   } else if (!!args && typeof args !== 'string' && 'amo' in args) {
     return CONTRACTS_ADDRESSES[chainId as ChainId]?.AMO?.BPAMOs?.[args.amo as AMO];
   } else {
