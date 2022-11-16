@@ -2,6 +2,7 @@ import { ContractsRegistryType } from '../contracts';
 
 const addresses: ContractsRegistryType['1'] = {
   ANGLE: '0x58441E37255b09F9f545e9Dc957F1C41658ff665',
+  AngleHelpers: '0x0331814f183d6A782E93E46810e76B5d21294B27',
   bridges: {
     LayerZero: '0x9201cC18965792808549566e6B06B016d915313A',
   },

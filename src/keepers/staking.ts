@@ -1,6 +1,6 @@
-import { BigNumber, Contract, providers, Wallet } from 'ethers';
+import { BigNumber, providers, Wallet } from 'ethers';
 
-import { ALL_TOKENS, CONTRACTS_ADDRESSES, registry, RewardsDistributor, RewardsDistributor__factory } from '../constants';
+import { ALL_TOKENS, CONTRACTS_ADDRESSES, registry, RewardsDistributor__factory } from '../constants';
 import { AssetType, ChainId } from '../types';
 import { Logger } from './logger';
 import { addCall, execMulticall } from './multicall';

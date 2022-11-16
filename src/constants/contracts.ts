@@ -107,6 +107,7 @@ export type ContractsRegistryType = Readonly<{
     {
       ANGLE: string;
       AngleDistributor: string;
+      AngleHelpers: string;
       AngleRouter: string;
       Core: string;
       CoreBorrow: string;
