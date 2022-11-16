@@ -30,6 +30,13 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0x1b0c95852Fa547C44600F70eF473640E1B717CE4',
         VaultManager: '0x4b81f51988cd6A9F44350cdABeE9620d16359aa3',
       },
+      am3CRV: {
+        Oracle: '0x2e9e48b515bC6D0128B7022A5d868137f0173bF6',
+        VaultManager: '0x128c3da565013a236cdcff14738297f9042455ce',
+        Staker: '0x583EE5b0b2999679d1DdE7aa178B225ad57c481b',
+        Swapper: '0xC96dd3f9f50286de5658A664327a9d1E654A8673',
+        Rewards: ['0x02Cb0586F9252626e992B2C6c1B792d9751f2Ede'],
+      },
     },
     Swapper: '0x0050038959659c1e09D5E7F0543b5cf411a942B6',
     Treasury: '0x2F2e0ba9746aae15888cf234c4EB5B301710927e',

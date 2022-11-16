@@ -27,12 +27,21 @@ export enum BorrowCollateral {
   'USDC' = 'USDC',
   'WMATIC' = 'WMATIC',
   'OP' = 'OP',
+  'am3CRV' = 'am3CRV',
 }
 
-type BorrowCollateralType = {
-  Oracle: string;
-  VaultManager: string;
-};
+type BorrowCollateralType =
+  | {
+      Oracle: string;
+      VaultManager: string;
+    }
+  | {
+      Oracle: string;
+      VaultManager: string;
+      Staker: string;
+      Swapper: string;
+      Rewards: string[];
+    };
 
 export enum LenderStrategy {
   'GenericOptimisedLender' = 'GenericOptimisedLender',
