@@ -27,12 +27,21 @@ export enum BorrowCollateral {
   'USDC' = 'USDC',
   'WMATIC' = 'WMATIC',
   'OP' = 'OP',
+  'am3CRV' = 'am3CRV',
 }
 
-type BorrowCollateralType = {
-  Oracle: string;
-  VaultManager: string;
-};
+type BorrowCollateralType =
+  | {
+      Oracle: string;
+      VaultManager: string;
+    }
+  | {
+      Oracle: string;
+      VaultManager: string;
+      Staker: string;
+      Swapper: string;
+      Rewards: string[];
+    };
 
 export enum LenderStrategy {
   'GenericOptimisedLender' = 'GenericOptimisedLender',
@@ -170,29 +179,29 @@ type RegistryArgs =
   | null
   | string
   | {
-    stablecoin: Stablecoin | string;
-  }
+      stablecoin: Stablecoin | string;
+    }
   | {
-    amo: AMO | string;
-  }
+      amo: AMO | string;
+    }
   | {
-    stablecoin: Stablecoin | string;
-    collateral: Collateral | string;
-  }
+      stablecoin: Stablecoin | string;
+      collateral: Collateral | string;
+    }
   | {
-    stablecoin: Stablecoin | string;
-    borrowCollateral: BorrowCollateral | string;
-  }
+      stablecoin: Stablecoin | string;
+      borrowCollateral: BorrowCollateral | string;
+    }
   | {
-    stablecoin: Stablecoin | string;
-    collateral: Collateral | string;
-    strategy: SimpleStrategy | string;
-  }
+      stablecoin: Stablecoin | string;
+      collateral: Collateral | string;
+      strategy: SimpleStrategy | string;
+    }
   | {
-    stablecoin: Stablecoin | string;
-    collateral: Collateral | string;
-    lenderStrategy: LenderStrategy | string;
-  };
+      stablecoin: Stablecoin | string;
+      collateral: Collateral | string;
+      lenderStrategy: LenderStrategy | string;
+    };
 
 export function registry(chainId: number | ChainId): ContractsRegistryType['1'] | undefined;
 export function registry(
