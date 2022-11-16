@@ -4,8 +4,8 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { Erc20 } from '../constants/types';
+import { registry } from '../constants';
+import { Erc20__factory, StableMasterFront__factory } from '../constants/types';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -33,22 +33,18 @@ export async function deposit(
   const stable = parseStable(stablecoin);
   const collat = parseCollat(collateral);
 
-  const addresses = CONTRACTS_ADDRESSES[chainId];
-  const stableMasterAddress = addresses[stable.symbol]?.StableMaster;
-  const poolManagerAddress = addresses[stable.symbol]?.collaterals?.[collat.symbol].PoolManager;
+  const stableMasterAddress = registry(chainId, stable.symbol)?.StableMaster;
+  const poolManagerAddress = registry(chainId, stable.symbol, collat.symbol)?.PoolManager;
 
   if (!stableMasterAddress || !poolManagerAddress) throw new Error("Can't find contract's address");
 
   if (!ethers.utils.isAddress(user)) user = await signer.getAddress();
 
-  const token = new ethers.Contract(collat.address, Interfaces.ERC20_Abi) as Erc20;
-  const contract = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Abi);
-
   // Approval is needed
-  const approval = await token.connect(signer).allowance(await signer.getAddress(), stableMasterAddress);
+  const approval = await Erc20__factory.connect(collat.address, signer).allowance(await signer.getAddress(), stableMasterAddress);
   if (approval.lt(amount)) console.error('The StableMaster needs to be approved');
 
-  return contract.connect(signer).deposit(amount, user, poolManagerAddress, options);
+  return StableMasterFront__factory.connect(stableMasterAddress, signer).deposit(amount, user, poolManagerAddress, options);
 }
 
 /**
@@ -78,16 +74,13 @@ export async function withdraw(
   const stable = parseStable(stablecoin);
   const collat = parseCollat(collateral);
 
-  const addresses = CONTRACTS_ADDRESSES[chainId];
-  const stableMasterAddress = addresses[stable.symbol]?.StableMaster;
-  const poolManagerAddress = addresses[stable.symbol]?.collaterals?.[collat.symbol].PoolManager;
+  const stableMasterAddress = registry(chainId, stable.symbol)?.StableMaster;
+  const poolManagerAddress = registry(chainId, stable.symbol, collat.symbol)?.PoolManager;
 
   if (!stableMasterAddress || !poolManagerAddress) throw new Error("Can't find contract's address");
 
   if (!ethers.utils.isAddress(burner)) burner = await signer.getAddress();
   if (!ethers.utils.isAddress(dest)) dest = await signer.getAddress();
 
-  const contract = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Abi);
-
-  return contract.connect(signer).withdraw(amount, burner, dest, poolManagerAddress, options);
+  return StableMasterFront__factory.connect(stableMasterAddress, signer).withdraw(amount, burner, dest, poolManagerAddress, options);
 }

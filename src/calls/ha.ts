@@ -4,7 +4,7 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
+import { PerpetualManagerFront__factory, registry } from '../constants';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -38,16 +38,15 @@ export async function openPerpetual(
   const stable = parseStable(stablecoin);
   const collat = parseCollat(collateral);
 
-  const addresses = CONTRACTS_ADDRESSES[chainId];
-  const perpetualManagerAddress = addresses[stable.symbol]?.collaterals?.[collat.symbol].PerpetualManager;
+  const perpetualManagerAddress = registry(chainId, stable.symbol, collat.symbol)?.PerpetualManager;
 
   if (!perpetualManagerAddress) throw new Error("Can't find contract's address");
 
   if (!ethers.utils.isAddress(owner)) owner = await signer.getAddress();
 
-  const contract = new ethers.Contract(perpetualManagerAddress, Interfaces.PerpetualManagerFront_Abi);
-
-  return contract.connect(signer).openPerpetual(owner, margin, committedAmount, maxOracleRate, minNetMargin, options);
+  return PerpetualManagerFront__factory.connect(perpetualManagerAddress, signer)
+    .connect(signer)
+    .openPerpetual(owner, margin, committedAmount, maxOracleRate, minNetMargin, options);
 }
 
 /**
@@ -76,14 +75,11 @@ export async function closePerpetual(
   const stable = parseStable(stablecoin);
   const collat = parseCollat(collateral);
 
-  const addresses = CONTRACTS_ADDRESSES[chainId];
-  const perpetualManagerAddress = addresses[stable.symbol]?.collaterals?.[collat.symbol].PerpetualManager;
+  const perpetualManagerAddress = registry(chainId, stable.symbol, collat.symbol)?.PerpetualManager;
 
   if (!perpetualManagerAddress) throw new Error("Can't find contract's address");
 
   if (!ethers.utils.isAddress(to)) to = await signer.getAddress();
 
-  const contract = new ethers.Contract(perpetualManagerAddress, Interfaces.PerpetualManagerFront_Abi);
-
-  return contract.connect(signer).closePerpetual(perpetualID, to, minCashOutAmount, options);
+  return PerpetualManagerFront__factory.connect(perpetualManagerAddress, signer).closePerpetual(perpetualID, to, minCashOutAmount, options);
 }

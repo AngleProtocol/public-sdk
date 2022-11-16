@@ -1,8 +1,8 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { StableMasterFront } from '../constants/types';
+import { registry } from '../constants';
+import { StableMasterFront__factory } from '../constants/types';
 import { simulateWithdraw } from '../helpers';
 import { ChainId } from '../index';
 import { parseCollat, parseStable } from '../utils';
@@ -26,16 +26,19 @@ export async function estimateDeposit(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
-  // eslint-disable-next-line
-  const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
-  // eslint-disable-next-line
-  const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
+  const stableMasterAddress = registry(ChainId.MAINNET, { stablecoin: stable.symbol })?.StableMaster;
+  const poolManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PoolManager;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
+  /** Error case */
+  if (!stableMasterAddress || !poolManagerAddress) {
+    console.error('Address do not exist');
+    return 0;
+  } else {
+    const stablemaster = StableMasterFront__factory.connect(stableMasterAddress, provider);
+    const sanRate = (await stablemaster.collateralMap(poolManagerAddress)).sanRate;
 
-  const sanRate = (await stablemaster.collateralMap(poolManagerAddress)).sanRate;
-
-  return BigNumber.from(amount).mul(BigNumber.from(10).pow(18)).div(sanRate);
+    return BigNumber.from(amount).mul(BigNumber.from(10).pow(18)).div(sanRate);
+  }
 }
 
 /**
@@ -57,15 +60,18 @@ export async function estimateWithdraw(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
-  // eslint-disable-next-line
-  const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
-  // eslint-disable-next-line
-  const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
+  const stableMasterAddress = registry(ChainId.MAINNET, { stablecoin: stable.symbol })?.StableMaster;
+  const poolManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PoolManager;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
+  /** Error case */
+  if (!stableMasterAddress || !poolManagerAddress) {
+    console.error('Address do not exist');
+    return 0;
+  } else {
+    const stablemaster = StableMasterFront__factory.connect(stableMasterAddress, provider);
+    const sanRate = (await stablemaster.collateralMap(poolManagerAddress)).sanRate;
+    const collatRatio = await stablemaster.getCollateralRatio();
 
-  const sanRate = (await stablemaster.collateralMap(poolManagerAddress)).sanRate;
-  const collatRatio = await stablemaster.getCollateralRatio();
-
-  return simulateWithdraw(ChainId.MAINNET, stable.symbol.slice(2), collat.symbol, amount, sanRate, collatRatio);
+    return simulateWithdraw(ChainId.MAINNET, stable.symbol.slice(2), collat.symbol, amount, sanRate, collatRatio);
+  }
 }

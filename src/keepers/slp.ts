@@ -1,6 +1,6 @@
 import { Contract, providers, utils, Wallet } from 'ethers';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../constants';
+import { ALL_TOKENS, PoolManager, PoolManager__factory, registry, Strategy, Strategy__factory } from '../constants';
 import { AssetType, ChainId } from '../types';
 import { Logger } from './logger';
 
@@ -14,20 +14,29 @@ export function getStrategies(chainId: ChainId): ColleteralContract[] {
   const stablesSymbols = Object.values(ALL_TOKENS[chainId][AssetType.STABLE]).map((token) => token.symbol);
 
   const strategyContracts = stablesSymbols.reduce((acc, stableSymbol) => {
-    const agToken = CONTRACTS_ADDRESSES[chainId][stableSymbol as typeof StableTokens[number]] as AngleContractsStableType;
-
-    for (const collateral in agToken.collaterals) {
-      const collateralContract = agToken.collaterals[collateral];
-      if (collateralContract.PoolManager) {
-        const collateralToken = Object.values(ALL_TOKENS[chainId][AssetType.COLLATERAL]).filter((token) => token.symbol === collateral)[0];
-        if (collateralContract.Strategies) {
-          const strats = Object.values(collateralContract.Strategies);
-          for (const strat of strats) {
-            acc.push({
-              strategy: strat.Contract as string,
-              poolManager: collateralContract.PoolManager,
-              collateralDecimals: collateralToken.decimals,
-            });
+    const collaterals = registry(chainId, { stablecoin: stableSymbol })?.collaterals;
+    if (!!collaterals) {
+      for (const collateral of Object.values(collaterals)) {
+        if (collateral.PoolManager) {
+          const collateralToken = Object.values(ALL_TOKENS[chainId][AssetType.COLLATERAL]).filter(
+            (token) => token.symbol === collateral
+          )[0];
+          if (collateral.Strategies) {
+            for (const strat of Object.values(collateral.Strategies)) {
+              if (typeof strat === 'string') {
+                acc.push({
+                  strategy: strat,
+                  poolManager: collateral.PoolManager,
+                  collateralDecimals: collateralToken.decimals,
+                });
+              } else {
+                acc.push({
+                  strategy: strat.Contract as string,
+                  poolManager: collateral.PoolManager,
+                  collateralDecimals: collateralToken.decimals,
+                });
+              }
+            }
           }
         }
       }
@@ -51,8 +60,8 @@ export function getStrategies(chainId: ChainId): ColleteralContract[] {
  */
 // eslint-disable-next-line
 export async function harvest(contract: ColleteralContract, provider: providers.JsonRpcProvider, signer: Wallet, chainId: ChainId) {
-  const strategyContract = new Contract(contract.strategy, Interfaces.Strategy_Interface, provider) as Interfaces.Strategy;
-  const poolManagerContract = new Contract(contract.poolManager, Interfaces.PoolManager_Interface, provider) as Interfaces.PoolManager;
+  const strategyContract = new Contract(contract.strategy, Strategy__factory.createInterface(), provider) as Strategy;
+  const poolManagerContract = new Contract(contract.poolManager, PoolManager__factory.createInterface(), provider) as PoolManager;
   const creditAvailable = await poolManagerContract.creditAvailable();
 
   const harvestTrigger = await strategyContract.harvestTrigger();

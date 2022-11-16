@@ -36,14 +36,15 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint --fix 'src/**/*.ts' 'src/*.ts' 'test/**/*.ts'",
-    "test": "hardhat test",
     "build": "rm -rf dist && tsc",
-    "watch": "tsc --watch",
     "generate-types-from-abis": "typechain --target ethers-v5 --out-dir src/constants/types './src/constants/abis/**/*.json'",
+    "lint": "eslint --fix 'src/**/*.ts' 'src/*.ts' 'test/**/*.ts'",
     "postinstall": "echo '\n🛠  DO NOT FORGET TO RUN `yarn generate-types-from-abis` TO GENERATE THE CORRECT TYPES LOCALLY 🛠\n'",
     "start:local": "sed -i '' 's/MAINNET = .*/MAINNET = 1337,/g' ./src/types/constants.ts && yarn build && yarn link",
-    "unstart:local": "sed -i '' 's/MAINNET = .*/MAINNET = 1,/g' ./src/types/constants.ts && yarn build && yarn unlink"
+    "test": "hardhat test",
+    "unstart:local": "sed -i '' 's/MAINNET = .*/MAINNET = 1,/g' ./src/types/constants.ts && yarn build && yarn unlink",
+    "validate": "ts-node scripts/validate.ts",
+    "watch": "tsc --watch"
   },
   "prettier": {
     "printWidth": 140,

@@ -73,11 +73,32 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
           args: '⛔️ Error in project {{EVENT_PAYLOAD.repository.full_name}}. See here: https://github.com/AngleProtocol/angle-sdk/actions'
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        shell: bash
+        run: yarn install --frozen-lockfile --verbose
+      - name: Generate types
+        run: yarn generate-types-from-abis
+      - name: Validate JSON file
+        run: yarn validate
+      - name: Discord notification (failure)
+        if: failure()
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: 'Error token list format'
 
   publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     # && startsWith(github.event.head_commit.message, '[PUBLISH]')
-    needs: [lint-and-build, tests]
+    needs: [lint-and-build, tests, format]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -107,6 +128,7 @@ jobs:
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Push new version to main
         run: git push https://${{ github.actor }}:$GITHUB_TOKEN@github.com/AngleProtocol/angle-sdk.git
         env:

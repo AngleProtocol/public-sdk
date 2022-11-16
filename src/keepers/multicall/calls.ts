@@ -1,6 +1,6 @@
 import { BigNumber, providers } from 'ethers';
 
-import { ALL_TOKENS, AngleContractsStableType, CONTRACTS_ADDRESSES, Interfaces, StableTokens } from '../../constants';
+import { ALL_TOKENS, Oracle__factory, PerpetualManagerFront__factory, registry, StableMasterFront__factory } from '../../constants';
 import { AssetType, ChainId, Token } from '../../types';
 import { Pair } from '../pair';
 import { addCall, execMulticall, MulticallEntry } from './index';
@@ -17,74 +17,52 @@ export const getCalls = (chainId: ChainId) => {
   const collateralMaps: MulticallEntry[] = [];
   for (const stableAddr in ALL_TOKENS[chainId][AssetType.STABLE]) {
     const stable = ALL_TOKENS[chainId][AssetType.STABLE][stableAddr];
-    const stableMasterAddr = (CONTRACTS_ADDRESSES[chainId][stable.symbol as typeof StableTokens[number]] as AngleContractsStableType)
-      .StableMaster;
+    const stableMasterAddr = registry(chainId, { stablecoin: stable.symbol })?.StableMaster;
     for (const collatAddr in ALL_TOKENS[chainId][AssetType.COLLATERAL]) {
       const collateral = ALL_TOKENS[chainId][AssetType.COLLATERAL][collatAddr];
-      const perpetualManagerAddr = (CONTRACTS_ADDRESSES[chainId][stable.symbol as typeof StableTokens[number]] as AngleContractsStableType)
-        .collaterals[collateral.symbol]?.PerpetualManager;
-      const poolManagerAddr = (CONTRACTS_ADDRESSES[chainId][stable.symbol as typeof StableTokens[number]] as AngleContractsStableType)
-        .collaterals[collateral.symbol]?.PoolManager;
-      const oracleAddr = (CONTRACTS_ADDRESSES[chainId][stable.symbol as typeof StableTokens[number]] as AngleContractsStableType)
-        .collaterals[collateral.symbol]?.Oracle;
+      const collateralAddresses = registry(chainId, { stablecoin: stable.symbol, collateral: collateral.symbol });
+
+      const perpetualManagerAddr = collateralAddresses?.PerpetualManager;
+      const poolManagerAddr = collateralAddresses?.PoolManager;
+      const oracleAddr = collateralAddresses?.Oracle;
+
       if (perpetualManagerAddr && oracleAddr) {
         allPairs.push({ stable: stable, collateral: collateral });
 
         /* Perpetual Manager */
+        const Perpetual_Manager_Interface = PerpetualManagerFront__factory.createInterface();
         maintenanceMargins.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['maintenanceMargin()'].name
-          )
+          addCall(Perpetual_Manager_Interface, perpetualManagerAddr, Perpetual_Manager_Interface.functions['maintenanceMargin()'].name)
         );
         totalHedgeAmounts.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['totalHedgeAmount()'].name
-          )
+          addCall(Perpetual_Manager_Interface, perpetualManagerAddr, Perpetual_Manager_Interface.functions['totalHedgeAmount()'].name)
         );
         limitHAHedges.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['limitHAHedge()'].name
-          )
+          addCall(Perpetual_Manager_Interface, perpetualManagerAddr, Perpetual_Manager_Interface.functions['limitHAHedge()'].name)
         );
         targetHAHedges.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['targetHAHedge()'].name
-          )
+          addCall(Perpetual_Manager_Interface, perpetualManagerAddr, Perpetual_Manager_Interface.functions['targetHAHedge()'].name)
         );
         lockTimes.push(
-          addCall(
-            Interfaces.Perpetual_Manager_Interface,
-            perpetualManagerAddr,
-            Interfaces.Perpetual_Manager_Interface.functions['lockTime()'].name
-          )
+          addCall(Perpetual_Manager_Interface, perpetualManagerAddr, Perpetual_Manager_Interface.functions['lockTime()'].name)
         );
 
         /* Oracle */
-        rates.push(
-          addCall(
-            Interfaces.Oracle__factory.createInterface(),
-            oracleAddr,
-            Interfaces.Oracle__factory.createInterface().functions['readAll()'].name
-          )
-        );
+        rates.push(addCall(Oracle__factory.createInterface(), oracleAddr, Oracle__factory.createInterface().functions['readAll()'].name));
 
         /* Stable Master */
-        collateralMaps.push(
-          addCall(
-            Interfaces.StableMasterFront_Interface,
-            stableMasterAddr,
-            Interfaces.StableMasterFront_Interface.functions['collateralMap(address)'].name,
-            [poolManagerAddr]
-          )
-        );
+        if (!!stableMasterAddr) {
+          collateralMaps.push(
+            addCall(
+              StableMasterFront__factory.createInterface(),
+              stableMasterAddr,
+              StableMasterFront__factory.createInterface().functions['collateralMap(address)'].name,
+              [poolManagerAddr]
+            )
+          );
+        } else {
+          console.error('Non existent StableMaster');
+        }
       }
     }
   }

@@ -28,5 +28,5 @@ export default (
 };
 
 export * from './contracts';
-export * as Interfaces from './interfaces';
 export * from './tokens';
+export * from './types';

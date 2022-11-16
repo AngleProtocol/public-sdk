@@ -1,8 +1,8 @@
 import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
-import { Oracle, PerpetualManagerFront, StableMasterFront } from '../constants/types';
+import { registry } from '../constants';
+import { Oracle__factory, PerpetualManagerFront__factory, StableMasterFront__factory } from '../constants/types';
 import { computeBurn, computeInverseBurn, computeInverseMint, computeMint } from '../helpers';
 import { ChainId } from '../index';
 import { parseCollat, parseStable } from '../utils';
@@ -26,31 +26,37 @@ export async function estimateMint(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
-  // eslint-disable-next-line
-  const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
-  // eslint-disable-next-line
-  const oracleAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.Oracle as string;
-  // eslint-disable-next-line
-  const perpetualManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]
-    ?.PerpetualManager as string;
-  // eslint-disable-next-line
-  const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
+  const stableMasterAddress = registry(ChainId.MAINNET, { stablecoin: stable.symbol })?.StableMaster;
+  const oracleAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.Oracle;
+  const perpetualManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PerpetualManager;
+  const poolManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PoolManager;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
-  const perpetualManager = new ethers.Contract(
-    perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
-    provider
-  ) as PerpetualManagerFront;
+  /** Error case */
+  if (!stableMasterAddress || !oracleAddress || !perpetualManagerAddress || !poolManagerAddress) {
+    console.error('Address do not exist');
+    return 0;
+  } else {
+    const stablemaster = StableMasterFront__factory.connect(stableMasterAddress, provider);
+    const oracle = Oracle__factory.connect(oracleAddress, provider);
+    const perpetualManager = PerpetualManagerFront__factory.connect(perpetualManagerAddress, provider);
 
-  const rate = await oracle.readLower();
-  const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
-  const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
-  const collatRatio = await stablemaster.getCollateralRatio();
+    const rate = await oracle.readLower();
+    const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
+    const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
+    const collatRatio = await stablemaster.getCollateralRatio();
 
-  return computeMint(1, stable.symbol.slice(2), collat.symbol, amount, collat.decimals, rate, totalCoveredAmount, stocksUsers, collatRatio)
-    .amountForUserInStable;
+    return computeMint(
+      1,
+      stable.symbol.slice(2),
+      collat.symbol,
+      amount,
+      collat.decimals,
+      rate,
+      totalCoveredAmount,
+      stocksUsers,
+      collatRatio
+    ).amountForUserInStable;
+  }
 }
 
 /**
@@ -72,40 +78,37 @@ export async function estimateInverseMint(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
-  // eslint-disable-next-line
-  const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
-  // eslint-disable-next-line
-  const oracleAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.Oracle as string;
-  // eslint-disable-next-line
-  const perpetualManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]
-    ?.PerpetualManager as string;
-  // eslint-disable-next-line
-  const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
+  const stableMasterAddress = registry(ChainId.MAINNET, { stablecoin: stable.symbol })?.StableMaster;
+  const oracleAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.Oracle;
+  const perpetualManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PerpetualManager;
+  const poolManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PoolManager;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
-  const perpetualManager = new ethers.Contract(
-    perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
-    provider
-  ) as PerpetualManagerFront;
+  /** Error case */
+  if (!stableMasterAddress || !oracleAddress || !perpetualManagerAddress || !poolManagerAddress) {
+    console.error('Address do not exist');
+    return 0;
+  } else {
+    const stablemaster = StableMasterFront__factory.connect(stableMasterAddress, provider);
+    const oracle = Oracle__factory.connect(oracleAddress, provider);
+    const perpetualManager = PerpetualManagerFront__factory.connect(perpetualManagerAddress, provider);
 
-  const rate = await oracle.readLower();
-  const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
-  const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
-  const collatRatio = await stablemaster.getCollateralRatio();
+    const rate = await oracle.readLower();
+    const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
+    const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
+    const collatRatio = await stablemaster.getCollateralRatio();
 
-  return computeInverseMint(
-    1,
-    stable.symbol.slice(2),
-    collat.symbol,
-    amount,
-    collat.decimals,
-    rate,
-    totalCoveredAmount,
-    stocksUsers,
-    collatRatio
-  ).amountOfCollateralNeeded;
+    return computeInverseMint(
+      1,
+      stable.symbol.slice(2),
+      collat.symbol,
+      amount,
+      collat.decimals,
+      rate,
+      totalCoveredAmount,
+      stocksUsers,
+      collatRatio
+    ).amountOfCollateralNeeded;
+  }
 }
 
 /**
@@ -127,31 +130,37 @@ export async function estimateBurn(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
-  // eslint-disable-next-line
-  const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
-  // eslint-disable-next-line
-  const oracleAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.Oracle as string;
-  // eslint-disable-next-line
-  const perpetualManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]
-    ?.PerpetualManager as string;
-  // eslint-disable-next-line
-  const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
+  const stableMasterAddress = registry(ChainId.MAINNET, { stablecoin: stable.symbol })?.StableMaster;
+  const oracleAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.Oracle;
+  const perpetualManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PerpetualManager;
+  const poolManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PoolManager;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
-  const perpetualManager = new ethers.Contract(
-    perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
-    provider
-  ) as PerpetualManagerFront;
+  /** Error case */
+  if (!stableMasterAddress || !oracleAddress || !perpetualManagerAddress || !poolManagerAddress) {
+    console.error('Address do not exist');
+    return 0;
+  } else {
+    const stablemaster = StableMasterFront__factory.connect(stableMasterAddress, provider);
+    const oracle = Oracle__factory.connect(oracleAddress, provider);
+    const perpetualManager = PerpetualManagerFront__factory.connect(perpetualManagerAddress, provider);
 
-  const rate = await oracle.readLower();
-  const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
-  const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
-  const collatRatio = await stablemaster.getCollateralRatio();
+    const rate = await oracle.readLower();
+    const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
+    const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
+    const collatRatio = await stablemaster.getCollateralRatio();
 
-  return computeBurn(1, stable.symbol.slice(2), collat.symbol, amount, collat.decimals, rate, totalCoveredAmount, stocksUsers, collatRatio)
-    .amountForUserInCollateral;
+    return computeBurn(
+      1,
+      stable.symbol.slice(2),
+      collat.symbol,
+      amount,
+      collat.decimals,
+      rate,
+      totalCoveredAmount,
+      stocksUsers,
+      collatRatio
+    ).amountForUserInCollateral;
+  }
 }
 
 /**
@@ -173,38 +182,46 @@ export async function estimateInverseBurn(
   const collat = parseCollat(collateral);
 
   // Fetch data on chain
-  // eslint-disable-next-line
-  const stableMasterAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].StableMaster!;
-  // eslint-disable-next-line
-  const oracleAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.Oracle as string;
-  // eslint-disable-next-line
-  const perpetualManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]
-    ?.PerpetualManager as string;
-  // eslint-disable-next-line
-  const poolManagerAddress = CONTRACTS_ADDRESSES[ChainId.MAINNET][stable.symbol].collaterals![collat.symbol]?.PoolManager as string;
+  const stableMasterAddress = registry(ChainId.MAINNET, { stablecoin: stable.symbol })?.StableMaster;
+  const oracleAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.Oracle;
+  const perpetualManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PerpetualManager;
+  const poolManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PoolManager;
 
-  const stablemaster = new ethers.Contract(stableMasterAddress, Interfaces.StableMasterFront_Interface, provider) as StableMasterFront;
-  const oracle = new ethers.Contract(oracleAddress, Interfaces.Oracle__factory.createInterface(), provider) as Oracle;
-  const perpetualManager = new ethers.Contract(
-    perpetualManagerAddress,
-    Interfaces.PerpetualManagerFront_Abi,
-    provider
-  ) as PerpetualManagerFront;
+  /** Error case */
+  if (!stableMasterAddress || !oracleAddress || !perpetualManagerAddress || !poolManagerAddress) {
+    console.error('Address do not exist');
+    return 0;
+  } else {
+    const stableMasterAddress = registry(ChainId.MAINNET, { stablecoin: stable.symbol })?.StableMaster;
+    const oracleAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.Oracle;
+    const perpetualManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PerpetualManager;
+    const poolManagerAddress = registry(ChainId.MAINNET, stable.symbol, collat.symbol)?.PoolManager;
 
-  const rate = await oracle.readLower();
-  const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
-  const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
-  const collatRatio = await stablemaster.getCollateralRatio();
+    /** Error case */
+    if (!stableMasterAddress || !oracleAddress || !perpetualManagerAddress || !poolManagerAddress) {
+      console.error('Address do not exist');
+      return 0;
+    } else {
+      const stablemaster = StableMasterFront__factory.connect(stableMasterAddress, provider);
+      const oracle = Oracle__factory.connect(oracleAddress, provider);
+      const perpetualManager = PerpetualManagerFront__factory.connect(perpetualManagerAddress, provider);
 
-  return computeInverseBurn(
-    1,
-    stable.symbol.slice(2),
-    collat.symbol,
-    amount,
-    collat.decimals,
-    rate,
-    totalCoveredAmount,
-    stocksUsers,
-    collatRatio
-  ).amountOfStablecoinNeeded;
+      const rate = await oracle.readLower();
+      const totalCoveredAmount = await perpetualManager.totalHedgeAmount();
+      const stocksUsers = (await stablemaster.collateralMap(poolManagerAddress)).stocksUsers;
+      const collatRatio = await stablemaster.getCollateralRatio();
+
+      return computeInverseBurn(
+        1,
+        stable.symbol.slice(2),
+        collat.symbol,
+        amount,
+        collat.decimals,
+        rate,
+        totalCoveredAmount,
+        stocksUsers,
+        collatRatio
+      ).amountOfStablecoinNeeded;
+    }
+  }
 }

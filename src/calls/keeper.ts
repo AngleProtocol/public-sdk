@@ -4,7 +4,7 @@
 
 import { ethers } from 'ethers';
 
-import { CONTRACTS_ADDRESSES, Interfaces } from '../constants';
+import { FeeManager__factory, registry, Strategy__factory } from '../constants';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -27,14 +27,11 @@ export async function harvest(
   const stable = parseStable(stablecoin);
   const collat = parseCollat(collateral);
 
-  const addresses = CONTRACTS_ADDRESSES[chainId];
-  const address = addresses[stable.symbol]?.collaterals?.[collat.symbol].Strategies?.GenericOptimisedLender?.Contract;
+  const address = registry(chainId, stable.symbol, collat.symbol)?.Strategies?.GenericOptimisedLender?.Contract;
 
   if (!address) throw new Error("Can't find contract's address");
 
-  const contract = new ethers.Contract(address, Interfaces.Strategy_Abi);
-
-  return contract.connect(signer).harvest(options);
+  return Strategy__factory.connect(address, signer).harvest(options);
 }
 
 /**
@@ -56,12 +53,9 @@ export async function updateUsersSLP(
   const stable = parseStable(stablecoin);
   const collat = parseCollat(collateral);
 
-  const addresses = CONTRACTS_ADDRESSES[chainId];
-  const address = addresses[stable.symbol]?.collaterals?.[collat.symbol].FeeManager;
+  const address = registry(chainId, stable.symbol, collat.symbol)?.FeeManager;
 
   if (!address) throw new Error("Can't find contract's address");
 
-  const contract = new ethers.Contract(address, Interfaces.FeeManager_Abi);
-
-  return contract.connect(signer).updateUsersSLP(options);
+  return FeeManager__factory.connect(address, signer).updateUsersSLP(options);
 }
