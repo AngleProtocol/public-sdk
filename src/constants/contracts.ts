@@ -36,6 +36,7 @@ type BorrowCollateralType =
       VaultManager: string;
     }
   | {
+      LPToken: string;
       Oracle: string;
       VaultManager: string;
       Staker: string;
