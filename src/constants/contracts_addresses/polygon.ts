@@ -56,6 +56,7 @@ const addresses: ContractsRegistryType['1'] = {
   MerkleRootDistributor: '0x60FCebEA8F237E771e26939A631Dcf8eFE6d4408',
   MulticallWithFailure: '0xAd96B6342e4EbbbFBAfF0DF248E84C7304fFF5a5',
   ProxyAdmin: '0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6',
+  ProxyAdminGuardian: '0x10Be886C0C93615D1d109Be6C9415eeA34Fe8b57',
 };
 
 export default addresses;
