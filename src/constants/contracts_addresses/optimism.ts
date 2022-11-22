@@ -36,6 +36,7 @@ const addresses: ContractsRegistryType['1'] = {
   Guardian: '0xD245678e417aEE2d91763F6f4eFE570FF52fD080',
   MulticallWithFailure: '0x6cd24ac05103C2C911347a6D3628d64a9F07eAf5',
   ProxyAdmin: '0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049',
+  ProxyAdminGuardian: '0xe14bFA5575d9906BA35beb15C9DBe5C77bFdd5b5',
 };
 
 export default addresses;

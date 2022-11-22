@@ -30,19 +30,16 @@ export enum BorrowCollateral {
   'am3CRV' = 'am3CRV',
 }
 
-type BorrowCollateralType =
-  | {
-      Oracle: string;
-      VaultManager: string;
-    }
-  | {
-      LPToken: string;
-      Oracle: string;
-      VaultManager: string;
-      Staker: string;
-      Swapper: string;
-      Rewards: string[];
-    };
+type BorrowCollateralType = {
+  Oracle: string;
+  VaultManager: string;
+  additionalProperties?: {
+    LPToken: string;
+    Rewards: string[];
+    Staker: string;
+    Swapper: string;
+  };
+};
 
 export enum LenderStrategy {
   'GenericOptimisedLender' = 'GenericOptimisedLender',
@@ -132,6 +129,7 @@ export type ContractsRegistryType = Readonly<{
       Middleman: string;
       MulticallWithFailure: string;
       ProxyAdmin: string;
+      ProxyAdminGuardian: string;
       RewardsDistributor: string;
       SmartWalletWhitelist: string;
       SurplusConverterSanTokens_EUR_USDC: string;

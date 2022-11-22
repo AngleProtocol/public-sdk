@@ -138,6 +138,7 @@ const addresses: ContractsRegistryType['1'] = {
   Middleman: '0x4B00103802Da5f51A9218010a1073Ea432165f13',
   MulticallWithFailure: '0xbd26A92D587981482B4Eec012d13fA0D55ca0135',
   ProxyAdmin: '0x1D941EF0D3Bba4ad67DBfBCeE5262F4CEE53A32b',
+  ProxyAdminGuardian: '0xD9F1A8e00b0EEbeDddd9aFEaB55019D55fcec017',
   RewardsDistributor: '0xC06481fc1D0196C138770fD2148DCB306cB24E20',
   SmartWalletWhitelist: '0xAa241Ccd398feC742f463c534a610529dCC5888E',
   SurplusConverterSanTokens_EUR_USDC: '0x2E2063080A05FfdaA6D57f9358C2a5e1C65c70EC',

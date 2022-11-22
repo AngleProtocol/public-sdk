@@ -31,12 +31,14 @@ const addresses: ContractsRegistryType['1'] = {
         VaultManager: '0x4b81f51988cd6A9F44350cdABeE9620d16359aa3',
       },
       am3CRV: {
-        LPToken: '0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171',
         Oracle: '0x2e9e48b515bC6D0128B7022A5d868137f0173bF6',
-        Rewards: ['0x02Cb0586F9252626e992B2C6c1B792d9751f2Ede'],
-        Staker: '0x583EE5b0b2999679d1DdE7aa178B225ad57c481b',
-        Swapper: '0xC96dd3f9f50286de5658A664327a9d1E654A8673',
-        VaultManager: '0x128C3da565013a236cDcff14738297F9042455Ce',
+        VaultManager: '0x9a1292068974477Ed332b707987b239Fa22e63B5',
+        additionalProperties: {
+          LPToken: '0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171',
+          Rewards: ['0x02Cb0586F9252626e992B2C6c1B792d9751f2Ede'],
+          Staker: '0xe1Bc17f85d54a81068FC510d5A94E95800D342d9',
+          Swapper: '0xd4c4473D62c0FCc949B9D141B6e985178BaF0EDB',
+        },
       },
     },
     Swapper: '0x0050038959659c1e09D5E7F0543b5cf411a942B6',
@@ -56,6 +58,7 @@ const addresses: ContractsRegistryType['1'] = {
   MerkleRootDistributor: '0x60FCebEA8F237E771e26939A631Dcf8eFE6d4408',
   MulticallWithFailure: '0xAd96B6342e4EbbbFBAfF0DF248E84C7304fFF5a5',
   ProxyAdmin: '0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6',
+  ProxyAdminGuardian: '0x10Be886C0C93615D1d109Be6C9415eeA34Fe8b57',
 };
 
 export default addresses;
