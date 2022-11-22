@@ -31,12 +31,14 @@ const addresses: ContractsRegistryType['1'] = {
         VaultManager: '0x4b81f51988cd6A9F44350cdABeE9620d16359aa3',
       },
       am3CRV: {
-        LPToken: '0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171',
         Oracle: '0x2e9e48b515bC6D0128B7022A5d868137f0173bF6',
-        Rewards: ['0x02Cb0586F9252626e992B2C6c1B792d9751f2Ede'],
-        Staker: '0xe1Bc17f85d54a81068FC510d5A94E95800D342d9',
-        Swapper: '0xd4c4473D62c0FCc949B9D141B6e985178BaF0EDB',
         VaultManager: '0x9a1292068974477Ed332b707987b239Fa22e63B5',
+        additionalProperties: {
+          LPToken: '0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171',
+          Rewards: ['0x02Cb0586F9252626e992B2C6c1B792d9751f2Ede'],
+          Staker: '0xe1Bc17f85d54a81068FC510d5A94E95800D342d9',
+          Swapper: '0xd4c4473D62c0FCc949B9D141B6e985178BaF0EDB',
+        },
       },
     },
     Swapper: '0x0050038959659c1e09D5E7F0543b5cf411a942B6',
