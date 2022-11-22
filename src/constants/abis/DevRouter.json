@@ -76,24 +76,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "gaugeUser",
-        "type": "address"
-      },
-      {
-        "internalType": "address[]",
-        "name": "liquidityGauges",
-        "type": "address[]"
-      }
-    ],
-    "name": "claimRewards",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "core",
     "outputs": [
