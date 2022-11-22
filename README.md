@@ -10,7 +10,7 @@
 - [Constants](#constants)
 - [Lib](#lib)
 - [Tests](#tests)
-  - [Build and use in development enviroment](#build-and-use-in-development-enviroment)
+  - [Build and use in development environment](#build-and-use-in-development-enviroment)
 
 SDK to build applications on top of [Angle Protocol](https://angle.money).
 
@@ -67,7 +67,7 @@ To run the test suite 2 env variables are needed:
 - PROVIDER_URL: the api to push transactions.
 - MNEMONIC: the mnemonic of a test wallet.
 
-### Build and use in development enviroment
+### Build and use in development environment
 
 1. To properly generate the ABI types run `yarn generate-types-from-abis`.
 
