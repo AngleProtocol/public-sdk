@@ -43,27 +43,14 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_core",
-        "type": "address"
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
       }
     ],
-    "name": "CoreUpdated",
+    "name": "Initialized",
     "type": "event"
-  },
-  {
-    "inputs": [],
-    "name": "WMATIC",
-    "outputs": [
-      {
-        "internalType": "contract IWETH9",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
   },
   {
     "inputs": [
@@ -84,24 +71,6 @@
       }
     ],
     "name": "changeAllowance",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "gaugeUser",
-        "type": "address"
-      },
-      {
-        "internalType": "address[]",
-        "name": "liquidityGauges",
-        "type": "address[]"
-      }
-    ],
-    "name": "claimRewards",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -182,12 +151,12 @@
             "type": "bytes32"
           }
         ],
-        "internalType": "struct BaseAngleRouterSidechain.PermitType[]",
+        "internalType": "struct PermitType[]",
         "name": "paramsPermit",
         "type": "tuple[]"
       },
       {
-        "internalType": "enum BaseAngleRouterSidechain.ActionType[]",
+        "internalType": "enum ActionType[]",
         "name": "actions",
         "type": "uint8[]"
       },
@@ -242,7 +211,7 @@
             "type": "bytes32"
           }
         ],
-        "internalType": "struct BaseAngleRouterSidechain.PermitVaultManagerType[]",
+        "internalType": "struct PermitVaultManagerType[]",
         "name": "paramsPermitVaultManager",
         "type": "tuple[]"
       },
@@ -284,12 +253,12 @@
             "type": "bytes32"
           }
         ],
-        "internalType": "struct BaseAngleRouterSidechain.PermitType[]",
+        "internalType": "struct PermitType[]",
         "name": "paramsPermit",
         "type": "tuple[]"
       },
       {
-        "internalType": "enum BaseAngleRouterSidechain.ActionType[]",
+        "internalType": "enum ActionType[]",
         "name": "actions",
         "type": "uint8[]"
       },
@@ -326,6 +295,24 @@
       }
     ],
     "name": "setCore",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "router",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "who",
+        "type": "uint8"
+      }
+    ],
+    "name": "setRouter",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
