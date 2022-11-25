@@ -11,6 +11,7 @@ const addresses: ContractsRegistryType['1'] = {
     },
   },
   ANGLE: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
+  AngleHelpers: '0x1B17ac6B8371D63E030C5981891d5FBb3E4e068E',
   bridges: {
     LayerZero: '0x1056178977457A5F4BE33929520455A7d2E28670',
   },
