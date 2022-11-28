@@ -1,22 +1,6 @@
 import { ContractsRegistryType } from '../contracts';
 
 const addresses: ContractsRegistryType['1'] = {
-  AMO: {
-    AMOMinter: '0xec876Edc3F1a24c99d7c56F017E1D51581952F84',
-    BPAMOs: {
-      agEURvEUROC: {
-        AMO: '0xC1e8Dba1cbF29f1CaA8343CAe96d5AdFD9bca736',
-        KeeperJob: '0xaa8787423EA62F55d90A3D98E8b05F684A79e348',
-      },
-    },
-  },
-  ANGLE: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
-  AngleHelpers: '0x1B17ac6B8371D63E030C5981891d5FBb3E4e068E',
-  bridges: {
-    LayerZero: '0x1056178977457A5F4BE33929520455A7d2E28670',
-  },
-  AngleDistributor: '0x4f91F01cE8ec07c9B1f6a82c18811848254917Ab',
-  AngleRouter: '0xBB755240596530be0c1DE5DFD77ec6398471561d',
   agEUR: {
     AgToken: '0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8',
     bridges: {
@@ -125,6 +109,23 @@ const addresses: ContractsRegistryType['1'] = {
     Staking: '0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB',
     Swapper: '0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd',
     Treasury: '0x8667DBEBf68B0BFa6Db54f550f41Be16c4067d60',
+  },
+  AMO: {
+    AMOMinter: '0xec876Edc3F1a24c99d7c56F017E1D51581952F84',
+    BPAMOs: {
+      agEURvEUROC: {
+        AMO: '0xC1e8Dba1cbF29f1CaA8343CAe96d5AdFD9bca736',
+        KeeperJob: '0xaa8787423EA62F55d90A3D98E8b05F684A79e348',
+      },
+    },
+  },
+  ANGLE: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
+  AngleHelpers: '0x1B17ac6B8371D63E030C5981891d5FBb3E4e068E',
+  AngleDistributor: '0x4f91F01cE8ec07c9B1f6a82c18811848254917Ab',
+  AngleRouter: '0xBB755240596530be0c1DE5DFD77ec6398471561d',
+  // AngleRouterV2: '0x4579709627CA36BCe92f51ac975746f431890930',
+  bridges: {
+    LayerZero: '0x1056178977457A5F4BE33929520455A7d2E28670',
   },
   Core: '0x61ed74de9Ca5796cF2F8fD60D54160D47E30B7c3',
   CoreBorrow: '0x5bc6BEf80DA563EBf6Df6D6913513fa9A7ec89BE',

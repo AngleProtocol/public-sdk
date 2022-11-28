@@ -3,6 +3,7 @@ import { ContractsRegistryType } from '../contracts';
 const addresses: ContractsRegistryType['1'] = {
   ANGLE: '0x900F717EA076E1E7a484ad9DD2dB81CEEc60eBF1',
   AngleRouter: '0x892bf71463Bd9fa57f3c2266aB74dbe1B96DECEa',
+  AngleRouterV2: '0x595AB88628CD1Af06706E25f10c485B651C47aa8',
   AngleHelpers: '0xA014eF0565C22c33e8099744e1e1543f736B01d6',
   agEUR: {
     AgToken: '0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4',
@@ -52,7 +53,6 @@ const addresses: ContractsRegistryType['1'] = {
     },
   ],
   CoreBorrow: '0x78754109cb73772d70A6560297037657C2AF51b8',
-  DevRouter: '0x65A1DfB54CDec9011688b1818A27A8C687e6B1ed',
   FlashAngle: '0x2878596427bfA6b52Fa6D93B519A0c610bbDf00a',
   Governor: '0xdA2D2f638D6fcbE306236583845e5822554c02EA',
   Guardian: '0x3b9D32D0822A6351F415BeaB05251c1457FF6f8D',
