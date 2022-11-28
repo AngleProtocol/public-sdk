@@ -1,5 +1,5 @@
 import {
-  estimateBurn,
+  // estimateBurn,
   estimateClosePerpetual,
   estimateDeposit,
   estimateInverseBurn,
@@ -19,9 +19,9 @@ describe('Users', () => {
     console.log((await estimateInverseMint(parseAmount.ether(1), 'USDC', 'agEUR')).toString());
   });
 
-  it('estimateBurn', async () => {
-    console.log((await estimateBurn(parseAmount.ether(1), 'USDC', 'agEUR')).toString());
-  });
+  // it('estimateBurn', async () => {
+  //   console.log((await estimateBurn(parseAmount.ether(1), 'USDC', 'agEUR')).toString());
+  // });
 
   it('estimateInverseBurn', async () => {
     console.log((await estimateInverseBurn(parseAmount.usdc(1), 'USDC', 'agEUR')).toString());
