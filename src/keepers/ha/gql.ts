@@ -11,6 +11,7 @@ const THEGRAPH_URLS: { [chainId in ChainId]: string } = {
   [ChainId.AURORA]: '',
   [ChainId.FANTOM]: '',
   [ChainId.BSC]: '',
+  [ChainId.CELO]: '',
   [ChainId.LOCAL]: '',
   [ChainId.ARBITRUM]: '',
   [ChainId.OPTIMISM]: '',

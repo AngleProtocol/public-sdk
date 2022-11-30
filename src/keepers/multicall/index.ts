@@ -9,6 +9,7 @@ const MULTICALL_NETWORKS: { [chainId in ChainId]: string } = {
   [ChainId.AVALANCHE]: '',
   [ChainId.AURORA]: '',
   [ChainId.FANTOM]: '',
+  [ChainId.CELO]: '',
   [ChainId.BSC]: '',
   [ChainId.LOCAL]: '0x0',
   [ChainId.ARBITRUM]: '',
