@@ -3,6 +3,7 @@ import ARBITRUM_ADDRESSES from './contracts_addresses/arbitrum';
 import AURORA_ADDRESSES from './contracts_addresses/aurora';
 import AVALANCHE_ADDRESSES from './contracts_addresses/avalanche';
 import BSC_ADDRESSES from './contracts_addresses/bsc';
+import CELO_ADDRESSES from './contracts_addresses/celo';
 import FANTOM_ADDRESSES from './contracts_addresses/fantom';
 import LOCAL_ADDRESSES from './contracts_addresses/local';
 import MAINNET_CONTRACTS from './contracts_addresses/mainnet';
@@ -172,6 +173,7 @@ export const CONTRACTS_ADDRESSES: ContractsRegistryType = {
   [ChainId.FANTOM]: FANTOM_ADDRESSES,
   [ChainId.BSC]: BSC_ADDRESSES,
   [ChainId.AURORA]: AURORA_ADDRESSES,
+  [ChainId.CELO]: CELO_ADDRESSES,
   [ChainId.LOCAL]: LOCAL_ADDRESSES,
 };
 

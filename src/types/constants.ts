@@ -4,6 +4,7 @@ export enum ChainId {
   MAINNET = 1,
   POLYGON = 137,
   AVALANCHE = 43114,
+  CELO = 42220,
   FANTOM = 250,
   BSC = 56,
   AURORA = 1313161554,
@@ -12,8 +13,10 @@ export enum ChainId {
   ARBITRUM = 42161,
 }
 
-export const NETWORK_LABELS: { [key in ChainId]?: string } = {
+export const NETWORK_LABELS: { [key in ChainId]: string } = {
   [ChainId.ARBITRUM]: 'Arbitrum',
+  [ChainId.CELO]: 'Celo Mainnet',
+  [ChainId.LOCAL]: 'Local Chain',
   [ChainId.MAINNET]: 'Ethereum',
   [ChainId.FANTOM]: 'Fantom',
   [ChainId.POLYGON]: 'Polygon',
