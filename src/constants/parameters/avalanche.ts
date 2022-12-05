@@ -39,7 +39,7 @@ const stablesParameters: StablesParameters = {
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.06'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('1.5'),
+          baseBoost: parseAmount.gwei('1'),
         },
       },
       {
@@ -73,7 +73,7 @@ const stablesParameters: StablesParameters = {
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.8'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('0.5'),
+          baseBoost: parseAmount.gwei('1'),
         },
       },
     ],
