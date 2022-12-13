@@ -6,6 +6,7 @@ const addresses: ContractsRegistryType['1'] = {
   bridges: {
     LayerZero: '0xC011882d0f7672D8942e7fE2248C174eeD640c8f',
   },
+  AngleRouterV2: '0xf530b844fb797D2C6863D56a94777C3e411CEc86',
   agEUR: {
     AgToken: '0xAEC8318a9a59bAEb39861d10ff6C7f7bf1F96C57',
     borrowCollaterals: {
