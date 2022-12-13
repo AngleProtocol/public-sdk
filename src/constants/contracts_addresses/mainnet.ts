@@ -108,6 +108,7 @@ const addresses: ContractsRegistryType['1'] = {
     StableMaster: '0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87',
     Staking: '0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB',
     Swapper: '0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd',
+    SwapperV2: '0xd7Cf341ce068EB335D3bE24beF6C06348BFb5346',
     Treasury: '0x8667DBEBf68B0BFa6Db54f550f41Be16c4067d60',
   },
   AMO: {
