@@ -29,6 +29,7 @@ const addresses: ContractsRegistryType['1'] = {
       LayerZero: '0x840b25c87B626a259CA5AC32124fA752F0230a72',
     },
     Swapper: '0xa014A485D64efb236423004AB1a99C0aaa97a549',
+    SwapperV2: '0x3f125ECD51181Af1f344aDF76E4271d2923707AB',
     Treasury: '0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD',
   },
   CoreBorrow: '0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8',
