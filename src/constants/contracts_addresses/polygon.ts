@@ -36,7 +36,7 @@ const addresses: ContractsRegistryType['1'] = {
         VaultManager: '0x9a1292068974477Ed332b707987b239Fa22e63B5',
         additionalProperties: {
           LPToken: '0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171',
-          Rewards: ['0x02Cb0586F9252626e992B2C6c1B792d9751f2Ede'],
+          Rewards: ['0x02Cb0586F9252626e992B2C6c1B792d9751f2Ede', '0xd17aEb717eB159b372BAdD2115E5700a5855a86E'],
           Staker: '0xe1Bc17f85d54a81068FC510d5A94E95800D342d9',
           Swapper: '0xd4c4473D62c0FCc949B9D141B6e985178BaF0EDB',
         },
