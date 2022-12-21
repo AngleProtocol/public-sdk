@@ -23,6 +23,7 @@ const addresses: ContractsRegistryType['1'] = {
       Anyswap: '0x6feFd97F328342a8A840546A55FDcfEe7542F9A8',
       LayerZero: '0x14C00080F97B9069ae3B4Eb506ee8a633f8F5434',
     },
+    Swapper: '0x656B80B667a46869144047E6e6C0000C81610253',
     SwapperV2: '0x5e6955627e30660ecA4bCA2fB8Ac09e0DBEb63C1',
     Treasury: '0xa014A485D64efb236423004AB1a99C0aaa97a549',
   },
@@ -37,6 +38,7 @@ const addresses: ContractsRegistryType['1'] = {
   FlashAngle: '0x9C215206Da4bf108aE5aEEf9dA7caD3352A36Dad',
   Governor: '0x43a7947A1288e65fAF30D8dDb3ca61Eaabd41613',
   Guardian: '0xCcD44983f597aE4d4E2B70CF979597D63a10870D',
+  MulticallWithFailure: '0x03C2d2014795EE8cA78B62738433B457AB19F4b3',
   ProxyAdmin: '0x7AB641E661a9728913A44e06f6a4879481142DDb',
   ProxyAdminGuardian: '0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB',
 };
