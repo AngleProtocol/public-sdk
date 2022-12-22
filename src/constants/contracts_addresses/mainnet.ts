@@ -40,7 +40,7 @@ const addresses: ContractsRegistryType['1'] = {
           LPToken: '0x3175Df0976dFA876431C2E9eE6Bc45b65d3473CC',
           Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x73968b9a57c6E53d41345FD57a6E6ae27d6CDB2F'],
           Staker: '0xa9d2Eea75C80fF9669cc998c276Ff26D741Dcb26',
-          Swapper: '0x71e1ae62ea08a7d1ab1a142b7c6fadc43450ed22',
+          Swapper: '0x71E1AE62EA08A7D1AB1A142b7C6fADc43450ED22',
         },
       },
     },
