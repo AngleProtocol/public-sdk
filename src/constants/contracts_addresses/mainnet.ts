@@ -26,10 +26,22 @@ const addresses: ContractsRegistryType['1'] = {
       cvxcrvFRAX: {
         Oracle: '0xAF2dAa417F1a5Eb6DBFaA4B434929a36B4d66Fc8',
         VaultManager: '0x0652B4b3D205300f9848f0431296D67cA4397f3b',
+        additionalProperties: {
+          LPToken: '0x3175Df0976dFA876431C2E9eE6Bc45b65d3473CC',
+          Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B'],
+          Staker: '0xC68421f20bf6f0Eb475F00b9C5484f7D0AC0331e',
+          Swapper: '0xe1A6D84604C5B17f5fd1fCcbA4c385A8b9670266',
+        },
       },
       sdcrvFRAX: {
         Oracle: '0xAF2dAa417F1a5Eb6DBFaA4B434929a36B4d66Fc8',
         VaultManager: '0xdEeE8e8a89338241fe622509414Ff535fB02B479',
+        additionalProperties: {
+          LPToken: '0x3175Df0976dFA876431C2E9eE6Bc45b65d3473CC',
+          Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x73968b9a57c6E53d41345FD57a6E6ae27d6CDB2F'],
+          Staker: '0xa9d2Eea75C80fF9669cc998c276Ff26D741Dcb26',
+          Swapper: '0x71e1ae62ea08a7d1ab1a142b7c6fadc43450ed22',
+        },
       },
     },
     collaterals: {
