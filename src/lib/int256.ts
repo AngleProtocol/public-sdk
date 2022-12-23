@@ -26,7 +26,14 @@ export class Int256 {
     }
 
     if (parse && (typeof value === 'string' || typeof value === 'number')) {
-      this.value = utils.parseUnits(value.toString(), base);
+      let valueString = value.toString();
+      if (valueString.indexOf('.') !== -1) {
+        const trimDecimals = valueString.match(RegExp(`^\\d*\\.\\d{0,${base}}`, 'g'))?.[0];
+        if (!!trimDecimals) {
+          valueString = trimDecimals;
+        }
+      }
+      this.value = utils.parseUnits(valueString, base);
     } else {
       this.value = BigNumber.from(value);
     }
