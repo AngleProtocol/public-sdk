@@ -30,6 +30,8 @@ export enum BorrowCollateral {
   'OP' = 'OP',
   'am3CRV' = 'am3CRV',
   'WAVAX' = 'WAVAX',
+  'cvxcrvFRAX' = 'cvxcrvFRAX',
+  'sdcrvFRAX' = 'sdcrvFRAX'
 }
 
 type BorrowCollateralType = {
@@ -80,9 +82,9 @@ type CollateralType = Readonly<
     Strategies?: {
       [strategy in SimpleStrategy]?: string;
     } &
-      {
-        [strategy in LenderStrategy]?: LenderStrategyType;
-      };
+    {
+      [strategy in LenderStrategy]?: LenderStrategyType;
+    };
   }>
 >;
 
@@ -186,29 +188,29 @@ type RegistryArgs =
   | null
   | string
   | {
-      stablecoin: Stablecoin | string;
-    }
+    stablecoin: Stablecoin | string;
+  }
   | {
-      amo: AMO | string;
-    }
+    amo: AMO | string;
+  }
   | {
-      stablecoin: Stablecoin | string;
-      collateral: Collateral | string;
-    }
+    stablecoin: Stablecoin | string;
+    collateral: Collateral | string;
+  }
   | {
-      stablecoin: Stablecoin | string;
-      borrowCollateral: BorrowCollateral | string;
-    }
+    stablecoin: Stablecoin | string;
+    borrowCollateral: BorrowCollateral | string;
+  }
   | {
-      stablecoin: Stablecoin | string;
-      collateral: Collateral | string;
-      strategy: SimpleStrategy | string;
-    }
+    stablecoin: Stablecoin | string;
+    collateral: Collateral | string;
+    strategy: SimpleStrategy | string;
+  }
   | {
-      stablecoin: Stablecoin | string;
-      collateral: Collateral | string;
-      lenderStrategy: LenderStrategy | string;
-    };
+    stablecoin: Stablecoin | string;
+    collateral: Collateral | string;
+    lenderStrategy: LenderStrategy | string;
+  };
 
 export function registry(chainId: number | ChainId): ContractsRegistryType['1'] | undefined;
 export function registry(
