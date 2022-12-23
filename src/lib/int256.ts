@@ -28,7 +28,7 @@ export class Int256 {
     if (parse && (typeof value === 'string' || typeof value === 'number')) {
       let valueString = value.toString();
       if (valueString.indexOf('.') !== -1) {
-        const trimDecimals = valueString.match(`/^(\d*)?\.\d{0,${base}}/g`)?.[0];
+        const trimDecimals = valueString.match(RegExp(`^\\d*\\.\\d{0,${base}}`, 'g'))?.[0];
         if (!!trimDecimals) {
           valueString = trimDecimals;
         }
