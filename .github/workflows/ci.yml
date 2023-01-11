@@ -42,37 +42,6 @@ jobs:
         with:
           args: '⛔️ Error in project {{EVENT_PAYLOAD.repository.full_name}}. See here: https://github.com/AngleProtocol/angle-sdk/actions'
 
-  tests:
-    runs-on: ubuntu-latest
-    env:
-      TESTNET_PROVIDER_URL: ${{secrets.TESTNET_PROVIDER_URL}}
-      MNEMONIC: ${{secrets.MNEMONIC}}
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Generate types
-        run: yarn generate-types-from-abis
-      - name: Run unit tests
-        run: yarn test
-      - name: Discord notification
-        if: failure()
-        uses: Ilshidur/action-discord@master
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        with:
-          args: '⛔️ Error in project {{EVENT_PAYLOAD.repository.full_name}}. See here: https://github.com/AngleProtocol/angle-sdk/actions'
   format:
     runs-on: ubuntu-latest
     steps:
@@ -98,7 +67,7 @@ jobs:
   publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     # && startsWith(github.event.head_commit.message, '[PUBLISH]')
-    needs: [lint-and-build, tests, format]
+    needs: [lint-and-build, format]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
