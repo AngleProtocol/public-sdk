@@ -30,8 +30,8 @@ export enum BorrowCollateral {
   'OP' = 'OP',
   'am3CRV' = 'am3CRV',
   'WAVAX' = 'WAVAX',
-  'cvxcrvFRAX' = 'cvxcrvFRAX',
-  'sdcrvFRAX' = 'sdcrvFRAX',
+  'cvx-crvFRAXUSDC' = 'cvx-crvFRAXUSDC',
+  'sd-crvFRAXUSDC' = 'sd-crvFRAXUSDC',
 }
 
 type BorrowCollateralType = {
@@ -81,9 +81,16 @@ type CollateralType = Readonly<
     Staking?: string;
     Strategies?: {
       [strategy in SimpleStrategy]?: string;
+<<<<<<< HEAD
     } & {
       [strategy in LenderStrategy]?: LenderStrategyType;
     };
+=======
+    } &
+      {
+        [strategy in LenderStrategy]?: LenderStrategyType;
+      };
+>>>>>>> 60db72f (changing sdk)
   }>
 >;
 
