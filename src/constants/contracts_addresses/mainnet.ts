@@ -23,7 +23,7 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0x885448f5fC6F636901cc0cc92ef7477aE132bAF0',
         VaultManager: '0x73aaf8694BA137a7537E7EF544fcf5E2475f227B',
       },
-      'sd-crvFRAXUSDC': {
+      'cvx-crvFRAXUSDC': {
         Oracle: '0xAF2dAa417F1a5Eb6DBFaA4B434929a36B4d66Fc8',
         VaultManager: '0x0652B4b3D205300f9848f0431296D67cA4397f3b',
         additionalProperties: {
@@ -33,7 +33,7 @@ const addresses: ContractsRegistryType['1'] = {
           Swapper: '0xe1A6D84604C5B17f5fd1fCcbA4c385A8b9670266',
         },
       },
-      'cvx-crvFRAXUSDC': {
+      'sd-crvFRAXUSDC': {
         Oracle: '0xAF2dAa417F1a5Eb6DBFaA4B434929a36B4d66Fc8',
         VaultManager: '0xdEeE8e8a89338241fe622509414Ff535fB02B479',
         additionalProperties: {
