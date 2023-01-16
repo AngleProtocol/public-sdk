@@ -613,7 +613,7 @@ const poolsParameters: PoolsParameters = {
     DAI: poolsParameters_DAI,
     FEI: poolsParameters_FEI,
     FRAX: poolsParameters_FRAX,
-    WETH: poolsParameters_WETH,
+    wETH: poolsParameters_WETH,
   },
 };
 
