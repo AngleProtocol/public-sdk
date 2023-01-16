@@ -15,11 +15,11 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED',
         VaultManager: '0x04437e94Af860AfBb0429a7D36b9c00A5a5173b9',
       },
-      WBTC: {
+      wBTC: {
         Oracle: '0x2Fa1255383364F6e17Be6A6aC7A56C9aCD6850a3',
         VaultManager: '0xF664118E79C0B34f1Ed20e6606a0068d213839b9',
       },
-      WETH: {
+      wETH: {
         Oracle: '0x7AB641E661a9728913A44e06f6a4879481142DDb',
         VaultManager: '0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD',
       },

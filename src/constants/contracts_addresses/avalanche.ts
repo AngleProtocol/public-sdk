@@ -14,7 +14,7 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0xd23B51d6F2cB3eC7ca9599D4332a2F10C3CFDF85',
         VaultManager: '0x65e4992250B296790c07FAdF0f0723902a07E91d',
       },
-      WAVAX: {
+      wAVAX: {
         Oracle: '0xF664118E79C0B34f1Ed20e6606a0068d213839b9',
         VaultManager: '0xc4DF24680FE23AD109401A4a200DE3994AD3c564',
       },
