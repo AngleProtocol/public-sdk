@@ -11,15 +11,15 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0xE37ff75D665066292D350fF4BCD2679fc1814cb3',
         VaultManager: '0x8E2277929B2D849c0c344043D9B9507982e6aDd0',
       },
-      WBTC: {
+      wBTC: {
         Oracle: '0xd23269834c450D4978968D1b118172385bB2348d',
         VaultManager: '0x241D7598BD1eb819c0E9dEd456AcB24acA623679',
       },
-      WETH: {
+      wETH: {
         Oracle: '0xc0837E3EC218f1A768BE4207ba47Fb632915289a',
         VaultManager: '0x1beCE8193f8Dc2b170135Da9F1fA8b81C7aD18b1',
       },
-      WSTETH: {
+      wSTETH: {
         Oracle: '0x885448f5fC6F636901cc0cc92ef7477aE132bAF0',
         VaultManager: '0x73aaf8694BA137a7537E7EF544fcf5E2475f227B',
       },
@@ -114,7 +114,7 @@ const addresses: ContractsRegistryType['1'] = {
           },
         },
       },
-      WETH: {
+      wETH: {
         FeeManager: '0x3C69835bc56cf4F356CdedE634415f847DaA4753',
         Oracle: '0xF7bE58afEa895c3Dde1dbe4CfdB5a815d990fE3c',
         PerpetualManager: '0xB924497a1157B1F8835c93cb7F3d4Aa6D2f227BA',

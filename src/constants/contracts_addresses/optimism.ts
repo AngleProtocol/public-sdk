@@ -19,7 +19,7 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0x5efE48F8383921d950683C46B87E28e21DEa9FB5',
         VaultManager: '0x16cd38b1B54E7abf307Cb2697E2D9321e843d5AA',
       },
-      WETH: {
+      wETH: {
         Oracle: '0x62Cba6DcdAE5992d44CD9BD8989d27718eFF5F73',
         VaultManager: '0xAEC8318a9a59bAEb39861d10ff6C7f7bf1F96C57',
       },
