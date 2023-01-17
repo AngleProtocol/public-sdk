@@ -28,7 +28,7 @@ export enum BorrowCollateral {
   'USDC' = 'USDC',
   'wMATIC' = 'wMATIC',
   'OP' = 'OP',
-  'am3CRV' = 'am3CRV',
+  'agstk-am3CRV' = 'agstk-am3CRV',
   'wAVAX' = 'wAVAX',
   'cvx-crvFRAXUSDC' = 'cvx-crvFRAXUSDC',
   'sd-crvFRAXUSDC' = 'sd-crvFRAXUSDC',

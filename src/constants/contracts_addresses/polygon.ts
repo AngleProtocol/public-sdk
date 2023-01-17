@@ -31,7 +31,7 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0x1b0c95852Fa547C44600F70eF473640E1B717CE4',
         VaultManager: '0x4b81f51988cd6A9F44350cdABeE9620d16359aa3',
       },
-      am3CRV: {
+      'agstk-am3CRV': {
         Oracle: '0x2e9e48b515bC6D0128B7022A5d868137f0173bF6',
         VaultManager: '0x9a1292068974477Ed332b707987b239Fa22e63B5',
         additionalProperties: {
