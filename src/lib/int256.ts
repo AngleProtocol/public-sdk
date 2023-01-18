@@ -24,11 +24,10 @@ export class Int256 {
     if (!value) {
       value = 0;
     }
-
     if (parse && (typeof value === 'string' || typeof value === 'number')) {
       let valueString;
       if (typeof value === 'number') {
-        valueString = value.toPrecision(base);
+        valueString = value.toFixed(base);
       } else {
         valueString = value;
       }
