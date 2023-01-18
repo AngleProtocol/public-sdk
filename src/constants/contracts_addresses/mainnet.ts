@@ -85,6 +85,7 @@ const addresses: ContractsRegistryType['1'] = {
         Oracle: '0x98aa7123e524F7d60DaE238Bdd35ec53a654cf69',
         PerpetualManager: '0x4121a258674e507c990cDF390F74d4EF27592114',
         PoolManager: '0x6b4eE7352406707003bC6f6b96595FD35925af48',
+        Adapter4626Stakable: '0x14244978b1CC189324C3e35685D6Ae2F632e9846',
         SanToken: '0xb3B209Bb213A5Da5B947C56f2C770b3E1015f1FE',
         Staking: '0xbB9485e2b9B0da40Db3874A144700e31bd9c40C2',
         Strategies: {
