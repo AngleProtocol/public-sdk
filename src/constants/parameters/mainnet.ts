@@ -699,6 +699,23 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
+        collateral: '0xBe9895146f7AF43049ca1c1AE358B0541Ea49704',
+        symbol: 'cbETH-EUR',
+        oracle: 'CBETH_EUR',
+        params: {
+          debtCeiling: parseEther('200000'),
+          collateralFactor: parseAmount.gwei('0.75'),
+          targetHealthFactor: parseAmount.gwei('1.05'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.1'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('1'),
+        },
+      },
+      {
         collateral: '0x5f98805A4E8be255a32880FDeC7F6728C6568bA0',
         symbol: 'LUSD-EUR',
         oracle: 'LUSD_EUR',
