@@ -135,6 +135,10 @@ export type ContractsRegistryType = Readonly<
         Guardian: string;
         KeeperMulticall: string;
         KeeperRegistry: string;
+        Merkl: {
+          MerkleRootDistributor: string;
+          MerkleRewardManager: string;
+        };
         MerkleRootDistributor: string;
         Middleman: string;
         MulticallWithFailure: string;
