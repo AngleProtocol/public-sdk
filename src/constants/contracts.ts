@@ -25,6 +25,7 @@ export enum BorrowCollateral {
   'wETH' = 'wETH',
   'wSTETH' = 'wSTETH',
   'MAI' = 'MAI',
+  'cbETH' = 'cbETH',
   'USDC' = 'USDC',
   'wMATIC' = 'wMATIC',
   'OP' = 'OP',

@@ -7,6 +7,10 @@ const addresses: ContractsRegistryType['1'] = {
       LayerZero: '0x4Fa745FCCC04555F2AFA8874cd23961636CdF982',
     },
     borrowCollaterals: {
+      cbETH: {
+        Oracle: '0xf98a200257aaCf48599aceccF9213B66b2C9dD8C',
+        VaultManager: '0xE1C084e6E2eC9D32ec098e102a73C4C27Eb9Ee58',
+      },
       LUSD: {
         Oracle: '0xE37ff75D665066292D350fF4BCD2679fc1814cb3',
         VaultManager: '0x8E2277929B2D849c0c344043D9B9507982e6aDd0',
