@@ -100,6 +100,8 @@ jobs:
 
       - name: Push new version to main
         run: git push https://${{ github.actor }}:$GITHUB_TOKEN@github.com/AngleProtocol/angle-sdk.git
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_ADMIN_CI }}
 
       - name: Discord notification SDK successfully published
         uses: Ilshidur/action-discord@master
