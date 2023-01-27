@@ -2,6 +2,7 @@ import { BigNumber, BigNumberish, utils } from 'ethers';
 
 import { BigNumber_BASE } from '../types';
 import { formatNumber } from '../utils/bignumber';
+
 export class Int256 {
   public readonly value: BigNumber;
   public readonly base: number;
