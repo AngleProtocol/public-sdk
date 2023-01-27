@@ -73,19 +73,19 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-      #- uses: actions/setup-node@v2
-      #  with:
-      #    node-version: '14'
-      #    registry-url: 'https://registry.npmjs.org/'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: 'https://registry.npmjs.org/'
 
-      #- name: Install dependencies
-      #  run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
-      #- name: Generate types
-      #  run: yarn generate-types-from-abis
+      - name: Generate types
+        run: yarn generate-types-from-abis
 
-      #- name: Build
-      #  run: yarn build
+      - name: Build
+        run: yarn build
 
       - name: Up version before publish
         run: |
@@ -94,9 +94,9 @@ jobs:
           npm version patch -m "Up package version (%s) and publish [skip ci]"
 
       # only running "patch". If we need a minor or major change, we'll do it manually
-      #- run: npm publish --access public
-      #  env:
-      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Push new version to main
         run: git push https://${{ github.actor }}:$GITHUB_TOKEN@github.com/AngleProtocol/angle-sdk.git
