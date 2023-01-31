@@ -57,6 +57,10 @@ const addresses: ContractsRegistryType['1'] = {
   FlashAngle: '0x2878596427bfA6b52Fa6D93B519A0c610bbDf00a',
   Governor: '0xdA2D2f638D6fcbE306236583845e5822554c02EA',
   Guardian: '0x3b9D32D0822A6351F415BeaB05251c1457FF6f8D',
+  Merkl: {
+    MerkleRewardManager: '0xaBa8bF8276AD1376C4A12263872bF7F287360D72',
+    MerkleRootDistributor: '0x4072CA957C9327a41BAB53FEe1A7f26C8579597d',
+  },
   MerkleRootDistributor: '0x60FCebEA8F237E771e26939A631Dcf8eFE6d4408',
   MulticallWithFailure: '0xAd96B6342e4EbbbFBAfF0DF248E84C7304fFF5a5',
   ProxyAdmin: '0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6',
