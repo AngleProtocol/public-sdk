@@ -46,6 +46,18 @@ const addresses: ContractsRegistryType['1'] = {
     SwapperV2: '0x516735bF9a517fc66F53a798B1910498a8a621c5',
     Treasury: '0x2F2e0ba9746aae15888cf234c4EB5B301710927e',
   },
+  agGOLD: {
+    AgToken: '0x5bAEc91DD4A624937E07F0076F2cDBd669a5D13E',
+    borrowCollaterals: {
+      wETH: {
+        Oracle: '0x246f5E792D3042379Df656fb163Cd9E1615d599c',
+        VaultManager: '0xbEEF43F4b8397D7e442100EA587052B5e8AbCAa4',
+      },
+    },
+    Swapper: '0x0050038959659c1e09D5E7F0543b5cf411a942B6',
+    SwapperV2: '0x516735bF9a517fc66F53a798B1910498a8a621c5',
+    Treasury: '0x8cDe716E57ac3f41198368553A8AfebAd0c9C9fF',
+  },
   ExternalStakings: [
     {
       tokenName: 'G-UNI agEUR/USDC',
