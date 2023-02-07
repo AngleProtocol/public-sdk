@@ -159,6 +159,9 @@ export type VaultManagerParameters = {
     maxLiquidationDiscount: BigNumber;
     whitelistingActivated: boolean;
     baseBoost: BigNumber;
+    dust?: BigNumber;
+    dustLiquidation?: BigNumber;
+    dustCollateral?: BigNumber;
   };
 };
 
