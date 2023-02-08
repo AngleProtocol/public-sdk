@@ -70,8 +70,8 @@ const addresses: ContractsRegistryType['1'] = {
   Governor: '0xdA2D2f638D6fcbE306236583845e5822554c02EA',
   Guardian: '0x3b9D32D0822A6351F415BeaB05251c1457FF6f8D',
   Merkl: {
-    DistributionCreator: '0xea8239Fc12a1c9d075BfA61aA08A50DCdf38FEe5',
-    Distributor: '0x60157fC156063F73F4327Cb78cd3E0A9De5948aB',
+    DistributionCreator: '0xF5e5F427ff01fe11c80F51D5aee58f844A8BE0C9',
+    Distributor: '0x6533999036272cF0E876B059ea8daEd182028728',
   },
   MerkleRootDistributor: '0x60FCebEA8F237E771e26939A631Dcf8eFE6d4408',
   MulticallWithFailure: '0xAd96B6342e4EbbbFBAfF0DF248E84C7304fFF5a5',

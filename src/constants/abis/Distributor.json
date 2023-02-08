@@ -372,9 +372,14 @@
     "name": "claimed",
     "outputs": [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        "internalType": "uint208",
+        "name": "amount",
+        "type": "uint208"
+      },
+      {
+        "internalType": "uint48",
+        "name": "timestamp",
+        "type": "uint48"
       }
     ],
     "stateMutability": "view",
