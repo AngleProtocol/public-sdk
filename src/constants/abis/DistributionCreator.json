@@ -72,6 +72,19 @@
       {
         "indexed": true,
         "internalType": "address",
+        "name": "_distributor",
+        "type": "address"
+      }
+    ],
+    "name": "DistributorUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
         "name": "user",
         "type": "address"
       },
@@ -122,19 +135,6 @@
       }
     ],
     "name": "Initialized",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_merkleRootDistributor",
-        "type": "address"
-      }
-    ],
-    "name": "MerkleRootDistributorUpdated",
     "type": "event"
   },
   {
@@ -233,7 +233,7 @@
         ],
         "indexed": false,
         "internalType": "struct DistributionParameters",
-        "name": "reward",
+        "name": "distribution",
         "type": "tuple"
       },
       {
@@ -243,7 +243,7 @@
         "type": "address"
       }
     ],
-    "name": "NewReward",
+    "name": "NewDistribution",
     "type": "event"
   },
   {
@@ -436,7 +436,7 @@
           }
         ],
         "internalType": "struct DistributionParameters",
-        "name": "reward",
+        "name": "distribution",
         "type": "tuple"
       }
     ],
@@ -444,7 +444,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "rewardAmount",
+        "name": "distributionAmount",
         "type": "uint256"
       }
     ],
@@ -532,7 +532,7 @@
           }
         ],
         "internalType": "struct DistributionParameters[]",
-        "name": "rewards",
+        "name": "distributions",
         "type": "tuple[]"
       }
     ],
@@ -621,6 +621,19 @@
         "internalType": "bytes",
         "name": "additionalData",
         "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "distributor",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -2165,7 +2178,7 @@
       },
       {
         "internalType": "address",
-        "name": "_merkleRootDistributor",
+        "name": "_distributor",
         "type": "address"
       },
       {
@@ -2193,19 +2206,6 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "merkleRootDistributor",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -2330,11 +2330,11 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_merkleRootDistributor",
+        "name": "_distributor",
         "type": "address"
       }
     ],
-    "name": "setNewMerkleRootDistributor",
+    "name": "setNewDistributor",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -2451,7 +2451,7 @@
           }
         ],
         "internalType": "struct DistributionParameters",
-        "name": "reward",
+        "name": "distribution",
         "type": "tuple"
       },
       {
@@ -2464,7 +2464,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "rewardAmount",
+        "name": "distributionAmount",
         "type": "uint256"
       }
     ],
