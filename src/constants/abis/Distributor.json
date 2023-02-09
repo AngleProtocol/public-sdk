@@ -26,6 +26,11 @@
   },
   {
     "inputs": [],
+    "name": "InvalidUninitializedRoot",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "NoDispute",
     "type": "error"
   },
