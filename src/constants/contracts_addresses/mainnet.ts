@@ -59,10 +59,10 @@ const addresses: ContractsRegistryType['1'] = {
         Staking: '0x65e4992250B296790c07FAdF0f0723902a07E91d',
         Strategies: {
           GenericOptimisedLender: {
-            Contract: '0xBfa4459868C60da9edd835F0be684EDeC054557b',
-            GenericAave: '0xe4377620697Be18E6d6aa911CA488571EeB3f081',
-            GenericCompound: '0xE2773fB045e53De5344f245E03eA614AF1064Ce3',
-            GenericEuler: '0xf5aD02F3DbBF4b42DEE1f1255607f929CA2a7c5a',
+            Contract: '0x5577f822A979b7456ca08C5E311067d777e734c4',
+            GenericAave: '0x53890a56d175fb8123cc1b430e8407aa20928792',
+            GenericCompound: '0x6e97bE3E5C6e7167287E208A32720068fd9A9E06',
+            GenericEuler: '0xceD32E95C971610AdF264EC8f619fCBf242D64D7',
           },
           AaveFlashloan: {
             Contract: '0x9fBbCB9e5399693cDeAE803d7e08938Bb6A847AA',
@@ -111,10 +111,10 @@ const addresses: ContractsRegistryType['1'] = {
         Staking: '0x2Fa1255383364F6e17Be6A6aC7A56C9aCD6850a3',
         Strategies: {
           GenericOptimisedLender: {
-            Contract: '0x5577f822A979b7456ca08C5E311067d777e734c4',
-            GenericAave: '0x53890a56d175fb8123cc1b430e8407aa20928792',
-            GenericCompound: '0x6e97bE3E5C6e7167287E208A32720068fd9A9E06',
-            GenericEuler: '0xceD32E95C971610AdF264EC8f619fCBf242D64D7',
+            Contract: '0xBfa4459868C60da9edd835F0be684EDeC054557b',
+            GenericAave: '0xe4377620697Be18E6d6aa911CA488571EeB3f081',
+            GenericCompound: '0xE2773fB045e53De5344f245E03eA614AF1064Ce3',
+            GenericEuler: '0xf5aD02F3DbBF4b42DEE1f1255607f929CA2a7c5a',
           },
           AaveFlashloan: {
             Contract: '0x1F847FD5E08Fb559A69280A14e7E904e6DBfF81f',
