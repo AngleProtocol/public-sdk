@@ -1,45 +1,23 @@
 [
   {
     "inputs": [],
-    "name": "InvalidToken",
+    "name": "ErrorSwap",
     "type": "error"
   },
   {
-    "anonymous": false,
     "inputs": [],
-    "name": "EmergencyExitActivated",
-    "type": "event"
+    "name": "IncompatibleLengths",
+    "type": "error"
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "profit",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "loss",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "debtPayment",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "debtOutstanding",
-        "type": "uint256"
-      }
-    ],
-    "name": "Harvested",
-    "type": "event"
+    "inputs": [],
+    "name": "ProtectedToken",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "TooSmallAmount",
+    "type": "error"
   },
   {
     "anonymous": false,
@@ -117,103 +95,6 @@
     "type": "event"
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "debtThreshold",
-        "type": "uint256"
-      }
-    ],
-    "name": "UpdatedDebtThreshold",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "activated",
-        "type": "bool"
-      }
-    ],
-    "name": "UpdatedIsRewardActivated",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "delay",
-        "type": "uint256"
-      }
-    ],
-    "name": "UpdatedMaxReportDelayed",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "delay",
-        "type": "uint256"
-      }
-    ],
-    "name": "UpdatedMinReportDelayed",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_rewardAmount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_minimumAmountMoved",
-        "type": "uint256"
-      }
-    ],
-    "name": "UpdatedRewardAmountAndMinimumAmountMoved",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "rewards",
-        "type": "address"
-      }
-    ],
-    "name": "UpdatedRewards",
-    "type": "event"
-  },
-  {
-    "inputs": [],
-    "name": "BASE",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "DEFAULT_ADMIN_ROLE",
     "outputs": [
@@ -254,7 +135,7 @@
   },
   {
     "inputs": [],
-    "name": "POOLMANAGER_ROLE",
+    "name": "STRATEGY_ROLE",
     "outputs": [
       {
         "internalType": "bytes32",
@@ -267,7 +148,7 @@
   },
   {
     "inputs": [],
-    "name": "SECONDS_PER_YEAR",
+    "name": "apr",
     "outputs": [
       {
         "internalType": "uint256",
@@ -281,50 +162,106 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "_guardian",
+        "internalType": "int256",
+        "name": "amount",
+        "type": "int256"
+      }
+    ],
+    "name": "aprAfterDeposit",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "chainlinkOracle",
+    "outputs": [
+      {
+        "internalType": "contract AggregatorV3Interface",
+        "name": "",
         "type": "address"
       }
     ],
-    "name": "addGuardian",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "spenders",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "changeAllowance",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "debtThreshold",
+    "name": "claimRewards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "deposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "eToken",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "contract IEulerEToken",
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "emergencyExit",
-    "outputs": [
+    "inputs": [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "view",
+    "name": "emergencyWithdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "estimatedTotalAssets",
+    "name": "eulerStakingContract",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "contract IEulerStakingRewards",
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -369,35 +306,15 @@
   },
   {
     "inputs": [],
-    "name": "harvest",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
+    "name": "hasAssets",
+    "outputs": [
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
-    "name": "harvest",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "borrowInit",
-        "type": "uint256"
-      }
-    ],
-    "name": "harvest",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -425,13 +342,125 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_strategy",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "address[]",
+        "name": "governorList",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "guardian",
+        "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "keeperList",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "oneInch_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IEulerStakingRewards",
+        "name": "_eulerStakingContract",
+        "type": "address"
+      },
+      {
+        "internalType": "contract AggregatorV3Interface",
+        "name": "_chainlinkOracle",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_strategy",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "address[]",
+        "name": "governorList",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "guardian",
+        "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "keeperList",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "oneInch_",
+        "type": "address"
+      }
+    ],
+    "name": "initializeEuler",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
-    "name": "isActive",
+    "name": "isUniMultiplied",
     "outputs": [
       {
-        "internalType": "bool",
+        "internalType": "uint8",
         "name": "",
-        "type": "bool"
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lenderName",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nav",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -469,16 +498,16 @@
     "type": "function"
   },
   {
-    "inputs": [
+    "inputs": [],
+    "name": "reserveFee",
+    "outputs": [
       {
-        "internalType": "address",
-        "name": "guardian",
-        "type": "address"
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
       }
     ],
-    "name": "revokeGuardian",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -503,20 +532,51 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_debtThreshold",
+        "name": "minAmountOut",
         "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "payload",
+        "type": "bytes"
       }
     ],
-    "name": "setDebtThreshold",
+    "name": "sellRewards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "oneInch_",
+        "type": "address"
+      }
+    ],
+    "name": "set1Inch",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "setEmergencyExit",
+    "name": "setEulerPoolVariables",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "strategy",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -535,6 +595,19 @@
     "name": "sweep",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "underlyingBalanceStored",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -564,10 +637,23 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "weightedApr",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_amountNeeded",
+        "name": "amount",
         "type": "uint256"
       }
     ],
@@ -575,13 +661,21 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "amountFreed",
+        "name": "",
         "type": "uint256"
-      },
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawAll",
+    "outputs": [
       {
-        "internalType": "uint256",
-        "name": "_loss",
-        "type": "uint256"
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "nonpayable",

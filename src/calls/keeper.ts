@@ -31,7 +31,7 @@ export async function harvest(
 
   if (!address) throw new Error("Can't find contract's address");
 
-  return Strategy__factory.connect(address, signer).harvest(options);
+  return Strategy__factory.connect(address, signer)['harvest()'](options);
 }
 
 /**
