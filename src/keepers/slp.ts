@@ -64,15 +64,12 @@ export async function harvest(contract: ColleteralContract, provider: providers.
   const poolManagerContract = new Contract(contract.poolManager, PoolManager__factory.createInterface(), provider) as PoolManager;
   const creditAvailable = await poolManagerContract.creditAvailable();
 
-  const harvestTrigger = await strategyContract.harvestTrigger();
-  Logger('harvestTrigger', harvestTrigger);
-
   // const poolTotalAssets = await poolManagerContract.getTotalAsset();
   // const poolBalance = await poolManagerContract.getBalance();
   // const debtRatio = poolTotalAssets.sub(poolBalance);
   // const { BASE_PARAMS } = constants(chainId);
   // && debtRatio.gt(utils.parseUnits('0,2', BASE_PARAMS))
-  if (harvestTrigger && creditAvailable.gt(utils.parseUnits('500000', contract.collateralDecimals))) {
-    await strategyContract.connect(signer).harvest();
+  if (creditAvailable.gt(utils.parseUnits('500000', contract.collateralDecimals))) {
+    await strategyContract.connect(signer)['harvest()'];
   }
 }
