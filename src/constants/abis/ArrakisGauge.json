@@ -73,24 +73,21 @@
       { "name": "_veBoost_proxy", "type": "address" },
       { "name": "_distributor", "type": "address" }
     ],
-    "outputs": [],
-    "gas": 546150
+    "outputs": []
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "decimals",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 2418
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "user_checkpoint",
     "inputs": [{ "name": "addr", "type": "address" }],
-    "outputs": [{ "name": "", "type": "bool" }],
-    "gas": 3493693
+    "outputs": [{ "name": "", "type": "bool" }]
   },
   {
     "stateMutability": "view",
@@ -100,8 +97,7 @@
       { "name": "_addr", "type": "address" },
       { "name": "_token", "type": "address" }
     ],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 2976
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
@@ -111,16 +107,14 @@
       { "name": "_user", "type": "address" },
       { "name": "_reward_token", "type": "address" }
     ],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 26704
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "set_rewards_receiver",
     "inputs": [{ "name": "_receiver", "type": "address" }],
-    "outputs": [],
-    "gas": 35613
+    "outputs": []
   },
   { "stateMutability": "nonpayable", "type": "function", "name": "claim_rewards", "inputs": [], "outputs": [] },
   {
@@ -145,8 +139,7 @@
     "type": "function",
     "name": "kick",
     "inputs": [{ "name": "addr", "type": "address" }],
-    "outputs": [],
-    "gas": 3514457
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -201,8 +194,7 @@
       { "name": "_to", "type": "address" },
       { "name": "_value", "type": "uint256" }
     ],
-    "outputs": [{ "name": "", "type": "bool" }],
-    "gas": 14116306
+    "outputs": [{ "name": "", "type": "bool" }]
   },
   {
     "stateMutability": "nonpayable",
@@ -213,8 +205,7 @@
       { "name": "_to", "type": "address" },
       { "name": "_value", "type": "uint256" }
     ],
-    "outputs": [{ "name": "", "type": "bool" }],
-    "gas": 14154256
+    "outputs": [{ "name": "", "type": "bool" }]
   },
   {
     "stateMutability": "nonpayable",
@@ -224,8 +215,7 @@
       { "name": "_spender", "type": "address" },
       { "name": "_value", "type": "uint256" }
     ],
-    "outputs": [{ "name": "", "type": "bool" }],
-    "gas": 39391
+    "outputs": [{ "name": "", "type": "bool" }]
   },
   {
     "stateMutability": "nonpayable",
@@ -235,8 +225,7 @@
       { "name": "_spender", "type": "address" },
       { "name": "_added_value", "type": "uint256" }
     ],
-    "outputs": [{ "name": "", "type": "bool" }],
-    "gas": 41935
+    "outputs": [{ "name": "", "type": "bool" }]
   },
   {
     "stateMutability": "nonpayable",
@@ -246,8 +235,7 @@
       { "name": "_spender", "type": "address" },
       { "name": "_subtracted_value", "type": "uint256" }
     ],
-    "outputs": [{ "name": "", "type": "bool" }],
-    "gas": 41959
+    "outputs": [{ "name": "", "type": "bool" }]
   },
   {
     "stateMutability": "nonpayable",
@@ -257,8 +245,7 @@
       { "name": "_reward_token", "type": "address" },
       { "name": "_distributor", "type": "address" }
     ],
-    "outputs": [],
-    "gas": 112973
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -268,8 +255,7 @@
       { "name": "_reward_token", "type": "address" },
       { "name": "_distributor", "type": "address" }
     ],
-    "outputs": [],
-    "gas": 40723
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
@@ -279,73 +265,64 @@
       { "name": "_reward_token", "type": "address" },
       { "name": "_amount", "type": "uint256" }
     ],
-    "outputs": [],
-    "gas": 3585370
+    "outputs": []
   },
   {
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "commit_transfer_ownership",
     "inputs": [{ "name": "addr", "type": "address" }],
-    "outputs": [],
-    "gas": 40082
+    "outputs": []
   },
-  { "stateMutability": "nonpayable", "type": "function", "name": "accept_transfer_ownership", "inputs": [], "outputs": [], "gas": 39930 },
+  { "stateMutability": "nonpayable", "type": "function", "name": "accept_transfer_ownership", "inputs": [], "outputs": [] },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "SPICE",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 2988
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "voting_escrow",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 3018
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "veBoost_proxy",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 3048
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "staking_token",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 3078
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "decimal_staking_token",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3108
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "balanceOf",
     "inputs": [{ "name": "arg0", "type": "address" }],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3353
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "totalSupply",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3168
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
@@ -355,64 +332,56 @@
       { "name": "arg0", "type": "address" },
       { "name": "arg1", "type": "address" }
     ],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3628
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "name",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "string" }],
-    "gas": 13458
+    "outputs": [{ "name": "", "type": "string" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "symbol",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "string" }],
-    "gas": 11211
+    "outputs": [{ "name": "", "type": "string" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "working_balances",
     "inputs": [{ "name": "arg0", "type": "address" }],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3503
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "working_supply",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3318
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "integrate_checkpoint_of",
     "inputs": [{ "name": "arg0", "type": "address" }],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3563
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "reward_count",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3378
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "reward_tokens",
     "inputs": [{ "name": "arg0", "type": "uint256" }],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 3453
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
@@ -426,16 +395,14 @@
       { "name": "rate", "type": "uint256" },
       { "name": "last_update", "type": "uint256" },
       { "name": "integral", "type": "uint256" }
-    ],
-    "gas": 14883
+    ]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "rewards_receiver",
     "inputs": [{ "name": "arg0", "type": "address" }],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 3683
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
@@ -445,31 +412,27 @@
       { "name": "arg0", "type": "address" },
       { "name": "arg1", "type": "address" }
     ],
-    "outputs": [{ "name": "", "type": "uint256" }],
-    "gas": 3928
+    "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "admin",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 3528
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "future_admin",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "address" }],
-    "gas": 3558
+    "outputs": [{ "name": "", "type": "address" }]
   },
   {
     "stateMutability": "view",
     "type": "function",
     "name": "initialized",
     "inputs": [],
-    "outputs": [{ "name": "", "type": "bool" }],
-    "gas": 3588
+    "outputs": [{ "name": "", "type": "bool" }]
   }
 ]
