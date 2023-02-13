@@ -1,8 +1,61 @@
 [
   {
     "inputs": [],
+    "name": "FailedWithdrawal",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "IncorrectDistribution",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "IncorrectListLength",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidShares",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidToken",
     "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "LenderAlreadyAdded",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NonExistentLender",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UndockedLender",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAddress",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "lender",
+        "type": "address"
+      }
+    ],
+    "name": "AddLender",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -39,6 +92,19 @@
       }
     ],
     "name": "Harvested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "lender",
+        "type": "address"
+      }
+    ],
+    "name": "RemoveLender",
     "type": "event"
   },
   {
@@ -292,6 +358,19 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "contract IGenericLender",
+        "name": "newLender",
+        "type": "address"
+      }
+    ],
+    "name": "addLender",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "debtThreshold",
     "outputs": [
@@ -331,16 +410,53 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint64[]",
+        "name": "shares",
+        "type": "uint64[]"
+      }
+    ],
+    "name": "estimatedAPR",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "weightedAPR",
+        "type": "uint256"
+      },
+      {
+        "internalType": "int256[]",
+        "name": "lenderAdjustedAmounts",
+        "type": "int256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "estimatedTotalAssets",
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "nav",
         "type": "uint256"
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "lender",
+        "type": "address"
+      }
+    ],
+    "name": "forceRemoveLender",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -438,6 +554,34 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_poolManager",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "governor",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "guardian",
+        "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "keepers",
+        "type": "address[]"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "isActive",
     "outputs": [
@@ -445,6 +589,86 @@
         "internalType": "bool",
         "name": "",
         "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lendStatuses",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "assets",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "add",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct LendStatus[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "lenders",
+    "outputs": [
+      {
+        "internalType": "contract IGenericLender",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lentTotalAssets",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "numLenders",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -515,6 +739,19 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "lender",
+        "type": "address"
+      }
+    ],
+    "name": "safeRemoveLender",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "_debtThreshold",
         "type": "uint256"
@@ -528,6 +765,19 @@
   {
     "inputs": [],
     "name": "setEmergencyExit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_threshold",
+        "type": "uint256"
+      }
+    ],
+    "name": "setWithdrawalThreshold",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -598,6 +848,19 @@
       }
     ],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawalThreshold",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   }
 ]
