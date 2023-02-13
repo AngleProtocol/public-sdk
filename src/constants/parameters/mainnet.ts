@@ -769,8 +769,8 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x',
-        symbol: 'sd3Crv-EUR',
-        oracle: 'sd3Crv_EUR',
+        symbol: 'sd-3CRV',
+        oracle: 'sd-3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
@@ -786,8 +786,8 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x',
-        symbol: 'cvx3Crv-EUR',
-        oracle: 'cvx3Crv_EUR',
+        symbol: 'cvx-3CRV',
+        oracle: 'cvx-3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
@@ -803,8 +803,8 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x',
-        symbol: 'sdLUSD3CRV-EUR',
-        oracle: 'sdLUSD3CRV_EUR',
+        symbol: 'sd-crvLUSD3CRV',
+        oracle: 'sd-crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
@@ -820,8 +820,8 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x',
-        symbol: 'cvxLUSD3CRV-EUR',
-        oracle: 'cvxLUSD3CRV_EUR',
+        symbol: 'cvx-crvLUSD3CRV',
+        oracle: 'cvx-crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
