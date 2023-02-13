@@ -79,7 +79,7 @@ const stablesParameters: StablesParameters = {
       {
         collateral: '0x',
         symbol: 'sd-crvUSDCUSDT',
-        oracle: 'sd-crvUSDCUSDT_EUR',
+        oracle: 'crvUSDCUSDT_EUR',
         params: {
           debtCeiling: parseEther('50000'),
           collateralFactor: parseAmount.gwei('0.8'),
@@ -96,7 +96,7 @@ const stablesParameters: StablesParameters = {
       {
         collateral: '0x',
         symbol: 'cvx-crvUSDCUSDT',
-        oracle: 'cvx-crvUSDCUSDT_EUR',
+        oracle: 'crvUSDCUSDT_EUR',
         params: {
           debtCeiling: parseEther('50000'),
           collateralFactor: parseAmount.gwei('0.8'),

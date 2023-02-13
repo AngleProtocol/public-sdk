@@ -770,7 +770,7 @@ const stablesParameters: StablesParameters = {
       {
         collateral: '0x',
         symbol: 'sd-3CRV',
-        oracle: 'sd-3CRV_EUR',
+        oracle: '3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
@@ -781,13 +781,13 @@ const stablesParameters: StablesParameters = {
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.08'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('2.5'),
+          baseBoost: parseAmount.gwei('1.5'),
         },
       },
       {
         collateral: '0x',
         symbol: 'cvx-3CRV',
-        oracle: 'cvx-3CRV_EUR',
+        oracle: '3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
@@ -798,13 +798,13 @@ const stablesParameters: StablesParameters = {
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.08'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('2.5'),
+          baseBoost: parseAmount.gwei('2'),
         },
       },
       {
         collateral: '0x',
         symbol: 'sd-crvLUSD3CRV',
-        oracle: 'sd-crvLUSD3CRV_EUR',
+        oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
@@ -815,13 +815,13 @@ const stablesParameters: StablesParameters = {
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.09'),
           whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('1.5'),
+          baseBoost: parseAmount.gwei('2'),
         },
       },
       {
         collateral: '0x',
         symbol: 'cvx-crvLUSD3CRV',
-        oracle: 'cvx-crvLUSD3CRV_EUR',
+        oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
           collateralFactor: parseAmount.gwei('0.8'),
