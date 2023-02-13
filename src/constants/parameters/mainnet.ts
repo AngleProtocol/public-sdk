@@ -625,7 +625,8 @@ const poolsParameters: PoolsParameters = {
 // const ratePerSecond = yearlyRate ** (1 / (365 * 24 * 3600)) - 1;
 // Interest rate is in base 27, since there may be some rounding errors, we obtained the corresponding
 // figure manually on Python
-const interestRate = BigNumber.from('158153934393112649');
+const interestRate05 = BigNumber.from('158153934393112649');
+const interestRate15 = BigNumber.from('472114791705280367');
 const stablesParameters: StablesParameters = {
   EUR: {
     stakings: [
@@ -657,7 +658,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate05,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.06'),
           whitelistingActivated: false,
@@ -674,7 +675,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate05,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.075'),
           whitelistingActivated: false,
@@ -691,7 +692,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate05,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.085'),
           whitelistingActivated: false,
@@ -708,7 +709,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate05,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.1'),
           whitelistingActivated: false,
@@ -725,7 +726,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate05,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.05'),
           whitelistingActivated: false,
@@ -742,7 +743,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate05,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.08'),
           whitelistingActivated: false,
@@ -759,7 +760,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate05,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.08'),
           whitelistingActivated: false,
@@ -781,7 +782,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate15,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.1'),
           whitelistingActivated: false,
@@ -801,7 +802,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate15,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.13'),
           whitelistingActivated: false,
@@ -821,7 +822,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate,
+          interestRate: interestRate15,
           liquidationSurcharge: parseAmount.gwei('0.98'),
           maxLiquidationDiscount: parseAmount.gwei('0.1'),
           whitelistingActivated: false,
