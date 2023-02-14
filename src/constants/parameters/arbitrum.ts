@@ -100,7 +100,7 @@ const stablesParameters: StablesParameters = {
         params: {
           debtCeiling: parseEther('50000'),
           collateralFactor: parseAmount.gwei('0.8'),
-          targetHealthFactor: parseAmount.gwei('1.05'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
           interestRate: interestRate,
