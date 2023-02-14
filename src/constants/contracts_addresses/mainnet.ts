@@ -138,6 +138,26 @@ const addresses: ContractsRegistryType['1'] = {
     SwapperV2: '0xd7Cf341ce068EB335D3bE24beF6C06348BFb5346',
     Treasury: '0x8667DBEBf68B0BFa6Db54f550f41Be16c4067d60',
   },
+  agGOLD: {
+    AgToken: '0x5F27184fA83fE0E5aEf2344B6D9eB3Bd2118A290',
+    borrowCollaterals: {
+      USDC: {
+        Oracle: '0x25340624EF3f8047bBc0d8A2bf2d6D49A6671E2C',
+        VaultManager: '0x1B396Aee50bb55cEB5e316996fc86b360f654463',
+      },
+      wETH: {
+        Oracle: '0x6Eca8E792a178DCd863E1d4831D38FB9CC984cD9',
+        VaultManager: '0x72AC0731baF3f3a632A609a3E20F9E4743440B91',
+      },
+      wSTETH: {
+        Oracle: '0x576e414fB89C54a21422b0A6feBd6AE2348F42e4',
+        VaultManager: '0xBA018E91C5E11B2A0B74055235095Ef13cC68f3a',
+      },
+    },
+    Swapper: '0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd',
+    SwapperV2: '0xd7Cf341ce068EB335D3bE24beF6C06348BFb5346',
+    Treasury: '0x19F925a26A3a8eeE2438603CB04F39cbC007EfFB',
+  },
   AMO: {
     AMOMinter: '0xec876Edc3F1a24c99d7c56F017E1D51581952F84',
     BPAMOs: {
