@@ -99,7 +99,7 @@ export enum Stablecoin {
 type StablecoinType = Readonly<
   Partial<{
     AgToken: string;
-    OracleUSD: string;
+    OracleTokenUSD: string;
     StableMaster?: string;
     Staking?: string;
     Swapper?: string;

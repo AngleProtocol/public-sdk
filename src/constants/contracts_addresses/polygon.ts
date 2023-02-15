@@ -42,7 +42,7 @@ const addresses: ContractsRegistryType['1'] = {
         },
       },
     },
-    OracleUSD: '0x73366Fe0AA0Ded304479862808e02506FE556a98',
+    OracleTokenUSD: '0x73366Fe0AA0Ded304479862808e02506FE556a98',
     Swapper: '0x0050038959659c1e09D5E7F0543b5cf411a942B6',
     SwapperV2: '0x516735bF9a517fc66F53a798B1910498a8a621c5',
     Treasury: '0x2F2e0ba9746aae15888cf234c4EB5B301710927e',
