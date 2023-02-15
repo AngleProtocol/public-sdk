@@ -99,6 +99,7 @@ export enum Stablecoin {
 type StablecoinType = Readonly<
   Partial<{
     AgToken: string;
+    OracleUSD: string;
     StableMaster?: string;
     Staking?: string;
     Swapper?: string;
@@ -143,6 +144,7 @@ export type ContractsRegistryType = Readonly<{
       MerkleRootDistributor: string;
       Middleman: string;
       MulticallWithFailure: string;
+      OracleNativeUSD: string;
       ProxyAdmin: string;
       ProxyAdminGuardian: string;
       RewardsDistributor: string;
