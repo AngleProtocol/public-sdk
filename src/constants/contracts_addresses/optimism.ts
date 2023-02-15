@@ -28,6 +28,7 @@ const addresses: ContractsRegistryType['1'] = {
       Synapse: '0xa0554607e477cdC9d0EE2A6b087F4b2DC2815C22',
       LayerZero: '0x840b25c87B626a259CA5AC32124fA752F0230a72',
     },
+    OracleTokenUSD: '0x3626369857A10CcC6cc3A6e4f5C2f5984a519F20',
     Swapper: '0xa014A485D64efb236423004AB1a99C0aaa97a549',
     SwapperV2: '0x3f125ECD51181Af1f344aDF76E4271d2923707AB',
     Treasury: '0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD',
@@ -37,6 +38,7 @@ const addresses: ContractsRegistryType['1'] = {
   Governor: '0x3245d3204EEB67afba7B0bA9143E8081365e08a6',
   Guardian: '0xD245678e417aEE2d91763F6f4eFE570FF52fD080',
   MulticallWithFailure: '0x6cd24ac05103C2C911347a6D3628d64a9F07eAf5',
+  OracleNativeUSD: '0x13e3Ee699D1909E989722E753853AE30b17e08c5',
   ProxyAdmin: '0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049',
   ProxyAdminGuardian: '0xe14bFA5575d9906BA35beb15C9DBe5C77bFdd5b5',
 };
