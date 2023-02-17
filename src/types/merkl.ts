@@ -6,7 +6,7 @@ export enum WrapperType {
 
 export type RewardOrigin = 'UniswapV3' | 'Arrakis' | 'Arrakis Gauge' | 'Gamma';
 
-// ============================= AGGREGATED REWARDS ============================
+// ============================= BACKEND DATA TYPE =============================
 
 export type MerklRewardDistributionType = {
   boostedAddress: string;
@@ -26,6 +26,7 @@ export type AggregatedRewardsType = {
   lastUpdateEpoch: number;
   rewards: UnderlyingTreeType;
   updateTimestamp: number;
+  updateTxBlockNumber?: number;
 };
 
 // =============================== API DATA TYPE ===============================
