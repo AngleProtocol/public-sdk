@@ -1,5 +1,14 @@
+import { BigNumberish } from 'ethers';
+import { formatUnits } from 'ethers/lib/utils';
+
 import { ALL_TOKENS, AssetType, ChainId } from '../index';
 import { Token } from '../types';
+
+export * from './merkl';
+
+export function BN2Number(bn: BigNumberish, base = 18) {
+  return parseFloat(formatUnits(bn, base));
+}
 
 export const requireEnvVars = <T extends string>(vars: T[]): Record<typeof vars[number], string> => {
   const missingEnvVars = vars.filter((v) => !process.env[v]);
