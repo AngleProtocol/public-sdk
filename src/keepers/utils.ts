@@ -20,7 +20,11 @@ const getPairs = (chainId: ChainId) => {
 };
 
 export const getPair = (stableSymbol: string, collateralSymbol: string, chainId: ChainId) => {
-  return getPairs(chainId).filter((pair) => pair.stable.symbol === stableSymbol && pair.collateral.symbol === collateralSymbol)[0];
+  return getPairs(chainId).filter(
+    (pair) =>
+      pair.stable.symbol.toUpperCase() === stableSymbol.toUpperCase() &&
+      pair.collateral.symbol.toUpperCase() === collateralSymbol.toUpperCase()
+  )[0];
 };
 
 export const getAllPairNames = (chainId: ChainId): string[] => {
