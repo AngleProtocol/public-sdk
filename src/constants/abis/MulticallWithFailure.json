@@ -1,0 +1,21 @@
+[
+  { "inputs": [], "name": "SubcallFailed", "type": "error" },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "target", "type": "address" },
+          { "internalType": "bytes", "name": "data", "type": "bytes" },
+          { "internalType": "bool", "name": "canFail", "type": "bool" }
+        ],
+        "internalType": "struct MultiCallWithFailure.Call[]",
+        "name": "calls",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "multiCall",
+    "outputs": [{ "internalType": "bytes[]", "name": "", "type": "bytes[]" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
