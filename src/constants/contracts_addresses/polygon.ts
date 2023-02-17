@@ -61,6 +61,7 @@ const addresses: ContractsRegistryType['1'] = {
   Merkl: {
     DistributionCreator: '0xA9c076992F3917b47E2C619c46ff0b652d76e6B4',
     Distributor: '0xcBEC7750ab005449dD5E4F7Be299B8d83b64B2A6',
+    CoreMerkl: '0x9418D0aa02fCE40804aBF77bb81a1CcBeB91eaFC',
   },
   MerkleRootDistributor: '0x60FCebEA8F237E771e26939A631Dcf8eFE6d4408',
   MulticallWithFailure: '0xAd96B6342e4EbbbFBAfF0DF248E84C7304fFF5a5',

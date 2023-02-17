@@ -37,6 +37,9 @@ const addresses: ContractsRegistryType['1'] = {
   FlashAngle: '0x59153e939c5b4721543251ff3049Ea04c755373B',
   Governor: '0xAA2DaCCAb539649D1839772C625108674154df0B',
   Guardian: '0x55F01DDaE74b60e3c255BD2f619FEbdFce560a9C',
+  Merkl: {
+    CoreMerkl: '0xA86CC1ae2D94C6ED2aB3bF68fB128c2825673267',
+  },
   MulticallWithFailure: '0x97B6897AAd7aBa3861c04C0e6388Fc02AF1F227f',
   OracleNativeUSD: '0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612',
   ProxyAdmin: '0x9a5b060Bd7b8f86c4C0D720a17367729670AfB19',
