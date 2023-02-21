@@ -65,7 +65,7 @@ export const buildMerklTree = (
     }
   }
   const tree = new MerkleTree(elements, keccak256, { hashLeaves: false, sortPairs: true });
-  console.log(`${elements.length} leaves. Root: ${tree.getHexRoot()}`);
+  //console.log(`${elements.length} leaves. Root: ${tree.getHexRoot()}`);
   return {
     transactionData: transactionData.map((u) => {
       return { ...u, proof: tree.getHexProof(u.leaf) };

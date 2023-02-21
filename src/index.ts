@@ -10,3 +10,4 @@ export * from './lib';
 export * from './types';
 export { requireEnvVars } from './utils';
 export * from './utils/bignumber';
+export * from './utils/merkl';
