@@ -17,8 +17,14 @@ const addresses: ContractsRegistryType['1'] = {
   CoreBorrow: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
   Governor: '0x0128eA927198f39e4955DdB01Fd62E8De6B3e6a4',
   Guardian: '0x371Ac6dB8063e6076890ef032A4A3cFCF226F548',
+  Merkl: {
+    CoreMerkl: '0x5EE94c25e3d5113CD055537340B9d19CFA4D9217',
+    DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
+    Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
+  },
   OracleNativeUSD: '0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE',
   ProxyAdmin: '0x9a5b060Bd7b8f86c4C0D720a17367729670AfB19',
+  ProxyAdminGuardian: '0xE6d9bD6796bDAF9B391Fac2A2D34bAE9c1c3c1C4',
 };
 
 export default addresses;
