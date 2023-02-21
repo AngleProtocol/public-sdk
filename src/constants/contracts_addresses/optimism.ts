@@ -39,6 +39,8 @@ const addresses: ContractsRegistryType['1'] = {
   Guardian: '0xD245678e417aEE2d91763F6f4eFE570FF52fD080',
   Merkl: {
     CoreMerkl: '0xc2c7a0d9a9e0467090281c3a4f28D40504d08FB4',
+    DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
+    Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
   },
   MulticallWithFailure: '0x6cd24ac05103C2C911347a6D3628d64a9F07eAf5',
   OracleNativeUSD: '0x13e3Ee699D1909E989722E753853AE30b17e08c5',
