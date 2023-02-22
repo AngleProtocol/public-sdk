@@ -69,7 +69,7 @@ export type PoolDataType = Partial<{
   userBalances: { balance0: number; balance1: number; origin: WrapperType | -1 }[];
 
   meanAPR: number; // Average APR in the pool
-  aprs: { string?: number }; // APR description (will contain wrapper types)
+  aprs: { [description: string]: number }; // APR description (will contain wrapper types)
 
   // Rewards earned by the user breakdown per token
   // token => {total to claim, total accumulated, token symbol, breakdown per wrapper type}
