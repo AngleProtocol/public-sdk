@@ -188,6 +188,8 @@ const addresses: ContractsRegistryType['1'] = {
   KeeperRegistry: '0xc48B15492A4c4F48808576f6fCbC6dea9388E942',
   Merkl: {
     CoreMerkl: '0x0E632a15EbCBa463151B5367B4fCF91313e389a6',
+    DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
+    Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
   },
   MerkleRootDistributor: '0x5a93D504604fB57E15b0d73733DDc86301Dde2f1',
   Middleman: '0x4B00103802Da5f51A9218010a1073Ea432165f13',
