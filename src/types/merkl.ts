@@ -86,7 +86,7 @@ export type MerklAPIData = {
   message: string;
   signed: boolean;
   feeRebate: number;
-  pools: PoolDataType[]; // Data per pool to build cards
+  pools: { [address: string]: PoolDataType }; // Data per pool to build cards
   transactionData: {
     // Data to build transaction
     claim: string;
