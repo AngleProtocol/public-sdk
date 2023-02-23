@@ -94,7 +94,7 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
-        collateral: '0x',
+        collateral: '0xc8711B1206cD3e89799Ec32973f583e696Cb553C',
         symbol: 'sd-crvUSDCUSDT',
         oracle: 'crvUSDCUSDT_EUR',
         params: {
