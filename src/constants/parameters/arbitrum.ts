@@ -77,8 +77,8 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
-        collateral: '0x',
-        symbol: 'sd-crvUSDCUSDT',
+        collateral: '0x42dC54fb50dB556fA6ffBa765F1141536d4830ea',
+        symbol: 'cvx-crvUSDCUSDT',
         oracle: 'crvUSDCUSDT_EUR',
         params: {
           debtCeiling: parseEther('50000'),
@@ -94,8 +94,8 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
-        collateral: '0x',
-        symbol: 'cvx-crvUSDCUSDT',
+        collateral: '0xc8711B1206cD3e89799Ec32973f583e696Cb553C',
+        symbol: 'sd-crvUSDCUSDT',
         oracle: 'crvUSDCUSDT_EUR',
         params: {
           debtCeiling: parseEther('50000'),
