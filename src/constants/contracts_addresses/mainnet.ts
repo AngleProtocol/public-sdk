@@ -37,6 +37,26 @@ const addresses: ContractsRegistryType['1'] = {
           Swapper: '0xe1A6D84604C5B17f5fd1fCcbA4c385A8b9670266',
         },
       },
+      'cvx-3CRV': {
+        Oracle: '0x93A3A7ACA63415077de65c415c90A9e490825721',
+        VaultManager: '0x0B3AF9fb0DE42AE70432ABc5aaEaB8F9774bf87b',
+        additionalProperties: {
+          LPToken: '0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490',
+          Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B'],
+          Staker: '0xbff202E3Cb58aB0A09b2Eb1D9a50352B9aAf196c',
+          Swapper: '0x490Bc019DE997F1F94e3063560e4d412E19A9d72',
+        },
+      },
+      'cvx-crvLUSD3CRV': {
+        Oracle: '0x85a2a9eda073bd489392e8d4ea71461fd99ef6a6',
+        VaultManager: '0x989ed2DDCD4D2DC237CE014432aEb40EfE738E31',
+        additionalProperties: {
+          LPToken: '0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA',
+          Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B'],
+          Staker: '0x9650821B3555Fe6318586BE997cc0Fb163C35976',
+          Swapper: '0x7A4C8a54C254E4ed02D4E90ff3CBBc72cC980d38',
+        },
+      },
       'sd-crvFRAXUSDC': {
         Oracle: '0xAF2dAa417F1a5Eb6DBFaA4B434929a36B4d66Fc8',
         VaultManager: '0xdEeE8e8a89338241fe622509414Ff535fB02B479',
@@ -45,6 +65,26 @@ const addresses: ContractsRegistryType['1'] = {
           Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x73968b9a57c6E53d41345FD57a6E6ae27d6CDB2F'],
           Staker: '0xa9d2Eea75C80fF9669cc998c276Ff26D741Dcb26',
           Swapper: '0x71E1AE62EA08A7D1AB1A142b7C6fADc43450ED22',
+        },
+      },
+      'sd-3CRV': {
+        Oracle: '0x93A3A7ACA63415077de65c415c90A9e490825721',
+        VaultManager: '0x29e9D3D8e295E23B1B39DCD3D8D595761E032306',
+        additionalProperties: {
+          LPToken: '0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490',
+          Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x73968b9a57c6E53d41345FD57a6E6ae27d6CDB2F'],
+          Staker: '0xe80298eE8F54a5e1b0448bC2EE844901344469bc',
+          Swapper: '0xBDFDE284c7d8E712214c037C7f4c9F321A95e28C',
+        },
+      },
+      'sd-crvLUSD3CRV': {
+        Oracle: '0x85a2a9eda073bd489392e8d4ea71461fd99ef6a6',
+        VaultManager: '0xe0C8B6c4ea301C8A221E8838ca5B80Ac76E7A10b',
+        additionalProperties: {
+          LPToken: '0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA',
+          Rewards: ['0xD533a949740bb3306d119CC777fa900bA034cd52', '0x73968b9a57c6E53d41345FD57a6E6ae27d6CDB2F'],
+          Staker: '0x97F0A7954904a7357D814ACE2896021496e5f321',
+          Swapper: '0x633bA1eeDbE63a779Eca6A1EbE86908Ac2710D0b',
         },
       },
     },

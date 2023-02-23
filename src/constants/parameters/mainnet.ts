@@ -768,24 +768,7 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
-        collateral: '0x',
-        symbol: 'sd-3CRV',
-        oracle: '3CRV_EUR',
-        params: {
-          debtCeiling: parseEther('100000'),
-          collateralFactor: parseAmount.gwei('0.8'),
-          targetHealthFactor: parseAmount.gwei('1.05'),
-          borrowFee: parseAmount.gwei('0'),
-          repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate05,
-          liquidationSurcharge: parseAmount.gwei('0.98'),
-          maxLiquidationDiscount: parseAmount.gwei('0.08'),
-          whitelistingActivated: false,
-          baseBoost: parseAmount.gwei('1.5'),
-        },
-      },
-      {
-        collateral: '0x',
+        collateral: '0xbff202E3Cb58aB0A09b2Eb1D9a50352B9aAf196c',
         symbol: 'cvx-3CRV',
         oracle: '3CRV_EUR',
         params: {
@@ -802,8 +785,25 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
-        collateral: '0x',
-        symbol: 'sd-crvLUSD3CRV',
+        collateral: '0xe80298eE8F54a5e1b0448bC2EE844901344469bc',
+        symbol: 'sd-3CRV',
+        oracle: '3CRV_EUR',
+        params: {
+          debtCeiling: parseEther('100000'),
+          collateralFactor: parseAmount.gwei('0.8'),
+          targetHealthFactor: parseAmount.gwei('1.05'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate05,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.08'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('1.5'),
+        },
+      },
+      {
+        collateral: '0x9650821B3555Fe6318586BE997cc0Fb163C35976',
+        symbol: 'cvx-crvLUSD3CRV',
         oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -819,8 +819,8 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
-        collateral: '0x',
-        symbol: 'cvx-crvLUSD3CRV',
+        collateral: '0x97F0A7954904a7357D814ACE2896021496e5f321',
+        symbol: 'sd-crvLUSD3CRV',
         oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),

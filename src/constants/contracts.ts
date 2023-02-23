@@ -32,7 +32,13 @@ export enum BorrowCollateral {
   'agstk-am3CRV' = 'agstk-am3CRV',
   'wAVAX' = 'wAVAX',
   'cvx-crvFRAXUSDC' = 'cvx-crvFRAXUSDC',
+  'cvx-3CRV' = 'cvx-3CRV',
+  'cvx-crvLUSD3CRV' = 'cvx-crvLUSD3CRV',
+  'cvx-crvUSDCUSDT' = 'cvx-crvUSDCUSDT',
   'sd-crvFRAXUSDC' = 'sd-crvFRAXUSDC',
+  'sd-3CRV' = 'sd-3CRV',
+  'sd-crvLUSD3CRV' = 'sd-crvLUSD3CRV',
+  'sd-crvUSDCUSDT' = 'sd-crvUSDCUSDT',
 }
 
 type BorrowCollateralType = {
