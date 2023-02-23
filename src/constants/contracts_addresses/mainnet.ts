@@ -48,7 +48,7 @@ const addresses: ContractsRegistryType['1'] = {
         },
       },
       'cvx-crvLUSD3CRV': {
-        Oracle: '0x85a2a9eda073bd489392e8d4ea71461fd99ef6a6',
+        Oracle: '0x85a2a9EDa073bd489392e8D4Ea71461fD99EF6A6',
         VaultManager: '0x989ed2DDCD4D2DC237CE014432aEb40EfE738E31',
         additionalProperties: {
           LPToken: '0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA',
@@ -78,7 +78,7 @@ const addresses: ContractsRegistryType['1'] = {
         },
       },
       'sd-crvLUSD3CRV': {
-        Oracle: '0x85a2a9eda073bd489392e8d4ea71461fd99ef6a6',
+        Oracle: '0x85a2a9EDa073bd489392e8D4Ea71461fD99EF6A6',
         VaultManager: '0xe0C8B6c4ea301C8A221E8838ca5B80Ac76E7A10b',
         additionalProperties: {
           LPToken: '0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA',
