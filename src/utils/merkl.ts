@@ -100,14 +100,30 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
  */
 export const wrappersPerPoolFromSolidityStruct = (
   data: ExtensiveDistributionParametersStruct[]
-): { pool: string; decimal0: number; decimal1: number; wrappers: { type: WrapperType; address: string }[] }[] => {
+): {
+  pool: string;
+  decimal0: number;
+  token0: string;
+  decimal1: number;
+  token1: string;
+  wrappers: { type: WrapperType; address: string }[];
+}[] => {
   const pools = poolListFromSolidityStruct(data);
   const res = [];
 
   for (const p of pools) {
-    const aux: { pool: string; decimal0: number; decimal1: number; wrappers: { type: WrapperType; address: string }[] } = {
+    const aux: {
+      pool: string;
+      decimal0: number;
+      token0: string;
+      decimal1: number;
+      token1: string;
+      wrappers: { type: WrapperType; address: string }[];
+    } = {
       decimal0: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token0.decimals, 0),
       decimal1: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token1.decimals, 0),
+      token0: data.filter((d) => d.base.uniV3Pool === p)[0].token0.symbol,
+      token1: data.filter((d) => d.base.uniV3Pool === p)[0].token1.symbol,
       pool: p,
       wrappers: [],
     };
