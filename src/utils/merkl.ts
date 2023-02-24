@@ -3,7 +3,7 @@ import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
 import { ExtensiveDistributionParametersStruct } from '../constants/types/DistributionCreator';
-import { AggregatedRewardsType, UnderlyingTreeType, WrapperType } from '../types';
+import { AggregatedRewardsType, MerklAPIData, UnderlyingTreeType, WrapperType } from '../types';
 import { BN2Number } from './index';
 
 /**
@@ -16,12 +16,7 @@ export const buildMerklTree = (
   user?: string
 ): {
   tree: MerkleTree;
-  transactionData: {
-    claim: string;
-    token: string;
-    leaf: string;
-    proof?: string[];
-  }[];
+  transactionData: MerklAPIData['transactionData'];
 } => {
   /**
    * 1 - Build the global list of users
@@ -45,7 +40,7 @@ export const buildMerklTree = (
    * 3 - Build the tree
    */
   const elements = [];
-  const transactionData: { claim: string; token: string; leaf: string }[] = [];
+  const transactionData: MerklAPIData['transactionData'] = {};
   for (const u of users) {
     for (const t of tokens) {
       let sum = BigNumber.from(0);
@@ -59,17 +54,20 @@ export const buildMerklTree = (
         ethers.utils.defaultAbiCoder.encode(['address', 'address', 'uint256'], [utils.getAddress(u), t, sum])
       );
       if (u === user) {
-        transactionData.push({ claim: sum.toString(), leaf: hash, token: t });
+        transactionData[t] = { claim: sum.toString(), leaf: hash, token: t };
       }
       elements.push(hash);
     }
   }
   const tree = new MerkleTree(elements, keccak256, { hashLeaves: false, sortPairs: true });
-  //console.log(`${elements.length} leaves. Root: ${tree.getHexRoot()}`);
+
+  // Build proofs
+  for (const k of Object.keys(transactionData)) {
+    transactionData[k].proof = tree.getHexProof(transactionData[k].leaf);
+  }
+
   return {
-    transactionData: transactionData.map((u) => {
-      return { ...u, proof: tree.getHexProof(u.leaf) };
-    }),
+    transactionData,
     tree,
   };
 };

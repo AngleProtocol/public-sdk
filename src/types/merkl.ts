@@ -42,7 +42,7 @@ export type DistributionDataType = {
   propToken1: number;
   propFees: number;
 
-  unclaimed: number; // Unclaimed reward amount by the user
+  unclaimed?: number; // Unclaimed reward amount by the user
   breakdown?: BreakdownType; // rewards earned breakdown
 
   start: number;
@@ -63,17 +63,20 @@ export type PoolDataType = Partial<{
   tokenSymbol1: string;
   token1InPool: number; // Total amount of token1 in the pool
 
+  tvl?: number; // TVL in the pool, in $
+
   // User tokens in the pool and breakdown by wrapper
-  userTotalBalance0: number;
-  userTotalBalance1: number;
-  userBalances: { balance0: number; balance1: number; origin: WrapperType | -1 }[];
+  userTotalBalance0?: number;
+  userTotalBalance1?: number;
+  userTVL?: number; // user TVL in the pool, in $
+  userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType | -1 }[];
 
   meanAPR: number; // Average APR in the pool
   aprs: { [description: string]: number }; // APR description (will contain wrapper types)
 
   // Rewards earned by the user breakdown per token
-  // token => {total to claim, total accumulated, token symbol, breakdown per wrapper type}
-  rewardsPerToken?: { [token: string]: { total: number; accumulated: number; symbol: string; breakdown: BreakdownType } };
+  // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
+  rewardsPerToken?: { [token: string]: { unclaimed: number; accumulatedSinceInception: number; symbol: string; breakdown: BreakdownType } };
 
   // Detail of each distribution
   distributionData: DistributionDataType[];
@@ -84,14 +87,16 @@ export type PoolDataType = Partial<{
  */
 export type MerklAPIData = {
   message: string;
-  signed: boolean;
-  feeRebate: number;
+  signed?: boolean;
+  feeRebate?: number;
   pools: { [address: string]: PoolDataType }; // Data per pool to build cards
-  transactionData: {
-    // Data to build transaction
-    claim: string;
-    token: string;
-    leaf: string;
-    proof?: string[];
-  }[];
+  transactionData?: {
+    [token: string]: {
+      // Data to build transaction
+      claim: string;
+      token: string;
+      leaf: string;
+      proof?: string[];
+    };
+  };
 };
