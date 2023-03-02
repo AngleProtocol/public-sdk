@@ -63,6 +63,7 @@ export type PoolDataType = Partial<{
   tokenSymbol1: string;
   token1InPool: number; // Total amount of token1 in the pool
 
+  liquidity?: number; // liquidity in the pool
   tvl?: number; // TVL in the pool, in $
 
   // User tokens in the pool and breakdown by wrapper
