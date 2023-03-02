@@ -56,10 +56,12 @@ export type PoolDataType = Partial<{
   poolFee: number; // Fee of the AMM pool
 
   token0: string;
+  decimalToken0: number;
   tokenSymbol0: string;
   token0InPool: number; // Total amount of token0 in the pool
 
   token1: string;
+  decimalToken1: number;
   tokenSymbol1: string;
   token1InPool: number; // Total amount of token1 in the pool
 
