@@ -93,7 +93,7 @@ export type PoolDataType = Partial<{
 export type MerklAPIData = {
   message: string;
   signed?: boolean;
-  validRewardTokens?: BigNumber[];
+  validRewardTokens?: { token: string; minimumAmountPerEpoch: number }[];
   feeRebate?: number;
   pools: { [address: string]: PoolDataType }; // Data per pool to build cards
   transactionData?: {
