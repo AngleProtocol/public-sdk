@@ -258,6 +258,25 @@
       {
         "indexed": false,
         "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "RewardTokenMinimumAmountUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
         "name": "toggleStatus",
         "type": "uint256"
       }
@@ -344,10 +363,10 @@
   },
   {
     "inputs": [],
-    "name": "coreBorrow",
+    "name": "core",
     "outputs": [
       {
-        "internalType": "contract ICoreBorrow",
+        "internalType": "contract ICore",
         "name": "",
         "type": "address"
       }
@@ -2170,10 +2189,35 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getValidRewardTokens",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "minimumAmountPerEpoch",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct RewardTokenAmounts[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
-        "internalType": "contract ICoreBorrow",
-        "name": "_coreBorrow",
+        "internalType": "contract ICore",
+        "name": "_core",
         "type": "address"
       },
       {
@@ -2291,6 +2335,44 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "rewardTokenMinAmounts",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "rewardTokens",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "_feeRecipient",
         "type": "address"
       }
@@ -2335,6 +2417,24 @@
       }
     ],
     "name": "setNewDistributor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "setRewardTokenMinAmounts",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

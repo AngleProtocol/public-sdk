@@ -392,10 +392,10 @@
   },
   {
     "inputs": [],
-    "name": "coreBorrow",
+    "name": "core",
     "outputs": [
       {
-        "internalType": "contract ICoreBorrow",
+        "internalType": "contract ICore",
         "name": "",
         "type": "address"
       }
@@ -484,8 +484,8 @@
   {
     "inputs": [
       {
-        "internalType": "contract ICoreBorrow",
-        "name": "_coreBorrow",
+        "internalType": "contract ICore",
+        "name": "_core",
         "type": "address"
       }
     ],
