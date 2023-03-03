@@ -1,3 +1,5 @@
+import { BigNumber } from 'ethers';
+
 export enum WrapperType {
   'ARRAKIS' = 0,
   'ARRAKIS_GAUGE' = 1,
@@ -91,6 +93,7 @@ export type PoolDataType = Partial<{
 export type MerklAPIData = {
   message: string;
   signed?: boolean;
+  validRewardTokens?: BigNumber[];
   feeRebate?: number;
   pools: { [address: string]: PoolDataType }; // Data per pool to build cards
   transactionData?: {
