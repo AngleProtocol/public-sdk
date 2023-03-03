@@ -28,5 +28,6 @@ export default (
 };
 
 export * from './contracts';
+export * from './endpoints';
 export * from './tokens';
 export * from './types';
