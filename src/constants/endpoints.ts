@@ -1,5 +1,4 @@
-import { ChainId } from 'src';
-
+import { ChainId } from '../types/constants';
 import { SupportedChainsType } from '../types/merkl';
 
 export const tgEndpoints: { [chainId in SupportedChainsType]: string } = {
