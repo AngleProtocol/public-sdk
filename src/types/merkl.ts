@@ -1,4 +1,6 @@
-import { BigNumber } from 'ethers';
+import { ChainId } from '.';
+
+export type SupportedChainsType = ChainId.POLYGON | ChainId.MAINNET | ChainId.OPTIMISM;
 
 export enum WrapperType {
   'ARRAKIS' = 0,
