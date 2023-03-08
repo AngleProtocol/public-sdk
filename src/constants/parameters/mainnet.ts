@@ -627,6 +627,7 @@ const poolsParameters: PoolsParameters = {
 // figure manually on Python
 const interestRate05 = BigNumber.from('158153934393112649');
 const interestRate15 = BigNumber.from('472114791705280367');
+const interestRate20 = BigNumber.from('627937257746680188');
 const stablesParameters: StablesParameters = {
   EUR: {
     stakings: [
@@ -833,6 +834,40 @@ const stablesParameters: StablesParameters = {
           maxLiquidationDiscount: parseAmount.gwei('0.09'),
           whitelistingActivated: false,
           baseBoost: parseAmount.gwei('2'),
+        },
+      },
+      {
+        collateral: '0x52d134c6DB5889FaD3542A09eAf7Aa90C0fdf9E4',
+        symbol: 'bIBTA',
+        oracle: 'IBTA_EUR',
+        params: {
+          debtCeiling: parseEther('5000000'),
+          collateralFactor: parseAmount.gwei('0.8'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate20,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.10'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('10'),
+        },
+      },
+      {
+        collateral: '0xCA30c93B02514f86d5C86a6e375E3A330B435Fb5',
+        symbol: 'bIBT01',
+        oracle: 'IBT01_EUR',
+        params: {
+          debtCeiling: parseEther('5000000'),
+          collateralFactor: parseAmount.gwei('0.8'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate20,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.10'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('10'),
         },
       },
     ],
