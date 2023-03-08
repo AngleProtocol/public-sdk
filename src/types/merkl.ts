@@ -3,12 +3,19 @@ import { ChainId } from '.';
 export type SupportedChainsType = ChainId.POLYGON | ChainId.MAINNET | ChainId.OPTIMISM;
 
 export enum WrapperType {
-  'ARRAKIS' = 0,
-  'ARRAKIS_GAUGE' = 1,
-  'GAMMA' = 2,
+  'Arrakis' = 0,
+  'Gamma' = 2,
+}
+enum OtherDistributionWrapperType {
+  'Blacklist' = 3,
 }
 
-export type RewardOrigin = 'UniswapV3' | 'Arrakis' | 'Arrakis Gauge' | 'Gamma';
+export const DistributionWrapperType = {
+  ...WrapperType,
+  ...OtherDistributionWrapperType,
+};
+
+export type RewardOrigin = 'UniswapV3' | 'Arrakis' | 'Gamma';
 
 // ============================= BACKEND DATA TYPE =============================
 
