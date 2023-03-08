@@ -21,8 +21,12 @@ export const getMerklWrapperAddressesFromTheGraph = async (chainId: SupportedCha
   }>(tg_merkl as string, wrapperQuery, {
     poolId: pool,
   });
-  const arrakisPools = poolData?.pool.arrakisPools;
-  const gammaPools = poolData?.pool.gammaPools;
+  const arrakisPools = poolData?.pool.arrakisPools.filter(function (elem, pos) {
+    return poolData?.pool.arrakisPools.indexOf(elem) == pos;
+  });
+  const gammaPools = poolData?.pool.gammaPools.filter(function (elem, pos) {
+    return poolData?.pool.gammaPools.indexOf(elem) == pos;
+  });
 
   return { arrakisPools, gammaPools };
 };
