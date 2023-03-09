@@ -3,8 +3,9 @@ import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
 import { ExtensiveDistributionParametersStruct } from '../constants/types/DistributionCreator';
-import { AggregatedRewardsType, MerklAPIData, UnderlyingTreeType, WrapperType } from '../types';
+import { AggregatedRewardsType, MerklAPIData, SupportedChainsType, UnderlyingTreeType, WrapperType } from '../types';
 import { BN2Number } from './index';
+import { getMerklWrapperAddressesFromTheGraph } from './thegraph';
 
 /**
  * @param underylingTreeData
@@ -98,16 +99,19 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
 /**
  * @notice Returns the deduped list of wrappers per pools from the list of distribution fetched from solidity
  */
-export const wrappersPerPoolFromSolidityStruct = (
+export const wrappersPerPoolFromSolidityStruct = async (
+  chainId: SupportedChainsType,
   data: ExtensiveDistributionParametersStruct[]
-): {
-  pool: string;
-  decimal0: number;
-  token0: string;
-  decimal1: number;
-  token1: string;
-  wrappers: { type: WrapperType; address: string }[];
-}[] => {
+): Promise<
+  {
+    pool: string;
+    decimal0: number;
+    token0: string;
+    decimal1: number;
+    token1: string;
+    wrappers: { type: WrapperType; address: string }[];
+  }[]
+> => {
   const pools = poolListFromSolidityStruct(data);
   const res = [];
 
@@ -127,8 +131,14 @@ export const wrappersPerPoolFromSolidityStruct = (
       pool: p,
       wrappers: [],
     };
+    /** Gamma and Arrakis wrapper */
+    const { arrakisPools, gammaPools } = await getMerklWrapperAddressesFromTheGraph(chainId, p);
+    arrakisPools.forEach((arrakis) => aux.wrappers.push({ address: arrakis, type: WrapperType.Arrakis }));
+    gammaPools.forEach((gamma) => aux.wrappers.push({ address: gamma, type: WrapperType.Gamma }));
+    /** Other wrappers */
     for (const d of data.filter((d) => d.base.uniV3Pool === p)) {
       for (const [index, type] of d.base.wrapperTypes.entries()) {
+        // @picodes are we sure about the condition below? we want to accept several potential vault addresses per wrapper type?
         if (!aux.wrappers.map((t) => t.type).includes(BN2Number(type, 0))) {
           aux.wrappers.push({ address: d.base.positionWrappers[index], type: BN2Number(type, 0) });
         }
