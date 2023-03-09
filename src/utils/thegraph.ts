@@ -13,7 +13,6 @@ export const getMerklWrapperAddressesFromTheGraph = async (chainId: SupportedCha
         arrakisPools
         gammaPools
       }
-      s
     }
   `;
   const poolData = await request<{
