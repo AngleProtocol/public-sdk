@@ -138,10 +138,6 @@ export const wrappersPerPoolFromSolidityStruct = async (
     /** Other wrappers */
     for (const d of data.filter((d) => d.base.uniV3Pool === p)) {
       for (const [index, type] of d.base.wrapperTypes.entries()) {
-<<<<<<< HEAD
-=======
-        // @picodes are we sure about the condition below? we want to accept several potential vault addresses per wrapper type?
->>>>>>> c0bbc0b (fix: handle multiple vaults per wrapper)
         if (BN2Number(type, 0) !== WrapperType.Arrakis && BN2Number(type, 0) !== WrapperType.Gamma) {
           aux.wrappers.push({ address: d.base.positionWrappers[index], type: BN2Number(type, 0) });
         }
