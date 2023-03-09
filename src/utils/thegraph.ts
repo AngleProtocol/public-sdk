@@ -19,7 +19,7 @@ export const getMerklWrapperAddressesFromTheGraph = async (chainId: SupportedCha
   const poolData = await request<{
     pool: PoolAddressesType;
   }>(tg_merkl as string, wrapperQuery, {
-    poolId: pool,
+    poolId: pool?.toLowerCase(),
   });
   const arrakisPools = poolData?.pool.arrakisPools.filter(function (elem, pos) {
     return poolData?.pool.arrakisPools.indexOf(elem) == pos;
