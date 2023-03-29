@@ -1,6 +1,10 @@
 import { ChainId } from '.';
 
-export type SupportedChainsType = ChainId.POLYGON | ChainId.MAINNET | ChainId.OPTIMISM;
+const MerklSupportedChainIds = <const>[ChainId.OPTIMISM, ChainId.POLYGON];
+export type MerklSupportedChainIdsType = typeof MerklSupportedChainIds[number];
+export const isMerklSupportedChainId = (chainId: any): chainId is MerklSupportedChainIdsType => {
+  return MerklSupportedChainIds.includes(chainId);
+};
 
 export enum WrapperType {
   'Arrakis' = 0,

@@ -3,7 +3,7 @@ import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
 import { ExtensiveDistributionParametersStruct } from '../constants/types/DistributionCreator';
-import { AggregatedRewardsType, MerklAPIData, SupportedChainsType, UnderlyingTreeType, WrapperType } from '../types';
+import { AggregatedRewardsType, MerklAPIData, MerklSupportedChainIdsType, UnderlyingTreeType, WrapperType } from '../types';
 import { BN2Number } from './index';
 import { getMerklWrapperAddressesFromTheGraph } from './thegraph';
 
@@ -100,7 +100,7 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
  * @notice Returns the deduped list of wrappers per pools from the list of distribution fetched from solidity
  */
 export const wrappersPerPoolFromSolidityStruct = async (
-  chainId: SupportedChainsType,
+  chainId: MerklSupportedChainIdsType,
   data: ExtensiveDistributionParametersStruct[]
 ): Promise<
   {
