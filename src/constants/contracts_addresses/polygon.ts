@@ -59,7 +59,7 @@ const addresses: ContractsRegistryType['1'] = {
   Governor: '0xdA2D2f638D6fcbE306236583845e5822554c02EA',
   Guardian: '0x3b9D32D0822A6351F415BeaB05251c1457FF6f8D',
   Merkl: {
-    CoreMerkl: '0xc2c7a0d9a9e0467090281c3a4f28D40504d08FB4',
+    CoreMerkl: '0x9418D0aa02fCE40804aBF77bb81a1CcBeB91eaFC',
     DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
     Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
   },
