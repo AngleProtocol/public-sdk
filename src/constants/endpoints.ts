@@ -3,8 +3,8 @@ import { MerklSupportedChainIdsType } from '../types/merkl';
 
 const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/guillaumenervoxs/uniswap-global-';
 export const merklSubgraphEndpoints: { [chainId in MerklSupportedChainIdsType]: string } = {
-  [ChainId.POLYGON]: merklSubgraphPrefix + '-polygon',
-  [ChainId.OPTIMISM]: merklSubgraphPrefix + '-optimism',
+  [ChainId.POLYGON]: merklSubgraphPrefix + 'polygon',
+  [ChainId.OPTIMISM]: merklSubgraphPrefix + 'optimism',
 };
 
 export const uniswapV3TheGraphEndpoints: { [chainId in MerklSupportedChainIdsType]: string } = {
