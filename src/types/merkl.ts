@@ -1,6 +1,6 @@
 import { ChainId } from '.';
 
-const MerklSupportedChainIds = <const>[ChainId.ARBITRUM, ChainId.OPTIMISM, ChainId.POLYGON];
+const MerklSupportedChainIds = <const>[ChainId.ARBITRUM, ChainId.MAINNET, ChainId.OPTIMISM, ChainId.POLYGON];
 export type MerklSupportedChainIdsType = typeof MerklSupportedChainIds[number];
 export const isMerklSupportedChainId = (chainId: any): chainId is MerklSupportedChainIdsType => {
   return MerklSupportedChainIds.includes(chainId);
