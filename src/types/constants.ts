@@ -1,16 +1,16 @@
 import { BigNumber } from 'ethers';
 
 export enum ChainId {
-  MAINNET = 1,
-  POLYGON = 137,
+  ARBITRUM = 42161,
+  AURORA = 1313161554,
   AVALANCHE = 43114,
+  BSC = 56,
   CELO = 42220,
   FANTOM = 250,
-  BSC = 56,
-  AURORA = 1313161554,
   LOCAL = 1337,
+  MAINNET = 1,
   OPTIMISM = 10,
-  ARBITRUM = 42161,
+  POLYGON = 137,
 }
 
 export const NETWORK_LABELS: { [key in ChainId]: string } = {
