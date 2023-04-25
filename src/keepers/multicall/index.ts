@@ -14,6 +14,7 @@ const MULTICALL_NETWORKS: { [chainId in ChainId]: string } = {
   [ChainId.LOCAL]: '0x0',
   [ChainId.ARBITRUM]: '',
   [ChainId.OPTIMISM]: '',
+  [ChainId.GNOSIS]: '',
 };
 
 const MULTICALL_INTERFACE = new utils.Interface(MULTICALL_ABI);

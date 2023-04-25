@@ -24,14 +24,16 @@ const listStables = (chainId: ChainId) => {
 type TokenDict = {
   [tokenAddress: string]: Token;
 };
-type AllTokens = Readonly<{
-  [chainId in ChainId]: Readonly<{
-    [AssetType.STABLE]: Readonly<TokenDict>;
-    [AssetType.COLLATERAL]: Readonly<TokenDict>;
-    [AssetType.EXTERNAL_STAKING]: Readonly<TokenDict>;
-    [AssetType.ANGLE]: Token;
-  }>;
-}>;
+type AllTokens = Readonly<
+  {
+    [chainId in ChainId]: Readonly<{
+      [AssetType.STABLE]: Readonly<TokenDict>;
+      [AssetType.COLLATERAL]: Readonly<TokenDict>;
+      [AssetType.EXTERNAL_STAKING]: Readonly<TokenDict>;
+      [AssetType.ANGLE]: Token;
+    }>;
+  }
+>;
 const arrayOfTokensToTokenDict = (arr: Token[]): TokenDict => {
   return arr.reduce<TokenDict>((acc, token) => {
     return {
@@ -183,6 +185,18 @@ export const ALL_TOKENS: AllTokens = {
     [AssetType.ANGLE]: new Token(
       ChainId.CELO,
       CONTRACTS_ADDRESSES[ChainId.CELO].ANGLE ?? constants.AddressZero,
+      18,
+      'ANGLE',
+      'Angle Governance Token'
+    ),
+  },
+  [ChainId.GNOSIS]: {
+    [AssetType.STABLE]: {},
+    [AssetType.COLLATERAL]: {},
+    [AssetType.EXTERNAL_STAKING]: arrayOfTokensToTokenDict([]),
+    [AssetType.ANGLE]: new Token(
+      ChainId.GNOSIS,
+      CONTRACTS_ADDRESSES[ChainId.GNOSIS].ANGLE ?? constants.AddressZero,
       18,
       'ANGLE',
       'Angle Governance Token'
