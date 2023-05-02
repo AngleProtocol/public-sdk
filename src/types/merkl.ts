@@ -1,9 +1,23 @@
+import { BigNumber, ethers } from 'ethers';
+
 import { ChainId } from '.';
 
 const MerklSupportedChainIds = <const>[ChainId.ARBITRUM, ChainId.MAINNET, ChainId.OPTIMISM, ChainId.POLYGON];
 export type MerklSupportedChainIdsType = typeof MerklSupportedChainIds[number];
 export const isMerklSupportedChainId = (chainId: any): chainId is MerklSupportedChainIdsType => {
   return MerklSupportedChainIds.includes(chainId);
+};
+
+export enum AMMType {
+  'UniswapV3' = 0,
+  'SushiSwap' = 1,
+}
+export const findMerklAMMType = (bytes: string): AMMType => {
+  const utils = ethers.utils;
+  if (!bytes || !utils.isBytesLike(bytes)) return AMMType.UniswapV3;
+  const firstDecodedValue = (utils.defaultAbiCoder.decode(['uint256'], bytes)[0] as BigNumber)?.toNumber();
+  if (!Object.values(AMMType).includes(firstDecodedValue)) return AMMType.UniswapV3;
+  return firstDecodedValue;
 };
 
 export enum WrapperType {
