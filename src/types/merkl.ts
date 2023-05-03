@@ -66,59 +66,71 @@ export type AggregatedRewardsType = {
 };
 
 // =============================== API DATA TYPE ===============================
-
-export type BreakdownType = { [origin in RewardOrigin[0]]?: number };
+// export type BreakdownType = {
+//   [K in keyof typeof AMMType]: { [origin in RewardOrigin[typeof AMMType[K]]]?: number };
+// }[keyof typeof AMMType];
 
 export type DistributionDataType = {
-  token: string; // Token distributed
-  tokenSymbol: string;
-  amount: number; // Amount distributed
-  propToken0: number;
-  propToken1: number;
-  propFees: number;
+  [K in keyof typeof AMMType]: {
+    amm: typeof AMMType[K];
+    token: string; // Token distributed
+    tokenSymbol: string;
+    amount: number; // Amount distributed
+    propToken0: number;
+    propToken1: number;
+    propFees: number;
+    unclaimed?: number; // Unclaimed reward amount by the user
+    breakdown?: { [origin in RewardOrigin[typeof AMMType[K]]]?: number }; // rewards earned breakdown
+    start: number;
+    end: number;
+    wrappers: WrapperType[]; // Supported wrapper types for this pool
+  };
+}[keyof typeof AMMType];
 
-  unclaimed?: number; // Unclaimed reward amount by the user
-  breakdown?: BreakdownType; // rewards earned breakdown
+export type PoolDataType = Partial<
+  {
+    [K in keyof typeof AMMType]: {
+      pool: string; // AMM pool address
+      poolFee: number; // Fee of the AMM pool
 
-  start: number;
-  end: number;
+      token0: string;
+      decimalToken0: number;
+      tokenSymbol0: string;
+      token0InPool: number; // Total amount of token0 in the pool
 
-  wrappers: WrapperType[]; // Supported wrapper types for this pool
-};
+      token1: string;
+      decimalToken1: number;
+      tokenSymbol1: string;
+      token1InPool: number; // Total amount of token1 in the pool
 
-export type PoolDataType = Partial<{
-  pool: string; // AMM pool address
-  poolFee: number; // Fee of the AMM pool
+      liquidity?: number; // liquidity in the pool
+      tvl?: number; // TVL in the pool, in $
 
-  token0: string;
-  decimalToken0: number;
-  tokenSymbol0: string;
-  token0InPool: number; // Total amount of token0 in the pool
+      // User tokens in the pool and breakdown by wrapper
+      userTotalBalance0?: number;
+      userTotalBalance1?: number;
+      userTVL?: number; // user TVL in the pool, in $
+      userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType | -1 }[];
 
-  token1: string;
-  decimalToken1: number;
-  tokenSymbol1: string;
-  token1InPool: number; // Total amount of token1 in the pool
+      meanAPR: number; // Average APR in the pool
+      aprs: { [description: string]: number }; // APR description (will contain wrapper types)
 
-  liquidity?: number; // liquidity in the pool
-  tvl?: number; // TVL in the pool, in $
+      // Rewards earned by the user breakdown per token
+      // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
+      rewardsPerToken?: {
+        [token: string]: {
+          unclaimed: number;
+          accumulatedSinceInception: number;
+          symbol: string;
+          breakdown: { [origin in RewardOrigin[typeof AMMType[K]]]?: number };
+        };
+      };
 
-  // User tokens in the pool and breakdown by wrapper
-  userTotalBalance0?: number;
-  userTotalBalance1?: number;
-  userTVL?: number; // user TVL in the pool, in $
-  userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType | -1 }[];
-
-  meanAPR: number; // Average APR in the pool
-  aprs: { [description: string]: number }; // APR description (will contain wrapper types)
-
-  // Rewards earned by the user breakdown per token
-  // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
-  rewardsPerToken?: { [token: string]: { unclaimed: number; accumulatedSinceInception: number; symbol: string; breakdown: BreakdownType } };
-
-  // Detail of each distribution
-  distributionData: DistributionDataType[];
-}>;
+      // Detail of each distribution
+      distributionData: DistributionDataType[];
+    };
+  }[keyof typeof AMMType]
+>;
 
 /**
  * Global data object returned by the api, that can be used to build front-ends
