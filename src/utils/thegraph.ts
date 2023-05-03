@@ -7,9 +7,10 @@ type PoolAddressesType = { arrakisPools: string[]; gammaPools: string[] };
 
 export const getMerklWrapperAddressesFromTheGraph = async (
   chainId: MerklSupportedChainIdsType,
+  amm: AMMType,
   pool: string
 ): Promise<PoolAddressesType> => {
-  const tg_merkl = merklSubgraphEndpoint[chainId][AMMType.UniswapV3];
+  const tg_merkl = merklSubgraphEndpoint[chainId][amm];
   const wrapperQuery = gql`
     query Query($poolId: ID!) {
       pool(id: $poolId) {
