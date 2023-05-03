@@ -1,4 +1,5 @@
-import { AMMType, ChainId, MerklSupportedChainIdsType } from 'src';
+import { ChainId } from '../../types/constants';
+import { AMMType, MerklSupportedChainIdsType } from '../../types/merkl';
 
 export const NFTManagerAddress: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
   [ChainId.ARBITRUM]: {

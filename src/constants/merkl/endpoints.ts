@@ -2,7 +2,6 @@ import { ChainId } from '../../types/constants';
 import { AMMType, MerklSupportedChainIdsType } from '../../types/merkl';
 
 const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/guillaumenervoxs/uniswap-global-';
-
 export const merklSubgraphEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
   [ChainId.ARBITRUM]: { [AMMType.UniswapV3]: merklSubgraphPrefix + 'arbitrum', [AMMType.SushiSwap]: '' },
   [ChainId.MAINNET]: { [AMMType.UniswapV3]: merklSubgraphPrefix + 'ethereum', [AMMType.SushiSwap]: '' },
