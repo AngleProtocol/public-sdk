@@ -10,7 +10,8 @@ export const isMerklSupportedChainId = (chainId: any): chainId is MerklSupported
 
 export enum AMMType {
   'UniswapV3' = 0,
-  'SushiSwap' = 1,
+  'SushiSwapV3' = 1,
+  'Retro' = 2,
 }
 export const findMerklAMMType = (bytes: string): AMMType => {
   const utils = ethers.utils;
@@ -35,7 +36,8 @@ export const DistributionWrapperType = {
 
 export type RewardOrigin = {
   [AMMType.UniswapV3]: 'UniswapV3' | 'Arrakis' | 'Gamma';
-  [AMMType.SushiSwap]: 'SushiSwap';
+  [AMMType.SushiSwapV3]: 'SushiSwap';
+  [AMMType.Retro]: 'Retro';
 };
 
 // ============================= BACKEND DATA TYPE =============================
