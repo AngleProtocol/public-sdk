@@ -33,21 +33,28 @@ export const DistributionWrapperType = {
   ...OtherDistributionWrapperType,
 };
 
-export type RewardOrigin = 'UniswapV3' | 'Arrakis' | 'Gamma';
+export type RewardOrigin = {
+  [AMMType.UniswapV3]: 'UniswapV3' | 'Arrakis' | 'Gamma';
+  [AMMType.SushiSwap]: 'SushiSwap';
+};
 
 // ============================= BACKEND DATA TYPE =============================
-
 export type MerklRewardDistributionType = {
-  boostedAddress: string;
-  boostedReward: number;
-  holders: { [holder: string]: { amount: string; breakdown?: { [origin in RewardOrigin]?: string } } };
-  lastUpdateEpoch: number; // The only use of this is to quickly know if a distribution was already completed
-  pool: string;
-  token: string;
-  tokenDecimals: number;
-  tokenSymbol: string;
-  totalAmount: string;
-};
+  [K in keyof typeof AMMType]: {
+    amm: typeof AMMType[K];
+    boostedAddress: string;
+    boostedReward: number;
+    holders: {
+      [holder: string]: { amount: string; breakdown?: { [origin in RewardOrigin[typeof AMMType[K]]]?: string } };
+    };
+    lastUpdateEpoch: number; // The only use of this is to quickly know if a distribution was already completed
+    pool: string;
+    token: string;
+    tokenDecimals: number;
+    tokenSymbol: string;
+    totalAmount: string;
+  };
+}[keyof typeof AMMType];
 
 export type UnderlyingTreeType = { [rewardId: string]: MerklRewardDistributionType };
 
@@ -60,12 +67,11 @@ export type AggregatedRewardsType = {
 
 // =============================== API DATA TYPE ===============================
 
-export type BreakdownType = { [origin in RewardOrigin]?: number };
+export type BreakdownType = { [origin in RewardOrigin[0]]?: number };
 
 export type DistributionDataType = {
   token: string; // Token distributed
   tokenSymbol: string;
-
   amount: number; // Amount distributed
   propToken0: number;
   propToken1: number;

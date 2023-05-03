@@ -28,6 +28,6 @@ export default (
 };
 
 export * from './contracts';
-export * from './endpoints';
+export * from './merkl';
 export * from './tokens';
 export * from './types';
