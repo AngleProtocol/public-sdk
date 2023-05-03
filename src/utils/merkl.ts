@@ -3,7 +3,7 @@ import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
 import { ExtensiveDistributionParametersStruct } from '../constants/types/DistributionCreator';
-import { AggregatedRewardsType, MerklAPIData, MerklSupportedChainIdsType, UnderlyingTreeType, WrapperType } from '../types';
+import { AggregatedRewardsType, AMMType, MerklAPIData, MerklSupportedChainIdsType, UnderlyingTreeType, WrapperType } from '../types';
 import { BN2Number } from './index';
 import { getMerklWrapperAddressesFromTheGraph } from './thegraph';
 
@@ -101,6 +101,7 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
  */
 export const wrappersPerPoolFromSolidityStruct = async (
   chainId: MerklSupportedChainIdsType,
+  amm: AMMType,
   data: ExtensiveDistributionParametersStruct[]
 ): Promise<
   {
@@ -132,7 +133,7 @@ export const wrappersPerPoolFromSolidityStruct = async (
       wrappers: [],
     };
     /** Gamma and Arrakis wrapper */
-    const { arrakisPools, gammaPools } = await getMerklWrapperAddressesFromTheGraph(chainId, p);
+    const { arrakisPools, gammaPools } = await getMerklWrapperAddressesFromTheGraph(chainId, amm, p);
     arrakisPools.forEach((arrakis) => aux.wrappers.push({ address: arrakis, type: WrapperType.Arrakis }));
     gammaPools.forEach((gamma) => aux.wrappers.push({ address: gamma, type: WrapperType.Gamma }));
     /** Other wrappers */
