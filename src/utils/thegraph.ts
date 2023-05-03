@@ -1,7 +1,7 @@
 import { gql, request } from 'graphql-request';
 
-import { merklSubgraphEndpoints } from '../constants/endpoints';
-import { MerklSupportedChainIdsType } from '../types/merkl';
+import { merklSubgraphEndpoint } from '../constants/merkl/endpoints';
+import { AMMType, MerklSupportedChainIdsType } from '../types/merkl';
 
 type PoolAddressesType = { arrakisPools: string[]; gammaPools: string[] };
 
@@ -9,7 +9,7 @@ export const getMerklWrapperAddressesFromTheGraph = async (
   chainId: MerklSupportedChainIdsType,
   pool: string
 ): Promise<PoolAddressesType> => {
-  const tg_merkl = merklSubgraphEndpoints[chainId];
+  const tg_merkl = merklSubgraphEndpoint[chainId][AMMType.UniswapV3];
   const wrapperQuery = gql`
     query Query($poolId: ID!) {
       pool(id: $poolId) {
@@ -29,6 +29,5 @@ export const getMerklWrapperAddressesFromTheGraph = async (
   const gammaPools = poolData?.pool.gammaPools.filter(function (elem, pos) {
     return poolData?.pool.gammaPools.indexOf(elem) == pos;
   });
-
   return { arrakisPools, gammaPools };
 };

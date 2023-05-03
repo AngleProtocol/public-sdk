@@ -24,16 +24,14 @@ const listStables = (chainId: ChainId) => {
 type TokenDict = {
   [tokenAddress: string]: Token;
 };
-type AllTokens = Readonly<
-  {
-    [chainId in ChainId]: Readonly<{
-      [AssetType.STABLE]: Readonly<TokenDict>;
-      [AssetType.COLLATERAL]: Readonly<TokenDict>;
-      [AssetType.EXTERNAL_STAKING]: Readonly<TokenDict>;
-      [AssetType.ANGLE]: Token;
-    }>;
-  }
->;
+type AllTokens = Readonly<{
+  [chainId in ChainId]: Readonly<{
+    [AssetType.STABLE]: Readonly<TokenDict>;
+    [AssetType.COLLATERAL]: Readonly<TokenDict>;
+    [AssetType.EXTERNAL_STAKING]: Readonly<TokenDict>;
+    [AssetType.ANGLE]: Token;
+  }>;
+}>;
 const arrayOfTokensToTokenDict = (arr: Token[]): TokenDict => {
   return arr.reduce<TokenDict>((acc, token) => {
     return {
