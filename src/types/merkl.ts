@@ -15,7 +15,7 @@ export enum AMMType {
 }
 export const findMerklAMMType = (bytes: string): AMMType => {
   const utils = ethers.utils;
-  if (!bytes || !utils.isBytesLike(bytes)) return AMMType.UniswapV3;
+  if (!bytes || !utils.isBytesLike(bytes) || bytes === '0x') return AMMType.UniswapV3;
   const firstDecodedValue = (utils.defaultAbiCoder.decode(['uint256'], bytes)[0] as BigNumber)?.toNumber();
   if (!Object.values(AMMType).includes(firstDecodedValue)) return AMMType.UniswapV3;
   return firstDecodedValue;
