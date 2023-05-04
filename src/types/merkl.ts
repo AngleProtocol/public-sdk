@@ -30,19 +30,22 @@ export const Wrapper = {
   [AMMType.SushiSwapV3]: null,
   [AMMType.Retro]: null,
 };
-export type WrapperType = {
+type WrapperTypeMapping = {
   [AMMType.UniswapV3]: UniswapV3Wrapper;
-  [AMMType.SushiSwapV3]: null;
-  [AMMType.Retro]: null;
+  [AMMType.SushiSwapV3]: any;
+  [AMMType.Retro]: any;
 };
-enum BlacklistWrapper {
+export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
+
+export enum BlacklistWrapper {
   'Blacklist' = 3,
 }
-export const BlacklistWrapperType = {
-  [AMMType.UniswapV3]: BlacklistWrapper,
-  [AMMType.SushiSwapV3]: BlacklistWrapper,
-  [AMMType.Retro]: BlacklistWrapper,
+type BlacklistWrapperTypeMapping = {
+  [AMMType.UniswapV3]: BlacklistWrapper;
+  [AMMType.SushiSwapV3]: BlacklistWrapper;
+  [AMMType.Retro]: BlacklistWrapper;
 };
+export type BlacklistWrapperType<T extends AMMType> = BlacklistWrapperTypeMapping[T];
 // export const OnChainDistributionWrapperType = {
 //   [AMMType.UniswapV3]: { ...UniswapV3Wrapper, ...BlacklistWrapper },
 //   [AMMType.SushiSwapV3]: BlacklistWrapper,
@@ -50,11 +53,12 @@ export const BlacklistWrapperType = {
 // };
 
 /** Reward origin */
-export type RewardOrigin = {
+type RewardOriginMapping = {
   [AMMType.UniswapV3]: 'UniswapV3' | 'Arrakis' | 'Gamma';
   [AMMType.SushiSwapV3]: 'SushiSwap';
   [AMMType.Retro]: 'Retro';
 };
+export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
 // ============================= BACKEND DATA TYPE =============================
 export type MerklRewardDistributionType = {
@@ -63,7 +67,7 @@ export type MerklRewardDistributionType = {
     boostedAddress: string;
     boostedReward: number;
     holders: {
-      [holder: string]: { amount: string; breakdown?: { [origin in RewardOrigin[typeof AMMType[K]]]?: string } };
+      [holder: string]: { amount: string; breakdown?: { [origin in RewardOrigin<typeof AMMType[K]>]?: string } };
     };
     lastUpdateEpoch: number; // The only use of this is to quickly know if a distribution was already completed
     pool: string;
@@ -88,25 +92,23 @@ export type AggregatedRewardsType = {
 //   [K in keyof typeof AMMType]: { [origin in RewardOrigin[typeof AMMType[K]]]?: number };
 // }[keyof typeof AMMType];
 
-export type DistributionDataType = Partial<
-  {
-    [K in keyof typeof AMMType]: {
-      amm: typeof AMMType[K];
-      token: string; // Token distributed
-      tokenSymbol: string;
-      amount: number; // Amount distributed
-      propToken0: number;
-      propToken1: number;
-      propFees: number;
-      unclaimed?: number; // Unclaimed reward amount by the user
-      breakdown?: { [origin in RewardOrigin[typeof AMMType[K]]]?: number }; // rewards earned breakdown
-      start: number;
-      end: number;
-      wrappers: WrapperType[typeof AMMType[K]][]; // Supported wrapper types for this pool
-      // wrappers: UniswapV3Wrapper[];
-    };
-  }[keyof typeof AMMType]
->;
+export type DistributionDataType = {
+  [K in keyof typeof AMMType]: {
+    amm: typeof AMMType[K];
+    token: string; // Token distributed
+    tokenSymbol: string;
+    amount: number; // Amount distributed
+    propToken0: number;
+    propToken1: number;
+    propFees: number;
+    unclaimed?: number; // Unclaimed reward amount by the user
+    breakdown?: { [origin in RewardOrigin<typeof AMMType[K]>]?: number }; // rewards earned breakdown
+    start: number;
+    end: number;
+    wrappers: WrapperType<typeof AMMType[K]>[]; // Supported wrapper types for this pool
+    // wrappers: UniswapV3Wrapper[];
+  };
+}[keyof typeof AMMType];
 
 // const a: DistributionDataType = { amm: AMMType.UniswapV3, wrappers: [Wrapper[AMMType.UniswapV3].Arrakis] };
 
@@ -133,7 +135,7 @@ export type PoolDataType = Partial<
       userTotalBalance0?: number;
       userTotalBalance1?: number;
       userTVL?: number; // user TVL in the pool, in $
-      userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType[typeof AMMType[K]] | -1 }[];
+      userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType<typeof AMMType[K]> | -1 }[];
 
       meanAPR: number; // Average APR in the pool
       aprs: { [description: string]: number }; // APR description (will contain wrapper types)
@@ -145,7 +147,7 @@ export type PoolDataType = Partial<
           unclaimed: number;
           accumulatedSinceInception: number;
           symbol: string;
-          breakdown: { [origin in RewardOrigin[typeof AMMType[K]]]?: number };
+          breakdown: { [origin in RewardOrigin<typeof AMMType[K]>]?: number };
         };
       };
 

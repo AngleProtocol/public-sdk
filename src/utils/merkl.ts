@@ -118,7 +118,7 @@ export const wrappersPerPoolFromSolidityStruct = async (
     token0: string;
     decimal1: number;
     token1: string;
-    wrappers: { type: WrapperType[typeof amm]; address: string }[];
+    wrappers: { type: WrapperType<typeof amm>; address: string }[];
   }[]
 > => {
   const pools = poolListFromSolidityStruct(data);
@@ -131,7 +131,7 @@ export const wrappersPerPoolFromSolidityStruct = async (
       token0: string;
       decimal1: number;
       token1: string;
-      wrappers: { type: WrapperType[typeof amm]; address: string }[];
+      wrappers: { type: WrapperType<typeof amm>; address: string }[];
     } = {
       decimal0: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token0.decimals, 0),
       decimal1: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token1.decimals, 0),
