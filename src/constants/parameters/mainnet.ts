@@ -739,7 +739,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'USDC-EUR',
         oracle: 'USDC_EUR',
         params: {
-          debtCeiling: parseEther('30000000'),
+          debtCeiling: parseEther('3000000'),
           collateralFactor: parseAmount.gwei('0.9'),
           targetHealthFactor: parseAmount.gwei('1.05'),
           borrowFee: parseAmount.gwei('0'),
