@@ -627,6 +627,7 @@ const poolsParameters: PoolsParameters = {
 // figure manually on Python
 const interestRate05 = BigNumber.from('158153934393112649');
 const interestRate15 = BigNumber.from('472114791705280367');
+const interestRate20 = BigNumber.from('627937257746680188');
 const stablesParameters: StablesParameters = {
   EUR: {
     stakings: [
@@ -734,6 +735,23 @@ const stablesParameters: StablesParameters = {
         },
       },
       {
+        collateral: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+        symbol: 'USDC-EUR',
+        oracle: 'USDC_EUR',
+        params: {
+          debtCeiling: parseEther('3000000'),
+          collateralFactor: parseAmount.gwei('0.9'),
+          targetHealthFactor: parseAmount.gwei('1.05'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate05,
+          liquidationSurcharge: parseAmount.gwei('0.98'),
+          maxLiquidationDiscount: parseAmount.gwei('0.05'),
+          whitelistingActivated: false,
+          baseBoost: parseAmount.gwei('3'),
+        },
+      },
+      {
         collateral: '0xa9d2Eea75C80fF9669cc998c276Ff26D741Dcb26',
         symbol: 'sdcrvFRAX-EUR',
         oracle: 'crvFRAX_EUR',
@@ -833,6 +851,26 @@ const stablesParameters: StablesParameters = {
           maxLiquidationDiscount: parseAmount.gwei('0.09'),
           whitelistingActivated: false,
           baseBoost: parseAmount.gwei('2'),
+        },
+      },
+      {
+        collateral: '0xCA30c93B02514f86d5C86a6e375E3A330B435Fb5',
+        symbol: 'bIBT01',
+        oracle: 'IBT01_EUR',
+        params: {
+          debtCeiling: parseEther('200000'),
+          collateralFactor: parseAmount.gwei('0.8'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate20,
+          liquidationSurcharge: parseAmount.gwei('0.96'),
+          maxLiquidationDiscount: parseAmount.gwei('0.10'),
+          whitelistingActivated: true,
+          baseBoost: parseAmount.gwei('10'),
+          dust: parseEther('0'),
+          dustLiquidation: parseEther('0'),
+          dustCollateral: parseEther('0'),
         },
       },
     ],
