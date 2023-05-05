@@ -4,7 +4,7 @@ import getConstants from '../../src/constants';
 import { computeClosePerpetual, computeOpenPerpetualFromMarginPosition } from '../../src/helpers/ha';
 import { divBy10ePow, ether, gwei } from '../../src/utils/bignumber';
 
-const CHAIN_ID = 4;
+const CHAIN_ID = 1;
 
 describe('Perpetuals', () => {
   const constants = getConstants(CHAIN_ID);

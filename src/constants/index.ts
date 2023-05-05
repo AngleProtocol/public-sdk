@@ -3,7 +3,7 @@ import { BigNumber } from 'ethers';
 import { ChainId } from '../types';
 import { ether, gwei } from '../utils/bignumber';
 import getParams from './parameters';
-import { GlobalParameters, PoolsParameters, StablesParameters } from './parameters/types';
+import { StablesParameters } from './parameters/types';
 
 export default (
   chainID: ChainId
@@ -13,9 +13,7 @@ export default (
   BASE_PARAMS: BigNumber;
   DECIMAL_TOKENS: number;
   DECIMAL_PARAMS: number;
-  globalParameters?: GlobalParameters;
   stablesParameters: StablesParameters;
-  poolsParameters?: PoolsParameters;
 } => {
   return {
     ZERO: BigNumber.from(0),

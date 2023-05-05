@@ -5,7 +5,7 @@ import { CollatRatioParams, estimateSlippage, simulateWithdraw } from '../../src
 import { divBy10e18, divBy10ePow, ether } from '../../src/utils/bignumber';
 
 describe('SLPs', () => {
-  const constants = getConstants(0);
+  const constants = getConstants(1);
   describe('estimateSlippage', () => {
     let collatRatioParams: CollatRatioParams;
 
