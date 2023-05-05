@@ -2,6 +2,7 @@ import { BigNumber, utils } from 'ethers';
 import invariant from 'tiny-invariant';
 
 import { SOLIDITY_TYPE_MAXIMA, SolidityType } from './constants';
+import { AMMType } from './merkl';
 
 export function validateSolidityTypeInstance(value: BigNumber, solidityType: SolidityType): void {
   // invariant(value.gte(0), `${value} is not a ${solidityType}.`);
@@ -19,6 +20,13 @@ export function validateAndParseAddress(address: string): string {
     throw new Error(`${address} is not a valid address.`);
   }
 }
+
+export const findMerklAMMType = (bytes: string): AMMType => {
+  if (!bytes || !utils.isBytesLike(bytes) || bytes === '0x') return AMMType.UniswapV3;
+  const firstDecodedValue = (utils.defaultAbiCoder.decode(['uint256'], bytes)[0] as BigNumber)?.toNumber();
+  if (!Object.values(AMMType).includes(firstDecodedValue)) return AMMType.UniswapV3;
+  return firstDecodedValue as AMMType;
+};
 
 export enum RouterActionType {
   transfer,

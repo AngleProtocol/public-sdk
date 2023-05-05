@@ -3,7 +3,16 @@ import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
 import { ExtensiveDistributionParametersStruct } from '../constants/types/DistributionCreator';
-import { AggregatedRewardsType, AMMType, MerklAPIData, MerklSupportedChainIdsType, UnderlyingTreeType, WrapperType } from '../types';
+import {
+  AggregatedRewardsType,
+  AMMType,
+  MerklAPIData,
+  MerklSupportedChainIdsType,
+  UnderlyingTreeType,
+  Wrapper,
+  WrapperType,
+} from '../types';
+import { findMerklAMMType } from '../types/utils';
 import { BN2Number } from './index';
 import { getMerklWrapperAddressesFromTheGraph } from './thegraph';
 
@@ -86,11 +95,11 @@ export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[]
 /**
  * @notice Returns the deduped list of pools from the list of distribution fetched from solidity
  */
-export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStruct[]): string[] => {
-  const pools: string[] = [];
+export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStruct[]): { address: string; amm: AMMType }[] => {
+  const pools: { address: string; amm: AMMType }[] = [];
   for (const d of data) {
-    if (!pools.includes(d.base.uniV3Pool)) {
-      pools.push(d.base.uniV3Pool);
+    if (!pools.map((pool) => pool.address).includes(d.base.uniV3Pool)) {
+      pools.push({ address: d.base.uniV3Pool, amm: findMerklAMMType(d.base.additionalData?.toString()) });
     }
   }
   return pools;
@@ -101,30 +110,34 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
  */
 export const wrappersPerPoolFromSolidityStruct = async (
   chainId: MerklSupportedChainIdsType,
-  amm: AMMType,
   data: ExtensiveDistributionParametersStruct[]
 ): Promise<
   {
+    amm: AMMType;
     pool: string;
     decimal0: number;
     token0: string;
     decimal1: number;
     token1: string;
-    wrappers: { type: WrapperType; address: string }[];
+    wrappers: { type: WrapperType<AMMType>; address: string }[];
   }[]
 > => {
   const pools = poolListFromSolidityStruct(data);
   const res = [];
-
-  for (const p of pools) {
+  /** Iterate over all distributions */
+  for (const pool of pools) {
+    const p = pool.address;
+    const amm = pool.amm;
     const aux: {
-      pool: string;
+      amm: AMMType;
       decimal0: number;
-      token0: string;
       decimal1: number;
+      pool: string;
+      token0: string;
       token1: string;
-      wrappers: { type: WrapperType; address: string }[];
+      wrappers: { type: WrapperType<typeof amm>; address: string }[];
     } = {
+      amm: amm,
       decimal0: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token0.decimals, 0),
       decimal1: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token1.decimals, 0),
       token0: data.filter((d) => d.base.uniV3Pool === p)[0].token0.symbol,
@@ -132,20 +145,23 @@ export const wrappersPerPoolFromSolidityStruct = async (
       pool: p,
       wrappers: [],
     };
-    /** Gamma and Arrakis wrapper */
-    const { arrakisPools, gammaPools } = await getMerklWrapperAddressesFromTheGraph(chainId, amm, p);
-    arrakisPools.forEach((arrakis) => aux.wrappers.push({ address: arrakis, type: WrapperType.Arrakis }));
-    gammaPools.forEach((gamma) => aux.wrappers.push({ address: gamma, type: WrapperType.Gamma }));
-    /** Other wrappers */
-    for (const d of data.filter((d) => d.base.uniV3Pool === p)) {
-      for (const [index, type] of d.base.wrapperTypes.entries()) {
-        if (BN2Number(type, 0) !== WrapperType.Arrakis && BN2Number(type, 0) !== WrapperType.Gamma) {
-          aux.wrappers.push({ address: d.base.positionWrappers[index], type: BN2Number(type, 0) });
+    const result = await getMerklWrapperAddressesFromTheGraph(chainId, amm, p);
+    // TODO: SPECIFIC TO UNISWAPV3
+    if (amm === AMMType.UniswapV3 && !!result) {
+      /** Gamma and Arrakis wrapper */
+      const { arrakisPools, gammaPools } = result;
+      arrakisPools.forEach((arrakis) => aux.wrappers.push({ address: arrakis, type: Wrapper[amm].Arrakis }));
+      gammaPools.forEach((gamma) => aux.wrappers.push({ address: gamma, type: Wrapper[amm].Gamma }));
+      /** Other wrappers */
+      for (const d of data.filter((d) => d.base.uniV3Pool === p)) {
+        for (const [index, type] of d.base.wrapperTypes.entries()) {
+          if (BN2Number(type, 0) !== Wrapper[amm].Arrakis && BN2Number(type, 0) !== Wrapper[amm].Gamma) {
+            aux.wrappers.push({ address: d.base.positionWrappers[index], type: BN2Number(type, 0) });
+          }
         }
       }
+      res.push(aux);
     }
-    res.push(aux);
   }
-
   return res;
 };
