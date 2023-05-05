@@ -6,11 +6,9 @@ import mainnet from './mainnet';
 import optimism from './optimism';
 import polygon from './polygon';
 import test from './test';
-import { GlobalParameters, PoolsParameters, StablesParameters } from './types';
+import { StablesParameters } from './types';
 
-export default (
-  chainID: number
-): { globalParameters?: GlobalParameters; stablesParameters: StablesParameters; poolsParameters?: PoolsParameters } => {
+export default (chainID: number): { stablesParameters: StablesParameters } => {
   if (chainID === ChainId.MAINNET) {
     return mainnet;
   }
