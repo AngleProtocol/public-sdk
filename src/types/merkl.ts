@@ -1,66 +1,54 @@
-import { BigNumber, ethers } from 'ethers';
-
 import { ChainId } from '.';
 
 const MerklSupportedChainIds = <const>[ChainId.ARBITRUM, ChainId.MAINNET, ChainId.OPTIMISM, ChainId.POLYGON];
+
 export type MerklSupportedChainIdsType = typeof MerklSupportedChainIds[number];
+
 export const isMerklSupportedChainId = (chainId: any): chainId is MerklSupportedChainIdsType => {
   return MerklSupportedChainIds.includes(chainId);
 };
 
 export enum AMMType {
-  'UniswapV3' = 0,
-  'SushiSwapV3' = 1,
-  'Retro' = 2,
+  UniswapV3 = 0,
+  SushiSwapV3 = 1,
+  Retro = 2,
 }
-export const findMerklAMMType = (bytes: string): AMMType => {
-  const utils = ethers.utils;
-  if (!bytes || !utils.isBytesLike(bytes) || bytes === '0x') return AMMType.UniswapV3;
-  const firstDecodedValue = (utils.defaultAbiCoder.decode(['uint256'], bytes)[0] as BigNumber)?.toNumber();
-  if (!Object.values(AMMType).includes(firstDecodedValue)) return AMMType.UniswapV3;
-  return firstDecodedValue;
-};
 
 export enum UniswapV3Wrapper {
-  'Arrakis' = 0,
-  'Gamma' = 2,
+  Arrakis = 0,
+  Gamma = 2,
 }
+
+type WrapperTypeMapping = {
+  [AMMType.UniswapV3]: UniswapV3Wrapper;
+  [AMMType.SushiSwapV3]: null;
+  [AMMType.Retro]: null;
+};
+
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
   [AMMType.SushiSwapV3]: null,
   [AMMType.Retro]: null,
 };
-type WrapperTypeMapping = {
-  [AMMType.UniswapV3]: UniswapV3Wrapper;
-  [AMMType.SushiSwapV3]: any;
-  [AMMType.Retro]: any;
-};
+
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 
 export enum BlacklistWrapper {
-  'Blacklist' = 3,
+  Blacklist = 3,
 }
-type BlacklistWrapperTypeMapping = {
-  [AMMType.UniswapV3]: BlacklistWrapper;
-  [AMMType.SushiSwapV3]: BlacklistWrapper;
-  [AMMType.Retro]: BlacklistWrapper;
-};
-export type BlacklistWrapperType<T extends AMMType> = BlacklistWrapperTypeMapping[T];
-// export const OnChainDistributionWrapperType = {
-//   [AMMType.UniswapV3]: { ...UniswapV3Wrapper, ...BlacklistWrapper },
-//   [AMMType.SushiSwapV3]: BlacklistWrapper,
-//   [AMMType.Retro]: BlacklistWrapper,
-// };
 
 /** Reward origin */
+
 type RewardOriginMapping = {
-  [AMMType.UniswapV3]: 'UniswapV3' | 'Arrakis' | 'Gamma';
+  [AMMType.UniswapV3]: 'UniswapV3' | keyof typeof Wrapper[AMMType.UniswapV3];
   [AMMType.SushiSwapV3]: 'SushiSwap';
   [AMMType.Retro]: 'Retro';
 };
+
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
-// ============================= BACKEND DATA TYPE =============================
+// ============================= JSON DATA TYPE =============================
+
 export type MerklRewardDistributionType = {
   [K in keyof typeof AMMType]: {
     amm: typeof AMMType[K];
@@ -88,12 +76,8 @@ export type AggregatedRewardsType = {
 };
 
 // =============================== API DATA TYPE ===============================
-// export type BreakdownType = {
-//   [K in keyof typeof AMMType]: { [origin in RewardOrigin[typeof AMMType[K]]]?: number };
-// }[keyof typeof AMMType];
 
 export type DistributionDataType<T extends AMMType> = {
-  // [K in keyof typeof AMMType]: {
   amm: AMMType;
   amount: number; // Amount distributed
   breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
@@ -107,9 +91,6 @@ export type DistributionDataType<T extends AMMType> = {
   unclaimed?: number; // Unclaimed reward amount by the user
   wrappers: WrapperType<T>[]; // Supported wrapper types for this pool
 };
-// }[keyof typeof AMMType];
-
-// const a: DistributionDataType = { amm: AMMType.UniswapV3, wrappers: [Wrapper[AMMType.UniswapV3].Arrakis] };
 
 export type PoolDataType = Partial<
   {
