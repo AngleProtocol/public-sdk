@@ -6,13 +6,13 @@ import { ExtensiveDistributionParametersStruct } from '../constants/types/Distri
 import {
   AggregatedRewardsType,
   AMMType,
-  findMerklAMMType,
   MerklAPIData,
   MerklSupportedChainIdsType,
   UnderlyingTreeType,
   Wrapper,
   WrapperType,
 } from '../types';
+import { findMerklAMMType } from '../types/utils';
 import { BN2Number } from './index';
 import { getMerklWrapperAddressesFromTheGraph } from './thegraph';
 
