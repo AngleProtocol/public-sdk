@@ -92,23 +92,22 @@ export type AggregatedRewardsType = {
 //   [K in keyof typeof AMMType]: { [origin in RewardOrigin[typeof AMMType[K]]]?: number };
 // }[keyof typeof AMMType];
 
-export type DistributionDataType = {
-  [K in keyof typeof AMMType]: {
-    amm: typeof AMMType[K];
-    token: string; // Token distributed
-    tokenSymbol: string;
-    amount: number; // Amount distributed
-    propToken0: number;
-    propToken1: number;
-    propFees: number;
-    unclaimed?: number; // Unclaimed reward amount by the user
-    breakdown?: { [origin in RewardOrigin<typeof AMMType[K]>]?: number }; // rewards earned breakdown
-    start: number;
-    end: number;
-    wrappers: WrapperType<typeof AMMType[K]>[]; // Supported wrapper types for this pool
-    // wrappers: UniswapV3Wrapper[];
-  };
-}[keyof typeof AMMType];
+export type DistributionDataType<T extends AMMType> = {
+  // [K in keyof typeof AMMType]: {
+  amm: AMMType;
+  amount: number; // Amount distributed
+  breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
+  end: number;
+  propFees: number;
+  propToken0: number;
+  propToken1: number;
+  start: number;
+  token: string; // Token distributed
+  tokenSymbol: string;
+  unclaimed?: number; // Unclaimed reward amount by the user
+  wrappers: WrapperType<T>[]; // Supported wrapper types for this pool
+};
+// }[keyof typeof AMMType];
 
 // const a: DistributionDataType = { amm: AMMType.UniswapV3, wrappers: [Wrapper[AMMType.UniswapV3].Arrakis] };
 
@@ -122,24 +121,19 @@ export type PoolDataType = Partial<
       decimalToken0: number;
       tokenSymbol0: string;
       token0InPool: number; // Total amount of token0 in the pool
-
       token1: string;
       decimalToken1: number;
       tokenSymbol1: string;
       token1InPool: number; // Total amount of token1 in the pool
-
       liquidity?: number; // liquidity in the pool
       tvl?: number; // TVL in the pool, in $
-
       // User tokens in the pool and breakdown by wrapper
       userTotalBalance0?: number;
       userTotalBalance1?: number;
       userTVL?: number; // user TVL in the pool, in $
       userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType<typeof AMMType[K]> | -1 }[];
-
       meanAPR: number; // Average APR in the pool
       aprs: { [description: string]: number }; // APR description (will contain wrapper types)
-
       // Rewards earned by the user breakdown per token
       // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
       rewardsPerToken?: {
@@ -150,9 +144,8 @@ export type PoolDataType = Partial<
           breakdown: { [origin in RewardOrigin<typeof AMMType[K]>]?: number };
         };
       };
-
       // Detail of each distribution
-      distributionData: DistributionDataType[];
+      distributionData: DistributionDataType<typeof AMMType[K]>[];
     };
   }[keyof typeof AMMType]
 >;

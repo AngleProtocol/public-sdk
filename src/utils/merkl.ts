@@ -6,6 +6,7 @@ import { ExtensiveDistributionParametersStruct } from '../constants/types/Distri
 import {
   AggregatedRewardsType,
   AMMType,
+  findMerklAMMType,
   MerklAPIData,
   MerklSupportedChainIdsType,
   UnderlyingTreeType,
@@ -94,11 +95,11 @@ export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[]
 /**
  * @notice Returns the deduped list of pools from the list of distribution fetched from solidity
  */
-export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStruct[]): string[] => {
-  const pools: string[] = [];
+export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStruct[]): { address: string; amm: AMMType }[] => {
+  const pools: { address: string; amm: AMMType }[] = [];
   for (const d of data) {
-    if (!pools.includes(d.base.uniV3Pool)) {
-      pools.push(d.base.uniV3Pool);
+    if (!pools.map((pool) => pool.address).includes(d.base.uniV3Pool)) {
+      pools.push({ address: d.base.uniV3Pool, amm: findMerklAMMType(d.base.additionalData?.toString()) });
     }
   }
   return pools;
@@ -109,30 +110,34 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
  */
 export const wrappersPerPoolFromSolidityStruct = async (
   chainId: MerklSupportedChainIdsType,
-  amm: AMMType,
   data: ExtensiveDistributionParametersStruct[]
 ): Promise<
   {
+    amm: AMMType;
     pool: string;
     decimal0: number;
     token0: string;
     decimal1: number;
     token1: string;
-    wrappers: { type: WrapperType<typeof amm>; address: string }[];
+    wrappers: { type: WrapperType<AMMType>; address: string }[];
   }[]
 > => {
   const pools = poolListFromSolidityStruct(data);
   const res = [];
-
-  for (const p of pools) {
+  /** Iterate over all distributions */
+  for (const pool of pools) {
+    const p = pool.address;
+    const amm = pool.amm;
     const aux: {
-      pool: string;
+      amm: AMMType;
       decimal0: number;
-      token0: string;
       decimal1: number;
+      pool: string;
+      token0: string;
       token1: string;
       wrappers: { type: WrapperType<typeof amm>; address: string }[];
     } = {
+      amm: amm,
       decimal0: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token0.decimals, 0),
       decimal1: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token1.decimals, 0),
       token0: data.filter((d) => d.base.uniV3Pool === p)[0].token0.symbol,
@@ -141,6 +146,7 @@ export const wrappersPerPoolFromSolidityStruct = async (
       wrappers: [],
     };
     const result = await getMerklWrapperAddressesFromTheGraph(chainId, amm, p);
+    // TODO: SPECIFIC TO UNISWAPV3
     if (amm === AMMType.UniswapV3 && !!result) {
       /** Gamma and Arrakis wrapper */
       const { arrakisPools, gammaPools } = result;
