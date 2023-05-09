@@ -23,9 +23,13 @@ export function validateAndParseAddress(address: string): string {
 
 export const findMerklAMMType = (bytes: string): AMMType => {
   if (!bytes || !utils.isBytesLike(bytes) || bytes === '0x') return AMMType.UniswapV3;
-  const firstDecodedValue = (utils.defaultAbiCoder.decode(['uint256'], bytes)[0] as BigNumber)?.toNumber();
-  if (!Object.values(AMMType).includes(firstDecodedValue)) return AMMType.UniswapV3;
-  return firstDecodedValue as AMMType;
+  try {
+    const firstDecodedValue = (utils.defaultAbiCoder.decode(['uint256'], bytes)[0] as BigNumber)?.toNumber();
+    if (!Object.values(AMMType).includes(firstDecodedValue)) return AMMType.UniswapV3;
+    return firstDecodedValue as AMMType;
+  } catch {
+    return AMMType.UniswapV3;
+  }
 };
 
 export enum RouterActionType {
