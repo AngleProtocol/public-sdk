@@ -110,7 +110,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
   userTotalBalance0?: number;
   userTotalBalance1?: number;
   userTVL?: number; // user TVL in the pool, in $
-  userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType<typeof AMMType[K]> | -1 }[];
+  userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType<T> | -1 }[];
   meanAPR: number; // Average APR in the pool
   aprs: { [description: string]: number }; // APR description (will contain wrapper types)
   // Rewards earned by the user breakdown per token
