@@ -855,8 +855,8 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0xCA30c93B02514f86d5C86a6e375E3A330B435Fb5',
-        symbol: 'bIBT01',
-        oracle: 'IBT01_EUR',
+        symbol: 'bIB01',
+        oracle: 'IB01_EUR',
         params: {
           debtCeiling: parseEther('200000'),
           collateralFactor: parseAmount.gwei('0.8'),
