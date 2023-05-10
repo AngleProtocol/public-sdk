@@ -7,6 +7,10 @@ const addresses: ContractsRegistryType['1'] = {
       LayerZero: '0x4Fa745FCCC04555F2AFA8874cd23961636CdF982',
     },
     borrowCollaterals: {
+      bIB01: {
+        Oracle: '0x598342fCEDb4325b16ae9618e433710070195019',
+        VaultManager: '0x913E8e1eD659C27613E937a6B6119b91D985094c',
+      },
       cbETH: {
         Oracle: '0xf98a200257aaCf48599aceccF9213B66b2C9dD8C',
         VaultManager: '0xE1C084e6E2eC9D32ec098e102a73C4C27Eb9Ee58',
@@ -14,6 +18,10 @@ const addresses: ContractsRegistryType['1'] = {
       LUSD: {
         Oracle: '0xE37ff75D665066292D350fF4BCD2679fc1814cb3',
         VaultManager: '0x8E2277929B2D849c0c344043D9B9507982e6aDd0',
+      },
+      USDC: {
+        Oracle: '0x8c55A4145Ca4FF8830f39F74feED9059f1BDce68',
+        VaultManager: '0x96de5c30F2BF4683c7903F3e921F720602F8868A',
       },
       wBTC: {
         Oracle: '0xd23269834c450D4978968D1b118172385bB2348d',
