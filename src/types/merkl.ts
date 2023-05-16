@@ -45,8 +45,17 @@ export enum BlacklistWrapper {
   Blacklist = 3,
 }
 
-/** Reward origin */
+export enum AMMAlgorithmType {
+  'UniswapV3' = 0,
+  'Algebra' = 1,
+}
+export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
+  [AMMType.UniswapV3]: AMMAlgorithmType.UniswapV3,
+  [AMMType.SushiSwapV3]: AMMAlgorithmType.UniswapV3,
+  [AMMType.Retro]: AMMAlgorithmType.UniswapV3,
+};
 
+/** Reward origin */
 type RewardOriginMapping = {
   [AMMType.UniswapV3]: 'UniswapV3' | keyof typeof Wrapper[AMMType.UniswapV3];
   [AMMType.SushiSwapV3]: 'SushiSwap' | keyof typeof Wrapper[AMMType.SushiSwapV3];
@@ -84,7 +93,6 @@ export type AggregatedRewardsType = {
 };
 
 // =============================== API DATA TYPE ===============================
-
 export type DistributionDataType<T extends AMMType> = {
   id: string;
   amm: AMMType;
