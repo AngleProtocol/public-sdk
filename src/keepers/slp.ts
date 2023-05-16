@@ -68,6 +68,6 @@ export async function harvest(contract: ColleteralContract, provider: providers.
   // const { BASE_PARAMS } = constants(chainId);
   // && debtRatio.gt(utils.parseUnits('0,2', BASE_PARAMS))
   if (creditAvailable.gt(utils.parseUnits('500000', contract.collateralDecimals))) {
-    await strategyContract.connect(signer)['harvest'];
+    await strategyContract.connect(signer)['harvest()'];
   }
 }

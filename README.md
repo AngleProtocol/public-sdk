@@ -9,7 +9,6 @@
 - [Keeper functions](#keeper-functions)
 - [Constants](#constants)
 - [Lib](#lib)
-- [Tests](#tests)
   - [Build and use in development environment](#build-and-use-in-development-enviroment)
 
 SDK to build applications on top of [Angle Protocol](https://angle.money).
@@ -59,13 +58,6 @@ Located in the `constants` folder, all the contract addresses, parameters and ab
 ## Lib
 
 Located in the `lib` folder, a set of classes and utilities that can be used to work with big numbers
-
-## Tests
-
-To run the test suite 2 env variables are needed:
-
-- PROVIDER_URL: the api to push transactions.
-- MNEMONIC: the mnemonic of a test wallet.
 
 ### Build and use in development environment
 
