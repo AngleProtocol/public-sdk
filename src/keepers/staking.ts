@@ -6,7 +6,7 @@ import { Logger } from './logger';
 import { addCall, execMulticall } from './multicall';
 
 export function getStakingPools(chainId: ChainId): string[] {
-  const stablesSymbols = Object.values(ALL_TOKENS[chainId][AssetType.STABLE]).map((token) => token.symbol);
+  const stablesSymbols = Object.values(ALL_TOKENS[AssetType.STABLE]).map((token) => token.symbol);
 
   const stakingContracts = stablesSymbols.reduce((acc, stableSymbol) => {
     const agToken = registry(chainId, { stablecoin: stableSymbol });

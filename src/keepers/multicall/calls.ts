@@ -15,11 +15,11 @@ export const getCalls = (chainId: ChainId) => {
   const lockTimes: MulticallEntry[] = [];
   const rates: MulticallEntry[] = [];
   const collateralMaps: MulticallEntry[] = [];
-  for (const stableAddr in ALL_TOKENS[chainId][AssetType.STABLE]) {
-    const stable = ALL_TOKENS[chainId][AssetType.STABLE][stableAddr];
+  for (const stableAddr in ALL_TOKENS[AssetType.STABLE]) {
+    const stable = ALL_TOKENS[AssetType.STABLE][stableAddr];
     const stableMasterAddr = registry(chainId, { stablecoin: stable.symbol })?.StableMaster;
-    for (const collatAddr in ALL_TOKENS[chainId][AssetType.COLLATERAL]) {
-      const collateral = ALL_TOKENS[chainId][AssetType.COLLATERAL][collatAddr];
+    for (const collatAddr in ALL_TOKENS[AssetType.COLLATERAL]) {
+      const collateral = ALL_TOKENS[AssetType.COLLATERAL][collatAddr];
       const collateralAddresses = registry(chainId, { stablecoin: stable.symbol, collateral: collateral.symbol });
 
       const perpetualManagerAddr = collateralAddresses?.PerpetualManager;

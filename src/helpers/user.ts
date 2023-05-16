@@ -80,8 +80,6 @@ export function computeMint(
   // Computing the net amount that will be taken into account for this user
   amountForUserInStable = amountForUserInStable.mul(base.sub(percentageFee)).div(base);
 
-  // TODO Handle StableCoin cap
-
   // For this require to fail, you need very specific conditions on `BASE_PARAMS`
   if (amountForUserInStable.lte(BigNumber.from(0))) {
     throw new Error('Invalid amount');
@@ -163,7 +161,6 @@ export function computeInverseMint(
     amountOfCollateralNeeded = amount.mul(collatBase).mul(base).div(base.sub(percentageFee)).div(rate);
   }
 
-  // TODO @Picodes do we need checks on amountOfCollateralNeeded ? Like <0...
   const mintingFee = amountOfCollateralNeeded.sub(amountInC);
 
   return { amountOfCollateralNeeded, mintingFee };
@@ -318,7 +315,6 @@ export function computeInverseBurn(
     amountOfStablecoinNeeded = amount.mul(rate).mul(base).div(base.sub(percentageFee)).div(collatBase);
   }
 
-  // TODO @Picodes do we need checks on amountOfCollateralNeeded ? Like <0...
   const burningFee = amount.mul(percentageFee).div(base);
 
   return { amountOfStablecoinNeeded, burningFee };
