@@ -5,11 +5,11 @@ import { AssetType, ChainId, Token } from '../types';
 const getPairs = (chainId: ChainId) => {
   const allPairs: { stable: Token; collateral: Token }[] = [];
 
-  for (const stableAddr in ALL_TOKENS[chainId][AssetType.STABLE]) {
-    const stable = ALL_TOKENS[chainId][AssetType.STABLE][stableAddr];
+  for (const stableAddr in ALL_TOKENS[AssetType.STABLE]) {
+    const stable = ALL_TOKENS[AssetType.STABLE][stableAddr];
 
-    for (const collatAddr in ALL_TOKENS[chainId][AssetType.COLLATERAL]) {
-      const collateral = ALL_TOKENS[chainId][AssetType.COLLATERAL][collatAddr];
+    for (const collatAddr in ALL_TOKENS[AssetType.COLLATERAL]) {
+      const collateral = ALL_TOKENS[AssetType.COLLATERAL][collatAddr];
 
       if (registry(chainId, { stablecoin: stable.symbol, collateral: collateral.symbol })?.PerpetualManager) {
         allPairs.push({ stable: stable, collateral: collateral });

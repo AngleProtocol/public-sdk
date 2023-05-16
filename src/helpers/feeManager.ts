@@ -22,9 +22,9 @@ export function computeBonusMalusMint(
   collateralSymbol: string,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  _xBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xBonusMalusMint,
+  _xBonusMalusMint: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  _yBonusMalusMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yBonusMalusMint
+  _yBonusMalusMint: BigNumberish[] = [BigNumber.from(0)]
 ): BigNumber {
   const xBonusMalusMint = _xBonusMalusMint.map((e) => BigNumber.from(e));
   const yBonusMalusMint = _yBonusMalusMint.map((e) => BigNumber.from(e));
@@ -52,9 +52,9 @@ export function computeBonusMalusBurn(
   collateralSymbol: string,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  _xBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xBonusMalusBurn,
+  _xBonusMalusBurn: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  _yBonusMalusBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yBonusMalusBurn
+  _yBonusMalusBurn: BigNumberish[] = [BigNumber.from(0)]
 ): BigNumber {
   const xBonusMalusBurn = _xBonusMalusBurn.map((e) => BigNumber.from(e));
   const yBonusMalusBurn = _yBonusMalusBurn.map((e) => BigNumber.from(e));
@@ -92,9 +92,9 @@ export function computeSlippage(
   inDecimals: BigNumberish[],
   rates: BigNumber[],
   // eslint-disable-next-line
-  _xSlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippage,
+  _xSlippage: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  _ySlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippage,
+  _ySlippage: BigNumberish[] = [BigNumber.from(0)],
   base = gwei(1)
 ): BigNumber {
   const xSlippage = _xSlippage.map((e) => BigNumber.from(e));
@@ -135,9 +135,9 @@ export function computeSlippageFee(
   inDecimals: BigNumberish[],
   rates: BigNumber[],
   // eslint-disable-next-line
-  _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippageFee,
+  _xSlippageFee: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippageFee,
+  _ySlippageFee: BigNumberish[] = [BigNumber.from(0)],
   base = gwei(1)
 ): BigNumber {
   const xSlippageFee = _xSlippageFee.map((e) => BigNumber.from(e));

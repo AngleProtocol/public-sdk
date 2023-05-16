@@ -24,7 +24,7 @@ export const requireEnvVars = <T extends string>(vars: T[]): Record<typeof vars[
 
 export function parseStable(stablecoin: string): Token {
   let stable;
-  for (const token of Object.values(ALL_TOKENS[ChainId.MAINNET][AssetType.STABLE])) {
+  for (const token of Object.values(ALL_TOKENS[AssetType.STABLE])) {
     if (token.symbol === stablecoin || token.address === stablecoin || token.name === stablecoin || token.symbol === 'ag' + stablecoin) {
       stable = token;
     }
@@ -36,7 +36,7 @@ export function parseStable(stablecoin: string): Token {
 
 export function parseCollat(collateral: string): Token {
   let collat;
-  for (const token of Object.values(ALL_TOKENS[ChainId.MAINNET][AssetType.COLLATERAL])) {
+  for (const token of Object.values(ALL_TOKENS[AssetType.COLLATERAL])) {
     if (token.symbol === collateral || token.address === collateral || token.name === collateral) {
       collat = token;
     }

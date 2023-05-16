@@ -4,19 +4,7 @@ import { TGPerpetual } from '../../lib';
 import { ChainId } from '../../types';
 import { Logger } from '../logger';
 
-const THEGRAPH_URLS: { [chainId in ChainId]: string } = {
-  [ChainId.MAINNET]: 'https://api.thegraph.com/subgraphs/name/picodes/perpetual',
-  [ChainId.POLYGON]: '',
-  [ChainId.AVALANCHE]: '',
-  [ChainId.AURORA]: '',
-  [ChainId.FANTOM]: '',
-  [ChainId.BSC]: '',
-  [ChainId.CELO]: '',
-  [ChainId.LOCAL]: '',
-  [ChainId.ARBITRUM]: '',
-  [ChainId.OPTIMISM]: '',
-  [ChainId.GNOSIS]: '',
-};
+const THEGRAPH_URL = 'https://api.thegraph.com/subgraphs/name/picodes/perpetual';
 
 /**
  * Fetches all the perpetuals from TheGraph. Perpetuals can only be fetched by 1000 so we need a recursive function to fetch them all.
@@ -54,12 +42,11 @@ export const fetchPerpetuals = async (chainId: ChainId, lastId = ''): Promise<TG
   let response: TGPerpetual[] = [];
 
   try {
-    const firstQuery = await request<{ perpetuals: TGPerpetual[] }>(THEGRAPH_URLS[chainId], query, { lastId });
+    const firstQuery = await request<{ perpetuals: TGPerpetual[] }>(THEGRAPH_URL, query, { lastId });
     response = firstQuery.perpetuals;
   } catch (e) {
     console.error('The Graph error (in fetchPerpetuals):', e);
     throw e;
-    // TODO: send alert on Discord
   }
 
   if (response.length === fetchLength) {

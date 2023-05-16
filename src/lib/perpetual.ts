@@ -12,7 +12,6 @@ export enum PerpetualStatus {
   forceClose = 'perpetuals.status.forceClosed',
 }
 
-// TODO harmonize this in TG
 export enum HistoryPerpetualStatus {
   close = 'perpetuals.status.closed',
   liquidate = 'perpetuals.status.liquidated',

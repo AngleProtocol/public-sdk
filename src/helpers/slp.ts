@@ -39,13 +39,13 @@ export function estimateSlippage(
   collatRatio?: BigNumberish,
   callRatioParams?: CollatRatioParams,
   // eslint-disable-next-line
-  _xSlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippage,
+  _xSlippage: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  _ySlippage: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippage,
+  _ySlippage: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  _xSlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xSlippageFee,
+  _xSlippageFee: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  _ySlippageFee: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].ySlippageFee
+  _ySlippageFee: BigNumberish[] = [BigNumber.from(0)]
 ): EstimateSlippageReturn {
   if (!collatRatio && callRatioParams !== undefined)
     collatRatio = computeCollateralRatio(

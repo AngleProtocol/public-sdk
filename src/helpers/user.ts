@@ -46,11 +46,11 @@ export function computeMint(
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  targetHAHedge: BigNumberish = BigNumber.from(0),
   // eslint-disable-next-line
-  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  xFeeMint: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
+  yFeeMint: BigNumberish[] = [BigNumber.from(0)],
   base: BigNumberish = gwei(1)
 ): { amountForUserInStable: BigNumber; mintingFee: BigNumber; percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);
@@ -79,8 +79,6 @@ export function computeMint(
 
   // Computing the net amount that will be taken into account for this user
   amountForUserInStable = amountForUserInStable.mul(base.sub(percentageFee)).div(base);
-
-  // TODO Handle StableCoin cap
 
   // For this require to fail, you need very specific conditions on `BASE_PARAMS`
   if (amountForUserInStable.lte(BigNumber.from(0))) {
@@ -127,11 +125,11 @@ export function computeInverseMint(
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  targetHAHedge: BigNumberish = BigNumber.from(0),
   // eslint-disable-next-line
-  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  xFeeMint: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
+  yFeeMint: BigNumberish[] = [BigNumber.from(0)],
   base: BigNumberish = gwei(1),
   iterations = 10
 ): { amountOfCollateralNeeded: BigNumber; mintingFee: BigNumber } {
@@ -163,7 +161,6 @@ export function computeInverseMint(
     amountOfCollateralNeeded = amount.mul(collatBase).mul(base).div(base.sub(percentageFee)).div(rate);
   }
 
-  // TODO @Picodes do we need checks on amountOfCollateralNeeded ? Like <0...
   const mintingFee = amountOfCollateralNeeded.sub(amountInC);
 
   return { amountOfCollateralNeeded, mintingFee };
@@ -209,11 +206,11 @@ export function computeBurn(
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  targetHAHedge: BigNumberish = BigNumber.from(0),
   // eslint-disable-next-line
-  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  xFeeBurn: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
+  yFeeBurn: BigNumberish[] = [BigNumber.from(0)],
   base: BigNumberish = gwei(1)
 ): { amountForUserInCollateral: BigNumber; burningFee: BigNumber; percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);
@@ -240,10 +237,6 @@ export function computeBurn(
     base
   );
 
-  // For this require to fail, you need very specific conditions on `BASE_PARAMS`
-  if (amountInC.lte(constants(0).ZERO)) {
-    throw new Error('Invalid amount');
-  }
   // Computing how much of collateral can be redeemed by the user after taking fees
   // The real value is `amountInC * (base - fees) / base`, but we prefer to avoid doing multiplications
   // after divisions
@@ -288,11 +281,11 @@ export function computeInverseBurn(
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  targetHAHedge: BigNumberish = BigNumber.from(0),
   // eslint-disable-next-line
-  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  xFeeBurn: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
+  yFeeBurn: BigNumberish[] = [BigNumber.from(0)],
   base: BigNumberish = gwei(1),
   iterations = 10
 ): { amountOfStablecoinNeeded: BigNumber; burningFee: BigNumber } {
@@ -322,7 +315,6 @@ export function computeInverseBurn(
     amountOfStablecoinNeeded = amount.mul(rate).mul(base).div(base.sub(percentageFee)).div(collatBase);
   }
 
-  // TODO @Picodes do we need checks on amountOfCollateralNeeded ? Like <0...
   const burningFee = amount.mul(percentageFee).div(base);
 
   return { amountOfStablecoinNeeded, burningFee };
@@ -361,11 +353,11 @@ export function computeFeeMint(
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  targetHAHedge: BigNumberish = BigNumber.from(0),
   // eslint-disable-next-line
-  xFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeMint,
+  xFeeMint: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  yFeeMint: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeMint,
+  yFeeMint: BigNumberish[] = [BigNumber.from(0)],
   base: BigNumberish = gwei(1)
 ): { percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);
@@ -421,11 +413,11 @@ export function computeFeeBurn(
   stocksUsers: BigNumberish,
   collatRatio: BigNumberish,
   // eslint-disable-next-line
-  targetHAHedge: BigNumberish = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].targetHAHedge,
+  targetHAHedge: BigNumberish = BigNumber.from(0),
   // eslint-disable-next-line
-  xFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].xFeeBurn,
+  xFeeBurn: BigNumberish[] = [BigNumber.from(0)],
   // eslint-disable-next-line
-  yFeeBurn: BigNumberish[] = constants(chainID).poolsParameters![stableSymbol][collateralSymbol].yFeeBurn,
+  yFeeBurn: BigNumberish[] = [BigNumber.from(0)],
   base: BigNumberish = gwei(1)
 ): { percentageFee: BigNumber; hedgeRatio: BigNumber } {
   amount = BigNumber.from(amount);
