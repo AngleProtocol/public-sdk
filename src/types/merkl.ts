@@ -119,6 +119,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
   chainId: ChainId;
   pool: string; // AMM pool address
   poolFee: number; // Fee of the AMM pool
+  poolAlgo: AMMAlgorithmType;
   token0: string;
   decimalToken0: number;
   tokenSymbol0: string;
