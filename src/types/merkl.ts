@@ -119,7 +119,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
   rewardsPerToken?: {
     [token: string]: {
       decimals: number; // Decimals of the reward token
-      unclaimedUnformatted: number; // BigNumber.toString()
+      unclaimedUnformatted: string; // BigNumber.toString()
       unclaimed: number;
       accumulatedSinceInception: number;
       symbol: string;
