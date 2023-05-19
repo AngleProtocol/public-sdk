@@ -118,6 +118,8 @@ export type PoolDataType<T extends AMMType> = Partial<{
   // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
   rewardsPerToken?: {
     [token: string]: {
+      decimals: number; // Decimals of the reward token
+      unclaimedUnformatted: number; // BigNumber.toString()
       unclaimed: number;
       accumulatedSinceInception: number;
       symbol: string;
