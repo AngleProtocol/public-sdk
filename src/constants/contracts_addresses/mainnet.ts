@@ -240,6 +240,7 @@ const addresses: ContractsRegistryType['1'] = {
     Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
   },
   MerkleRootDistributor: '0x5a93D504604fB57E15b0d73733DDc86301Dde2f1',
+  MerklGaugeMiddleman: '0x46918e4b0e64279c1d5f16D13aEB0c7BCd210b87',
   Middleman: '0x4B00103802Da5f51A9218010a1073Ea432165f13',
   MulticallWithFailure: '0xbd26A92D587981482B4Eec012d13fA0D55ca0135',
   OracleNativeUSD: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419',

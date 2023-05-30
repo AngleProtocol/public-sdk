@@ -64,6 +64,7 @@ const addresses: ContractsRegistryType['1'] = {
     Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
   },
   MerkleRootDistributor: '0x60FCebEA8F237E771e26939A631Dcf8eFE6d4408',
+  MerklGaugeMiddleman: '0x5bc6BEf80DA563EBf6Df6D6913513fa9A7ec89BE',
   MulticallWithFailure: '0xAd96B6342e4EbbbFBAfF0DF248E84C7304fFF5a5',
   OracleNativeUSD: '0xAB594600376Ec9fD91F8e885dADF0CE036862dE0',
   ProxyAdmin: '0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6',
