@@ -19,3 +19,26 @@ export const NFTManagerAddress: { [chainId in MerklSupportedChainIdsType]: { [AM
     [AMMType.UniswapV3]: '0xC36442b4a4522E871399CD717aBDD847Ab11FE88',
   },
 };
+
+export const FactoryAddress: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
+  [ChainId.ARBITRUM]: {
+    [AMMType.Retro]: '',
+    [AMMType.SushiSwapV3]: '',
+    [AMMType.UniswapV3]: '0x1F98431c8aD98523631AE4a59f267346ea31F984',
+  },
+  [ChainId.MAINNET]: {
+    [AMMType.Retro]: '',
+    [AMMType.SushiSwapV3]: '0xbACEB8eC6b9355Dfc0269C18bac9d6E2Bdc29C4F',
+    [AMMType.UniswapV3]: '0x1F98431c8aD98523631AE4a59f267346ea31F984',
+  },
+  [ChainId.OPTIMISM]: {
+    [AMMType.Retro]: '',
+    [AMMType.SushiSwapV3]: '0x9c6522117e2ed1fE5bdb72bb0eD5E3f2bdE7DBe0',
+    [AMMType.UniswapV3]: '0x1F98431c8aD98523631AE4a59f267346ea31F984',
+  },
+  [ChainId.POLYGON]: {
+    [AMMType.Retro]: '0xe369708e3D0A1a98c8419db51E8f9c862F0E9CB0',
+    [AMMType.SushiSwapV3]: '0x917933899c6a5f8e37f31e19f92cdbff7e8ff0e2',
+    [AMMType.UniswapV3]: '0x1F98431c8aD98523631AE4a59f267346ea31F984',
+  },
+};
