@@ -153,6 +153,7 @@ export type ContractsRegistryType = Readonly<
           CoreMerkl: string;
         };
         MerkleRootDistributor: string;
+        MerklGaugeMiddleman: string;
         Middleman: string;
         MulticallWithFailure: string;
         OracleNativeUSD: string;
