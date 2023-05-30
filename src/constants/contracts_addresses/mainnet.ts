@@ -296,7 +296,7 @@ const addresses: ContractsRegistryType['1'] = {
       type: 2,
     },
     {
-      gaugeName: 'Quickswap agEUR/USDC',
+      gaugeName: 'UniswapV3 agEUR/USDC',
       gaugeAddress: '0x4EA4C5ca64A3950E53c61d0616DAF92727119093',
       type: 2,
     },
