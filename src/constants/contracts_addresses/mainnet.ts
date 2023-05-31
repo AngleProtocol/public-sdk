@@ -184,7 +184,7 @@ const addresses: ContractsRegistryType['1'] = {
     StableMaster: '0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87',
     Staking: '0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB',
     Swapper: '0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd',
-    SwapperV2: '0xd7Cf341ce068EB335D3bE24beF6C06348BFb5346',
+    SwapperV2: '0x601057CaAE843Bf34598217E95FB572F5e04186e',
     Treasury: '0x8667DBEBf68B0BFa6Db54f550f41Be16c4067d60',
   },
   agGOLD: {
@@ -205,7 +205,7 @@ const addresses: ContractsRegistryType['1'] = {
     },
     OracleTokenUSD: '0x214eD9Da11D2fbe465a6fc601a91E62EbEc1a0D6',
     Swapper: '0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd',
-    SwapperV2: '0xd7Cf341ce068EB335D3bE24beF6C06348BFb5346',
+    SwapperV2: '0x601057CaAE843Bf34598217E95FB572F5e04186e',
     Treasury: '0x19F925a26A3a8eeE2438603CB04F39cbC007EfFB',
   },
   AMO: {
