@@ -84,6 +84,7 @@ export type DistributionDataType<T extends AMMType> = {
   end: number;
   isBoosted: boolean;
   isLive: boolean;
+  isMock: boolean;
   isOutOfRangeIncentivized: boolean;
   propFees: number;
   propToken0: number;
