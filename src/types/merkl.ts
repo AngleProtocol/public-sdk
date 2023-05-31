@@ -82,6 +82,8 @@ export type DistributionDataType<T extends AMMType> = {
   amount: number; // Amount distributed
   breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
   end: number;
+  isBoosted: boolean;
+  isLive: boolean;
   isOutOfRangeIncentivized: boolean;
   propFees: number;
   propToken0: number;
