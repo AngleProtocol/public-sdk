@@ -81,6 +81,8 @@ export type DistributionDataType<T extends AMMType> = {
   amm: AMMType;
   amount: number; // Amount distributed
   breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
+  // distributionAPRs: { [`APR (rewards/pool TVL)`]: number; [description: string]: number };
+  distributionAPRs: { [description: string]: number };
   end: number;
   isBoosted: boolean;
   isLive: boolean;
