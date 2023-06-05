@@ -17,6 +17,9 @@ export enum AMMType {
 export enum UniswapV3Wrapper {
   Arrakis = 0,
   Gamma = 2,
+  DefiEdge = 4,
+  Ichi = 5,
+  Steer = 6,
 }
 
 type WrapperTypeMapping = {
