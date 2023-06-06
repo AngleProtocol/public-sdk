@@ -260,7 +260,7 @@ const stablesParameters: StablesParameters = {
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
           repayFee: parseAmount.gwei('0'),
-          interestRate: interestRate25,
+          interestRate: interestRate20,
           liquidationSurcharge: parseAmount.gwei('0.96'),
           maxLiquidationDiscount: parseAmount.gwei('0.13'),
           whitelistingActivated: true,
