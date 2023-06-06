@@ -164,7 +164,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0xbff202E3Cb58aB0A09b2Eb1D9a50352B9aAf196c',
-        symbol: 'cvx-3CRV-EUR',
+        symbol: 'cvx-3CRV',
         oracle: '3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -181,7 +181,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0xe80298eE8F54a5e1b0448bC2EE844901344469bc',
-        symbol: 'sd-3CRV-EUR',
+        symbol: 'sd-3CRV',
         oracle: '3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -198,7 +198,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x9650821B3555Fe6318586BE997cc0Fb163C35976',
-        symbol: 'cvx-crvLUSD3CRV-EUR',
+        symbol: 'cvx-crvLUSD3CRV',
         oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -215,7 +215,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x97F0A7954904a7357D814ACE2896021496e5f321',
-        symbol: 'sd-crvLUSD3CRV-EUR',
+        symbol: 'sd-crvLUSD3CRV',
         oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -232,7 +232,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0xCA30c93B02514f86d5C86a6e375E3A330B435Fb5',
-        symbol: 'bIB01-EUR',
+        symbol: 'bIB01',
         oracle: 'IB01_EUR',
         params: {
           debtCeiling: parseEther('200000'),
