@@ -15,6 +15,7 @@ import { StablesParameters } from './types';
 const interestRate05 = BigNumber.from('158153934393112649');
 const interestRate15 = BigNumber.from('472114791705280367');
 const interestRate20 = BigNumber.from('627937257746680188');
+const interestRate25 = BigNumber.from('782997666703977302');
 const stablesParameters: StablesParameters = {
   EUR: {
     currencySymbol: '€',
@@ -163,7 +164,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0xbff202E3Cb58aB0A09b2Eb1D9a50352B9aAf196c',
-        symbol: 'cvx-3CRV',
+        symbol: 'cvx-3CRV-EUR',
         oracle: '3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -180,7 +181,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0xe80298eE8F54a5e1b0448bC2EE844901344469bc',
-        symbol: 'sd-3CRV',
+        symbol: 'sd-3CRV-EUR',
         oracle: '3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -197,7 +198,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x9650821B3555Fe6318586BE997cc0Fb163C35976',
-        symbol: 'cvx-crvLUSD3CRV',
+        symbol: 'cvx-crvLUSD3CRV-EUR',
         oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -214,7 +215,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0x97F0A7954904a7357D814ACE2896021496e5f321',
-        symbol: 'sd-crvLUSD3CRV',
+        symbol: 'sd-crvLUSD3CRV-EUR',
         oracle: 'crvLUSD3CRV_EUR',
         params: {
           debtCeiling: parseEther('100000'),
@@ -231,7 +232,7 @@ const stablesParameters: StablesParameters = {
       },
       {
         collateral: '0xCA30c93B02514f86d5C86a6e375E3A330B435Fb5',
-        symbol: 'bIB01',
+        symbol: 'bIB01-EUR',
         oracle: 'IB01_EUR',
         params: {
           debtCeiling: parseEther('200000'),
@@ -242,6 +243,26 @@ const stablesParameters: StablesParameters = {
           interestRate: interestRate20,
           liquidationSurcharge: parseAmount.gwei('0.96'),
           maxLiquidationDiscount: parseAmount.gwei('0.10'),
+          whitelistingActivated: true,
+          baseBoost: parseAmount.gwei('10'),
+          dust: parseEther('0'),
+          dustLiquidation: parseEther('0'),
+          dustCollateral: parseEther('0'),
+        },
+      },
+      {
+        collateral: '0x20C64dEE8FdA5269A78f2D5BDBa861CA1d83DF7a',
+        symbol: 'bHIGH-EUR',
+        oracle: 'HIGH_EUR',
+        params: {
+          debtCeiling: parseEther('1000000'),
+          collateralFactor: parseAmount.gwei('0.77'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate25,
+          liquidationSurcharge: parseAmount.gwei('0.96'),
+          maxLiquidationDiscount: parseAmount.gwei('0.13'),
           whitelistingActivated: true,
           baseBoost: parseAmount.gwei('10'),
           dust: parseEther('0'),
