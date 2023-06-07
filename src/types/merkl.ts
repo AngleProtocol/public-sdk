@@ -128,6 +128,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
       unclaimedUnformatted: string; // BigNumber.toString()
       unclaimed: number;
       accumulatedSinceInception: number;
+      accumulatedSinceInceptionUnformatted: string;
       symbol: string;
       breakdown: { [origin in RewardOrigin<T>]?: number };
     };
