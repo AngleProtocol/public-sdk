@@ -255,7 +255,7 @@ const stablesParameters: StablesParameters = {
         symbol: 'bHIGH-EUR',
         oracle: 'HIGH_EUR',
         params: {
-          debtCeiling: parseEther('1000000'),
+          debtCeiling: parseEther('500000'),
           collateralFactor: parseAmount.gwei('0.77'),
           targetHealthFactor: parseAmount.gwei('1.1'),
           borrowFee: parseAmount.gwei('0'),
