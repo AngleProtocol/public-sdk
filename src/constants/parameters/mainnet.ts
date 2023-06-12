@@ -15,6 +15,7 @@ import { StablesParameters } from './types';
 const interestRate05 = BigNumber.from('158153934393112649');
 const interestRate15 = BigNumber.from('472114791705280367');
 const interestRate20 = BigNumber.from('627937257746680188');
+const interestRate25 = BigNumber.from('782997666703977302');
 const stablesParameters: StablesParameters = {
   EUR: {
     currencySymbol: '€',
@@ -242,6 +243,26 @@ const stablesParameters: StablesParameters = {
           interestRate: interestRate20,
           liquidationSurcharge: parseAmount.gwei('0.96'),
           maxLiquidationDiscount: parseAmount.gwei('0.10'),
+          whitelistingActivated: true,
+          baseBoost: parseAmount.gwei('10'),
+          dust: parseEther('0'),
+          dustLiquidation: parseEther('0'),
+          dustCollateral: parseEther('0'),
+        },
+      },
+      {
+        collateral: '0x20C64dEE8FdA5269A78f2D5BDBa861CA1d83DF7a',
+        symbol: 'bHIGH-EUR',
+        oracle: 'HIGH_EUR',
+        params: {
+          debtCeiling: parseEther('1000000'),
+          collateralFactor: parseAmount.gwei('0.77'),
+          targetHealthFactor: parseAmount.gwei('1.1'),
+          borrowFee: parseAmount.gwei('0'),
+          repayFee: parseAmount.gwei('0'),
+          interestRate: interestRate20,
+          liquidationSurcharge: parseAmount.gwei('0.96'),
+          maxLiquidationDiscount: parseAmount.gwei('0.13'),
           whitelistingActivated: true,
           baseBoost: parseAmount.gwei('10'),
           dust: parseEther('0'),
