@@ -86,9 +86,9 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
  *  Merkl Subgraph Endpoints V2
  * @notice transition still in progress
  */
-const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/';
+const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/';
 export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local') => {
-  return merklSubgraphPrefix + (env !== 'prod' ? 'angleprotocol/test-merkl-' : '');
+  return merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : '');
 };
 export const merklSubgraphAMMEndpoints = (
   merklSubgraphPrefix: string
