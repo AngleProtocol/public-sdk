@@ -8,8 +8,12 @@ const addresses: ContractsRegistryType['1'] = {
     },
     borrowCollaterals: {
       bIB01: {
-        Oracle: '0x598342fCEDb4325b16ae9618e433710070195019',
+        Oracle: '0x85C13d1c929774Cb8173dcd0b268c5a9784cF093',
         VaultManager: '0x913E8e1eD659C27613E937a6B6119b91D985094c',
+      },
+      bHIGH: {
+        Oracle: '0xC1603c0d679aeFC8e8a82b543B8855927625155A',
+        VaultManager: '0x9FFC8A23eafc25635DAe822eA9c4fF440226a001',
       },
       cbETH: {
         Oracle: '0xf98a200257aaCf48599aceccF9213B66b2C9dD8C',
