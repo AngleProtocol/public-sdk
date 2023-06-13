@@ -2,33 +2,6 @@ import { ChainId } from '../../types/constants';
 import { AMMType, MerklSupportedChainIdsType, Wrapper, WrapperType } from '../../types/merkl';
 
 const merklSubgraphPrefixV1 = 'https://api.thegraph.com/subgraphs/name/anglekeeper/merkl-';
-const merklSubgraphPrefixUniswapV3 = `${merklSubgraphPrefixV1}uniswapv3-`;
-const merklSubgraphPrefixSushiswapV3 = `${merklSubgraphPrefixV1}sushiswapv3-`;
-const merklSubgraphPrefixRetro = `${merklSubgraphPrefixV1}retro-`;
-
-export const merklSubgraphEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
-  [ChainId.ARBITRUM]: {
-    [AMMType.Retro]: merklSubgraphPrefixRetro + 'arbitrum',
-    [AMMType.SushiSwapV3]: merklSubgraphPrefixSushiswapV3 + 'arbitrum',
-    [AMMType.UniswapV3]: merklSubgraphPrefixUniswapV3 + 'arbitrum',
-  },
-  [ChainId.MAINNET]: {
-    [AMMType.Retro]: merklSubgraphPrefixRetro + 'ethereum',
-    [AMMType.SushiSwapV3]: merklSubgraphPrefixSushiswapV3 + 'ethereum',
-    [AMMType.UniswapV3]: merklSubgraphPrefixUniswapV3 + 'ethereum',
-  },
-  [ChainId.OPTIMISM]: {
-    [AMMType.Retro]: merklSubgraphPrefixRetro + 'optimism',
-    [AMMType.SushiSwapV3]: merklSubgraphPrefixSushiswapV3 + 'optimism',
-    [AMMType.UniswapV3]: merklSubgraphPrefixUniswapV3 + 'optimism',
-  },
-  [ChainId.POLYGON]: {
-    [AMMType.Retro]: merklSubgraphPrefixRetro + 'polygon',
-    [AMMType.SushiSwapV3]: merklSubgraphPrefixSushiswapV3 + 'polygon',
-    [AMMType.UniswapV3]: merklSubgraphPrefixUniswapV3 + 'polygon',
-  },
-};
-
 const sushiswapV3SubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/sushi-v3/v3-';
 export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
   [ChainId.ARBITRUM]: {
