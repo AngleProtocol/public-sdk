@@ -158,3 +158,13 @@ export type MerklAPIData = {
     };
   };
 };
+
+/** Merkl subgraphs */
+export type NFTManagerPositionType = { id: string; startTimestamp: number; endTimestamp: number };
+export type DirectPositionType = {
+  endTimestamp: number;
+  owner: string;
+  startTimestamp: number;
+  tickLower: number;
+  tickUpper: number;
+};
