@@ -83,7 +83,6 @@ export const buildMerklTree = (
     tree,
   };
 };
-
 export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[] => {
   const tokens: string[] = [];
   for (const id of Object.keys(json)) {
@@ -93,7 +92,6 @@ export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[]
   }
   return tokens;
 };
-
 /**
  * @notice Returns the deduped list of pools from the list of distribution fetched from solidity
  */
@@ -106,7 +104,6 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
   }
   return pools;
 };
-
 /**
  * @notice Returns the deduped list of wrappers per pools from the list of distribution fetched from solidity
  */
