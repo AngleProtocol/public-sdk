@@ -1,7 +1,6 @@
 import { ChainId } from '../../types/constants';
 import { AMMType, MerklSupportedChainIdsType, Wrapper, WrapperType } from '../../types/merkl';
 
-const merklSubgraphPrefixV1 = 'https://api.thegraph.com/subgraphs/name/anglekeeper/merkl-';
 const sushiswapV3SubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/sushi-v3/v3-';
 export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
   [ChainId.ARBITRUM]: {
@@ -31,7 +30,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
 const merklFallbackSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/anglekeeper/backup-';
 const merklFallbackSubgraphPrefixUniswapV3 = `${merklFallbackSubgraphPrefix}uniswapv3-`;
 const merklFallbackSubgraphPrefixSushiswapV3 = `${merklFallbackSubgraphPrefix}sushiswapv3-`;
-const merklFallbackSubgraphPrefixRetro = `${merklSubgraphPrefixV1}retro-`;
+const merklFallbackSubgraphPrefixRetro = `${merklFallbackSubgraphPrefix}retro-`;
 export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
   [ChainId.ARBITRUM]: {
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'arbitrum',
