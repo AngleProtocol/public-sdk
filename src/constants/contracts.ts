@@ -23,6 +23,7 @@ type AMOType = Readonly<{
 export enum BorrowCollateral {
   'LUSD' = 'LUSD',
   'bIB01' = 'bIB01',
+  'bHIGH' = 'bHIGH',
   'wBTC' = 'wBTC',
   'wETH' = 'wETH',
   'wSTETH' = 'wSTETH',
