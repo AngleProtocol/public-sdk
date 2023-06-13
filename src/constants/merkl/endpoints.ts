@@ -1,10 +1,10 @@
 import { ChainId } from '../../types/constants';
-import { AMMType, MerklSupportedChainIdsType } from '../../types/merkl';
+import { AMMType, MerklSupportedChainIdsType, Wrapper, WrapperType } from '../../types/merkl';
 
-const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/anglekeeper/merkl-';
-const merklSubgraphPrefixUniswapV3 = `${merklSubgraphPrefix}uniswapv3-`;
-const merklSubgraphPrefixSushiswapV3 = `${merklSubgraphPrefix}sushiswapv3-`;
-const merklSubgraphPrefixRetro = `${merklSubgraphPrefix}retro-`;
+const merklSubgraphPrefixV1 = 'https://api.thegraph.com/subgraphs/name/anglekeeper/merkl-';
+const merklSubgraphPrefixUniswapV3 = `${merklSubgraphPrefixV1}uniswapv3-`;
+const merklSubgraphPrefixSushiswapV3 = `${merklSubgraphPrefixV1}sushiswapv3-`;
+const merklSubgraphPrefixRetro = `${merklSubgraphPrefixV1}retro-`;
 
 export const merklSubgraphEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
   [ChainId.ARBITRUM]: {
@@ -54,12 +54,11 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
 };
 
 /** Fallback enddpoints
- * @dev it is not used at the moment
  */
 const merklFallbackSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/anglekeeper/backup-';
 const merklFallbackSubgraphPrefixUniswapV3 = `${merklFallbackSubgraphPrefix}uniswapv3-`;
 const merklFallbackSubgraphPrefixSushiswapV3 = `${merklFallbackSubgraphPrefix}sushiswapv3-`;
-const merklFallbackSubgraphPrefixRetro = `${merklSubgraphPrefix}retro-`;
+const merklFallbackSubgraphPrefixRetro = `${merklSubgraphPrefixV1}retro-`;
 export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } = {
   [ChainId.ARBITRUM]: {
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'arbitrum',
@@ -81,4 +80,80 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'polygon',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'polygon',
   },
+};
+
+/**
+ *  Merkl Subgraph Endpoints V2
+ * @notice transition still in progress
+ */
+const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/';
+export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local') => {
+  return merklSubgraphPrefix + (env !== 'prod' ? 'angleprotocol/test-merkl-' : '');
+};
+export const merklSubgraphAMMEndpoints = (
+  merklSubgraphPrefix: string
+): { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } => {
+  return {
+    [ChainId.ARBITRUM]: {
+      [AMMType.Retro]: merklSubgraphPrefix + 'retro-arb', // doesn't exist
+      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-arb',
+      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-arb',
+    },
+    [ChainId.MAINNET]: {
+      [AMMType.Retro]: merklSubgraphPrefix + 'retro-eth', // doesn't exist
+      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-eth',
+      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-eth',
+    },
+    [ChainId.OPTIMISM]: {
+      [AMMType.Retro]: merklSubgraphPrefix + 'retro-opt', // doesn't exist
+      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-opt',
+      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-opt',
+    },
+    [ChainId.POLYGON]: {
+      [AMMType.Retro]: merklSubgraphPrefix + 'retro-pol',
+      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-pol',
+      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-pol',
+    },
+  };
+};
+export const merklSubgraphALMEndpoints = (
+  merklSubgraphPrefix: string
+): {
+  [chainId in MerklSupportedChainIdsType]: { [AMMType.UniswapV3]: { [wrapper in WrapperType<AMMType.UniswapV3>]?: string } };
+} => {
+  return {
+    [ChainId.ARBITRUM]: {
+      [AMMType.UniswapV3]: {
+        [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-arb',
+        [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-arb',
+        [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-arb',
+        [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-arb',
+      },
+    },
+    [ChainId.MAINNET]: {
+      [AMMType.UniswapV3]: {
+        [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-eth',
+        [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-eth',
+        [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-eth',
+        [Wrapper[AMMType.UniswapV3].Ichi]: merklSubgraphPrefix + 'ichi-eth',
+      },
+    },
+    [ChainId.OPTIMISM]: {
+      [AMMType.UniswapV3]: {
+        [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-opt',
+        [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-opt',
+        [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-opt',
+        [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-opt',
+      },
+    },
+    [ChainId.POLYGON]: {
+      [AMMType.UniswapV3]: {
+        [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-pol',
+        [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-pol',
+        [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-pol',
+        [Wrapper[AMMType.UniswapV3].Ichi]: merklSubgraphPrefix + 'ichi-pol',
+        [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-pol',
+      },
+    },
+  };
 };
