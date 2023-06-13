@@ -67,17 +67,17 @@ export const merklSubgraphAMMEndpoints = (
 ): { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } => {
   return {
     [ChainId.ARBITRUM]: {
-      [AMMType.Retro]: merklSubgraphPrefix + 'retro-arb', // doesn't exist
+      [AMMType.Retro]: '', // doesn't exist
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-arb',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-arb',
     },
     [ChainId.MAINNET]: {
-      [AMMType.Retro]: merklSubgraphPrefix + 'retro-eth', // doesn't exist
+      [AMMType.Retro]: '', // doesn't exist
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-eth',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-eth',
     },
     [ChainId.OPTIMISM]: {
-      [AMMType.Retro]: merklSubgraphPrefix + 'retro-opt', // doesn't exist
+      [AMMType.Retro]: '', // doesn't exist
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-opt',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-opt',
     },
