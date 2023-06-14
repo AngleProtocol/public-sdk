@@ -2,19 +2,21 @@ import { BigNumber, ethers, utils } from 'ethers';
 import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
-import { ExtensiveDistributionParametersStruct } from '../constants/types/DistributionCreator';
+import { calculatorUsedWrappersList } from '../constants/merkl';
+import { getMerklSubgraphPrefix, merklSubgraphALMEndpoints } from '../constants/merkl/endpoints';
+import { ExtensiveDistributionParametersStructOutput } from '../constants/types/DistributionCreator';
 import {
   AggregatedRewardsType,
   AMMType,
+  EnvType,
   MerklAPIData,
   MerklSupportedChainIdsType,
   UnderlyingTreeType,
-  Wrapper,
   WrapperType,
 } from '../types';
 import { findMerklAMMType } from '../types/utils';
 import { BN2Number } from './index';
-import { getMerklWrapperAddressesFromTheGraph } from './thegraph';
+import { getVaultsForPoolId } from './thegraph';
 
 /**
  * @param underylingTreeData
@@ -81,7 +83,6 @@ export const buildMerklTree = (
     tree,
   };
 };
-
 export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[] => {
   const tokens: string[] = [];
   for (const id of Object.keys(json)) {
@@ -91,11 +92,10 @@ export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[]
   }
   return tokens;
 };
-
 /**
  * @notice Returns the deduped list of pools from the list of distribution fetched from solidity
  */
-export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStruct[]): { address: string; amm: AMMType }[] => {
+export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStructOutput[]): { address: string; amm: AMMType }[] => {
   const pools: { address: string; amm: AMMType }[] = [];
   for (const d of data) {
     if (!pools.map((pool) => pool.address).includes(d.base.uniV3Pool)) {
@@ -104,13 +104,13 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
   }
   return pools;
 };
-
 /**
  * @notice Returns the deduped list of wrappers per pools from the list of distribution fetched from solidity
  */
 export const wrappersPerPoolFromSolidityStruct = async (
   chainId: MerklSupportedChainIdsType,
-  data: ExtensiveDistributionParametersStruct[]
+  data: ExtensiveDistributionParametersStructOutput[],
+  env: EnvType = 'prod'
 ): Promise<
   {
     amm: AMMType;
@@ -124,7 +124,7 @@ export const wrappersPerPoolFromSolidityStruct = async (
 > => {
   const pools = poolListFromSolidityStruct(data);
   const dedupedWrapperList = [];
-  /** Iterate over all distributions */
+  /** Iterate over all pools */
   for (const pool of pools) {
     const p = pool.address;
     const amm = pool.amm;
@@ -145,21 +145,18 @@ export const wrappersPerPoolFromSolidityStruct = async (
       pool: p,
       wrappers: [],
     };
-
-    const result = await getMerklWrapperAddressesFromTheGraph(chainId, amm, p);
+    // TODO @greedythib -> change uniswapv3 ALM according to the ALM used
+    const merklSubgraphPrefix = getMerklSubgraphPrefix(env);
     // TODO: SPECIFIC TO UNISWAPV3
-    if (amm === AMMType.UniswapV3 && !!result) {
-      /** Gamma and Arrakis wrapper */
-      const { arrakisPools, gammaPools } = result;
-      arrakisPools.forEach((arrakis) => poolData.wrappers.push({ address: arrakis, type: Wrapper[amm].Arrakis }));
-      gammaPools.forEach((gamma) => poolData.wrappers.push({ address: gamma, type: Wrapper[amm].Gamma }));
-      /** Other wrappers */
-      for (const d of data.filter((d) => d.base.uniV3Pool === p)) {
-        for (const [index, type] of d.base.wrapperTypes.entries()) {
-          if (!Object.values(Wrapper?.[amm]).includes(BN2Number(type, 0))) {
-            poolData.wrappers.push({ address: d.base.positionWrappers[index], type: BN2Number(type, 0) });
+    if (amm === AMMType.UniswapV3) {
+      for (const wrapper of calculatorUsedWrappersList[chainId][amm]) {
+        const tgURL = merklSubgraphALMEndpoints(merklSubgraphPrefix)[chainId][AMMType.UniswapV3][wrapper as WrapperType<AMMType.UniswapV3>];
+        try {
+          if (!!tgURL) {
+            const vaults_per_wrapper = await getVaultsForPoolId(p, tgURL);
+            vaults_per_wrapper.forEach((vault) => poolData.wrappers.push({ address: vault, type: wrapper }));
           }
-        }
+        } catch {}
       }
     }
     dedupedWrapperList.push(poolData);

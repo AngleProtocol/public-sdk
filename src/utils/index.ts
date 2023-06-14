@@ -1,10 +1,11 @@
 import { BigNumberish } from 'ethers';
 import { formatUnits } from 'ethers/lib/utils';
 
-import { ALL_TOKENS, AssetType, ChainId } from '../index';
+import { ALL_TOKENS, AssetType } from '../index';
 import { Token } from '../types';
 
 export * from './merkl';
+export * from './thegraph';
 
 export function BN2Number(bn: BigNumberish, base = 18) {
   return parseFloat(formatUnits(bn, base));
