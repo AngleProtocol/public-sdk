@@ -100,6 +100,7 @@ export type DistributionDataType<T extends AMMType> = {
 };
 
 export type PoolDataType<T extends AMMType> = Partial<{
+  chainId: ChainId;
   pool: string; // AMM pool address
   poolFee: number; // Fee of the AMM pool
 
@@ -155,13 +156,6 @@ export type MerklAPIData = {
       token: string;
       leaf: string;
       proof?: string[];
-    };
-  };
-  otherChains?: {
-    [chainId: number]: {
-      pools: {
-        [K in keyof typeof AMMType]: { [address: string]: PoolDataType<typeof AMMType[K]> };
-      }[keyof typeof AMMType];
     };
   };
 };
