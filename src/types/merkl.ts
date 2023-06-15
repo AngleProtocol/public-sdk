@@ -157,6 +157,13 @@ export type MerklAPIData = {
       proof?: string[];
     };
   };
+  otherChains?: {
+    [chainId: number]: {
+      pools: {
+        [K in keyof typeof AMMType]: { [address: string]: PoolDataType<typeof AMMType[K]> };
+      }[keyof typeof AMMType];
+    };
+  };
 };
 
 /** Merkl subgraphs */
