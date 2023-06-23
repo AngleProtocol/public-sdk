@@ -39,6 +39,7 @@ export const calculatorUsedWrappersList: {
       Wrapper[AMMType.UniswapV3].Arrakis,
       Wrapper[AMMType.UniswapV3].Gamma,
       Wrapper[AMMType.UniswapV3].DefiEdge,
+      Wrapper[AMMType.UniswapV3].Steer,
       Wrapper[AMMType.UniswapV3].Ichi,
     ],
     [AMMType.SushiSwapV3]: [],
