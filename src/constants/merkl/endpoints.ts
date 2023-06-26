@@ -60,7 +60,7 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
  */
 const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/';
 export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local') => {
-  return merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : '');
+  return merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : 'merkl');
 };
 export const merklSubgraphAMMEndpoints = (
   merklSubgraphPrefix: string
