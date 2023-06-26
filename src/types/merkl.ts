@@ -21,16 +21,20 @@ export enum UniswapV3Wrapper {
   Ichi = 5,
   Steer = 6,
 }
+export enum SushiSwapV3Wrapper {
+  Gamma = 2,
+  Steer = 6,
+}
 
 type WrapperTypeMapping = {
   [AMMType.UniswapV3]: UniswapV3Wrapper;
-  [AMMType.SushiSwapV3]: null;
+  [AMMType.SushiSwapV3]: SushiSwapV3Wrapper;
   [AMMType.Retro]: null;
 };
 
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
-  [AMMType.SushiSwapV3]: null,
+  [AMMType.SushiSwapV3]: SushiSwapV3Wrapper,
   [AMMType.Retro]: null,
 };
 
@@ -44,10 +48,9 @@ export enum BlacklistWrapper {
 
 type RewardOriginMapping = {
   [AMMType.UniswapV3]: 'UniswapV3' | keyof typeof Wrapper[AMMType.UniswapV3];
-  [AMMType.SushiSwapV3]: 'SushiSwap';
+  [AMMType.SushiSwapV3]: 'SushiSwap' | keyof typeof Wrapper[AMMType.SushiSwapV3];
   [AMMType.Retro]: 'Retro';
 };
-
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
 // ============================= JSON DATA TYPE =============================

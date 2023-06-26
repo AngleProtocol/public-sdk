@@ -62,6 +62,9 @@ const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotoc
 export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local') => {
   return merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : 'merkl-');
 };
+/**
+ * @dev TODO add ALGEBRA here
+ */
 export const merklSubgraphAMMEndpoints = (
   merklSubgraphPrefix: string
 ): { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]: string } } => {
@@ -91,7 +94,7 @@ export const merklSubgraphAMMEndpoints = (
 export const merklSubgraphALMEndpoints = (
   merklSubgraphPrefix: string
 ): {
-  [chainId in MerklSupportedChainIdsType]: { [AMMType.UniswapV3]: { [wrapper in WrapperType<AMMType.UniswapV3>]?: string } };
+  [chainId in MerklSupportedChainIdsType]: { [AMMType.UniswapV3]: { [wrapper in WrapperType<AMMType.UniswapV3>]: string } };
 } => {
   return {
     [ChainId.ARBITRUM]: {
@@ -100,6 +103,7 @@ export const merklSubgraphALMEndpoints = (
         [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-arb',
         [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-arb',
         [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-arb',
+        [Wrapper[AMMType.UniswapV3].Ichi]: '',
       },
     },
     [ChainId.MAINNET]: {
@@ -108,6 +112,7 @@ export const merklSubgraphALMEndpoints = (
         [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-eth',
         [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-eth',
         [Wrapper[AMMType.UniswapV3].Ichi]: merklSubgraphPrefix + 'ichi-eth',
+        [Wrapper[AMMType.UniswapV3].Steer]: '',
       },
     },
     [ChainId.OPTIMISM]: {
@@ -116,6 +121,7 @@ export const merklSubgraphALMEndpoints = (
         [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-opt',
         [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-opt',
         [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-opt',
+        [Wrapper[AMMType.UniswapV3].Ichi]: '',
       },
     },
     [ChainId.POLYGON]: {

@@ -119,7 +119,7 @@ export const wrappersPerPoolFromSolidityStruct = async (
     token0: string;
     decimal1: number;
     token1: string;
-    wrappers: { type: WrapperType<AMMType>; address: string }[];
+    wrappers: { type: WrapperType<AMMType.UniswapV3> | WrapperType<AMMType.SushiSwapV3>; address: string }[];
   }[]
 > => {
   const pools = poolListFromSolidityStruct(data);
@@ -135,7 +135,7 @@ export const wrappersPerPoolFromSolidityStruct = async (
       pool: string;
       token0: string;
       token1: string;
-      wrappers: { type: WrapperType<typeof amm>; address: string }[];
+      wrappers: { type: WrapperType<AMMType.UniswapV3> | WrapperType<AMMType.SushiSwapV3>; address: string }[];
     } = {
       amm: amm,
       decimal0: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token0.decimals, 0),
@@ -145,19 +145,24 @@ export const wrappersPerPoolFromSolidityStruct = async (
       pool: p,
       wrappers: [],
     };
-    // TODO @greedythib -> change uniswapv3 ALM according to the ALM used
     const merklSubgraphPrefix = getMerklSubgraphPrefix(env);
-    // TODO: SPECIFIC TO UNISWAPV3
-    if (amm === AMMType.UniswapV3) {
-      for (const wrapper of calculatorUsedWrappersList[chainId][amm]) {
-        const tgURL = merklSubgraphALMEndpoints(merklSubgraphPrefix)[chainId][AMMType.UniswapV3][wrapper as WrapperType<AMMType.UniswapV3>];
-        try {
-          if (!!tgURL) {
-            const vaults_per_wrapper = await getVaultsForPoolId(p, tgURL);
-            vaults_per_wrapper.forEach((vault) => poolData.wrappers.push({ address: vault, type: wrapper }));
-          }
-        } catch {}
-      }
+    for (const wrapper of calculatorUsedWrappersList[chainId][amm]) {
+      let tgURL = '';
+      /**
+       * @dev Not specific to uniswapv3 for the moment
+       * however TODO @greedythib -> change uniswapv3 ALM according to the ALM useds
+       */
+      // if (amm === AMMType.UniswapV3) {
+      tgURL = merklSubgraphALMEndpoints(merklSubgraphPrefix)[chainId][AMMType.UniswapV3][wrapper as WrapperType<AMMType.UniswapV3>];
+      // } else if (amm === AMMType.SushiSwapV3) {
+      //   tgURL = merklSubgraphALMEndpoints(merklSubgraphPrefix)[chainId][AMMType.SushiSwapV3][wrapper as WrapperType<AMMType.SushiSwapV3>];
+      // }
+      try {
+        if (!!tgURL) {
+          const vaults_per_wrapper = await getVaultsForPoolId(p, tgURL);
+          vaults_per_wrapper.forEach((vault) => poolData.wrappers.push({ address: vault, type: wrapper }));
+        }
+      } catch {}
     }
     dedupedWrapperList.push(poolData);
   }
