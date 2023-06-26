@@ -11,7 +11,7 @@ export const calculatorUsedWrappersList: {
       Wrapper[AMMType.UniswapV3].DefiEdge,
       Wrapper[AMMType.UniswapV3].Steer,
     ],
-    [AMMType.SushiSwapV3]: [],
+    [AMMType.SushiSwapV3]: [Wrapper[AMMType.SushiSwapV3].Gamma, Wrapper[AMMType.SushiSwapV3].Steer],
     [AMMType.Retro]: [],
   },
   [ChainId.MAINNET]: {
@@ -31,7 +31,7 @@ export const calculatorUsedWrappersList: {
       Wrapper[AMMType.UniswapV3].DefiEdge,
       Wrapper[AMMType.UniswapV3].Steer,
     ],
-    [AMMType.SushiSwapV3]: [],
+    [AMMType.SushiSwapV3]: [Wrapper[AMMType.SushiSwapV3].Gamma, Wrapper[AMMType.SushiSwapV3].Steer],
     [AMMType.Retro]: [],
   },
   [ChainId.POLYGON]: {
@@ -42,7 +42,7 @@ export const calculatorUsedWrappersList: {
       Wrapper[AMMType.UniswapV3].Steer,
       Wrapper[AMMType.UniswapV3].Ichi,
     ],
-    [AMMType.SushiSwapV3]: [],
+    [AMMType.SushiSwapV3]: [Wrapper[AMMType.SushiSwapV3].Gamma, Wrapper[AMMType.SushiSwapV3].Steer],
     [AMMType.Retro]: [],
   },
 };
