@@ -12,6 +12,7 @@ export enum ChainId {
   OPTIMISM = 10,
   POLYGON = 137,
   GNOSIS = 100,
+  POLYGONZKEVM = 1101,
 }
 
 export const NETWORK_LABELS: { [key in ChainId]: string } = {
@@ -26,6 +27,7 @@ export const NETWORK_LABELS: { [key in ChainId]: string } = {
   [ChainId.BSC]: 'BNB Smart Chain',
   [ChainId.OPTIMISM]: 'Optimism',
   [ChainId.GNOSIS]: 'Gnosis Chain',
+  [ChainId.POLYGONZKEVM]: 'Polygon zkEVM',
 };
 
 export enum AssetType {

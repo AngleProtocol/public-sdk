@@ -10,6 +10,7 @@ import LOCAL_ADDRESSES from './contracts_addresses/local';
 import MAINNET_CONTRACTS from './contracts_addresses/mainnet';
 import OPTIMISM_ADDRESSES from './contracts_addresses/optimism';
 import POLYGON_ADDRESSES from './contracts_addresses/polygon';
+import POLYGONZKEVM_ADDRESSES from './contracts_addresses/polygonzkevm';
 
 export enum AMO {
   'agEURvEUROC' = 'agEURvEUROC',
@@ -204,6 +205,7 @@ export const CONTRACTS_ADDRESSES: ContractsRegistryType = {
   [ChainId.AURORA]: AURORA_ADDRESSES,
   [ChainId.CELO]: CELO_ADDRESSES,
   [ChainId.GNOSIS]: GNOSIS_ADDRESSES,
+  [ChainId.POLYGONZKEVM]: POLYGONZKEVM_ADDRESSES,
   [ChainId.LOCAL]: LOCAL_ADDRESSES,
 };
 
