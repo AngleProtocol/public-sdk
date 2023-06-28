@@ -1,9 +1,7 @@
 import { ChainId } from '.';
 
 const MerklSupportedChainIds = <const>[ChainId.ARBITRUM, ChainId.MAINNET, ChainId.OPTIMISM, ChainId.POLYGON];
-
 export type MerklSupportedChainIdsType = typeof MerklSupportedChainIds[number];
-
 export const isMerklSupportedChainId = (chainId: any): chainId is MerklSupportedChainIdsType => {
   return MerklSupportedChainIds.includes(chainId);
 };
@@ -12,6 +10,7 @@ export enum AMMType {
   UniswapV3 = 0,
   SushiSwapV3 = 1,
   Retro = 2,
+  Quickswap = 3,
 }
 
 export enum UniswapV3Wrapper {
@@ -31,14 +30,15 @@ type WrapperTypeMapping = {
   [AMMType.UniswapV3]: UniswapV3Wrapper;
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper;
   [AMMType.Retro]: null;
+  [AMMType.Quickswap]: null;
 };
 
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper,
   [AMMType.Retro]: null,
+  [AMMType.Quickswap]: null,
 };
-
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 
 export enum BlacklistWrapper {
@@ -53,6 +53,7 @@ export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.UniswapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.SushiSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Retro]: AMMAlgorithmType.UniswapV3,
+  [AMMType.Quickswap]: AMMAlgorithmType.Algebra,
 };
 
 /** Reward origin */
@@ -60,6 +61,7 @@ type RewardOriginMapping = {
   [AMMType.UniswapV3]: 'UniswapV3' | keyof typeof Wrapper[AMMType.UniswapV3];
   [AMMType.SushiSwapV3]: 'SushiSwap' | keyof typeof Wrapper[AMMType.SushiSwapV3];
   [AMMType.Retro]: 'Retro';
+  [AMMType.Quickswap]: 'Quickswap';
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
@@ -119,7 +121,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
   chainId: ChainId;
   pool: string; // AMM pool address
   poolFee: number; // Fee of the AMM pool
-  poolAlgo: AMMAlgorithmType;
+  poolAMMAlgo: keyof typeof AMMAlgorithmType;
   token0: string;
   decimalToken0: number;
   tokenSymbol0: string;
