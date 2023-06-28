@@ -6,19 +6,23 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.ARBITRUM]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'arbitrum',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/arbitrum-minimal',
+    [AMMType.Quickswap]: '',
   },
   [ChainId.MAINNET]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'ethereum',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
+    [AMMType.Quickswap]: '',
   },
   [ChainId.OPTIMISM]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'optimism',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis',
+    [AMMType.Quickswap]: '',
   },
   [ChainId.POLYGON]: {
     [AMMType.Retro]: '',
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'polygon',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon',
+    [AMMType.Quickswap]: '',
   },
 };
 
@@ -33,21 +37,25 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'arbitrum',
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'arbitrum',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'arbitrum',
+    [AMMType.Quickswap]: '',
   },
   [ChainId.MAINNET]: {
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'ethereum',
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'ethereum',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'ethereum',
+    [AMMType.Quickswap]: '',
   },
   [ChainId.OPTIMISM]: {
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'optimism',
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'optimism',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'optimism',
+    [AMMType.Quickswap]: '',
   },
   [ChainId.POLYGON]: {
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'polygon',
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'polygon',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'polygon',
+    [AMMType.Quickswap]: '',
   },
 };
 
@@ -69,19 +77,24 @@ export const merklSubgraphAMMEndpoints = (
     [ChainId.ARBITRUM]: {
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-arb',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-arb',
+      [AMMType.Quickswap]: '',
     },
     [ChainId.MAINNET]: {
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-eth',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-eth',
+      [AMMType.Quickswap]: '',
     },
     [ChainId.OPTIMISM]: {
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-opt',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-opt',
+      [AMMType.Quickswap]: '',
     },
+
     [ChainId.POLYGON]: {
       [AMMType.Retro]: merklSubgraphPrefix + 'retro-pol',
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-pol',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-pol',
+      [AMMType.Quickswap]: '',
     },
   };
 };
