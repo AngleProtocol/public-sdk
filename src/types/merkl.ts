@@ -70,6 +70,7 @@ export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 export type MerklRewardDistributionType = {
   [K in keyof typeof AMMType]: {
     amm: typeof AMMType[K];
+    ammAlgo: keyof typeof AMMAlgorithmType;
     boostedAddress: string;
     boostedReward: number;
     holders: {
