@@ -80,6 +80,7 @@ export type AggregatedRewardsType = {
   rewards: UnderlyingTreeType;
   updateTimestamp: number;
   updateTxBlockNumber?: number;
+  merklRoot: string;
 };
 
 // =============================== API DATA TYPE ===============================
