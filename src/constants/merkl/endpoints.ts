@@ -94,7 +94,7 @@ export const merklSubgraphAMMEndpoints = (
       [AMMType.Retro]: merklSubgraphPrefix + 'retro-pol',
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-pol',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-pol',
-      [AMMType.Quickswap]: '',
+      [AMMType.Quickswap]: merklSubgraphPrefix + 'quickswap-pol',
     },
   };
 };

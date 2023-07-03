@@ -21,7 +21,7 @@ export const NFTManagerAddress: { [chainId in MerklSupportedChainIdsType]: { [AM
     [AMMType.Retro]: '0x15f2B5606994e8D7F1930E5F305b02c20e12A473',
     [AMMType.SushiSwapV3]: '0xb7402ee99F0A008e461098AC3A27F4957Df89a40',
     [AMMType.UniswapV3]: '0xC36442b4a4522E871399CD717aBDD847Ab11FE88',
-    [AMMType.Quickswap]: '',
+    [AMMType.Quickswap]: '0x8eF88E4c7CfbbaC1C163f7eddd4B578792201de6',
   },
 };
 
@@ -45,6 +45,6 @@ export const FactoryAddress: { [chainId in MerklSupportedChainIdsType]: { [AMM i
     [AMMType.Retro]: '0xe369708e3D0A1a98c8419db51E8f9c862F0E9CB0',
     [AMMType.SushiSwapV3]: '0x917933899c6a5f8e37f31e19f92cdbff7e8ff0e2',
     [AMMType.UniswapV3]: '0x1F98431c8aD98523631AE4a59f267346ea31F984',
-    [AMMType.Quickswap]: '',
+    [AMMType.Quickswap]: '0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28',
   },
 };
