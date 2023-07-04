@@ -23,6 +23,7 @@ export enum UniswapV3Wrapper {
 }
 export enum SushiSwapV3Wrapper {
   Gamma = 2,
+  DefiEdge = 4,
   Steer = 6,
 }
 
