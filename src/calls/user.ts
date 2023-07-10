@@ -5,7 +5,7 @@ import { BigNumberish } from '@ethersproject/bignumber';
 import { ethers } from 'ethers';
 
 import { registry } from '../constants';
-import { Erc20__factory, StableMasterFront__factory } from '../constants/types';
+import { ERC20__factory, StableMasterFront__factory } from '../constants/types';
 import { ChainId } from '../types';
 import { parseCollat, parseStable } from '../utils';
 
@@ -45,7 +45,7 @@ export async function mint(
   if (!ethers.utils.isAddress(user)) user = await signer.getAddress();
 
   // Approval is needed
-  const approval = await Erc20__factory.connect(collat.address, signer).allowance(await signer.getAddress(), stableMasterAddress);
+  const approval = await ERC20__factory.connect(collat.address, signer).allowance(await signer.getAddress(), stableMasterAddress);
   if (approval.lt(amount)) console.error('The StableMaster needs to be approved');
 
   return StableMasterFront__factory.connect(stableMasterAddress, signer).mint(amount, user, poolManagerAddress, minStableAmount, options);
