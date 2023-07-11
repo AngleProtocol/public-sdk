@@ -16,6 +16,11 @@
   },
   {
     "inputs": [],
+    "name": "InvalidParam",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidProof",
     "type": "error"
   },
@@ -260,12 +265,6 @@
   },
   {
     "anonymous": false,
-    "inputs": [],
-    "name": "Revoked",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
     "inputs": [
       {
         "indexed": false,
@@ -278,12 +277,6 @@
         "internalType": "bytes32",
         "name": "ipfsHash",
         "type": "bytes32"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint48",
-        "name": "endOfDisputePeriod",
-        "type": "uint48"
       }
     ],
     "name": "TreeUpdated",
@@ -384,14 +377,14 @@
     "name": "claimed",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "uint208",
         "name": "amount",
-        "type": "uint256"
+        "type": "uint208"
       },
       {
-        "internalType": "bytes32",
-        "name": "merkleRoot",
-        "type": "bytes32"
+        "internalType": "uint48",
+        "name": "timestamp",
+        "type": "uint48"
       }
     ],
     "stateMutability": "view",
@@ -477,19 +470,6 @@
   },
   {
     "inputs": [],
-    "name": "endOfDisputePeriod",
-    "outputs": [
-      {
-        "internalType": "uint48",
-        "name": "",
-        "type": "uint48"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "getMerkleRoot",
     "outputs": [
       {
@@ -527,6 +507,19 @@
         "internalType": "bytes32",
         "name": "ipfsHash",
         "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lastTreeUpdate",
+    "outputs": [
+      {
+        "internalType": "uint48",
+        "name": "",
+        "type": "uint48"
       }
     ],
     "stateMutability": "view",
