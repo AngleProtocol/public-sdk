@@ -1,8 +1,10 @@
 import { BigNumber, utils } from 'ethers';
+import request, { gql } from 'graphql-request';
 import invariant from 'tiny-invariant';
 
+import { calculatorUsedWrappersList, getMerklSubgraphPrefix, merklSubgraphAMMEndpoints } from '../constants';
 import { SOLIDITY_TYPE_MAXIMA, SolidityType } from './constants';
-import { AMMType } from './merkl';
+import { AMMType, MerklSupportedChainIdsType } from './merkl';
 
 export function validateSolidityTypeInstance(value: BigNumber, solidityType: SolidityType): void {
   // invariant(value.gte(0), `${value} is not a ${solidityType}.`);
@@ -21,6 +23,9 @@ export function validateAndParseAddress(address: string): string {
   }
 }
 
+/**
+ * @notice DEPRECATED
+ */
 export const findMerklAMMType = (bytes: string): AMMType => {
   if (!bytes || !utils.isBytesLike(bytes) || bytes === '0x') return AMMType.UniswapV3;
   try {
@@ -30,6 +35,37 @@ export const findMerklAMMType = (bytes: string): AMMType => {
   } catch {
     return AMMType.UniswapV3;
   }
+};
+
+export const fetchMerklAMMType = async (
+  chainId: MerklSupportedChainIdsType,
+  pool: string,
+  env: 'prod' | 'dev' | 'local' = 'prod'
+): Promise<AMMType> => {
+  const promises = [];
+  for (const amm of Object.keys(calculatorUsedWrappersList?.[chainId])) {
+    const merklSubgraphPrefix = getMerklSubgraphPrefix(env);
+    const endpoint = merklSubgraphAMMEndpoints(merklSubgraphPrefix)?.[chainId]?.[parseInt(amm) as AMMType];
+    promises.push(
+      (async () => {
+        const query = gql`
+          query Pool($poolId: ID!) {
+            pool(id: $poolId) {
+              id
+            }
+          }
+        `;
+
+        const res = await request(endpoint, query, { poolId: pool.toLowerCase() });
+        if (!!res.pool) return parseInt(amm) as AMMType;
+      })()
+    );
+  }
+  const resolvedPromises = await Promise.allSettled(promises);
+  for (const p of resolvedPromises) {
+    if (p.status === 'fulfilled' && p.value !== undefined && parseInt(p.value?.toString()) == p.value) return p.value;
+  }
+  throw 'Unable to solve AMM type'; // To silence warning
 };
 
 export enum RouterActionType {
