@@ -80,14 +80,15 @@ export type AggregatedRewardsType = {
   rewards: UnderlyingTreeType;
   updateTimestamp: number;
   updateTxBlockNumber?: number;
+  merklRoot: string;
 };
 
 // =============================== API DATA TYPE ===============================
 
 export type DistributionDataType<T extends AMMType> = {
+  id: string;
   amm: AMMType;
   amount: number; // Amount distributed
-  breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
   end: number;
   isBoosted: boolean;
   isLive: boolean;
@@ -99,15 +100,17 @@ export type DistributionDataType<T extends AMMType> = {
   start: number;
   token: string; // Token distributed
   tokenSymbol: string;
-  unclaimed?: number; // Unclaimed reward amount by the user
   wrappers: WrapperType<T>[]; // Supported wrapper types for this pool
+
+  // User Related Data
+  breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
+  unclaimed?: number; // Unclaimed reward amount by the user
 };
 
 export type PoolDataType<T extends AMMType> = Partial<{
   chainId: ChainId;
   pool: string; // AMM pool address
   poolFee: number; // Fee of the AMM pool
-
   token0: string;
   decimalToken0: number;
   tokenSymbol0: string;
@@ -116,15 +119,31 @@ export type PoolDataType<T extends AMMType> = Partial<{
   decimalToken1: number;
   tokenSymbol1: string;
   token1InPool: number; // Total amount of token1 in the pool
-  liquidity?: number; // liquidity in the pool
+  liquidity: number; // liquidity in the pool
+  distributionData: DistributionDataType<T>[];
+
+  // Price Related Data
   tvl?: number; // TVL in the pool, in $
-  // User tokens in the pool and breakdown by wrapper
+  meanAPR: number; // Average APR in the pool
+  aprs: { [description: string]: number }; // APR description (will contain wrapper types)
+
+  // User Related Data
+
+  // User tokens in the pool and breakdown by ALM
   userTotalBalance0?: number;
   userTotalBalance1?: number;
   userTVL?: number; // user TVL in the pool, in $
-  userBalances?: { balance0: number; balance1: number; tvl: number; origin: WrapperType<T> | -1 }[];
-  meanAPR: number; // Average APR in the pool
-  aprs: { [description: string]: number }; // APR description (will contain wrapper types)
+  almDetails?: {
+    balance0?: number;
+    balance1?: number;
+    tvl?: number;
+    poolBalance0?: number;
+    poolBalance1?: number;
+    almLiquidity?: number;
+    origin: WrapperType<T> | -1;
+    label: string;
+    address: string;
+  }[];
   // Rewards earned by the user breakdown per token
   // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
   rewardsPerToken?: {
@@ -138,21 +157,22 @@ export type PoolDataType<T extends AMMType> = Partial<{
       breakdown: { [origin in RewardOrigin<T>]?: number };
     };
   };
-  // Detail of each distribution
-  distributionData: DistributionDataType<T>[];
 }>;
 
 /**
  * Global data object returned by the api, that can be used to build front-ends
  */
 export type MerklAPIData = {
+  merkleRoot: string;
   message: string;
-  signed?: boolean;
-  validRewardTokens?: { token: string; minimumAmountPerEpoch: number }[];
-  feeRebate?: number;
+  validRewardTokens: { token: string; minimumAmountPerEpoch: number }[];
   pools: {
     [K in keyof typeof AMMType]: { [address: string]: PoolDataType<typeof AMMType[K]> }; // Data per pool to build cards
   }[keyof typeof AMMType];
+
+  // User Related Data
+  signed?: boolean;
+  feeRebate?: number;
   transactionData?: {
     [token: string]: {
       // Data to build transaction
@@ -172,4 +192,5 @@ export type DirectPositionType = {
   startTimestamp: number;
   tickLower: number;
   tickUpper: number;
+  liquidity: string;
 };

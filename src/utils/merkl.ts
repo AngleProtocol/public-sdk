@@ -2,21 +2,9 @@ import { BigNumber, ethers, utils } from 'ethers';
 import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
-import { calculatorUsedWrappersList } from '../constants/merkl';
-import { getMerklSubgraphPrefix, merklSubgraphALMEndpoints } from '../constants/merkl/endpoints';
 import { ExtensiveDistributionParametersStructOutput } from '../constants/types/DistributionCreator';
-import {
-  AggregatedRewardsType,
-  AMMType,
-  EnvType,
-  MerklAPIData,
-  MerklSupportedChainIdsType,
-  UnderlyingTreeType,
-  WrapperType,
-} from '../types';
-import { findMerklAMMType } from '../types/utils';
-import { BN2Number } from './index';
-import { getVaultsForPoolId } from './thegraph';
+import { AggregatedRewardsType, AMMType, MerklAPIData, MerklSupportedChainIdsType, UnderlyingTreeType } from '../types';
+import { fetchMerklAMMType, findMerklAMMType } from '../types/utils';
 
 /**
  * @param underylingTreeData
@@ -92,8 +80,9 @@ export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[]
   }
   return tokens;
 };
+
 /**
- * @notice Returns the deduped list of pools from the list of distribution fetched from solidity
+ * @notice DEPRECATED - Returns the deduped list of pools from the list of distribution fetched from solidity
  */
 export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStructOutput[]): { address: string; amm: AMMType }[] => {
   const pools: { address: string; amm: AMMType }[] = [];
@@ -104,67 +93,31 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
   }
   return pools;
 };
+
 /**
- * @notice Returns the deduped list of wrappers per pools from the list of distribution fetched from solidity
+ * @notice Returns the deduped list of pools from the list of distribution fetched from solidity
  */
-export const wrappersPerPoolFromSolidityStruct = async (
+export const buildPoolList = async (
   chainId: MerklSupportedChainIdsType,
-  data: ExtensiveDistributionParametersStructOutput[],
-  env: EnvType = 'prod'
-): Promise<
-  {
-    amm: AMMType;
-    pool: string;
-    decimal0: number;
-    token0: string;
-    decimal1: number;
-    token1: string;
-    wrappers: { type: WrapperType<AMMType.UniswapV3> | WrapperType<AMMType.SushiSwapV3>; address: string }[];
-  }[]
-> => {
-  const pools = poolListFromSolidityStruct(data);
-  const dedupedWrapperList = [];
-  /** Iterate over all pools */
-  for (const pool of pools) {
-    const p = pool.address;
-    const amm = pool.amm;
-    const poolData: {
-      amm: AMMType;
-      decimal0: number;
-      decimal1: number;
-      pool: string;
-      token0: string;
-      token1: string;
-      wrappers: { type: WrapperType<AMMType.UniswapV3> | WrapperType<AMMType.SushiSwapV3>; address: string }[];
-    } = {
-      amm: amm,
-      decimal0: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token0.decimals, 0),
-      decimal1: BN2Number(data.filter((d) => d.base.uniV3Pool === p)[0].token1.decimals, 0),
-      token0: data.filter((d) => d.base.uniV3Pool === p)[0].token0.symbol,
-      token1: data.filter((d) => d.base.uniV3Pool === p)[0].token1.symbol,
-      pool: p,
-      wrappers: [],
-    };
-    const merklSubgraphPrefix = getMerklSubgraphPrefix(env);
-    for (const wrapper of calculatorUsedWrappersList[chainId][amm]) {
-      let tgURL = '';
-      /**
-       * @dev Not specific to uniswapv3 for the moment
-       * however TODO @greedythib -> change uniswapv3 ALM according to the ALM useds
-       */
-      // if (amm === AMMType.UniswapV3) {
-      tgURL = merklSubgraphALMEndpoints(merklSubgraphPrefix)[chainId][AMMType.UniswapV3][wrapper as WrapperType<AMMType.UniswapV3>];
-      // } else if (amm === AMMType.SushiSwapV3) {
-      //   tgURL = merklSubgraphALMEndpoints(merklSubgraphPrefix)[chainId][AMMType.SushiSwapV3][wrapper as WrapperType<AMMType.SushiSwapV3>];
-      // }
-      try {
-        if (!!tgURL) {
-          const vaults_per_wrapper = await getVaultsForPoolId(p, tgURL);
-          vaults_per_wrapper.forEach((vault) => poolData.wrappers.push({ address: vault, type: wrapper }));
+  data: ExtensiveDistributionParametersStructOutput[]
+): Promise<{ address: string; amm: AMMType }[]> => {
+  const pools: { address: string; amm: AMMType }[] = [];
+
+  await Promise.all(
+    data.map(async (d) =>
+      (async () => {
+        try {
+          const amm = await fetchMerklAMMType(chainId, d.base.uniV3Pool);
+          // Warning to not add duplicates as the above call is async so additions are async
+          if (!pools.map((pool) => pool.address).includes(d.base.uniV3Pool)) {
+            pools.push({ address: d.base.uniV3Pool, amm: amm });
+          }
+        } catch {
+          console.log(`${d.base.uniV3Pool.toLowerCase()} not found in the graphs`);
         }
-      } catch {}
-    }
-    dedupedWrapperList.push(poolData);
-  }
-  return dedupedWrapperList;
+      })()
+    )
+  );
+
+  return pools;
 };
