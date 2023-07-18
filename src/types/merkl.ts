@@ -47,13 +47,12 @@ export enum BlacklistWrapper {
 
 export enum AMMAlgorithmType {
   'UniswapV3' = 0,
-  'PancakeSwap' = 1,
 }
 export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.UniswapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.SushiSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Retro]: AMMAlgorithmType.UniswapV3,
-  [AMMType.PancakeSwap]: AMMAlgorithmType.PancakeSwap,
+  [AMMType.PancakeSwap]: AMMAlgorithmType.UniswapV3,
 };
 
 /** Reward origin */
@@ -61,7 +60,7 @@ type RewardOriginMapping = {
   [AMMType.UniswapV3]: 'UniswapV3' | keyof typeof Wrapper[AMMType.UniswapV3];
   [AMMType.SushiSwapV3]: 'SushiSwap' | keyof typeof Wrapper[AMMType.SushiSwapV3];
   [AMMType.Retro]: 'Retro';
-  [AMMType.PancakeSwap]: 'Quickswap';
+  [AMMType.PancakeSwap]: 'PancakeSwap';
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
