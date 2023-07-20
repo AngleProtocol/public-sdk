@@ -185,8 +185,17 @@ export type MerklAPIData = {
 };
 
 /** Merkl subgraphs */
-export type NFTManagerPositionType = { id: string; startTimestamp: number; endTimestamp: number; pool: string };
-export type DirectPositionType = {
+/** TODO: add `maxLiquidity` field */
+export declare type NFTManagerPositionType = {
+  endTimestamp: number;
+  id: string;
+  liquidity: string;
+  pool: string;
+  tickLower: number;
+  tickUpper: number;
+  startTimestamp: number;
+};
+export declare type DirectPositionType = {
   endTimestamp: number;
   owner: string;
   startTimestamp: number;

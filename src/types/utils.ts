@@ -56,7 +56,7 @@ export const fetchMerklAMMType = async (
           }
         `;
 
-        const res = await request(endpoint, query, { poolId: pool.toLowerCase() });
+        const res = await request(endpoint ?? '', query, { poolId: pool.toLowerCase() });
         if (!!res.pool) return parseInt(amm) as AMMType;
       })()
     );
