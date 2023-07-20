@@ -165,7 +165,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
 export type MerklAPIData = {
   merkleRoot: string;
   message: string;
-  validRewardTokens: { token: string; minimumAmountPerEpoch: number }[];
+  validRewardTokens: { token: string; minimumAmountPerEpoch: number; decimals: number; symbol: string }[];
   pools: {
     [K in keyof typeof AMMType]: { [address: string]: PoolDataType<typeof AMMType[K]> }; // Data per pool to build cards
   }[keyof typeof AMMType];
