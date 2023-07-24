@@ -39,7 +39,7 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'ethereum',
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'ethereum',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'ethereum',
-    [AMMType.PancakeSwap]: '', // TO BE FILLED
+    [AMMType.PancakeSwap]: 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-v3-eth',
   },
   [ChainId.OPTIMISM]: {
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'optimism',
@@ -75,7 +75,7 @@ export const merklSubgraphAMMEndpoints = (
     [ChainId.MAINNET]: {
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-eth',
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-eth',
-      [AMMType.PancakeSwap]: '', // TO BE FILLED
+      [AMMType.PancakeSwap]: merklSubgraphPrefix + 'pancakeswapv3-eth',
     },
     [ChainId.OPTIMISM]: {
       [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-opt',
