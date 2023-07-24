@@ -15,7 +15,6 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.OPTIMISM]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'optimism',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis',
-    [AMMType.PancakeSwap]: '',
   },
   [ChainId.POLYGON]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'polygon',
