@@ -4,7 +4,7 @@ import MerkleTree from 'merkletreejs';
 
 import { ExtensiveDistributionParametersStructOutput } from '../constants/types/DistributionCreator';
 import { AggregatedRewardsType, AMMType, MerklAPIData, MerklSupportedChainIdsType, UnderlyingTreeType } from '../types';
-import { fetchMerklAMMType, findMerklAMMType } from '../types/utils';
+import { fetchMerklAMMType, findMerklAMMTypeDeprecated } from '../types/utils';
 
 /**
  * @param underylingTreeData
@@ -88,7 +88,7 @@ export const poolListFromSolidityStruct = (data: ExtensiveDistributionParameters
   const pools: { address: string; amm: AMMType }[] = [];
   for (const d of data) {
     if (!pools.map((pool) => pool.address).includes(d.base.uniV3Pool)) {
-      pools.push({ address: d.base.uniV3Pool, amm: findMerklAMMType(d.base.additionalData?.toString()) });
+      pools.push({ address: d.base.uniV3Pool, amm: findMerklAMMTypeDeprecated(d.base.additionalData?.toString()) });
     }
   }
   return pools;
