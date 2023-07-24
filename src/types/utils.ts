@@ -26,7 +26,7 @@ export function validateAndParseAddress(address: string): string {
 /**
  * @notice DEPRECATED
  */
-export const findMerklAMMType = (bytes: string): AMMType => {
+export const findMerklAMMTypeDeprecated = (bytes: string): AMMType => {
   if (!bytes || !utils.isBytesLike(bytes) || bytes === '0x') return AMMType.UniswapV3;
   try {
     const firstDecodedValue = (utils.defaultAbiCoder.decode(['uint256'], bytes)[0] as BigNumber)?.toNumber();
@@ -65,7 +65,7 @@ export const fetchMerklAMMType = async (
   for (const p of resolvedPromises) {
     if (p.status === 'fulfilled' && p.value !== undefined && parseInt(p.value?.toString()) == p.value) return p.value;
   }
-  throw 'Unable to solve AMM type'; // To silence warning
+  throw new Error('Unable to solve AMM type'); // To silence warning
 };
 
 export enum RouterActionType {
