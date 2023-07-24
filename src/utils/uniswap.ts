@@ -125,9 +125,13 @@ export function getTickAtSqrtRatio(sqrtRatioX96: JSBI): number {
 }
 
 export const getAmount0ForLiquidity = (lowerTick: number, upperTick: number, liquidity: BigNumber): BigNumber => {
-  let sqrtRatioAX96 = getSqrtRatioAtTick(lowerTick);
-  let sqrtRatioBX96 = getSqrtRatioAtTick(upperTick);
+  const sqrtRatioAX96 = getSqrtRatioAtTick(lowerTick);
+  const sqrtRatioBX96 = getSqrtRatioAtTick(upperTick);
 
+  return _getAmount0ForLiquidity(sqrtRatioAX96, sqrtRatioBX96, liquidity);
+};
+
+const _getAmount0ForLiquidity = (sqrtRatioAX96: JSBI, sqrtRatioBX96: JSBI, liquidity: BigNumber): BigNumber => {
   if (JSBI.greaterThan(sqrtRatioAX96, sqrtRatioBX96)) {
     sqrtRatioAX96 = sqrtRatioBX96;
     sqrtRatioBX96 = sqrtRatioAX96;
@@ -141,9 +145,14 @@ export const getAmount0ForLiquidity = (lowerTick: number, upperTick: number, liq
   return res;
 };
 
-const getAmount1ForLiquidity = (lowerTick: number, upperTick: number, liquidity: BigNumber): BigNumber => {
-  let sqrtRatioAX96 = getSqrtRatioAtTick(lowerTick);
-  let sqrtRatioBX96 = getSqrtRatioAtTick(upperTick);
+export const getAmount1ForLiquidity = (lowerTick: number, upperTick: number, liquidity: BigNumber): BigNumber => {
+  const sqrtRatioAX96 = getSqrtRatioAtTick(lowerTick);
+  const sqrtRatioBX96 = getSqrtRatioAtTick(upperTick);
+
+  return _getAmount1ForLiquidity(sqrtRatioAX96, sqrtRatioBX96, liquidity);
+};
+
+const _getAmount1ForLiquidity = (sqrtRatioAX96: JSBI, sqrtRatioBX96: JSBI, liquidity: BigNumber): BigNumber => {
   if (JSBI.greaterThan(sqrtRatioAX96, sqrtRatioBX96)) {
     sqrtRatioAX96 = sqrtRatioBX96;
     sqrtRatioBX96 = sqrtRatioAX96;
@@ -156,10 +165,10 @@ const getAmount1ForLiquidity = (lowerTick: number, upperTick: number, liquidity:
   return res;
 };
 
-export const getAmountsForLiquidity = (tick: number, lowerTick: number, upperTick: number, liquidity: BigNumber) => {
+export const getAmountsForLiquidity = (sqrtRatioX96String: string, lowerTick: number, upperTick: number, liquidity: BigNumber) => {
   let sqrtRatioAX96 = getSqrtRatioAtTick(lowerTick);
   let sqrtRatioBX96 = getSqrtRatioAtTick(upperTick);
-  const sqrtRatioX96 = getSqrtRatioAtTick(tick);
+  const sqrtRatioX96 = JSBI.BigInt(sqrtRatioX96String?.toString());
   if (JSBI.greaterThan(sqrtRatioAX96, sqrtRatioBX96)) {
     sqrtRatioAX96 = sqrtRatioBX96;
     sqrtRatioBX96 = sqrtRatioAX96;
@@ -168,12 +177,12 @@ export const getAmountsForLiquidity = (tick: number, lowerTick: number, upperTic
   let amount0 = BigNumber.from(0);
   let amount1 = BigNumber.from(0);
   if (JSBI.greaterThan(sqrtRatioAX96, sqrtRatioX96)) {
-    amount0 = getAmount0ForLiquidity(lowerTick, upperTick, liquidity);
+    amount0 = _getAmount0ForLiquidity(sqrtRatioAX96, sqrtRatioBX96, liquidity);
   } else if (JSBI.greaterThan(sqrtRatioBX96, sqrtRatioX96)) {
-    amount0 = getAmount0ForLiquidity(tick, upperTick, liquidity);
-    amount1 = getAmount1ForLiquidity(lowerTick, tick, liquidity);
+    amount0 = _getAmount0ForLiquidity(sqrtRatioX96, sqrtRatioBX96, liquidity);
+    amount1 = _getAmount1ForLiquidity(sqrtRatioAX96, sqrtRatioX96, liquidity);
   } else {
-    amount1 = getAmount1ForLiquidity(lowerTick, upperTick, liquidity);
+    amount1 = _getAmount1ForLiquidity(sqrtRatioAX96, sqrtRatioBX96, liquidity);
   }
   return [amount0, amount1];
 };
