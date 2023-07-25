@@ -36,7 +36,7 @@ const ONE = JSBI.BigInt(1);
  * Returns the sqrt ratio as a Q64.96 for the given tick. The sqrt ratio is computed as sqrt(1.0001)^tick
  * @param tick the tick for which to compute the sqrt ratio
  */
-function getSqrtRatioAtTick(tick: number): JSBI {
+export function getSqrtRatioAtTick(tick: number): JSBI {
   invariant(tick >= MIN_TICK && tick <= MAX_TICK && Number.isInteger(tick), 'TICK');
   const absTick: number = tick < 0 ? tick * -1 : tick;
 
