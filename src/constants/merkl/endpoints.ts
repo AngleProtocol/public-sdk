@@ -20,7 +20,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'polygon',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon',
   },
-  [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: '' },
+  [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest' },
 };
 
 /** Fallback enddpoints
@@ -51,7 +51,7 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'polygon',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'polygon',
   },
-  [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: '' },
+  [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest' },
 };
 
 /**
