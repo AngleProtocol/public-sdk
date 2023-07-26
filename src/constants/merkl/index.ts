@@ -49,6 +49,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.Retro]: [],
     [AMMType.PancakeSwap]: [],
   },
+  [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: [], [AMMType.Retro]: [], [AMMType.SushiSwapV3]: [], [AMMType.UniswapV3]: [] },
 };
 
 export * from './addresses';
