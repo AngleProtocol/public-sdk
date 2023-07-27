@@ -59,8 +59,11 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
  * @notice transition still in progress
  */
 const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/';
-export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local') => {
-  return merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : 'merkl-');
+const merklSubgraphPrefixStudio = 'https://api.studio.thegraph.com/query/12694/';
+export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local', isStudio = false) => {
+  return isStudio
+    ? merklSubgraphPrefixStudio + (env !== 'prod' ? 'test-merkl-' : 'merkl-')
+    : merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : 'merkl-');
 };
 /**
  * @dev TODO add ALGEBRA here
@@ -88,7 +91,7 @@ export const merklSubgraphAMMEndpoints = (
       [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-pol',
     },
     [ChainId.POLYGONZKEVM]: {
-      [AMMType.PancakeSwap]: 'https://api.studio.thegraph.com/query/12694/test-merkl-pancakeswapv3-zkevm/version/latest',
+      [AMMType.PancakeSwap]: merklSubgraphPrefixStudio + 'pancakeswapv3-zkevm/version/latest',
     },
   };
 };
