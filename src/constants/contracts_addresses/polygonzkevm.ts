@@ -13,6 +13,11 @@ const addresses: ContractsRegistryType['1'] = {
   Guardian: '0x10DeF8a92c51C8082087356186a1485301078DCd',
   ProxyAdmin: '0x1D941EF0D3Bba4ad67DBfBCeE5262F4CEE53A32b',
   ProxyAdminGuardian: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
+  Merkl: {
+    CoreMerkl: '0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049',
+    DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
+    Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
+  },
 };
 
 export default addresses;
