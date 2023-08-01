@@ -40,7 +40,7 @@ type WrapperTypeMapping = {
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper,
-  [AMMType.Retro]: null,
+  [AMMType.Retro]: RetroWrapper,
   [AMMType.PancakeSwap]: null,
 };
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];

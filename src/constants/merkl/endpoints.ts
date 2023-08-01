@@ -54,77 +54,73 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
   [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest' },
 };
 
-/**
- *  Merkl Subgraph Endpoints V2
- * @notice transition still in progress
- */
 const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/';
 const merklSubgraphPrefixStudio = 'https://api.studio.thegraph.com/query/12694/';
+
 export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local', isStudio = false) => {
   return isStudio
     ? merklSubgraphPrefixStudio + (env !== 'prod' ? 'test-merkl-' : 'merkl-')
     : merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : 'merkl-');
 };
-/**
- * @dev TODO add ALGEBRA here
- */
+
 export const merklSubgraphAMMEndpoints = (
-  merklSubgraphPrefix: string
+  env: 'prod' | 'dev' | 'local'
 ): { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]?: string } } => {
   return {
     [ChainId.ARBITRUM]: {
-      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-arb',
-      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-arb',
+      [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-arb',
+      [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-arb',
     },
     [ChainId.MAINNET]: {
-      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-eth',
-      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-eth',
-      [AMMType.PancakeSwap]: merklSubgraphPrefix + 'pancakeswapv3-eth',
+      [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-eth',
+      [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-eth',
+      [AMMType.PancakeSwap]: getMerklSubgraphPrefix(env) + 'pancakeswapv3-eth',
     },
     [ChainId.OPTIMISM]: {
-      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-opt',
-      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-opt',
+      [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-opt',
+      [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-opt',
     },
     [ChainId.POLYGON]: {
-      [AMMType.Retro]: merklSubgraphPrefix + 'retro-pol',
-      [AMMType.SushiSwapV3]: merklSubgraphPrefix + 'sushiswapv3-pol',
-      [AMMType.UniswapV3]: merklSubgraphPrefix + 'uniswapv3-pol',
+      [AMMType.Retro]: getMerklSubgraphPrefix(env) + 'retro-pol',
+      [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-pol',
+      [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-pol',
     },
     [ChainId.POLYGONZKEVM]: {
-      [AMMType.PancakeSwap]: merklSubgraphPrefixStudio + 'pancakeswapv3-zkevm/version/latest',
+      [AMMType.PancakeSwap]: getMerklSubgraphPrefix(env, true) + 'pancakeswapv3-zkevm/version/latest',
     },
   };
 };
+
 export const merklSubgraphALMEndpoints = (
-  merklSubgraphPrefix: string
+  env: 'prod' | 'dev' | 'local'
 ): {
   [chainId in MerklSupportedChainIdsType]: { [wrapper in WrapperType<AMMType.UniswapV3>]?: string };
 } => {
   return {
     [ChainId.ARBITRUM]: {
-      [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-arb',
-      [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-arb',
-      [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-arb',
-      [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-arb',
+      [Wrapper[AMMType.UniswapV3].Arrakis]: getMerklSubgraphPrefix(env) + 'arrakis-arb',
+      [Wrapper[AMMType.UniswapV3].Gamma]: getMerklSubgraphPrefix(env) + 'gamma-arb',
+      [Wrapper[AMMType.UniswapV3].DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-arb',
+      [Wrapper[AMMType.UniswapV3].Steer]: getMerklSubgraphPrefix(env) + 'steer-arb',
     },
     [ChainId.MAINNET]: {
-      [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-eth',
-      [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-eth',
-      [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-eth',
-      [Wrapper[AMMType.UniswapV3].Ichi]: merklSubgraphPrefix + 'ichi-eth',
+      [Wrapper[AMMType.UniswapV3].Arrakis]: getMerklSubgraphPrefix(env) + 'arrakis-eth',
+      [Wrapper[AMMType.UniswapV3].Gamma]: getMerklSubgraphPrefix(env) + 'gamma-eth',
+      [Wrapper[AMMType.UniswapV3].DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-eth',
+      [Wrapper[AMMType.UniswapV3].Ichi]: getMerklSubgraphPrefix(env) + 'ichi-eth',
     },
     [ChainId.OPTIMISM]: {
-      [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-opt',
-      [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-opt',
-      [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-opt',
-      [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-opt',
+      [Wrapper[AMMType.UniswapV3].Arrakis]: getMerklSubgraphPrefix(env) + 'arrakis-opt',
+      [Wrapper[AMMType.UniswapV3].Gamma]: getMerklSubgraphPrefix(env) + 'gamma-opt',
+      [Wrapper[AMMType.UniswapV3].DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-opt',
+      [Wrapper[AMMType.UniswapV3].Steer]: getMerklSubgraphPrefix(env) + 'steer-opt',
     },
     [ChainId.POLYGON]: {
-      [Wrapper[AMMType.UniswapV3].Arrakis]: merklSubgraphPrefix + 'arrakis-pol',
-      [Wrapper[AMMType.UniswapV3].Gamma]: merklSubgraphPrefix + 'gamma-pol',
-      [Wrapper[AMMType.UniswapV3].DefiEdge]: merklSubgraphPrefix + 'defiedge-pol',
-      [Wrapper[AMMType.UniswapV3].Ichi]: merklSubgraphPrefix + 'ichi-pol',
-      [Wrapper[AMMType.UniswapV3].Steer]: merklSubgraphPrefix + 'steer-pol',
+      [Wrapper[AMMType.UniswapV3].Arrakis]: getMerklSubgraphPrefix(env) + 'arrakis-pol',
+      [Wrapper[AMMType.UniswapV3].Gamma]: getMerklSubgraphPrefix(env) + 'gamma-pol',
+      [Wrapper[AMMType.UniswapV3].DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-pol',
+      [Wrapper[AMMType.UniswapV3].Ichi]: getMerklSubgraphPrefix(env) + 'ichi-pol',
+      [Wrapper[AMMType.UniswapV3].Steer]: getMerklSubgraphPrefix(env) + 'steer-pol',
     },
     [ChainId.POLYGONZKEVM]: {},
   };
