@@ -19,6 +19,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.POLYGON]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'polygon',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon',
+    [AMMType.Retro]: 'https://api.thegraph.com/subgraphs/name/ruvlol/univ3-test',
   },
   [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest' },
 };
