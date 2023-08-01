@@ -2,7 +2,7 @@ import { BigNumber, utils } from 'ethers';
 import request, { gql } from 'graphql-request';
 import invariant from 'tiny-invariant';
 
-import { calculatorUsedWrappersList, getMerklSubgraphPrefix, merklSubgraphAMMEndpoints } from '../constants';
+import { calculatorUsedWrappersList, merklSubgraphAMMEndpoints } from '../constants';
 import { SOLIDITY_TYPE_MAXIMA, SolidityType } from './constants';
 import { AMMType, MerklSupportedChainIdsType } from './merkl';
 
@@ -44,8 +44,7 @@ export const fetchMerklAMMType = async (
 ): Promise<AMMType> => {
   const promises = [];
   for (const amm of Object.keys(calculatorUsedWrappersList?.[chainId])) {
-    const merklSubgraphPrefix = getMerklSubgraphPrefix(env);
-    const endpoint = merklSubgraphAMMEndpoints(merklSubgraphPrefix)?.[chainId]?.[parseInt(amm) as AMMType];
+    const endpoint = merklSubgraphAMMEndpoints(env)?.[chainId]?.[parseInt(amm) as AMMType];
     promises.push(
       (async () => {
         const query = gql`
