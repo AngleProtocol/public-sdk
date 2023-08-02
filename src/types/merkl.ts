@@ -200,11 +200,11 @@ export type MerklAPIData = {
 };
 
 /** Merkl subgraphs */
-/** TODO: add `maxLiquidity` field */
 export declare type NFTManagerPositionType = {
   endTimestamp: number;
   id: string;
   liquidity: string;
+  maxLiquidity?: string;
   pool: string;
   tickLower: number;
   tickUpper: number;
@@ -217,4 +217,5 @@ export declare type DirectPositionType = {
   tickLower: number;
   tickUpper: number;
   liquidity: string;
+  maxLiquidity?: string;
 };
