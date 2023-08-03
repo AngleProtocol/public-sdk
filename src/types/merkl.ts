@@ -114,7 +114,9 @@ export type DistributionDataType<T extends AMMType> = {
   start: number;
   token: string; // Token distributed
   tokenSymbol: string;
+  tokenDecimals: number;
   wrappers: WrapperType<T>[]; // Supported wrapper types for this pool
+  meanAPR: number;
 
   // User Related Data
   breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
