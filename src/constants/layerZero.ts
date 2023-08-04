@@ -11,6 +11,7 @@ export const layerZeroChainIds: { [chain: number | string]: number } = {
   [ChainId.CELO]: 125,
   [ChainId.GNOSIS]: 145,
   [ChainId.POLYGONZKEVM]: 158,
+  [ChainId.BASE]: 184,
   arbitrum: 110,
   'arbitrum-rinkeby': 10010,
   avalanche: 106,
@@ -28,4 +29,5 @@ export const layerZeroChainIds: { [chain: number | string]: number } = {
   'optimism-kovan': 10011,
   polygon: 109,
   rinkeby: 10001,
+  base: 184,
 };
