@@ -2,6 +2,7 @@ import { ChainId } from '../types';
 import ARBITRUM_ADDRESSES from './contracts_addresses/arbitrum';
 import AURORA_ADDRESSES from './contracts_addresses/aurora';
 import AVALANCHE_ADDRESSES from './contracts_addresses/avalanche';
+import BASE_ADDRESSES from './contracts_addresses/base';
 import BSC_ADDRESSES from './contracts_addresses/bsc';
 import CELO_ADDRESSES from './contracts_addresses/celo';
 import FANTOM_ADDRESSES from './contracts_addresses/fantom';
@@ -95,9 +96,10 @@ type CollateralType = Readonly<
     Staking?: string;
     Strategies?: {
       [strategy in SimpleStrategy]?: string;
-    } & {
-      [strategy in LenderStrategy]?: LenderStrategyType;
-    };
+    } &
+      {
+        [strategy in LenderStrategy]?: LenderStrategyType;
+      };
   }>
 >;
 
@@ -130,66 +132,68 @@ type StablecoinType = Readonly<
   }>
 >;
 
-export type ContractsRegistryType = Readonly<{
-  [chainId in ChainId]: Partial<
-    {
-      ANGLE: string;
-      AngleDistributor: string;
-      AngleHelpers: string;
-      AngleRouter: string;
-      AngleRouterV2: string;
-      Core: string;
-      CoreBorrow: string;
-      FlashAngle: string;
-      FeeDistributor_sanUSDC_EUR: string;
-      GaugeController: string;
-      Governor: string;
-      Guardian: string;
-      KeeperMulticall: string;
-      KeeperRegistry: string;
-      Merkl: {
-        DistributionCreator?: string;
-        Distributor?: string;
-        CoreMerkl: string;
-      };
-      MerkleRootDistributor: string;
-      MerklGaugeMiddleman: string;
-      Middleman: string;
-      MulticallWithFailure: string;
-      OracleNativeUSD: string;
-      ProxyAdmin: string;
-      ProxyAdminGuardian: string;
-      RewardsDistributor: string;
-      SmartWalletWhitelist: string;
-      SurplusConverterSanTokens_EUR_USDC: string;
-      SurplusConverterUniV3_IntraCollaterals: string;
-      Timelock: string;
-      veANGLE: string;
-      veBoostProxy: string;
-      ExternalStakings: {
-        tokenName: string;
-        stakingContractAddress: string;
-        poolContractAddress: string;
-        liquidityGaugeAddress?: string;
-      }[];
-      Gauges: { gaugeName: string; gaugeAddress: string; type: number }[];
-      AMO: {
-        AMOMinter: string;
-        BPAMOs?: {
-          [key in AMO]?: AMOType;
+export type ContractsRegistryType = Readonly<
+  {
+    [chainId in ChainId]: Partial<
+      {
+        ANGLE: string;
+        AngleDistributor: string;
+        AngleHelpers: string;
+        AngleRouter: string;
+        AngleRouterV2: string;
+        Core: string;
+        CoreBorrow: string;
+        FlashAngle: string;
+        FeeDistributor_sanUSDC_EUR: string;
+        GaugeController: string;
+        Governor: string;
+        Guardian: string;
+        KeeperMulticall: string;
+        KeeperRegistry: string;
+        Merkl: {
+          DistributionCreator?: string;
+          Distributor?: string;
+          CoreMerkl: string;
         };
-      };
-      bridges?: {
-        Anyswap?: string;
-        LayerZero?: string;
-        RainbowBridge?: string;
-        Synapse?: string;
-      };
-    } & {
-      [key in Stablecoin]?: StablecoinType;
-    }
-  >;
-}>;
+        MerkleRootDistributor: string;
+        MerklGaugeMiddleman: string;
+        Middleman: string;
+        MulticallWithFailure: string;
+        OracleNativeUSD: string;
+        ProxyAdmin: string;
+        ProxyAdminGuardian: string;
+        RewardsDistributor: string;
+        SmartWalletWhitelist: string;
+        SurplusConverterSanTokens_EUR_USDC: string;
+        SurplusConverterUniV3_IntraCollaterals: string;
+        Timelock: string;
+        veANGLE: string;
+        veBoostProxy: string;
+        ExternalStakings: {
+          tokenName: string;
+          stakingContractAddress: string;
+          poolContractAddress: string;
+          liquidityGaugeAddress?: string;
+        }[];
+        Gauges: { gaugeName: string; gaugeAddress: string; type: number }[];
+        AMO: {
+          AMOMinter: string;
+          BPAMOs?: {
+            [key in AMO]?: AMOType;
+          };
+        };
+        bridges?: {
+          Anyswap?: string;
+          LayerZero?: string;
+          RainbowBridge?: string;
+          Synapse?: string;
+        };
+      } & {
+        [key in Stablecoin]?: StablecoinType;
+      }
+    >;
+  }
+>;
 
 export const CONTRACTS_ADDRESSES: ContractsRegistryType = {
   [ChainId.MAINNET]: MAINNET_CONTRACTS,
@@ -203,6 +207,7 @@ export const CONTRACTS_ADDRESSES: ContractsRegistryType = {
   [ChainId.CELO]: CELO_ADDRESSES,
   [ChainId.GNOSIS]: GNOSIS_ADDRESSES,
   [ChainId.POLYGONZKEVM]: POLYGONZKEVM_ADDRESSES,
+  [ChainId.BASE]: BASE_ADDRESSES,
   [ChainId.LOCAL]: LOCAL_ADDRESSES,
 };
 

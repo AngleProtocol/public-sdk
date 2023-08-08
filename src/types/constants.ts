@@ -13,6 +13,7 @@ export enum ChainId {
   POLYGON = 137,
   GNOSIS = 100,
   POLYGONZKEVM = 1101,
+  BASE = 8453,
 }
 
 export const NETWORK_LABELS: { [key in ChainId]: string } = {
@@ -28,6 +29,7 @@ export const NETWORK_LABELS: { [key in ChainId]: string } = {
   [ChainId.OPTIMISM]: 'Optimism',
   [ChainId.GNOSIS]: 'Gnosis Chain',
   [ChainId.POLYGONZKEVM]: 'Polygon zkEVM',
+  [ChainId.BASE]: 'Base',
 };
 
 export enum AssetType {
