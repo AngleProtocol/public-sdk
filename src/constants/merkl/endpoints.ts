@@ -22,6 +22,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
     [AMMType.Retro]: 'https://api.thegraph.com/subgraphs/name/ruvlol/univ3-test',
   },
   [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest' },
+  [ChainId.BASE]: { [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest' },
 };
 
 /** Fallback enddpoints
@@ -53,6 +54,7 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'polygon',
   },
   [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest' },
+  [ChainId.BASE]: { [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest' },
 };
 
 const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/';
@@ -88,6 +90,9 @@ export const merklSubgraphAMMEndpoints = (
     },
     [ChainId.POLYGONZKEVM]: {
       [AMMType.PancakeSwap]: getMerklSubgraphPrefix(env, true) + 'pancakeswapv3-zkevm/version/latest',
+    },
+    [ChainId.BASE]: {
+      [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, true) + 'sushiswapv3-base/version/latest',
     },
   };
 };
