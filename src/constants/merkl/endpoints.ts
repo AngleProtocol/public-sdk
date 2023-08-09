@@ -129,5 +129,6 @@ export const merklSubgraphALMEndpoints = (
       [Wrapper[AMMType.UniswapV3].Steer]: getMerklSubgraphPrefix(env) + 'steer-pol',
     },
     [ChainId.POLYGONZKEVM]: {},
+    [ChainId.BASE]: {},
   };
 };
