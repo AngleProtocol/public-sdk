@@ -35,6 +35,7 @@ export enum SushiSwapV3Wrapper {
 export enum RetroWrapper {
   Gamma = 2,
   Ichi = 5,
+  Steer = 6,
 }
 
 type WrapperTypeMapping = {
