@@ -85,7 +85,12 @@ export type MerklRewardDistributionType = {
     boostedAddress: string;
     boostedReward: number;
     holders: {
-      [holder: string]: { amount: string; breakdown?: { [origin in RewardOrigin<typeof AMMType[K]>]?: string } };
+      [holder: string]: {
+        amount: string;
+        amountWithoutBoost?: string;
+        averageBoost: number;
+        breakdown?: { [origin in RewardOrigin<typeof AMMType[K]>]?: string };
+      };
     };
     lastUpdateEpoch: number; // The only use of this is to quickly know if a distribution was already completed
     pool: string;
