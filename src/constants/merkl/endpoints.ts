@@ -114,6 +114,7 @@ export const merklSubgraphALMEndpoints = (
       [Wrapper[AMMType.UniswapV3].Gamma]: getMerklSubgraphPrefix(env) + 'gamma-eth',
       [Wrapper[AMMType.UniswapV3].DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-eth',
       [Wrapper[AMMType.UniswapV3].Ichi]: getMerklSubgraphPrefix(env) + 'ichi-eth',
+      [Wrapper[AMMType.UniswapV3].Range]: getMerklSubgraphPrefix(env) + 'range-eth',
     },
     [ChainId.OPTIMISM]: {
       [Wrapper[AMMType.UniswapV3].Arrakis]: getMerklSubgraphPrefix(env) + 'arrakis-opt',
@@ -127,6 +128,7 @@ export const merklSubgraphALMEndpoints = (
       [Wrapper[AMMType.UniswapV3].DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-pol',
       [Wrapper[AMMType.UniswapV3].Ichi]: getMerklSubgraphPrefix(env) + 'ichi-pol',
       [Wrapper[AMMType.UniswapV3].Steer]: getMerklSubgraphPrefix(env) + 'steer-pol',
+      [Wrapper[AMMType.UniswapV3].Range]: getMerklSubgraphPrefix(env) + 'range-pol',
     },
     [ChainId.POLYGONZKEVM]: {},
     [ChainId.BASE]: {},

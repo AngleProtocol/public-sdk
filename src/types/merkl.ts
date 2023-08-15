@@ -26,6 +26,7 @@ export enum UniswapV3Wrapper {
   DefiEdge = 4,
   Ichi = 5,
   Steer = 6,
+  Range = 7,
 }
 export enum SushiSwapV3Wrapper {
   Gamma = 2,
@@ -36,20 +37,24 @@ export enum RetroWrapper {
   Gamma = 2,
   Ichi = 5,
   Steer = 6,
+  Range = 7,
+}
+export enum PancakeSwapWrapper {
+  Range = 7,
 }
 
 type WrapperTypeMapping = {
   [AMMType.UniswapV3]: UniswapV3Wrapper;
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper;
   [AMMType.Retro]: RetroWrapper;
-  [AMMType.PancakeSwap]: null;
+  [AMMType.PancakeSwap]: PancakeSwapWrapper;
 };
 
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper,
   [AMMType.Retro]: RetroWrapper,
-  [AMMType.PancakeSwap]: null,
+  [AMMType.PancakeSwap]: PancakeSwapWrapper,
 };
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 
@@ -72,7 +77,7 @@ type RewardOriginMapping = {
   [AMMType.UniswapV3]: 'UniswapV3' | keyof typeof Wrapper[AMMType.UniswapV3];
   [AMMType.SushiSwapV3]: 'SushiSwap' | keyof typeof Wrapper[AMMType.SushiSwapV3];
   [AMMType.Retro]: 'Retro' | keyof typeof Wrapper[AMMType.Retro];
-  [AMMType.PancakeSwap]: 'PancakeSwap';
+  [AMMType.PancakeSwap]: 'PancakeSwap' | keyof typeof Wrapper[AMMType.PancakeSwap];
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
