@@ -18,6 +18,7 @@ export enum AMMType {
   SushiSwapV3 = 1,
   Retro = 2,
   PancakeSwap = 3,
+  Camelot = 4,
 }
 
 export enum UniswapV3Wrapper {
@@ -48,13 +49,14 @@ type WrapperTypeMapping = {
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper;
   [AMMType.Retro]: RetroWrapper;
   [AMMType.PancakeSwap]: PancakeSwapWrapper;
+  [AMMType.Camelot]: null;
 };
-
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper,
   [AMMType.Retro]: RetroWrapper,
   [AMMType.PancakeSwap]: PancakeSwapWrapper,
+  [AMMType.Camelot]: null,
 };
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 
@@ -64,12 +66,14 @@ export enum BlacklistWrapper {
 
 export enum AMMAlgorithmType {
   'UniswapV3' = 0,
+  'Algebra' = 1,
 }
 export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.UniswapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.SushiSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Retro]: AMMAlgorithmType.UniswapV3,
   [AMMType.PancakeSwap]: AMMAlgorithmType.UniswapV3,
+  [AMMType.Camelot]: AMMAlgorithmType.Algebra,
 };
 
 /** Reward origin */
@@ -78,6 +82,7 @@ type RewardOriginMapping = {
   [AMMType.SushiSwapV3]: 'SushiSwap' | keyof typeof Wrapper[AMMType.SushiSwapV3];
   [AMMType.Retro]: 'Retro' | keyof typeof Wrapper[AMMType.Retro];
   [AMMType.PancakeSwap]: 'PancakeSwap' | keyof typeof Wrapper[AMMType.PancakeSwap];
+  [AMMType.Camelot]: 'Camelot';
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
