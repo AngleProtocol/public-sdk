@@ -1,11 +1,15 @@
 import { ChainId } from '../../types/constants';
 import { AMMType, MerklSupportedChainIdsType, Wrapper, WrapperType } from '../../types/merkl';
 
+/**
+ * (External) subgraphs for swaps
+ */
 const sushiswapV3SubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/sushi-v3/v3-';
 export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]?: string } } = {
   [ChainId.ARBITRUM]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'arbitrum',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/arbitrum-minimal',
+    [AMMType.Camelot]: 'https://api.thegraph.com/subgraphs/name/camelotlabs/camelot-amm-v3',
   },
   [ChainId.MAINNET]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'ethereum',
@@ -25,7 +29,8 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.BASE]: { [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest' },
 };
 
-/** Fallback enddpoints
+/**
+ * Fallback enddpoints
  */
 const merklFallbackSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/anglekeeper/backup-';
 const merklFallbackSubgraphPrefixUniswapV3 = `${merklFallbackSubgraphPrefix}uniswapv3-`;
@@ -59,11 +64,10 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
 
 const merklSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/';
 const merklSubgraphPrefixStudio = 'https://api.studio.thegraph.com/query/12694/';
-
-export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local', isStudio = false) => {
-  return isStudio
-    ? merklSubgraphPrefixStudio + (env !== 'prod' ? 'test-merkl-' : 'merkl-')
-    : merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : 'merkl-');
+export const getMerklSubgraphPrefix = (env: 'prod' | 'dev' | 'local', isHostedService = true) => {
+  return isHostedService
+    ? merklSubgraphPrefix + (env !== 'prod' ? 'test-merkl-' : 'merkl-')
+    : merklSubgraphPrefixStudio + (env !== 'prod' ? 'test-merkl-' : 'merkl-');
 };
 
 export const merklSubgraphAMMEndpoints = (
@@ -73,6 +77,7 @@ export const merklSubgraphAMMEndpoints = (
     [ChainId.ARBITRUM]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-arb',
       [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-arb',
+      [AMMType.Camelot]: getMerklSubgraphPrefix(env) + 'camelot-arb',
     },
     [ChainId.MAINNET]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-eth',
@@ -97,6 +102,9 @@ export const merklSubgraphAMMEndpoints = (
   };
 };
 
+/**
+ * Subgraphs for ALMS
+ */
 export const merklSubgraphALMEndpoints = (
   env: 'prod' | 'dev' | 'local'
 ): {

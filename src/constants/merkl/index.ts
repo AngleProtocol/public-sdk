@@ -1,6 +1,7 @@
 import { ChainId } from '../../types/constants';
 import { AMMType, MerklSupportedChainIdsType, Wrapper } from '../../types/merkl';
 
+// TODO: @greedythib improve typings
 export const calculatorUsedWrappersList: {
   [chainId in MerklSupportedChainIdsType]: { [amm in AMMType]: any[] };
 } = {
@@ -14,6 +15,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.SushiSwapV3]: [Wrapper[AMMType.SushiSwapV3].Gamma, Wrapper[AMMType.SushiSwapV3].Steer, Wrapper[AMMType.SushiSwapV3].DefiEdge],
     [AMMType.Retro]: [],
     [AMMType.PancakeSwap]: [],
+    [AMMType.Camelot]: [],
   },
   [ChainId.MAINNET]: {
     [AMMType.UniswapV3]: [
@@ -26,6 +28,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.SushiSwapV3]: [],
     [AMMType.Retro]: [],
     [AMMType.PancakeSwap]: [],
+    [AMMType.Camelot]: [],
   },
   [ChainId.OPTIMISM]: {
     [AMMType.UniswapV3]: [
@@ -37,6 +40,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.SushiSwapV3]: [Wrapper[AMMType.SushiSwapV3].Gamma, Wrapper[AMMType.SushiSwapV3].Steer],
     [AMMType.Retro]: [],
     [AMMType.PancakeSwap]: [],
+    [AMMType.Camelot]: [],
   },
   [ChainId.POLYGON]: {
     [AMMType.UniswapV3]: [
@@ -55,9 +59,22 @@ export const calculatorUsedWrappersList: {
       Wrapper[AMMType.UniswapV3].Range,
     ],
     [AMMType.PancakeSwap]: [],
+    [AMMType.Camelot]: [],
   },
-  [ChainId.POLYGONZKEVM]: { [AMMType.PancakeSwap]: [], [AMMType.Retro]: [], [AMMType.SushiSwapV3]: [], [AMMType.UniswapV3]: [] },
-  [ChainId.BASE]: { [AMMType.PancakeSwap]: [], [AMMType.Retro]: [], [AMMType.SushiSwapV3]: [], [AMMType.UniswapV3]: [] },
+  [ChainId.POLYGONZKEVM]: {
+    [AMMType.PancakeSwap]: [],
+    [AMMType.Retro]: [],
+    [AMMType.SushiSwapV3]: [],
+    [AMMType.UniswapV3]: [],
+    [AMMType.Camelot]: [],
+  },
+  [ChainId.BASE]: {
+    [AMMType.PancakeSwap]: [],
+    [AMMType.Retro]: [],
+    [AMMType.SushiSwapV3]: [],
+    [AMMType.UniswapV3]: [],
+    [AMMType.Camelot]: [],
+  },
 };
 
 export * from './addresses';
