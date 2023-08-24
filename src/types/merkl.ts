@@ -17,7 +17,7 @@ export enum AMMType {
   UniswapV3 = 0,
   SushiSwapV3 = 1,
   Retro = 2,
-  PancakeSwapV3V3 = 3,
+  PancakeSwapV3 = 3,
   Camelot = 4,
 }
 
