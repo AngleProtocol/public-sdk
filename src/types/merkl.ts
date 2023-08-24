@@ -17,7 +17,7 @@ export enum AMMType {
   UniswapV3 = 0,
   SushiSwapV3 = 1,
   Retro = 2,
-  PancakeSwap = 3,
+  PancakeSwapV3V3 = 3,
   Camelot = 4,
 }
 
@@ -40,7 +40,7 @@ export enum RetroWrapper {
   Steer = 6,
   Range = 7,
 }
-export enum PancakeSwapWrapper {
+export enum PancakeSwapV3Wrapper {
   Range = 7,
 }
 
@@ -48,14 +48,14 @@ type WrapperTypeMapping = {
   [AMMType.UniswapV3]: UniswapV3Wrapper;
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper;
   [AMMType.Retro]: RetroWrapper;
-  [AMMType.PancakeSwap]: PancakeSwapWrapper;
+  [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper;
   [AMMType.Camelot]: null;
 };
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper,
   [AMMType.Retro]: RetroWrapper,
-  [AMMType.PancakeSwap]: PancakeSwapWrapper,
+  [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper,
   [AMMType.Camelot]: null,
 };
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
@@ -72,7 +72,7 @@ export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.UniswapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.SushiSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Retro]: AMMAlgorithmType.UniswapV3,
-  [AMMType.PancakeSwap]: AMMAlgorithmType.UniswapV3,
+  [AMMType.PancakeSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Camelot]: AMMAlgorithmType.Algebra,
 };
 
@@ -81,7 +81,7 @@ type RewardOriginMapping = {
   [AMMType.UniswapV3]: 'UniswapV3' | keyof typeof Wrapper[AMMType.UniswapV3];
   [AMMType.SushiSwapV3]: 'SushiSwap' | keyof typeof Wrapper[AMMType.SushiSwapV3];
   [AMMType.Retro]: 'Retro' | keyof typeof Wrapper[AMMType.Retro];
-  [AMMType.PancakeSwap]: 'PancakeSwap' | keyof typeof Wrapper[AMMType.PancakeSwap];
+  [AMMType.PancakeSwapV3]: 'PancakeSwapV3' | keyof typeof Wrapper[AMMType.PancakeSwapV3];
   [AMMType.Camelot]: 'Camelot';
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
