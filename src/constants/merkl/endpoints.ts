@@ -14,7 +14,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.MAINNET]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'ethereum',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
-    [AMMType.PancakeSwapV3]: 'https://api.thegraph.com/subgraphs/name/PancakeSwapV3/exchange-v3-eth',
+    [AMMType.PancakeSwapV3]: 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-v3-eth',
   },
   [ChainId.OPTIMISM]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'optimism',
@@ -48,7 +48,7 @@ export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]:
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'ethereum',
     [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'ethereum',
     [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'ethereum',
-    [AMMType.PancakeSwapV3]: 'https://api.thegraph.com/subgraphs/name/PancakeSwapV3/exchange-v3-eth',
+    [AMMType.PancakeSwapV3]: 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-v3-eth',
   },
   [ChainId.OPTIMISM]: {
     [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'optimism',
@@ -86,7 +86,7 @@ export const merklSubgraphAMMEndpoints = (
     [ChainId.MAINNET]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-eth',
       [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-eth',
-      [AMMType.PancakeSwapV3]: getMerklSubgraphPrefix(env) + 'PancakeSwapV3v3-eth',
+      [AMMType.PancakeSwapV3]: getMerklSubgraphPrefix(env) + 'pancakeswapv3-eth',
     },
     [ChainId.OPTIMISM]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-opt',
@@ -98,7 +98,7 @@ export const merklSubgraphAMMEndpoints = (
       [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-pol',
     },
     [ChainId.POLYGONZKEVM]: {
-      [AMMType.PancakeSwapV3]: getMerklSubgraphPrefix(env, true) + 'PancakeSwapV3v3-zkevm/version/latest',
+      [AMMType.PancakeSwapV3]: getMerklSubgraphPrefix(env, true) + 'pancakeswapv3-zkevm/version/latest',
     },
     [ChainId.BASE]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, true) + 'sushiswapv3-base/version/latest',
