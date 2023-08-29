@@ -21,7 +21,7 @@ export enum AMMType {
   Camelot = 4,
 }
 
-export enum UniswapV3Wrapper {
+export enum ALMType {
   Arrakis = 0,
   Gamma = 2,
   DefiEdge = 4,
@@ -29,19 +29,28 @@ export enum UniswapV3Wrapper {
   Steer = 6,
   Range = 7,
 }
+
+export enum UniswapV3Wrapper {
+  Arrakis = ALMType.Arrakis,
+  Gamma = ALMType.Gamma,
+  DefiEdge = ALMType.DefiEdge,
+  Ichi = ALMType.Ichi,
+  Steer = ALMType.Steer,
+  Range = ALMType.Range,
+}
 export enum SushiSwapV3Wrapper {
-  Gamma = 2,
-  DefiEdge = 4,
-  Steer = 6,
+  Gamma = ALMType.Gamma,
+  DefiEdge = ALMType.DefiEdge,
+  Steer = ALMType.Steer,
 }
 export enum RetroWrapper {
-  Gamma = 2,
-  Ichi = 5,
-  Steer = 6,
-  Range = 7,
+  Gamma = ALMType.Gamma,
+  Ichi = ALMType.Ichi,
+  Steer = ALMType.Steer,
+  Range = ALMType.Range,
 }
 export enum PancakeSwapV3Wrapper {
-  Range = 7,
+  Range = ALMType.Range,
 }
 
 type WrapperTypeMapping = {
