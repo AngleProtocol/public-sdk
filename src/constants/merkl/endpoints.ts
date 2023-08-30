@@ -98,10 +98,10 @@ export const merklSubgraphAMMEndpoints = (
       [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-pol',
     },
     [ChainId.POLYGONZKEVM]: {
-      [AMMType.PancakeSwapV3]: getMerklSubgraphPrefix(env, true) + 'pancakeswapv3-zkevm/version/latest',
+      [AMMType.PancakeSwapV3]: getMerklSubgraphPrefix(env, false) + 'pancakeswapv3-zkevm/version/latest',
     },
     [ChainId.BASE]: {
-      [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, true) + 'sushiswapv3-base/version/latest',
+      [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, false) + 'sushiswapv3-base/version/latest',
     },
   };
 };
