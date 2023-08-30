@@ -34,31 +34,31 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
 /**
  * Fallback enddpoints
  */
-const merklFallbackSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/anglekeeper/backup-';
+const merklFallbackSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/back-';
 const merklFallbackSubgraphPrefixUniswapV3 = `${merklFallbackSubgraphPrefix}uniswapv3-`;
 const merklFallbackSubgraphPrefixSushiswapV3 = `${merklFallbackSubgraphPrefix}sushiswapv3-`;
 const merklFallbackSubgraphPrefixRetro = `${merklFallbackSubgraphPrefix}retro-`;
 export const merklFallbackTGEndpoint: { [chainId in MerklSupportedChainIdsType]: { [AMM in AMMType]?: string } } = {
   [ChainId.ARBITRUM]: {
-    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'arbitrum',
-    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'arbitrum',
-    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'arbitrum',
+    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'arb',
+    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'arb',
+    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'arb',
   },
   [ChainId.MAINNET]: {
-    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'ethereum',
-    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'ethereum',
-    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'ethereum',
+    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'eth',
+    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'eth',
+    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'eth',
     [AMMType.PancakeSwapV3]: 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-v3-eth',
   },
   [ChainId.OPTIMISM]: {
-    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'optimism',
-    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'optimism',
-    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'optimism',
+    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'opt',
+    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'opt',
+    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'opt',
   },
   [ChainId.POLYGON]: {
-    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'polygon',
-    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'polygon',
-    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'polygon',
+    [AMMType.Retro]: merklFallbackSubgraphPrefixRetro + 'pol',
+    [AMMType.SushiSwapV3]: merklFallbackSubgraphPrefixSushiswapV3 + 'pol',
+    [AMMType.UniswapV3]: merklFallbackSubgraphPrefixUniswapV3 + 'pol',
   },
   [ChainId.POLYGONZKEVM]: {
     [AMMType.PancakeSwapV3]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest',
