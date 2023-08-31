@@ -152,6 +152,7 @@ export type DistributionDataType<T extends AMMType> = {
 
   // User Related Data
   breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
+  lastBoostImpact?: number; // Boost impact during the last script run of the user
   unclaimed?: number; // Unclaimed reward amount by the user
 };
 
@@ -181,6 +182,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
   // User tokens in the pool and breakdown by ALM
   userTotalBalance0?: number;
   userTotalBalance1?: number;
+  userInRangeLiquidity: number;
   userTVL?: number; // user TVL in the pool, in $
   almDetails?: {
     balance0?: number;
