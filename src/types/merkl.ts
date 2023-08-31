@@ -182,7 +182,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
   // User tokens in the pool and breakdown by ALM
   userTotalBalance0?: number;
   userTotalBalance1?: number;
-  userInRangeLiquidity: number;
+  userInRangeLiquidity?: number;
   userTVL?: number; // user TVL in the pool, in $
   almDetails?: {
     balance0?: number;
