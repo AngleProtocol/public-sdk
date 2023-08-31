@@ -74,15 +74,15 @@ export enum BlacklistWrapper {
 }
 
 export enum AMMAlgorithmType {
-  'UniswapV3' = 0,
-  'Algebra' = 1,
+  UniswapV3 = 0,
+  AlgebraV1_9 = 1,
 }
 export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.UniswapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.SushiSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Retro]: AMMAlgorithmType.UniswapV3,
   [AMMType.PancakeSwapV3]: AMMAlgorithmType.UniswapV3,
-  [AMMType.Camelot]: AMMAlgorithmType.Algebra,
+  [AMMType.Camelot]: AMMAlgorithmType.AlgebraV1_9,
 };
 
 /** Reward origin */
@@ -132,24 +132,22 @@ export type AggregatedRewardsType = {
 
 // =============================== API DATA TYPE ===============================
 export type DistributionDataType<T extends AMMType> = {
-  id: string;
-  amm: AMMType;
   amount: number; // Amount distributed
   end: number;
+  id: string;
   isBoosted: boolean;
   isLive: boolean;
   isMock: boolean;
   isOutOfRangeIncentivized: boolean;
+  meanAPR: number;
   propFees: number;
   propToken0: number;
   propToken1: number;
   start: number;
   token: string; // Token distributed
-  tokenSymbol: string;
   tokenDecimals: number;
+  tokenSymbol: string;
   wrappers: WrapperType<T>[]; // Supported wrapper types for this pool
-  meanAPR: number;
-
   // User Related Data
   breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
   lastBoostImpact?: number; // Boost impact during the last script run of the user
@@ -157,20 +155,21 @@ export type DistributionDataType<T extends AMMType> = {
 };
 
 export type PoolDataType<T extends AMMType> = Partial<{
+  amm: AMMType;
   chainId: ChainId;
-  pool: string; // AMM pool address
-  poolFee: number; // Fee of the AMM pool
-  poolAMMAlgo: keyof typeof AMMAlgorithmType;
-  token0: string;
   decimalToken0: number;
-  tokenSymbol0: string;
+  decimalToken1: number;
+  distributionData: DistributionDataType<T>[];
+  liquidity: number; // liquidity in the pool
+  pool: string; // AMM pool address
+  poolAMMAlgo: keyof typeof AMMAlgorithmType;
+  poolFee: number; // Fee of the AMM pool
+  token0: string;
   token0InPool: number; // Total amount of token0 in the pool
   token1: string;
-  decimalToken1: number;
-  tokenSymbol1: string;
   token1InPool: number; // Total amount of token1 in the pool
-  liquidity: number; // liquidity in the pool
-  distributionData: DistributionDataType<T>[];
+  tokenSymbol0: string;
+  tokenSymbol1: string;
 
   // Price Related Data
   tvl?: number; // TVL in the pool, in $
