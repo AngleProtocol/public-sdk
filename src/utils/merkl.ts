@@ -1,4 +1,5 @@
 import { BigNumber, ethers, utils } from 'ethers';
+import { getAddress } from 'ethers/lib/utils';
 import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
 
@@ -8,15 +9,14 @@ import { fetchMerklAMMType, findMerklAMMTypeDeprecated } from '../types/utils';
 
 /**
  * @param underylingTreeData
- * @param user
+ *
  * @returns
  */
 export const buildMerklTree = (
-  underylingTreeData: UnderlyingTreeType,
-  user?: string
+  underylingTreeData: UnderlyingTreeType
 ): {
   tree: MerkleTree;
-  transactionData: MerklAPIData['transactionData'];
+  tokens: string[];
 } => {
   /**
    * 1 - Build the global list of users
@@ -40,7 +40,6 @@ export const buildMerklTree = (
    * 3 - Build the tree
    */
   const elements = [];
-  const transactionData: MerklAPIData['transactionData'] = {};
   for (const u of users) {
     for (const t of tokens) {
       let sum = BigNumber.from(0);
@@ -53,24 +52,18 @@ export const buildMerklTree = (
       const hash = ethers.utils.keccak256(
         ethers.utils.defaultAbiCoder.encode(['address', 'address', 'uint256'], [utils.getAddress(u), t, sum])
       );
-      if (u === user) {
-        transactionData[t] = { claim: sum.toString(), leaf: hash, token: t };
-      }
+
       elements.push(hash);
     }
   }
   const tree = new MerkleTree(elements, keccak256, { hashLeaves: false, sortPairs: true });
 
-  // Build proofs
-  for (const k of Object.keys(transactionData)) {
-    transactionData[k].proof = tree.getHexProof(transactionData[k].leaf);
-  }
-
   return {
-    transactionData,
+    tokens,
     tree,
   };
 };
+
 export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[] => {
   const tokens: string[] = [];
   for (const id of Object.keys(json)) {
@@ -81,21 +74,25 @@ export const tokensFromTree = (json: AggregatedRewardsType['rewards']): string[]
   return tokens;
 };
 
-/**
- * @notice DEPRECATED - Returns the deduped list of pools from the list of distribution fetched from solidity
- */
-export const poolListFromSolidityStruct = (data: ExtensiveDistributionParametersStructOutput[]): { address: string; amm: AMMType }[] => {
-  const pools: { address: string; amm: AMMType }[] = [];
-  for (const d of data) {
-    if (!pools.map((pool) => pool.address).includes(d.base.uniV3Pool)) {
-      pools.push({ address: d.base.uniV3Pool, amm: findMerklAMMTypeDeprecated(d.base.additionalData?.toString()) });
+export const getUserDataFromMerklTree = (tree: MerkleTree, user: string): MerklAPIData['transactionData'] => {
+  const transactionData: MerklAPIData['transactionData'] = {};
+  user = getAddress(user);
+
+  for (const hash of tree.getHexLeaves()) {
+    const [u, token, claim] = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.decode(['address', 'address', 'uint256'], hash));
+    if (u === user) {
+      transactionData[token] = { claim: claim.toString(), leaf: hash, token };
     }
   }
-  return pools;
+  // Build proofs
+  for (const token of Object.keys(transactionData)) {
+    transactionData[token].proof = tree.getHexProof(transactionData[token].leaf);
+  }
+  return transactionData;
 };
 
 /**
- * @notice Returns the deduped list of pools from the list of distribution fetched from solidity
+ * @notice DEPRECATED - Returns the deduped list of pools from the list of distribution fetched from solidity
  */
 export const buildPoolList = async (
   chainId: MerklSupportedChainIdsType,
