@@ -5,7 +5,7 @@ import MerkleTree from 'merkletreejs';
 
 import { ExtensiveDistributionParametersStructOutput } from '../constants/types/DistributionCreator';
 import { AggregatedRewardsType, AMMType, MerklAPIData, MerklSupportedChainIdsType, UnderlyingTreeType } from '../types';
-import { fetchMerklAMMType, findMerklAMMTypeDeprecated } from '../types/utils';
+import { fetchMerklAMMType } from '../types/utils';
 
 /**
  * @param underylingTreeData
