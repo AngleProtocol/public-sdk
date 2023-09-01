@@ -12,6 +12,7 @@ const addresses: ContractsRegistryType['1'] = {
       LayerZero: '0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD',
     },
     OracleTokenUSD: '0x0bf79F617988C472DcA68ff41eFe1338955b9A80',
+    Savings: '0x004626A008B1aCdC4c74ab51644093b155e59A23',
     Treasury: '0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED',
   },
   CoreBorrow: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
