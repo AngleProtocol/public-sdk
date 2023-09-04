@@ -185,6 +185,7 @@ const addresses: ContractsRegistryType['1'] = {
       },
     },
     OracleTokenUSD: '0xb49f677943BC038e9857d61E7d053CaA2C1734C1',
+    Savings: '0x004626A008B1aCdC4c74ab51644093b155e59A23',
     StableMaster: '0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87',
     Staking: '0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB',
     Swapper: '0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd',

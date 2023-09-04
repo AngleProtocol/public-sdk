@@ -29,6 +29,7 @@ const addresses: ContractsRegistryType['1'] = {
       LayerZero: '0x840b25c87B626a259CA5AC32124fA752F0230a72',
     },
     OracleTokenUSD: '0x3626369857A10CcC6cc3A6e4f5C2f5984a519F20',
+    Savings: '0x004626A008B1aCdC4c74ab51644093b155e59A23',
     Swapper: '0xa014A485D64efb236423004AB1a99C0aaa97a549',
     SwapperV2: '0x3f125ECD51181Af1f344aDF76E4271d2923707AB',
     Treasury: '0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD',

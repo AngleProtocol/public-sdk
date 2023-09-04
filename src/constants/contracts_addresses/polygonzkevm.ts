@@ -6,6 +6,7 @@ const addresses: ContractsRegistryType['1'] = {
     bridges: {
       LayerZero: '0x2859a4eBcB58c8Dd5cAC1419C4F63A071b642B20',
     },
+    Savings: '0x004626A008B1aCdC4c74ab51644093b155e59A23',
     Treasury: '0xFA5Ed56A203466CbBC2430a43c66b9D8723528E7',
   },
   CoreBorrow: '0x4b1E2c2762667331Bc91648052F646d1b0d35984',
