@@ -59,7 +59,7 @@
     "jsbi": "^4.3.0",
     "keccak256": "^1.0.6",
     "lodash": "^4.17.21",
-    "merkletreejs": "^0.3.9",
+    "merkletreejs": "^0.3.10",
     "tiny-invariant": "^1.1.0",
     "typechain": "^8.0.0"
   },
