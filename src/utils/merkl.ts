@@ -48,14 +48,12 @@ export const buildMerklTree = (
           sum = sum?.add(distribution?.holders[u]?.amount.toString() ?? 0);
         }
       }
-      const hash = ethers.utils.keccak256(
-        ethers.utils.defaultAbiCoder.encode(['address', 'address', 'uint256'], [utils.getAddress(u), t, sum])
-      );
+      const hash = ethers.utils.defaultAbiCoder.encode(['address', 'address', 'uint256'], [utils.getAddress(u), t, sum]);
 
       elements.push(hash);
     }
   }
-  const tree = new MerkleTree(elements, keccak256, { hashLeaves: false, sortPairs: true, sortLeaves: true });
+  const tree = new MerkleTree(elements, keccak256, { hashLeaves: true, sortPairs: true });
 
   return {
     tokens,
