@@ -48,6 +48,7 @@ export enum RetroWrapper {
   Ichi = ALMType.Ichi,
   Steer = ALMType.Steer,
   Range = ALMType.Range,
+  DefiEdge = ALMType.DefiEdge,
 }
 export enum PancakeSwapV3Wrapper {
   Range = ALMType.Range,

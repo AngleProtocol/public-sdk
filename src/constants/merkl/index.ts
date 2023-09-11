@@ -55,8 +55,9 @@ export const calculatorUsedWrappersList: {
     [AMMType.Retro]: [
       Wrapper[AMMType.Retro].Ichi,
       Wrapper[AMMType.Retro].Gamma,
-      Wrapper[AMMType.UniswapV3].Steer,
-      Wrapper[AMMType.UniswapV3].Range,
+      Wrapper[AMMType.Retro].Steer,
+      Wrapper[AMMType.Retro].Range,
+      Wrapper[AMMType.Retro].DefiEdge,
     ],
     [AMMType.PancakeSwapV3]: [],
     [AMMType.Camelot]: [],
