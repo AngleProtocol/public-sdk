@@ -28,7 +28,10 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.POLYGONZKEVM]: {
     [AMMType.PancakeSwapV3]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest',
   },
-  [ChainId.BASE]: { [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest' },
+  [ChainId.BASE]: {
+    [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest',
+    [AMMType.BaseX]: 'https://api.thegraph.com/subgraphs/name/baseswapfi/v3-base',
+  },
 };
 
 /**
@@ -102,6 +105,7 @@ export const merklSubgraphAMMEndpoints = (
     },
     [ChainId.BASE]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, false) + 'sushiswapv3-base/version/latest',
+      [AMMType.BaseX]: getMerklSubgraphPrefix(env, false) + 'basex-base/version/latest',
     },
   };
 };

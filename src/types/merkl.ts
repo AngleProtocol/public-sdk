@@ -19,6 +19,7 @@ export enum AMMType {
   Retro = 2,
   PancakeSwapV3 = 3,
   Camelot = 4,
+  BaseX = 5,
 }
 
 export enum ALMType {
@@ -60,6 +61,7 @@ type WrapperTypeMapping = {
   [AMMType.Retro]: RetroWrapper;
   [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper;
   [AMMType.Camelot]: null;
+  [AMMType.BaseX]: null;
 };
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
@@ -67,6 +69,7 @@ export const Wrapper = {
   [AMMType.Retro]: RetroWrapper,
   [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper,
   [AMMType.Camelot]: null,
+  [AMMType.BaseX]: null,
 };
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 
@@ -84,6 +87,7 @@ export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.Retro]: AMMAlgorithmType.UniswapV3,
   [AMMType.PancakeSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Camelot]: AMMAlgorithmType.AlgebraV1_9,
+  [AMMType.BaseX]: AMMAlgorithmType.UniswapV3,
 };
 
 /** Reward origin */
@@ -93,6 +97,7 @@ type RewardOriginMapping = {
   [AMMType.Retro]: 'Retro' | keyof typeof Wrapper[AMMType.Retro];
   [AMMType.PancakeSwapV3]: 'PancakeSwapV3' | keyof typeof Wrapper[AMMType.PancakeSwapV3];
   [AMMType.Camelot]: 'Camelot';
+  [AMMType.BaseX]: 'BaseX';
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 
