@@ -105,7 +105,7 @@ export const merklSubgraphAMMEndpoints = (
     },
     [ChainId.BASE]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, false) + 'sushiswapv3-base/version/latest',
-      [AMMType.BaseX]: getMerklSubgraphPrefix(env, false) + 'sushiswapv3-base/version/latest',
+      [AMMType.BaseX]: getMerklSubgraphPrefix(env, false) + 'basex-base/version/latest',
     },
   };
 };
