@@ -4,7 +4,7 @@ import { withRetry } from '../helpers/index';
 
 export const vaultQuery = gql`
   query Vaults($poolId: String!) {
-    vaults(where: { pool: $poolId }) {
+    vaults(where: { pool_in: [$poolId] }) {
       id
     }
   }
