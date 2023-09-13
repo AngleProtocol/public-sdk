@@ -138,6 +138,7 @@ export type AggregatedRewardsType = {
 };
 
 // =============================== API DATA TYPE ===============================
+
 export type DistributionDataType<T extends AMMType> = {
   amount: number; // Amount distributed
   end: number;
@@ -164,6 +165,7 @@ export type DistributionDataType<T extends AMMType> = {
 export type PoolDataType<T extends AMMType> = Partial<{
   amm: AMMType;
   chainId: ChainId;
+  endOfDisputePeriod: number;
   decimalToken0: number;
   decimalToken1: number;
   distributionData: DistributionDataType<T>[];
