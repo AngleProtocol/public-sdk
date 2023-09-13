@@ -197,7 +197,8 @@ export type PoolDataType<T extends AMMType> = Partial<{
     tvl?: number;
     poolBalance0?: number;
     poolBalance1?: number;
-    almLiquidity?: number;
+    almLiquidity?: number; // Total Liquidity
+    almInRangeLiquidity?: number; // Total in range liquidity
     origin: WrapperType<T> | -1;
     label: string;
     address: string;
