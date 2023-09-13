@@ -166,6 +166,7 @@ export type PoolDataType<T extends AMMType> = Partial<{
   amm: AMMType;
   chainId: ChainId;
   endOfDisputePeriod: number;
+  disputeLive: boolean;
   decimalToken0: number;
   decimalToken1: number;
   distributionData: DistributionDataType<T>[];
