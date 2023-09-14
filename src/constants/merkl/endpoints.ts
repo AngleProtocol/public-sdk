@@ -37,7 +37,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
 /**
  * Fallback enddpoints
  */
-const merklFallbackSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/back-';
+const merklFallbackSubgraphPrefix = 'https://api.thegraph.com/subgraphs/name/angleprotocol/back-merkl-';
 const merklFallbackSubgraphPrefixUniswapV3 = `${merklFallbackSubgraphPrefix}uniswapv3-`;
 const merklFallbackSubgraphPrefixSushiswapV3 = `${merklFallbackSubgraphPrefix}sushiswapv3-`;
 const merklFallbackSubgraphPrefixRetro = `${merklFallbackSubgraphPrefix}retro-`;
