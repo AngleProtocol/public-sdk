@@ -23,7 +23,7 @@ export async function getVaultsForPoolId(poolAddress: string, graphUrl: string):
     return vaultAddresses;
   }
   for (const vault of vaults) {
-    vaultAddresses.push(vault.id);
+    vaultAddresses.push(vault.id.slice(0, 42));
   }
-  return vaultAddresses;
+  return [...new Set(vaultAddresses)];
 }
