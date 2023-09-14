@@ -121,6 +121,7 @@ export const merklSubgraphALMEndpoints = (
   return {
     [ChainId.ARBITRUM]: {
       [ALMType.Arrakis]: getMerklSubgraphPrefix(env) + 'arrakis-arb',
+      [ALMType.ArrakisV2]: getMerklSubgraphPrefix(env) + 'arrakisv2-arb',
       [ALMType.Gamma]: getMerklSubgraphPrefix(env) + 'gamma-arb',
       [ALMType.DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-arb',
       [ALMType.Steer]: getMerklSubgraphPrefix(env) + 'steer-arb',

@@ -29,10 +29,12 @@ export enum ALMType {
   Ichi = 5,
   Steer = 6,
   Range = 7,
+  ArrakisV2 = 8,
 }
 
 export enum UniswapV3Wrapper {
   Arrakis = ALMType.Arrakis,
+  ArrakisV2 = ALMType.ArrakisV2,
   Gamma = ALMType.Gamma,
   DefiEdge = ALMType.DefiEdge,
   Ichi = ALMType.Ichi,

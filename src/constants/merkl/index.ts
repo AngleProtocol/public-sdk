@@ -8,6 +8,7 @@ export const calculatorUsedWrappersList: {
   [ChainId.ARBITRUM]: {
     [AMMType.UniswapV3]: [
       Wrapper[AMMType.UniswapV3].Arrakis,
+      Wrapper[AMMType.UniswapV3].ArrakisV2,
       Wrapper[AMMType.UniswapV3].Gamma,
       Wrapper[AMMType.UniswapV3].DefiEdge,
       Wrapper[AMMType.UniswapV3].Steer,
