@@ -30,6 +30,7 @@ export enum ALMType {
   Steer = 6,
   Range = 7,
   ArrakisV2 = 8,
+  Unipilot = 9,
 }
 
 export enum UniswapV3Wrapper {
@@ -40,6 +41,7 @@ export enum UniswapV3Wrapper {
   Ichi = ALMType.Ichi,
   Steer = ALMType.Steer,
   Range = ALMType.Range,
+  Unipilot = ALMType.Unipilot,
 }
 export enum SushiSwapV3Wrapper {
   Gamma = ALMType.Gamma,
