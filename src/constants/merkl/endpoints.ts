@@ -149,6 +149,8 @@ export const merklSubgraphALMEndpoints = (
       [ALMType.Range]: getMerklSubgraphPrefix(env) + 'range-pol',
     },
     [ChainId.POLYGONZKEVM]: {},
-    [ChainId.BASE]: {},
+    [ChainId.BASE]: {
+      [ALMType.Gamma]: getMerklSubgraphPrefix(env) + 'gamma-base',
+    },
   };
 };

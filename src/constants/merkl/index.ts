@@ -79,7 +79,7 @@ export const calculatorUsedWrappersList: {
   [ChainId.BASE]: {
     [AMMType.PancakeSwapV3]: [],
     [AMMType.Retro]: [],
-    [AMMType.SushiSwapV3]: [],
+    [AMMType.SushiSwapV3]: [Wrapper[AMMType.SushiSwapV3].Gamma],
     [AMMType.UniswapV3]: [],
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
