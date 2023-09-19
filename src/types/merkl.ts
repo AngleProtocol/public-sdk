@@ -145,6 +145,7 @@ export type AggregatedRewardsType = {
 
 export type DistributionDataType<T extends AMMType> = {
   amount: number; // Amount distributed
+  blacklist: string[];
   end: number;
   id: string;
   isBoosted: boolean;
