@@ -1,6 +1,5 @@
 import { BigNumber, BigNumberish } from 'ethers';
 
-import constants from '../constants/index';
 import { gwei, multByPow, piecewiseFunction } from '../utils/bignumber';
 import { computeBonusMalusBurn, computeBonusMalusMint } from './feeManager';
 import { computeHedgeRatio } from './spread';
