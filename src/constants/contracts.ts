@@ -117,6 +117,7 @@ type StablecoinType = Readonly<
     Staking?: string;
     Swapper?: string;
     SwapperV2?: string;
+    Transmuter?: string;
     Treasury: string;
     collaterals?: {
       [collateral in Collateral]?: CollateralType;
@@ -168,17 +169,6 @@ export type ContractsRegistryType = Readonly<
         SurplusConverterSanTokens_EUR_USDC: string;
         SurplusConverterUniV3_IntraCollaterals: string;
         Timelock: string;
-        Transmuter?: {
-          DiamondCut: string;
-          DiamondLoupe: string;
-          DiamondProxy: string;
-          Getters: string;
-          Redeemer: string;
-          RewardHandler: string;
-          SettersGuardian: string;
-          SettersGovernor: string;
-          Swapper: string;
-        };
         veANGLE: string;
         veBoostProxy: string;
         ExternalStakings: {
