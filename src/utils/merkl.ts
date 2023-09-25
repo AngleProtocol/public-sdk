@@ -2,14 +2,14 @@ import { BigNumber, ethers, utils } from 'ethers';
 import { Interface } from 'ethers/lib/utils';
 import keccak256 from 'keccak256';
 import MerkleTree from 'merkletreejs';
+
 import {
   AlgebraV19NonFungibleManager__factory,
   AlgebraV19Pool__factory,
   BaseXNonFungiblePositionManager__factory,
   UniswapV3NFTManager__factory,
   UniswapV3Pool__factory,
-} from 'src/constants';
-
+} from '../constants/types';
 import { ExtensiveDistributionParametersStructOutput } from '../constants/types/DistributionCreator';
 import { AggregatedRewardsType, AMMAlgorithmType, AMMType, MerklSupportedChainIdsType, UnderlyingTreeType } from '../types';
 import { fetchMerklAMMType } from '../types/utils';
