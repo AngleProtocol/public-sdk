@@ -1,3 +1,12 @@
+import { Interface } from 'ethers/lib/utils';
+import {
+  AlgebraV19NonFungibleManager__factory,
+  AlgebraV19Pool__factory,
+  BaseXNonFungiblePositionManager__factory,
+  UniswapV3NFTManager__factory,
+  UniswapV3Pool__factory,
+} from 'src/constants';
+
 import { ChainId } from '.';
 
 const MerklSupportedChainIds = <const>[
@@ -270,4 +279,43 @@ export declare type DirectPositionType = {
   tickUpper: number;
   liquidity: string;
   maxLiquidity?: string;
+};
+
+/**
+ * NonFungiblePositionManager
+ */
+export const NonFungiblePositionManagerInterface = (ammType: AMMAlgorithmType): Interface => {
+  if (ammType === AMMAlgorithmType.AlgebraV1_9) {
+    return AlgebraV19NonFungibleManager__factory.createInterface();
+  } else if (ammType === AMMAlgorithmType.UniswapV3) {
+    return UniswapV3NFTManager__factory.createInterface();
+  } else if (ammType === AMMAlgorithmType.BaseX) {
+    return BaseXNonFungiblePositionManager__factory.createInterface();
+  } else {
+    throw new Error('Invalid AMM type');
+  }
+};
+
+/**
+ * Pools
+ */
+export const PoolInterface = (ammType: AMMAlgorithmType): Interface => {
+  if (ammType === AMMAlgorithmType.AlgebraV1_9) {
+    return AlgebraV19Pool__factory.createInterface();
+  } else if (ammType === AMMAlgorithmType.UniswapV3 || ammType === AMMAlgorithmType.BaseX) {
+    return UniswapV3Pool__factory.createInterface();
+  } else {
+    throw new Error('Invalid AMM type');
+  }
+};
+
+export const SwapPriceField = {
+  [AMMAlgorithmType.AlgebraV1_9]: 'price',
+  [AMMAlgorithmType.UniswapV3]: 'sqrtPriceX96',
+  [AMMAlgorithmType.BaseX]: 'sqrtPriceX96',
+};
+export const PoolStateName = {
+  [AMMAlgorithmType.AlgebraV1_9]: 'globalState',
+  [AMMAlgorithmType.UniswapV3]: 'slot0',
+  [AMMAlgorithmType.BaseX]: 'slot0',
 };
