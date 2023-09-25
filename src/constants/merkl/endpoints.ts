@@ -10,6 +10,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'arbitrum',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/arbitrum-minimal',
     [AMMType.Camelot]: 'https://api.thegraph.com/subgraphs/name/camelotlabs/camelot-amm-v3',
+    [AMMType.Horiza]: 'https://subgraph-prod.goerli.horiza.io/subgraphs/name/retro-arbitrum-one-uniswap-v3',
   },
   [ChainId.MAINNET]: {
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'ethereum',
@@ -31,6 +32,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.BASE]: {
     [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest',
     [AMMType.BaseSwap]: 'https://api.thegraph.com/subgraphs/name/baseswapfi/v3-base',
+    [AMMType.Horiza]: 'https://subgraph-prod.goerli.horiza.io/subgraphs/name/retro-arbitrum-one-uniswap-v3',
   },
 };
 
