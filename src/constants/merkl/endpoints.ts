@@ -85,6 +85,7 @@ export const merklSubgraphAMMEndpoints = (
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-arb',
       [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-arb',
       [AMMType.Camelot]: getMerklSubgraphPrefix(env) + 'camelot-arb',
+      [AMMType.Horiza]: getMerklSubgraphPrefix(env) + 'horiza-arb',
     },
     [ChainId.MAINNET]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-eth',
@@ -106,6 +107,7 @@ export const merklSubgraphAMMEndpoints = (
     [ChainId.BASE]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, false) + 'sushiswapv3-base/version/latest',
       [AMMType.BaseSwap]: getMerklSubgraphPrefix(env, false) + 'basex-base/version/latest',
+      [AMMType.Horiza]: getMerklSubgraphPrefix(env, false) + 'horiza-base/version/latest',
     },
   };
 };

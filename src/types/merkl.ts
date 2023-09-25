@@ -20,6 +20,7 @@ export enum AMMType {
   PancakeSwapV3 = 3,
   Camelot = 4,
   BaseSwap = 5,
+  Horiza = 6,
 }
 
 export enum ALMType {
@@ -66,6 +67,7 @@ type WrapperTypeMapping = {
   [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper;
   [AMMType.Camelot]: null;
   [AMMType.BaseSwap]: null;
+  [AMMType.Horiza]: null;
 };
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
@@ -74,6 +76,7 @@ export const Wrapper = {
   [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper,
   [AMMType.Camelot]: null,
   [AMMType.BaseSwap]: null,
+  [AMMType.Horiza]: null,
 };
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 
@@ -93,6 +96,7 @@ export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.PancakeSwapV3]: AMMAlgorithmType.UniswapV3,
   [AMMType.Camelot]: AMMAlgorithmType.AlgebraV1_9,
   [AMMType.BaseSwap]: AMMAlgorithmType.BaseX,
+  [AMMType.Horiza]: AMMAlgorithmType.UniswapV3,
 };
 
 /** Reward origin */
@@ -103,6 +107,7 @@ type RewardOriginMapping = {
   [AMMType.PancakeSwapV3]: 'PancakeSwapV3' | keyof typeof Wrapper[AMMType.PancakeSwapV3];
   [AMMType.Camelot]: 'Camelot';
   [AMMType.BaseSwap]: 'BaseSwap';
+  [AMMType.Horiza]: 'Horiza';
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 

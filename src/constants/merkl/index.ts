@@ -19,6 +19,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.PancakeSwapV3]: [],
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
+    [AMMType.Horiza]: [],
   },
   [ChainId.MAINNET]: {
     [AMMType.UniswapV3]: [
@@ -33,6 +34,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.PancakeSwapV3]: [],
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
+    [AMMType.Horiza]: [],
   },
   [ChainId.OPTIMISM]: {
     [AMMType.UniswapV3]: [
@@ -46,6 +48,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.PancakeSwapV3]: [],
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
+    [AMMType.Horiza]: [],
   },
   [ChainId.POLYGON]: {
     [AMMType.UniswapV3]: [
@@ -67,6 +70,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.PancakeSwapV3]: [],
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
+    [AMMType.Horiza]: [],
   },
   [ChainId.POLYGONZKEVM]: {
     [AMMType.PancakeSwapV3]: [],
@@ -75,6 +79,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.UniswapV3]: [],
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
+    [AMMType.Horiza]: [],
   },
   [ChainId.BASE]: {
     [AMMType.PancakeSwapV3]: [],
@@ -83,6 +88,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.UniswapV3]: [],
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
+    [AMMType.Horiza]: [],
   },
 };
 
