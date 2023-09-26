@@ -32,7 +32,7 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
   [ChainId.BASE]: {
     [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest',
     [AMMType.BaseSwap]: 'https://api.thegraph.com/subgraphs/name/baseswapfi/v3-base',
-    [AMMType.Horiza]: 'https://subgraph-prod.goerli.horiza.io/subgraphs/name/retro-arbitrum-one-uniswap-v3',
+    [AMMType.Horiza]: 'https://subgraph.goerli.horiza.io/subgraphs/name/base-uniswap-v3',
   },
 };
 
