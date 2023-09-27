@@ -128,6 +128,7 @@ export const merklSubgraphALMEndpoints = (
       [ALMType.ArrakisV2]: getMerklSubgraphPrefix(env) + 'arrakisv2-arb',
       [ALMType.Gamma]: getMerklSubgraphPrefix(env) + 'gamma-arb',
       [ALMType.DefiEdge]: getMerklSubgraphPrefix(env) + 'defiedge-arb',
+      [ALMType.Range]: getMerklSubgraphPrefix(env) + 'range-arb',
       [ALMType.Steer]: getMerklSubgraphPrefix(env) + 'steer-arb',
       [ALMType.Unipilot]: getMerklSubgraphPrefix(env) + 'unipilot-arb',
     },
