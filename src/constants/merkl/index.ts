@@ -11,6 +11,7 @@ export const calculatorUsedWrappersList: {
       Wrapper[AMMType.UniswapV3].ArrakisV2,
       Wrapper[AMMType.UniswapV3].Gamma,
       Wrapper[AMMType.UniswapV3].DefiEdge,
+      Wrapper[AMMType.UniswapV3].Range,
       Wrapper[AMMType.UniswapV3].Steer,
       Wrapper[AMMType.UniswapV3].Unipilot,
     ],
