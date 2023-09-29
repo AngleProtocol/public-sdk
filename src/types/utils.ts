@@ -1,10 +1,19 @@
 import { BigNumber, utils } from 'ethers';
+import { Interface } from 'ethers/lib/utils';
 import request, { gql } from 'graphql-request';
 import invariant from 'tiny-invariant';
 
-import { calculatorUsedWrappersList, merklSubgraphAMMEndpoints } from '../constants';
+import {
+  AlgebraV19NonFungibleManager__factory,
+  AlgebraV19Pool__factory,
+  BaseXNonFungiblePositionManager__factory,
+  calculatorUsedWrappersList,
+  merklSubgraphAMMEndpoints,
+  UniswapV3NFTManager__factory,
+  UniswapV3Pool__factory,
+} from '../constants';
 import { SOLIDITY_TYPE_MAXIMA, SolidityType } from './constants';
-import { AMMType, MerklSupportedChainIdsType } from './merkl';
+import { AMMAlgorithmType, AMMType, MerklSupportedChainIdsType } from './merkl';
 
 export function validateSolidityTypeInstance(value: BigNumber, solidityType: SolidityType): void {
   // invariant(value.gte(0), `${value} is not a ${solidityType}.`);
@@ -107,3 +116,42 @@ export enum BorrowActionType {
   getDebtIn,
   permit,
 }
+
+/**
+ * NonFungiblePositionManager
+ */
+export const NonFungiblePositionManagerInterface = (ammType: AMMAlgorithmType): Interface => {
+  if (ammType === AMMAlgorithmType.AlgebraV1_9) {
+    return AlgebraV19NonFungibleManager__factory.createInterface();
+  } else if (ammType === AMMAlgorithmType.UniswapV3) {
+    return UniswapV3NFTManager__factory.createInterface();
+  } else if (ammType === AMMAlgorithmType.BaseX) {
+    return BaseXNonFungiblePositionManager__factory.createInterface();
+  } else {
+    throw new Error('Invalid AMM type');
+  }
+};
+
+/**
+ * Pools
+ */
+export const PoolInterface = (ammType: AMMAlgorithmType): Interface => {
+  if (ammType === AMMAlgorithmType.AlgebraV1_9) {
+    return AlgebraV19Pool__factory.createInterface();
+  } else if (ammType === AMMAlgorithmType.UniswapV3 || ammType === AMMAlgorithmType.BaseX) {
+    return UniswapV3Pool__factory.createInterface();
+  } else {
+    throw new Error('Invalid AMM type');
+  }
+};
+
+export const SqrtPrice = {
+  [AMMAlgorithmType.AlgebraV1_9]: 'price',
+  [AMMAlgorithmType.UniswapV3]: 'sqrtPriceX96',
+  [AMMAlgorithmType.BaseX]: 'sqrtPriceX96',
+};
+export const PoolState = {
+  [AMMAlgorithmType.AlgebraV1_9]: 'globalState',
+  [AMMAlgorithmType.UniswapV3]: 'slot0',
+  [AMMAlgorithmType.BaseX]: 'slot0',
+};

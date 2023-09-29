@@ -83,6 +83,9 @@ export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 export enum BlacklistWrapper {
   Blacklist = 3,
 }
+export enum WhitelistWrapper {
+  Whitelist = 0,
+}
 
 export enum AMMAlgorithmType {
   UniswapV3 = 0,
