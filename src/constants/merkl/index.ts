@@ -18,7 +18,7 @@ export const calculatorUsedWrappersList: {
     [AMMType.SushiSwapV3]: [Wrapper[AMMType.SushiSwapV3].Gamma, Wrapper[AMMType.SushiSwapV3].Steer, Wrapper[AMMType.SushiSwapV3].DefiEdge],
     [AMMType.Retro]: [],
     [AMMType.PancakeSwapV3]: [],
-    [AMMType.Camelot]: [],
+    [AMMType.Camelot]: [Wrapper[AMMType.Camelot].Gamma],
     [AMMType.BaseSwap]: [],
     [AMMType.Horiza]: [],
   },
