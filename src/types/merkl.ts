@@ -174,6 +174,7 @@ export type DistributionDataType<T extends AMMType> = {
   token: string; // Token distributed
   tokenDecimals: number;
   tokenSymbol: string;
+  whitelist: string[];
   wrappers: WrapperType<T>[]; // Supported wrapper types for this pool
   // User Related Data
   breakdown?: { [origin in RewardOrigin<T>]?: number }; // rewards earned breakdown
@@ -181,64 +182,65 @@ export type DistributionDataType<T extends AMMType> = {
   unclaimed?: number; // Unclaimed reward amount by the user
 };
 
-export type PoolDataType<T extends AMMType> = Partial<{
-  amm: AMMType;
-  chainId: ChainId;
-  endOfDisputePeriod: number;
-  disputeLive: boolean;
-  decimalToken0: number;
-  decimalToken1: number;
-  distributionData: DistributionDataType<T>[];
-  liquidity: number; // liquidity in the pool
-  pool: string; // AMM pool address
-  poolAMMAlgo: keyof typeof AMMAlgorithmType;
-  poolFee: number; // Fee of the AMM pool
-  token0: string;
-  token0InPool: number; // Total amount of token0 in the pool
-  token1: string;
-  token1InPool: number; // Total amount of token1 in the pool
-  tokenSymbol0: string;
-  tokenSymbol1: string;
-
-  // Price Related Data
+type PriceDataType = {
   tvl?: number; // TVL in the pool, in $
   meanAPR: number; // Average APR in the pool
   aprs: { [description: string]: number }; // APR description (will contain wrapper types)
+};
 
-  // User Related Data
-
-  // User tokens in the pool and breakdown by ALM
-  userTotalBalance0?: number;
-  userTotalBalance1?: number;
-  userTotalLiquidity?: number;
-  userInRangeLiquidity?: number;
-  userTVL?: number; // user TVL in the pool, in $
-  almDetails?: {
-    balance0?: number;
-    balance1?: number;
-    tvl?: number;
-    poolBalance0?: number;
-    poolBalance1?: number;
-    almLiquidity?: number; // Total Liquidity
-    almInRangeLiquidity?: number; // Total in range liquidity
-    origin: WrapperType<T> | -1;
-    label: string;
-    address: string;
-  }[];
+type UserDataType<T extends AMMType> = Partial<{
+  userInRangeLiquidity: number;
+  userTVL: number; // user TVL in the pool, in $
+  userTotalBalance0: number;
+  userTotalBalance1: number;
+  userTotalLiquidity: number;
+  userDetails: ({ origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number } & Partial<
+    {
+      almAddress: string;
+      almInRangeLiquidity: number; // Total in range liquidity
+      almLiquidity: number; // Total Liquidity
+      label: string;
+      poolBalance0: number;
+      poolBalance1: number;
+    }[]
+  >)[];
   // Rewards earned by the user breakdown per token
   // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
-  rewardsPerToken?: {
+  rewardsPerToken: {
     [token: string]: {
-      decimals: number; // Decimals of the reward token
-      unclaimedUnformatted: string; // BigNumber.toString()
-      unclaimed: number;
       accumulatedSinceInception: number;
       accumulatedSinceInceptionUnformatted: string;
-      symbol: string;
       breakdown: { [origin in RewardOrigin<T>]?: number };
+      decimals: number; // Decimals of the reward token
+      symbol: string;
+      unclaimed: number;
+      unclaimedUnformatted: string; // BigNumber.toString()
     };
   };
 }>;
+
+export type PoolDataType<T extends AMMType> = Partial<
+  {
+    amm: AMMType;
+    chainId: ChainId;
+    endOfDisputePeriod: number;
+    disputeLive: boolean;
+    decimalToken0: number;
+    decimalToken1: number;
+    distributionData: DistributionDataType<T>[];
+    liquidity: number; // liquidity in the pool
+    pool: string; // AMM pool address
+    poolAMMAlgo: keyof typeof AMMAlgorithmType;
+    poolFee: number; // Fee of the AMM pool
+    token0: string;
+    token0InPool: number; // Total amount of token0 in the pool
+    token1: string;
+    token1InPool: number; // Total amount of token1 in the pool
+    tokenSymbol0: string;
+    tokenSymbol1: string;
+  } & PriceDataType &
+    UserDataType<T>
+>;
 
 /**
  * Global data object returned by the api, that can be used to build front-ends
