@@ -1,4 +1,4 @@
-import { ChainId } from '.';
+import { ChainId } from '..';
 
 const MerklSupportedChainIds = <const>[
   ChainId.ARBITRUM,
