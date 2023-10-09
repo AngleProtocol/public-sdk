@@ -212,12 +212,12 @@
     "outputs": [
       {
         "internalType": "uint64[]",
-        "name": "",
+        "name": "xFeeBurn",
         "type": "uint64[]"
       },
       {
         "internalType": "int64[]",
-        "name": "",
+        "name": "yFeeBurn",
         "type": "int64[]"
       }
     ],
@@ -366,12 +366,12 @@
     "outputs": [
       {
         "internalType": "uint64[]",
-        "name": "",
+        "name": "xFeeMint",
         "type": "uint64[]"
       },
       {
         "internalType": "int64[]",
-        "name": "",
+        "name": "yFeeMint",
         "type": "int64[]"
       }
     ],
@@ -480,7 +480,7 @@
     "outputs": [
       {
         "internalType": "enum OracleReadType",
-        "name": "readType",
+        "name": "oracleType",
         "type": "uint8"
       },
       {
@@ -490,7 +490,12 @@
       },
       {
         "internalType": "bytes",
-        "name": "data",
+        "name": "oracleData",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "targetData",
         "type": "bytes"
       }
     ],
@@ -542,12 +547,12 @@
     "outputs": [
       {
         "internalType": "uint64[]",
-        "name": "",
+        "name": "xRedemptionCurve",
         "type": "uint64[]"
       },
       {
         "internalType": "int64[]",
-        "name": "",
+        "name": "yRedemptionCurve",
         "type": "int64[]"
       }
     ],
@@ -688,7 +693,7 @@
         "type": "bool"
       }
     ],
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -1259,8 +1264,8 @@
         "type": "address"
       },
       {
-        "internalType": "enum ActionType",
-        "name": "action",
+        "internalType": "uint8",
+        "name": "pausedType",
         "type": "uint8"
       }
     ],
