@@ -194,16 +194,14 @@ type UserDataType<T extends AMMType> = Partial<{
   userTotalBalance0: number;
   userTotalBalance1: number;
   userTotalLiquidity: number;
-  userDetails: ({ origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number } & Partial<
-    {
-      almAddress: string;
-      almInRangeLiquidity: number; // Total in range liquidity
-      almLiquidity: number; // Total Liquidity
-      label: string;
-      poolBalance0: number;
-      poolBalance1: number;
-    }[]
-  >)[];
+  accountDetails: ({ origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number } & Partial<{
+    almAddress: string;
+    almInRangeLiquidity: number; // Total in range liquidity
+    almLiquidity: number; // Total Liquidity
+    label: string;
+    // poolBalance0: number;
+    // poolBalance1: number;
+  }>)[];
   // Rewards earned by the user breakdown per token
   // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
   rewardsPerToken: {
