@@ -14,6 +14,9 @@ export enum ChainId {
   GNOSIS = 100,
   POLYGONZKEVM = 1101,
   BASE = 8453,
+  LINEA = 59144,
+  MANTLE = 5000,
+  ZKSYNC = 324,
 }
 
 export const NETWORK_LABELS: { [key in ChainId]: string } = {
@@ -30,6 +33,9 @@ export const NETWORK_LABELS: { [key in ChainId]: string } = {
   [ChainId.GNOSIS]: 'Gnosis Chain',
   [ChainId.POLYGONZKEVM]: 'Polygon zkEVM',
   [ChainId.BASE]: 'Base',
+  [ChainId.LINEA]: 'Linea',
+  [ChainId.MANTLE]: 'Mantle',
+  [ChainId.ZKSYNC]: 'zkSync',
 };
 
 export enum AssetType {

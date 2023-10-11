@@ -12,6 +12,9 @@ import MAINNET_CONTRACTS from './contracts_addresses/mainnet';
 import OPTIMISM_ADDRESSES from './contracts_addresses/optimism';
 import POLYGON_ADDRESSES from './contracts_addresses/polygon';
 import POLYGONZKEVM_ADDRESSES from './contracts_addresses/polygonzkevm';
+import LINEA_ADDRESSES from './contracts_addresses/linea';
+import ZKSYNC_ADDRESSES from './contracts_addresses/zksync';
+import MANTLE_ADDRESSES from './contracts_addresses/mantle';
 
 export enum AMO {
   'agEURvEUROC' = 'agEURvEUROC',
@@ -211,6 +214,9 @@ export const CONTRACTS_ADDRESSES: ContractsRegistryType = {
   [ChainId.POLYGONZKEVM]: POLYGONZKEVM_ADDRESSES,
   [ChainId.BASE]: BASE_ADDRESSES,
   [ChainId.LOCAL]: LOCAL_ADDRESSES,
+  [ChainId.LINEA]: LINEA_ADDRESSES,
+  [ChainId.MANTLE]: MANTLE_ADDRESSES,
+  [ChainId.ZKSYNC]: ZKSYNC_ADDRESSES,
 };
 
 type RegistryArgs =
