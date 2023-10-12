@@ -47,6 +47,7 @@ export enum UniswapV3Wrapper {
 export enum SushiSwapV3Wrapper {
   Gamma = ALMType.Gamma,
   DefiEdge = ALMType.DefiEdge,
+  Range = ALMType.Range,
   Steer = ALMType.Steer,
 }
 export enum RetroWrapper {
@@ -62,6 +63,7 @@ export enum PancakeSwapV3Wrapper {
 
 export enum CamelotWrapper {
   Gamma = ALMType.Gamma,
+  Range = ALMType.Range,
 }
 
 type WrapperTypeMapping = {
