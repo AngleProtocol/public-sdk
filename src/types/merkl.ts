@@ -1,3 +1,5 @@
+import { keys } from 'lodash';
+
 import { ChainId } from '.';
 
 const MerklSupportedChainIds = <const>[
@@ -194,14 +196,7 @@ type UserDataType<T extends AMMType> = Partial<{
   userTotalBalance0: number;
   userTotalBalance1: number;
   userTotalLiquidity: number;
-  accountDetails: ({ origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number } & Partial<{
-    almAddress: string;
-    almInRangeLiquidity: number; // Total in range liquidity
-    almLiquidity: number; // Total Liquidity
-    label: string;
-    // poolBalance0: number;
-    // poolBalance1: number;
-  }>)[];
+  userDetails: {[key: string]: { origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number }};
   // Rewards earned by the user breakdown per token
   // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
   rewardsPerToken: {
@@ -236,6 +231,14 @@ export type PoolDataType<T extends AMMType> = Partial<
     token1InPool: number; // Total amount of token1 in the pool
     tokenSymbol0: string;
     tokenSymbol1: string;
+    almDetails: {
+      [key: string]: {
+        origin: WrapperType<T>; almBalance0: number; almBalance1: number; almTVL: number;
+        almAddress: string;
+        almInRangeLiquidity: number; // Total in range liquidity
+        almLiquidity: number; // Total Liquidity
+        label: string;
+    };
   } & PriceDataType &
     UserDataType<T>
 >;
