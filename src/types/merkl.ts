@@ -1,5 +1,3 @@
-import { keys } from 'lodash';
-
 import { ChainId } from '.';
 
 const MerklSupportedChainIds = <const>[
@@ -196,7 +194,7 @@ type UserDataType<T extends AMMType> = Partial<{
   userTotalBalance0: number;
   userTotalBalance1: number;
   userTotalLiquidity: number;
-  userDetails: {[key: string]: { origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number }};
+  userDetails: { [key: string]: { origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number } };
   // Rewards earned by the user breakdown per token
   // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
   rewardsPerToken: {
@@ -212,36 +210,39 @@ type UserDataType<T extends AMMType> = Partial<{
   };
 }>;
 
-export type PoolDataType<T extends AMMType> = Partial<
-  {
-    amm: AMMType;
-    chainId: ChainId;
-    endOfDisputePeriod: number;
-    disputeLive: boolean;
-    decimalToken0: number;
-    decimalToken1: number;
-    distributionData: DistributionDataType<T>[];
-    liquidity: number; // liquidity in the pool
-    pool: string; // AMM pool address
-    poolAMMAlgo: keyof typeof AMMAlgorithmType;
-    poolFee: number; // Fee of the AMM pool
-    token0: string;
-    token0InPool: number; // Total amount of token0 in the pool
-    token1: string;
-    token1InPool: number; // Total amount of token1 in the pool
-    tokenSymbol0: string;
-    tokenSymbol1: string;
-    almDetails: {
-      [key: string]: {
-        origin: WrapperType<T>; almBalance0: number; almBalance1: number; almTVL: number;
-        almAddress: string;
-        almInRangeLiquidity: number; // Total in range liquidity
-        almLiquidity: number; // Total Liquidity
-        label: string;
+export type PoolDataType<T extends AMMType> = Partial<{
+  amm: AMMType;
+  chainId: ChainId;
+  endOfDisputePeriod: number;
+  disputeLive: boolean;
+  decimalToken0: number;
+  decimalToken1: number;
+  distributionData: DistributionDataType<T>[];
+  liquidity: number; // liquidity in the pool
+  pool: string; // AMM pool address
+  poolAMMAlgo: keyof typeof AMMAlgorithmType;
+  poolFee: number; // Fee of the AMM pool
+  token0: string;
+  token0InPool: number; // Total amount of token0 in the pool
+  token1: string;
+  token1InPool: number; // Total amount of token1 in the pool
+  tokenSymbol0: string;
+  tokenSymbol1: string;
+  almDetails: {
+    [key: string]: {
+      origin: WrapperType<T>;
+      almAddress: string;
+      almBalance0: number;
+      almBalance1: number;
+      almInRangeLiquidity: number; // Total in range liquidity
+      almLiquidity: number; // Total Liquidity
+      almTVL: number;
+      apr: number;
+      label: string;
     };
   } & PriceDataType &
-    UserDataType<T>
->;
+    UserDataType<T>;
+}>;
 
 /**
  * Global data object returned by the api, that can be used to build front-ends
