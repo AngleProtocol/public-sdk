@@ -25,7 +25,9 @@ export const calculatorUsedWrappersList: {
     [AMMType.PancakeSwapV3]: [],
     [AMMType.Camelot]: [Wrapper[AMMType.Camelot].Gamma, Wrapper[AMMType.Camelot].Range],
     [AMMType.BaseSwap]: [],
-    [AMMType.Horiza]: [],
+    [AMMType.Horiza]: [Wrapper[AMMType.Horiza].DefiEdge],
+    [AMMType.QuickswapUni]: [],
+    [AMMType.QuickswapAlgebra]: [],
   },
   [ChainId.MAINNET]: {
     [AMMType.UniswapV3]: [
@@ -41,6 +43,8 @@ export const calculatorUsedWrappersList: {
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
     [AMMType.Horiza]: [],
+    [AMMType.QuickswapUni]: [],
+    [AMMType.QuickswapAlgebra]: [],
   },
   [ChainId.OPTIMISM]: {
     [AMMType.UniswapV3]: [
@@ -55,6 +59,8 @@ export const calculatorUsedWrappersList: {
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
     [AMMType.Horiza]: [],
+    [AMMType.QuickswapUni]: [],
+    [AMMType.QuickswapAlgebra]: [],
   },
   [ChainId.POLYGON]: {
     [AMMType.UniswapV3]: [
@@ -77,6 +83,8 @@ export const calculatorUsedWrappersList: {
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
     [AMMType.Horiza]: [],
+    [AMMType.QuickswapUni]: [],
+    [AMMType.QuickswapAlgebra]: [],
   },
   [ChainId.POLYGONZKEVM]: {
     [AMMType.PancakeSwapV3]: [],
@@ -86,6 +94,8 @@ export const calculatorUsedWrappersList: {
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
     [AMMType.Horiza]: [],
+    [AMMType.QuickswapUni]: [],
+    [AMMType.QuickswapAlgebra]: [],
   },
   [ChainId.BASE]: {
     [AMMType.PancakeSwapV3]: [],
@@ -95,6 +105,8 @@ export const calculatorUsedWrappersList: {
     [AMMType.Camelot]: [],
     [AMMType.BaseSwap]: [],
     [AMMType.Horiza]: [],
+    [AMMType.QuickswapUni]: [],
+    [AMMType.QuickswapAlgebra]: [],
   },
 };
 

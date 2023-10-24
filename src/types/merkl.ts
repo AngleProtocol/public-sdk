@@ -21,6 +21,8 @@ export enum AMMType {
   Camelot = 4,
   BaseSwap = 5,
   Horiza = 6,
+  QuickswapUni = 7,
+  QuickswapAlgebra = 8,
 }
 
 export enum ALMType {
@@ -66,6 +68,10 @@ export enum CamelotWrapper {
   Range = ALMType.Range,
 }
 
+export enum HorizaWrapper {
+  DefiEdge = ALMType.DefiEdge,
+}
+
 type WrapperTypeMapping = {
   [AMMType.UniswapV3]: UniswapV3Wrapper;
   [AMMType.SushiSwapV3]: SushiSwapV3Wrapper;
@@ -73,7 +79,9 @@ type WrapperTypeMapping = {
   [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper;
   [AMMType.Camelot]: CamelotWrapper;
   [AMMType.BaseSwap]: null;
-  [AMMType.Horiza]: null;
+  [AMMType.Horiza]: HorizaWrapper;
+  [AMMType.QuickswapUni]: null;
+  [AMMType.QuickswapAlgebra]: null;
 };
 export const Wrapper = {
   [AMMType.UniswapV3]: UniswapV3Wrapper,
@@ -82,7 +90,9 @@ export const Wrapper = {
   [AMMType.PancakeSwapV3]: PancakeSwapV3Wrapper,
   [AMMType.Camelot]: CamelotWrapper,
   [AMMType.BaseSwap]: null,
-  [AMMType.Horiza]: null,
+  [AMMType.Horiza]: HorizaWrapper,
+  [AMMType.QuickswapUni]: null,
+  [AMMType.QuickswapAlgebra]: null,
 };
 export type WrapperType<T extends AMMType> = WrapperTypeMapping[T];
 
@@ -106,6 +116,8 @@ export const AMMAlgorithmMapping: { [amm in AMMType]: AMMAlgorithmType } = {
   [AMMType.Camelot]: AMMAlgorithmType.AlgebraV1_9,
   [AMMType.BaseSwap]: AMMAlgorithmType.BaseX,
   [AMMType.Horiza]: AMMAlgorithmType.UniswapV3,
+  [AMMType.QuickswapUni]: AMMAlgorithmType.UniswapV3,
+  [AMMType.QuickswapAlgebra]: AMMAlgorithmType.AlgebraV1_9,
 };
 
 /** Reward origin */
@@ -117,6 +129,8 @@ type RewardOriginMapping = {
   [AMMType.Camelot]: 'Camelot' | keyof typeof Wrapper[AMMType.Camelot];
   [AMMType.BaseSwap]: 'BaseSwap';
   [AMMType.Horiza]: 'Horiza';
+  [AMMType.QuickswapUni]: 'QuickswapUni';
+  [AMMType.QuickswapAlgebra]: 'QuickswapAlgebra';
 };
 export type RewardOrigin<T extends AMMType> = RewardOriginMapping[T];
 

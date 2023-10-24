@@ -25,9 +25,12 @@ export const swapsSubgraphsEndpoint: { [chainId in MerklSupportedChainIdsType]: 
     [AMMType.SushiSwapV3]: sushiswapV3SubgraphPrefix + 'polygon',
     [AMMType.UniswapV3]: 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon',
     [AMMType.Retro]: 'https://api.thegraph.com/subgraphs/name/ruvlol/univ3-test',
+    [AMMType.QuickswapAlgebra]: 'https://api.thegraph.com/subgraphs/name/sameepsi/quickswap-v3',
   },
   [ChainId.POLYGONZKEVM]: {
     [AMMType.PancakeSwapV3]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/version/latest',
+    [AMMType.QuickswapUni]: 'https://api.studio.thegraph.com/query/44554/quickswap-v3-02/0.0.7',
+    [AMMType.QuickswapAlgebra]: 'https://api.studio.thegraph.com/query/44554/quickswap-v3-02/0.0.7',
   },
   [ChainId.BASE]: {
     [AMMType.SushiSwapV3]: 'https://api.studio.thegraph.com/query/32073/v3-base/version/latest',
@@ -102,9 +105,12 @@ export const merklSubgraphAMMEndpoints = (
       [AMMType.Retro]: getMerklSubgraphPrefix(env) + 'retro-pol',
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env) + 'sushiswapv3-pol',
       [AMMType.UniswapV3]: getMerklSubgraphPrefix(env) + 'uniswapv3-pol',
+      [AMMType.QuickswapAlgebra]: getMerklSubgraphPrefix(env) + 'quickswapalge-pol',
     },
     [ChainId.POLYGONZKEVM]: {
       [AMMType.PancakeSwapV3]: getMerklSubgraphPrefix(env, false) + 'pancakeswapv3-zkevm/version/latest',
+      [AMMType.QuickswapUni]: getMerklSubgraphPrefix(env, false) + 'quickswap-zkevm/version/latest',
+      [AMMType.QuickswapAlgebra]: getMerklSubgraphPrefix(env, false) + 'quickswapalge-zkevm/version/latest',
     },
     [ChainId.BASE]: {
       [AMMType.SushiSwapV3]: getMerklSubgraphPrefix(env, false) + 'sushiswapv3-base/version/latest',
