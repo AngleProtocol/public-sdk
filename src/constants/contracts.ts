@@ -167,6 +167,7 @@ export type ContractsRegistryType = Readonly<
         OracleNativeUSD: string;
         ProxyAdmin: string;
         ProxyAdminGuardian: string;
+        Rebalancer: string;
         RewardsDistributor: string;
         SmartWalletWhitelist: string;
         SurplusConverterSanTokens_EUR_USDC: string;
