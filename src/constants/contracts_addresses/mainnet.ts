@@ -252,7 +252,7 @@ const addresses: ContractsRegistryType['1'] = {
   OracleNativeUSD: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419',
   ProxyAdmin: '0x1D941EF0D3Bba4ad67DBfBCeE5262F4CEE53A32b',
   ProxyAdminGuardian: '0xD9F1A8e00b0EEbeDddd9aFEaB55019D55fcec017',
-  Rebalancer: '0x6238cd56fda8c5fa5a118825235018b114f1e4ae',
+  Rebalancer: '0x6238cD56fda8C5fa5a118825235018b114F1E4ae',
   RewardsDistributor: '0xC06481fc1D0196C138770fD2148DCB306cB24E20',
   SmartWalletWhitelist: '0xAa241Ccd398feC742f463c534a610529dCC5888E',
   SurplusConverterSanTokens_EUR_USDC: '0x2E2063080A05FfdaA6D57f9358C2a5e1C65c70EC',
