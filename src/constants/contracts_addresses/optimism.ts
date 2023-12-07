@@ -25,7 +25,6 @@ const addresses: ContractsRegistryType['1'] = {
       },
     },
     bridges: {
-      Synapse: '0xa0554607e477cdC9d0EE2A6b087F4b2DC2815C22',
       LayerZero: '0x840b25c87B626a259CA5AC32124fA752F0230a72',
     },
     OracleTokenUSD: '0x3626369857A10CcC6cc3A6e4f5C2f5984a519F20',

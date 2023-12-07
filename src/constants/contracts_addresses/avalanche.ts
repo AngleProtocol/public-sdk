@@ -29,13 +29,6 @@ const addresses: ContractsRegistryType['1'] = {
     SwapperV2: '0x5e6955627e30660ecA4bCA2fB8Ac09e0DBEb63C1',
     Treasury: '0xa014A485D64efb236423004AB1a99C0aaa97a549',
   },
-  ExternalStakings: [
-    {
-      tokenName: 'Pangolin agEUR/AVAX',
-      stakingContractAddress: '',
-      poolContractAddress: '0x4A045a80967B5ecc440c88dF9a15a3339d43D029',
-    },
-  ],
   CoreBorrow: '0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD',
   FlashAngle: '0x9C215206Da4bf108aE5aEEf9dA7caD3352A36Dad',
   Governor: '0x43a7947A1288e65fAF30D8dDb3ca61Eaabd41613',
