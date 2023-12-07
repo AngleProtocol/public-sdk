@@ -2,7 +2,7 @@
 
 First of all thank you for your interest in this repository!
 
-This is only the beginning of the Angle protocol and codebase, and anyone is welcome to improve it.
+This is only the beginning of the Angle protocol and Merkl codebases, and anyone is welcome to improve them.
 
 To submit some code, please work in a fork, reach out to explain what you've done and open a Pull Request from your fork.
 

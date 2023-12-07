@@ -28,5 +28,4 @@ export default (
 export * from './contracts';
 export * from './layerZero';
 export * from './merkl';
-export * from './tokens';
 export * from './types';

@@ -48,13 +48,6 @@ const addresses: ContractsRegistryType['1'] = {
     SwapperV2: '0x516735bF9a517fc66F53a798B1910498a8a621c5',
     Treasury: '0x2F2e0ba9746aae15888cf234c4EB5B301710927e',
   },
-  ExternalStakings: [
-    {
-      tokenName: 'G-UNI agEUR/USDC',
-      stakingContractAddress: '0x15BdE1A8d16d4072d949591aFd4fA7ad9d127D05',
-      poolContractAddress: '0x1644de0A8E54626b54AC77463900FcFFD8B94542',
-    },
-  ],
   CoreBorrow: '0x78754109cb73772d70A6560297037657C2AF51b8',
   FlashAngle: '0x2878596427bfA6b52Fa6D93B519A0c610bbDf00a',
   Governor: '0xdA2D2f638D6fcbE306236583845e5822554c02EA',

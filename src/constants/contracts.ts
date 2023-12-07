@@ -16,15 +16,6 @@ import LINEA_ADDRESSES from './contracts_addresses/linea';
 import ZKSYNC_ADDRESSES from './contracts_addresses/zksync';
 import MANTLE_ADDRESSES from './contracts_addresses/mantle';
 
-export enum AMO {
-  'agEURvEUROC' = 'agEURvEUROC',
-}
-
-type AMOType = Readonly<{
-  AMO: string;
-  KeeperJob: string;
-}>;
-
 export enum BorrowCollateral {
   'LUSD' = 'LUSD',
   'bIB01' = 'bIB01',
@@ -60,23 +51,6 @@ type BorrowCollateralType = {
   };
 };
 
-export enum LenderStrategy {
-  'GenericOptimisedLender' = 'GenericOptimisedLender',
-  'AaveFlashloan' = 'AaveFlashloan',
-}
-
-type LenderStrategyType = {
-  AaveConvexStaker?: string;
-  Contract: string;
-  GenericAave?: string;
-  GenericCompound?: string;
-  GenericEuler?: string;
-};
-
-export enum SimpleStrategy {
-  'StETH' = 'StETH',
-}
-
 export enum Collateral {
   'DAI' = 'DAI',
   'FEI' = 'FEI',
@@ -97,12 +71,6 @@ type CollateralType = Readonly<
     PoolManager: string;
     SanToken: string;
     Staking?: string;
-    Strategies?: {
-      [strategy in SimpleStrategy]?: string;
-    } &
-      {
-        [strategy in LenderStrategy]?: LenderStrategyType;
-      };
   }>
 >;
 
@@ -132,7 +100,6 @@ type StablecoinType = Readonly<
       Anyswap?: string;
       LayerZero?: string;
       RainbowBridge?: string;
-      Synapse?: string;
     };
   }>
 >;
@@ -174,24 +141,10 @@ export type ContractsRegistryType = Readonly<
         Timelock: string;
         veANGLE: string;
         veBoostProxy: string;
-        ExternalStakings: {
-          tokenName: string;
-          stakingContractAddress: string;
-          poolContractAddress: string;
-          liquidityGaugeAddress?: string;
-        }[];
-        Gauges: { gaugeName: string; gaugeAddress: string; type: number }[];
-        AMO: {
-          AMOMinter: string;
-          BPAMOs?: {
-            [key in AMO]?: AMOType;
-          };
-        };
         bridges?: {
           Anyswap?: string;
           LayerZero?: string;
           RainbowBridge?: string;
-          Synapse?: string;
         };
       } & {
         [key in Stablecoin]?: StablecoinType;
@@ -226,9 +179,6 @@ type RegistryArgs =
       stablecoin: Stablecoin | string;
     }
   | {
-      amo: AMO | string;
-    }
-  | {
       stablecoin: Stablecoin | string;
       collateral: Collateral | string;
     }
@@ -239,21 +189,13 @@ type RegistryArgs =
   | {
       stablecoin: Stablecoin | string;
       collateral: Collateral | string;
-      strategy: SimpleStrategy | string;
     }
   | {
       stablecoin: Stablecoin | string;
       collateral: Collateral | string;
-      lenderStrategy: LenderStrategy | string;
     };
 
 export function registry(chainId: number | ChainId): ContractsRegistryType['1'] | undefined;
-export function registry(
-  chainId: number | ChainId,
-  args: {
-    amo: AMO | string;
-  }
-): AMOType | undefined;
 export function registry(chainId: number | ChainId, stablecoin: Stablecoin | string): StablecoinType | undefined;
 export function registry(
   chainId: number | ChainId,
@@ -285,17 +227,8 @@ export function registry(
   args: {
     stablecoin: Stablecoin | string;
     collateral: Collateral | string;
-    strategy: SimpleStrategy | string;
   }
 ): string | undefined;
-export function registry(
-  chainId: number | ChainId,
-  args: {
-    stablecoin: Stablecoin | string;
-    collateral: Collateral | string;
-    lenderStrategy: LenderStrategy | string;
-  }
-): LenderStrategyType | undefined;
 export function registry(chainId: number | ChainId, args: RegistryArgs = null, collateral: Collateral | string | null = null): any {
   if (!!args && typeof args === 'string' && !!collateral) {
     return registry(chainId, { stablecoin: args, collateral: collateral });
@@ -303,13 +236,7 @@ export function registry(chainId: number | ChainId, args: RegistryArgs = null, c
   if (!!args && typeof args === 'string') {
     return registry(chainId, { stablecoin: args });
   }
-  if (!!args && typeof args !== 'string' && 'strategy' in args) {
-    return CONTRACTS_ADDRESSES[chainId as ChainId]?.[args.stablecoin as Stablecoin]?.collaterals?.[args.collateral as Collateral]
-      ?.Strategies?.[args.strategy as SimpleStrategy];
-  } else if (!!args && typeof args !== 'string' && 'lenderStrategy' in args) {
-    return CONTRACTS_ADDRESSES[chainId as ChainId]?.[args.stablecoin as Stablecoin]?.collaterals?.[args.collateral as Collateral]
-      ?.Strategies?.[args.lenderStrategy as LenderStrategy];
-  } else if (!!args && typeof args !== 'string' && 'borrowCollateral' in args) {
+  if (!!args && typeof args !== 'string' && 'borrowCollateral' in args) {
     return CONTRACTS_ADDRESSES[chainId as ChainId]?.[args.stablecoin as Stablecoin]?.borrowCollaterals?.[
       args.borrowCollateral as BorrowCollateral
     ];
@@ -317,8 +244,6 @@ export function registry(chainId: number | ChainId, args: RegistryArgs = null, c
     return CONTRACTS_ADDRESSES[chainId as ChainId]?.[args.stablecoin as Stablecoin]?.collaterals?.[args.collateral as Collateral];
   } else if (!!args && typeof args !== 'string' && 'stablecoin' in args) {
     return CONTRACTS_ADDRESSES[chainId as ChainId]?.[args.stablecoin as Stablecoin];
-  } else if (!!args && typeof args !== 'string' && 'amo' in args) {
-    return CONTRACTS_ADDRESSES[chainId as ChainId]?.AMO?.BPAMOs?.[args.amo as AMO];
   } else {
     return CONTRACTS_ADDRESSES[chainId as ChainId];
   }

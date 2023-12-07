@@ -7,7 +7,6 @@ const addresses: ContractsRegistryType['1'] = {
       Anyswap: '0x02a2b736F9150d36C0919F3aCEE8BA2A92FBBb40',
     },
   },
-  ExternalStakings: [],
 };
 
 export default addresses;

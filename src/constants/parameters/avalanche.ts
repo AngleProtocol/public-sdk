@@ -13,17 +13,6 @@ const stablesParameters: StablesParameters = {
       maxBorrowable: parseAmount.ether('1000000'),
       flashLoanFee: parseAmount.gwei('0'),
     },
-    bridges: [
-      {
-        name: 'Anyswap',
-        token: '0x6feFd97F328342a8A840546A55FDcfEe7542F9A8',
-        params: {
-          fees: parseAmount.gwei('0.002'),
-          limit: parseEther('1000000'),
-          hourlyLimit: parseEther('50000'),
-        },
-      },
-    ],
     vaultManagers: [
       {
         collateral: '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
