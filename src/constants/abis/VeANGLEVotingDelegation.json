@@ -1,0 +1,680 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "veANGLE",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "version",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "name": "BlockNumberInFuture",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "CantDelegateLockExpired",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "ECDSAInvalidSignature",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "length",
+                "type": "uint256"
+            }
+        ],
+        "name": "ECDSAInvalidSignatureLength",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "s",
+                "type": "bytes32"
+            }
+        ],
+        "name": "ECDSAInvalidSignatureS",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "IncorrectSelfDelegation",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "InvalidShortString",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "InvalidSignatureNonce",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "NoExpirations",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "int256",
+                "name": "value",
+                "type": "int256"
+            }
+        ],
+        "name": "SafeCastOverflowedIntToUint",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "SignatureExpired",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "str",
+                "type": "string"
+            }
+        ],
+        "name": "StringTooLong",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "TimestampInFuture",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "expiry",
+                "type": "uint256"
+            }
+        ],
+        "name": "VotesExpiredSignature",
+        "type": "error"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "delegator",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "fromDelegate",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "toDelegate",
+                "type": "address"
+            }
+        ],
+        "name": "DelegateChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "delegate",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "previousVotes",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "newVotes",
+                "type": "uint256"
+            }
+        ],
+        "name": "DelegateVotesChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [],
+        "name": "EIP712DomainChanged",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegate",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "$delegateCheckpoints",
+        "outputs": [
+            {
+                "internalType": "uint128",
+                "name": "normalizedBias",
+                "type": "uint128"
+            },
+            {
+                "internalType": "uint128",
+                "name": "normalizedSlope",
+                "type": "uint128"
+            },
+            {
+                "internalType": "uint128",
+                "name": "timestamp",
+                "type": "uint128"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegator",
+                "type": "address"
+            }
+        ],
+        "name": "$delegations",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "delegate",
+                "type": "address"
+            },
+            {
+                "internalType": "uint48",
+                "name": "firstDelegationTimestamp",
+                "type": "uint48"
+            },
+            {
+                "internalType": "uint48",
+                "name": "expiry",
+                "type": "uint48"
+            },
+            {
+                "internalType": "uint96",
+                "name": "bias",
+                "type": "uint96"
+            },
+            {
+                "internalType": "uint64",
+                "name": "slope",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegate",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "week",
+                "type": "uint256"
+            }
+        ],
+        "name": "$expiredDelegations",
+        "outputs": [
+            {
+                "internalType": "uint96",
+                "name": "bias",
+                "type": "uint96"
+            },
+            {
+                "internalType": "uint64",
+                "name": "slope",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "signer",
+                "type": "address"
+            }
+        ],
+        "name": "$nonces",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "nonce",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "CLOCK_MODE",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "DELEGATION_TYPEHASH",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "MAX_LOCK_DURATION",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "VE_ANGLE",
+        "outputs": [
+            {
+                "internalType": "contract IveANGLE",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "VOTE_WEIGHT_MULTIPLIER",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "WEEK",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegateAddress",
+                "type": "address"
+            }
+        ],
+        "name": "calculateExpiredDelegations",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint128",
+                        "name": "normalizedBias",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "normalizedSlope",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "timestamp",
+                        "type": "uint128"
+                    }
+                ],
+                "internalType": "struct IveANGLEVotingDelegation.DelegateCheckpoint",
+                "name": "calculatedCheckpoint",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "clock",
+        "outputs": [
+            {
+                "internalType": "uint48",
+                "name": "",
+                "type": "uint48"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegatee",
+                "type": "address"
+            }
+        ],
+        "name": "delegate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegatee",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "nonce",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "expiry",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "v",
+                "type": "uint8"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "r",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "s",
+                "type": "bytes32"
+            }
+        ],
+        "name": "delegateBySig",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegator",
+                "type": "address"
+            }
+        ],
+        "name": "delegates",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "delegateAddress",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "eip712Domain",
+        "outputs": [
+            {
+                "internalType": "bytes1",
+                "name": "fields",
+                "type": "bytes1"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "version",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "chainId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "verifyingContract",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "salt",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "extensions",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegateAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint32",
+                "name": "index",
+                "type": "uint32"
+            }
+        ],
+        "name": "getCheckpoint",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint128",
+                        "name": "normalizedBias",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "normalizedSlope",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "timestamp",
+                        "type": "uint128"
+                    }
+                ],
+                "internalType": "struct IveANGLEVotingDelegation.DelegateCheckpoint",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "blockNumber",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPastTotalSupply",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "pastTotalSupply",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "voter",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "timepoint",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPastVotes",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "pastVotingWeight",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "voter",
+                "type": "address"
+            }
+        ],
+        "name": "getVotes",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "votingWeight",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "voter",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "timepoint",
+                "type": "uint256"
+            }
+        ],
+        "name": "getVotes",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "delegateAddress",
+                "type": "address"
+            }
+        ],
+        "name": "writeNewCheckpointForExpiredDelegations",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
