@@ -63,6 +63,8 @@ const addresses: ContractsRegistryType['1'] = {
   OracleNativeUSD: '0xAB594600376Ec9fD91F8e885dADF0CE036862dE0',
   ProxyAdmin: '0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6',
   ProxyAdminGuardian: '0x10Be886C0C93615D1d109Be6C9415eeA34Fe8b57',
+  ProposalReceiver: '0xccaC05D378342B4717195d3436a4Cb083ca604bc',
+  Timelock: '0x844aE504C157A28fBb23af79Bf637691F998CF2f',
 };
 
 export default addresses;
