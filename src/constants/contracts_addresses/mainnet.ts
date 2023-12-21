@@ -211,6 +211,7 @@ const addresses: ContractsRegistryType['1'] = {
   SurplusConverterUniV3_IntraCollaterals: '0xD302484DC0fB3D50F60E1a2a82c882174aBC6eBe',
   Timelock: '0x5183f032bf42109cD370B9559FD22207e432301E',
   veANGLE: '0x0C462Dbb9EC8cD1630f1728B2CFD2769d09f0dd5',
+  veBoost: '0x411E140dA9aece566C783c38eAc9C4a1eD846F29',
   veBoostProxy: '0x52701bFA0599db6db2b2476075D9a2f4Cb77DAe3',
 };
 
