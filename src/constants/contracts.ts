@@ -7,14 +7,14 @@ import BSC_ADDRESSES from './contracts_addresses/bsc';
 import CELO_ADDRESSES from './contracts_addresses/celo';
 import FANTOM_ADDRESSES from './contracts_addresses/fantom';
 import GNOSIS_ADDRESSES from './contracts_addresses/gnosis';
+import LINEA_ADDRESSES from './contracts_addresses/linea';
 import LOCAL_ADDRESSES from './contracts_addresses/local';
 import MAINNET_CONTRACTS from './contracts_addresses/mainnet';
+import MANTLE_ADDRESSES from './contracts_addresses/mantle';
 import OPTIMISM_ADDRESSES from './contracts_addresses/optimism';
 import POLYGON_ADDRESSES from './contracts_addresses/polygon';
 import POLYGONZKEVM_ADDRESSES from './contracts_addresses/polygonzkevm';
-import LINEA_ADDRESSES from './contracts_addresses/linea';
 import ZKSYNC_ADDRESSES from './contracts_addresses/zksync';
-import MANTLE_ADDRESSES from './contracts_addresses/mantle';
 
 export enum BorrowCollateral {
   'LUSD' = 'LUSD',
@@ -144,6 +144,7 @@ export type ContractsRegistryType = Readonly<{
       SurplusConverterUniV3_IntraCollaterals: string;
       Timelock: string;
       veANGLE: string;
+      veBoost?: string;
       veBoostProxy: string;
       bridges?: {
         Anyswap?: string;
