@@ -76,6 +76,7 @@ type CollateralType = Readonly<
 
 export enum Stablecoin {
   'agEUR' = 'agEUR',
+  'agUSD' = 'agUSD',
   'agGOLD' = 'agGOLD',
 }
 
@@ -100,6 +101,7 @@ type StablecoinType = Readonly<
       Anyswap?: string;
       LayerZero?: string;
       RainbowBridge?: string;
+      PosBridge?: string;
     };
   }>
 >;

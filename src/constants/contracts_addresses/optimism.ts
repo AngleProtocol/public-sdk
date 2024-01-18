@@ -1,4 +1,4 @@
-import { ContractsRegistryType } from '../contracts';
+import { ContractsRegistryType } from '../registry';
 
 const addresses: ContractsRegistryType['1'] = {
   ANGLE: '0x58441E37255b09F9f545e9Dc957F1C41658ff665',
@@ -33,10 +33,19 @@ const addresses: ContractsRegistryType['1'] = {
     SwapperV2: '0x3f125ECD51181Af1f344aDF76E4271d2923707AB',
     Treasury: '0xe9f183FC656656f1F17af1F2b0dF79b8fF9ad8eD',
   },
+  agUSD: {
+    AgToken: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
+    bridges: {
+      LayerZero: '0xc69e66109943fAF5Cbda22F360b7eB7c27Bb5C88',
+    },
+    Savings: '0x0022228a2cc5E7eF0274A7Baa600d44da5aB5776',
+    Treasury: '0x770F7CDFAe5ecaA3A0538DA7Cb1D6c8F22252fe0',
+  },
   CoreBorrow: '0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8',
   FlashAngle: '0xf1dDcACA7D17f8030Ab2eb54f2D9811365EFe123',
   Governor: '0x3245d3204EEB67afba7B0bA9143E8081365e08a6',
   Guardian: '0xD245678e417aEE2d91763F6f4eFE570FF52fD080',
+  AngleLabs: '0x17a7F6a839fea3b716b43f9414ffc93131878BD2',
   Merkl: {
     CoreMerkl: '0xc2c7a0d9a9e0467090281c3a4f28D40504d08FB4',
     DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
@@ -46,6 +55,8 @@ const addresses: ContractsRegistryType['1'] = {
   OracleNativeUSD: '0x13e3Ee699D1909E989722E753853AE30b17e08c5',
   ProxyAdmin: '0xC16B81Af351BA9e64C1a069E3Ab18c244A1E3049',
   ProxyAdminGuardian: '0xe14bFA5575d9906BA35beb15C9DBe5C77bFdd5b5',
+  ProposalReceiver: '0xd6788102627462d1a679282E726125CcdeBaB514',
+  Timelock: '0x343902FE4d72e24B29F22d787b2E54EEeA5e8227',
 };
 
 export default addresses;

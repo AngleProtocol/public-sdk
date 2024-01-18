@@ -15,6 +15,14 @@ const addresses: ContractsRegistryType['1'] = {
     Savings: '0x004626A008B1aCdC4c74ab51644093b155e59A23',
     Treasury: '0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED',
   },
+  agUSD: {
+    AgToken: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
+    bridges: {
+      LayerZero: '0x52F0C256E58c579Bf9E41e4332669b4f7C7209c5',
+    },
+    Savings: '0x0022228a2cc5E7eF0274A7Baa600d44da5aB5776',
+    Treasury: '0x075A2660901430DC5714Ca50282e5a2A1Eec4e59',
+  },
   CoreBorrow: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
   Governor: '0x0128eA927198f39e4955DdB01Fd62E8De6B3e6a4',
   Guardian: '0x371Ac6dB8063e6076890ef032A4A3cFCF226F548',
@@ -26,6 +34,8 @@ const addresses: ContractsRegistryType['1'] = {
   OracleNativeUSD: '0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE',
   ProxyAdmin: '0x9a5b060Bd7b8f86c4C0D720a17367729670AfB19',
   ProxyAdminGuardian: '0xE6d9bD6796bDAF9B391Fac2A2D34bAE9c1c3c1C4',
+  ProposalReceiver: '0xb9807831b01ECB7b20D9fBe2B5454d066cd2de8E',
+  Timelock: '0xc9025cef778a8032A689AC52798c66939C17C22F',
 };
 
 export default addresses;

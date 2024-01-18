@@ -9,9 +9,18 @@ const addresses: ContractsRegistryType['1'] = {
     Savings: '0x004626A008B1aCdC4c74ab51644093b155e59A23',
     Treasury: '0xFA5Ed56A203466CbBC2430a43c66b9D8723528E7',
   },
+  agUSD: {
+    AgToken: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
+    bridges: {
+      LayerZero: '0x1E5B48c08D6b5efE0792d04f27602bD90026514a',
+    },
+    Savings: '0x0022228a2cc5E7eF0274A7Baa600d44da5aB5776',
+    Treasury: '0x352742b8c16bf83b83107283E151F843E80fdD97',
+  },
   CoreBorrow: '0x4b1E2c2762667331Bc91648052F646d1b0d35984',
   Governor: '0x2a42Aeec7519883713272ec10FE44461a2Dfe354',
   Guardian: '0x10DeF8a92c51C8082087356186a1485301078DCd',
+  AngleLabs: '0x9439B96E39dA5AD7EAA75d7a136383D1D9737055',
   ProxyAdmin: '0x1D941EF0D3Bba4ad67DBfBCeE5262F4CEE53A32b',
   ProxyAdminGuardian: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
   Merkl: {
@@ -19,6 +28,8 @@ const addresses: ContractsRegistryType['1'] = {
     DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
     Distributor: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
   },
+  ProposalReceiver: '0x92d84b0687361cd0753E95f5A8746fbaf42E9135',
+  Timelock: '0xC1F9266c6d3389e981639Ee873121199a7ACdb8F',
 };
 
 export default addresses;
