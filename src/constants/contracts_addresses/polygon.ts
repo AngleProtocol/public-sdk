@@ -48,10 +48,19 @@ const addresses: ContractsRegistryType['1'] = {
     SwapperV2: '0x516735bF9a517fc66F53a798B1910498a8a621c5',
     Treasury: '0x2F2e0ba9746aae15888cf234c4EB5B301710927e',
   },
+  agUSD: {
+    AgToken: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
+    bridges: {
+      LayerZero: '0xe70575daaB2B1b3fa9658fa76cC506fcB0007169',
+    },
+    Savings: '0x0022228a2cc5E7eF0274A7Baa600d44da5aB5776',
+    Treasury: '0x37ad97C08E3Ce8184aD30911bfb0BcEe443d5120',
+  },
   CoreBorrow: '0x78754109cb73772d70A6560297037657C2AF51b8',
   FlashAngle: '0x2878596427bfA6b52Fa6D93B519A0c610bbDf00a',
   Governor: '0xdA2D2f638D6fcbE306236583845e5822554c02EA',
   Guardian: '0x3b9D32D0822A6351F415BeaB05251c1457FF6f8D',
+  AngleLabs: '0xc0c07644631543c3af2fA7230D387C5fA418a131',
   Merkl: {
     CoreMerkl: '0x9418D0aa02fCE40804aBF77bb81a1CcBeB91eaFC',
     DistributionCreator: '0x8BB4C975Ff3c250e0ceEA271728547f3802B36Fd',
@@ -63,8 +72,8 @@ const addresses: ContractsRegistryType['1'] = {
   OracleNativeUSD: '0xAB594600376Ec9fD91F8e885dADF0CE036862dE0',
   ProxyAdmin: '0xBFca293e17e067e8aBdca30A5D35ADDd0cBaE6D6',
   ProxyAdminGuardian: '0x10Be886C0C93615D1d109Be6C9415eeA34Fe8b57',
-  ProposalReceiver: '0xccaC05D378342B4717195d3436a4Cb083ca604bc',
-  Timelock: '0x844aE504C157A28fBb23af79Bf637691F998CF2f',
+  ProposalReceiver: '0x2c159fcB745570DE3ECd934caB92ae3085d19c04',
+  Timelock: '0x0c24766a56732b85eee5a383ed6614Abd34fb631',
 };
 
 export default addresses;

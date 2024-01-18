@@ -5,6 +5,7 @@ const addresses: ContractsRegistryType['1'] = {
     AgToken: '0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8',
     bridges: {
       LayerZero: '0x4Fa745FCCC04555F2AFA8874cd23961636CdF982',
+      PosBridge: '0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf',
     },
     borrowCollaterals: {
       bIB01: {
@@ -147,6 +148,7 @@ const addresses: ContractsRegistryType['1'] = {
       },
     },
     OracleTokenUSD: '0xb49f677943BC038e9857d61E7d053CaA2C1734C1',
+    Reserve: '0x5f9F41497f9e11fd7D4c4B067413199682eE2CFF',
     Savings: '0x004626A008B1aCdC4c74ab51644093b155e59A23',
     StableMaster: '0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87',
     Staking: '0xb1F2A25fFB2b095E99f430cAF507cC31F9A3EaAB',
@@ -155,26 +157,22 @@ const addresses: ContractsRegistryType['1'] = {
     Treasury: '0x8667DBEBf68B0BFa6Db54f550f41Be16c4067d60',
     Transmuter: '0x00253582b2a3FE112feEC532221d9708c64cEFAb',
   },
-  agGOLD: {
-    AgToken: '0x5F27184fA83fE0E5aEf2344B6D9eB3Bd2118A290',
+  agUSD: {
+    AgToken: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
     borrowCollaterals: {
-      USDC: {
-        Oracle: '0x25340624EF3f8047bBc0d8A2bf2d6D49A6671E2C',
-        VaultManager: '0x1B396Aee50bb55cEB5e316996fc86b360f654463',
-      },
-      wETH: {
-        Oracle: '0x6Eca8E792a178DCd863E1d4831D38FB9CC984cD9',
-        VaultManager: '0x72AC0731baF3f3a632A609a3E20F9E4743440B91',
-      },
       wSTETH: {
-        Oracle: '0x576e414fB89C54a21422b0A6feBd6AE2348F42e4',
-        VaultManager: '0xBA018E91C5E11B2A0B74055235095Ef13cC68f3a',
+        Oracle: '0xCf1AE61e2F65149355D8a340c47B592e1bCe6568',
+        VaultManager: '0xca2d7991a2F6Fdf542046E4F1Dc2FD7d59C3DEc1',
       },
     },
-    OracleTokenUSD: '0x214eD9Da11D2fbe465a6fc601a91E62EbEc1a0D6',
-    Swapper: '0x4E4A605c1F2E3303e6967Cb6D3D964474Eb3C4Fd',
+    bridges: {
+      LayerZero: '0xEc0B13b2271E212E1a74D55D51932BD52A002961',
+    },
+    Reserve: '0x57eedCB68445355e9C11A90F39012e8d4AAA89Fc',
+    Savings: '0x0022228a2cc5E7eF0274A7Baa600d44da5aB5776',
     SwapperV2: '0x601057CaAE843Bf34598217E95FB572F5e04186e',
-    Treasury: '0x19F925a26A3a8eeE2438603CB04F39cbC007EfFB',
+    Transmuter: '0x222222fD79264BBE280b4986F6FEfBC3524d0137',
+    Treasury: '0xf8588520E760BB0b3bDD62Ecb25186A28b0830ee',
   },
   ANGLE: '0x31429d1856aD1377A8A0079410B297e1a9e214c2',
   AngleHelpers: '0x1B17ac6B8371D63E030C5981891d5FBb3E4e068E',
@@ -184,6 +182,10 @@ const addresses: ContractsRegistryType['1'] = {
   bridges: {
     LayerZero: '0x1056178977457A5F4BE33929520455A7d2E28670',
   },
+  AngleGovernor: '0x748bA9Cd5a5DDba5ABA70a4aC861b2413dCa4436',
+  ProposalSender: '0x896D64B4B7265273dDCD00808f3579563f9790A8',
+  veANGLEDelegation: '0x2d7Bd1C4E7720084D535B36de1b4327462d63078',
+  Timelock: '0x09D81464c7293C774203E46E3C921559c8E9D53f',
   Core: '0x61ed74de9Ca5796cF2F8fD60D54160D47E30B7c3',
   CoreBorrow: '0x5bc6BEf80DA563EBf6Df6D6913513fa9A7ec89BE',
   FeeDistributor_sanUSDC_EUR: '0x7F82ff050128e29Fd89D85d01b93246F744E62A0',
@@ -191,6 +193,7 @@ const addresses: ContractsRegistryType['1'] = {
   GaugeController: '0x9aD7e7b0877582E14c17702EecF49018DD6f2367',
   Governor: '0xdC4e6DFe07EFCa50a197DF15D9200883eF4Eb1c8',
   Guardian: '0x0C2553e4B9dFA9f83b1A6D3EAB96c4bAaB42d430',
+  AngleLabs: '0x529619a10129396a2F642cae32099C1eA7FA2834',
   KeeperMulticall: '0xa0062b7A5e494d569059E2f1A98B5f6C99BFAAfe',
   KeeperRegistry: '0xc48B15492A4c4F48808576f6fCbC6dea9388E942',
   Merkl: {
@@ -209,10 +212,16 @@ const addresses: ContractsRegistryType['1'] = {
   SmartWalletWhitelist: '0xAa241Ccd398feC742f463c534a610529dCC5888E',
   SurplusConverterSanTokens_EUR_USDC: '0x2E2063080A05FfdaA6D57f9358C2a5e1C65c70EC',
   SurplusConverterUniV3_IntraCollaterals: '0xD302484DC0fB3D50F60E1a2a82c882174aBC6eBe',
-  Timelock: '0x5183f032bf42109cD370B9559FD22207e432301E',
   veANGLE: '0x0C462Dbb9EC8cD1630f1728B2CFD2769d09f0dd5',
   veBoost: '0x411E140dA9aece566C783c38eAc9C4a1eD846F29',
   veBoostProxy: '0x52701bFA0599db6db2b2476075D9a2f4Cb77DAe3',
+  Gauges: [
+    {
+      gaugeName: 'UniswapV3 agEUR/USDC',
+      gaugeAddress: '0x4EA4C5ca64A3950E53c61d0616DAF92727119093',
+      type: 2,
+    },
+  ],
 };
 
 export default addresses;
