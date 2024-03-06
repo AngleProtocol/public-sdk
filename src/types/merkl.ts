@@ -182,6 +182,34 @@ export type DistributionDataType<T extends AMMType> = {
   unclaimed?: number; // Unclaimed reward amount by the user
 };
 
+type PriceDataType = {
+  tvl?: number; // TVL in the pool, in $
+  meanAPR: number; // Average APR in the pool
+  aprs: { [description: string]: number }; // APR description (will contain wrapper types)
+};
+
+type UserDataType<T extends AMMType> = Partial<{
+  userInRangeLiquidity: number;
+  userTVL: number; // user TVL in the pool, in $
+  userTotalBalance0: number;
+  userTotalBalance1: number;
+  userTotalLiquidity: number;
+  userDetails: { [key: string]: { origin: WrapperType<T> | -1; balance0: number; balance1: number; tvl: number } };
+  // Rewards earned by the user breakdown per token
+  // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
+  rewardsPerToken: {
+    [token: string]: {
+      accumulatedSinceInception: number;
+      accumulatedSinceInceptionUnformatted: string;
+      breakdown: { [origin in RewardOrigin<T>]?: number };
+      decimals: number; // Decimals of the reward token
+      symbol: string;
+      unclaimed: number;
+      unclaimedUnformatted: string; // BigNumber.toString()
+    };
+  };
+}>;
+
 export type PoolDataType<T extends AMMType> = Partial<{
   amm: AMMType;
   chainId: ChainId;
@@ -200,45 +228,20 @@ export type PoolDataType<T extends AMMType> = Partial<{
   token1InPool: number; // Total amount of token1 in the pool
   tokenSymbol0: string;
   tokenSymbol1: string;
-
-  // Price Related Data
-  tvl?: number; // TVL in the pool, in $
-  meanAPR: number; // Average APR in the pool
-  aprs: { [description: string]: number }; // APR description (will contain wrapper types)
-
-  // User Related Data
-
-  // User tokens in the pool and breakdown by ALM
-  userTotalBalance0?: number;
-  userTotalBalance1?: number;
-  userTotalLiquidity?: number;
-  userInRangeLiquidity?: number;
-  userTVL?: number; // user TVL in the pool, in $
-  almDetails?: {
-    balance0?: number;
-    balance1?: number;
-    tvl?: number;
-    poolBalance0?: number;
-    poolBalance1?: number;
-    almLiquidity?: number; // Total Liquidity
-    almInRangeLiquidity?: number; // Total in range liquidity
-    origin: WrapperType<T> | -1;
-    label: string;
-    address: string;
-  }[];
-  // Rewards earned by the user breakdown per token
-  // token => {total unclaimed, total accumulated since inception, token symbol, breakdown per wrapper type}
-  rewardsPerToken?: {
-    [token: string]: {
-      decimals: number; // Decimals of the reward token
-      unclaimedUnformatted: string; // BigNumber.toString()
-      unclaimed: number;
-      accumulatedSinceInception: number;
-      accumulatedSinceInceptionUnformatted: string;
-      symbol: string;
-      breakdown: { [origin in RewardOrigin<T>]?: number };
+  almDetails: {
+    [key: string]: {
+      origin: WrapperType<T>;
+      almAddress: string;
+      almBalance0: number;
+      almBalance1: number;
+      almInRangeLiquidity: number; // Total in range liquidity
+      almLiquidity: number; // Total Liquidity
+      almTVL: number;
+      apr: number;
+      label: string;
     };
-  };
+  } & PriceDataType &
+    UserDataType<T>;
 }>;
 
 /**
